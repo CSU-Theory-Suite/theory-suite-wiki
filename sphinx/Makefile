@@ -21,6 +21,8 @@ help:
 
 # rule for making easier the update of documentation in the repository.
 github:
+	rm ../docs/*
+	touch ../docs/.nojekyll
 	@make clean
 	@make html
 	@cp -a $(BUILDDIR)/html/. ../docs
