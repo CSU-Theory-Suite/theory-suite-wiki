@@ -1,0 +1,10 @@
+Example_workflows_BEGINNING/
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+
+# Sphinx documentation
+sphinx/_build/
+
+# Visual Studio Code configuration
+.vscode/
