@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matplotlib &mdash; csu-wiki  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Pymol" href="pymol.html" />
+    <link rel="prev" title="Inkscape &amp; GIMP" href="inkscape_gimp.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> csu-wiki
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Computing Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/computing_resources.html">Computing Resources</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Helpful Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/crest.html">CREST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/goodvibes.html">GoodVibes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/dbstep.html">DBSTEP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/disco.html">DISCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/regge.html">Regge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/rdkit.html">RDKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/aqme.html">AQME</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Graphical Software</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../edition_generation.html">Edition/Generation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="inkscape_gimp.html">Inkscape &amp; GIMP</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Matplotlib</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basics">Basics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#simplest-usage">Simplest usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#figure-axes-gridspec-and-kwargs">Figure, Axes, Gridspec and kwargs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-types-plot-scatter-imgshow-bar">Plot types ( .plot, .scatter, .imgshow, .bar, … )</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#changing-axes-properties-and-cheatsheets">Changing axes properties and cheatsheets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#colors-and-creating-a-custom-colormap">Colors and creating a custom colormap</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pymol.html">Pymol</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Running Calculations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../running_calculations/running_calculations.html">Running Calculations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">csu-wiki</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../edition_generation.html">Edition/Generation</a></li>
+      <li class="breadcrumb-item active">Matplotlib</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/graphical_software/edition_generation/matplotlib.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="matplotlib">
+<h1>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this heading"></a></h1>
+<p>Although matplotlib is not included in the standard library of python it is a
+python library widely used by pythonists. Quoting the
+<a class="reference external" href="https://matplotlib.org/">official webpage</a> :</p>
+<blockquote>
+<div><p>Matplotlib is a comprehensive library for creating static, animated,
+and interactive visualizations in Python.</p>
+</div></blockquote>
+<p>The official webpage has lots of resources for its users including the Code API,
+cheatsheets as well as examples. For installation please follow their
+<a class="reference external" href="https://matplotlib.org/stable/users/getting_started/">getting started</a>
+section and/or their <a class="reference external" href="https://matplotlib.org/stable/users/installing/index.html">installation guide</a></p>
+<section id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Permalink to this heading"></a></h2>
+<section id="simplest-usage">
+<h3>Simplest usage<a class="headerlink" href="#simplest-usage" title="Permalink to this heading"></a></h3>
+<p>The first thing that we are going to do is a simple plot with matplotlib and
+we will go step by step on how gain more control on the drawing through the
+different basic methods of matplotlib.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If I was insistent on pymol's documentation being awesome, prepare to be
+dazzled by <a class="reference external" href="https://matplotlib.org/">matplotlib's documentation</a></p>
+</div>
+<p>To make things easy let's say that we want to draw some experimental points
+that are in a file name <code class="code docutils literal notranslate"><span class="pre">points.csv</span></code> that has the following contents:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x,y
+0,1.3
+1,2.4
+2,6.0
+3,4.8
+4,7.2
+5,9.0
+</pre></div>
+</div>
+<p>For tutorial purposes we are going to read the file by hand (although we could
+easily use pandas and/or numpy to read it)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">ifile</span> <span class="o">=</span> <span class="s1">&#39;points.csv&#39;</span>
+
+<span class="n">points</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ifile</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">F</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">F</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="c1"># let&#39;s ignore the first line</span>
+            <span class="k">continue</span>
+        <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+
+<span class="c1"># and now lets transform it to a np.array</span>
+<span class="n">xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Great now we have a numpy array where the first column is the x of the
+experimental points and the second column is the y. If we want a simple plot we
+can use the high-level methods implemented in pyplot:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;fast_figure.png&#39;</span><span class="p">)</span> <span class="c1"># this will save a raster image -&gt; better to edit with GIMP</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;fast_figure.svg&#39;</span><span class="p">)</span> <span class="c1"># this will save a vector image -&gt; better to edit with Inkscape</span>
+</pre></div>
+</div>
+<p>if we instead want only a fast visualization without saving the figure we can
+instead use</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Congrats! you have drawn your first figure using matplotlib! The key idea of
+this high-level interface is to use it for &quot;quick-and-dirty plots&quot; as you saw,
+the figure was generated in 3 lines of code: the import, the plot and the
+saving/showing steps.</p>
+</section>
+<section id="figure-axes-gridspec-and-kwargs">
+<h3>Figure, Axes, Gridspec and kwargs<a class="headerlink" href="#figure-axes-gridspec-and-kwargs" title="Permalink to this heading"></a></h3>
+<p>If we want to gain a bit more of control of our drawings we need to use the
+basic structures of matplotlib: <code class="code docutils literal notranslate"><span class="pre">Figure</span></code>, <code class="code docutils literal notranslate"><span class="pre">Axes</span></code> and <code class="code docutils literal notranslate"><span class="pre">Gridspec</span></code></p>
+<p>First we are going to start with the <code class="code docutils literal notranslate"><span class="pre">Figure</span></code>. A <code class="code docutils literal notranslate"><span class="pre">Figure</span></code> is a drawing and it is the
+basic structure of any of our matplotlib <em>figures</em> (See, good programmers use
+fairly obvious names).</p>
+<p>Next we have the <code class="code docutils literal notranslate"><span class="pre">Axes</span></code>. A <code class="code docutils literal notranslate"><span class="pre">Figure</span></code> may contain multiple <code class="code docutils literal notranslate"><span class="pre">Axes</span></code>
+and each axes may have different data drawn. Each Axes has at least a xaxis and
+a yaxis. They also have other properties that we will treat in more detail at a
+later section. For now what we need to know is that the plotting actions are
+carried out in an axes (<em>scatter</em> in our previous example), whereas drawing the
+final image (<em>savefig</em> in the previous example) is carried out in the <code class="code docutils literal notranslate"><span class="pre">Figure</span></code></p>
+<p>If we only use these two we can translate our previous example as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">ofile</span> <span class="o">=</span> <span class="s1">&#39;fast_figure.svg&#39;</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">ofile</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I want to condition you to default to saving images in .svg rather than
+showing them or saving them as .png so the following examples will only save
+the figure as .svg instead of providing other options.</p>
+</div>
+<p>Here we can provide some extra arguments to control the size of the figure as
+well as its quality:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">ofile</span> <span class="o">=</span> <span class="s1">&#39;fast_figure.svg&#39;</span>
+
+<span class="n">width</span><span class="p">,</span><span class="n">height</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span> <span class="c1"># these values are in inches</span>
+<span class="n">dpi</span> <span class="o">=</span> <span class="mi">150</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">width</span><span class="p">,</span><span class="n">height</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">ofile</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally we move to the <code class="code docutils literal notranslate"><span class="pre">Gridspec</span></code>. A <code class="code docutils literal notranslate"><span class="pre">Gridspec</span></code> is kind of a
+coordinate system within the figure that allows us to fine tune the positions
+of the axes within the <code class="code docutils literal notranslate"><span class="pre">Figure</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">ofile</span> <span class="o">=</span> <span class="s1">&#39;fast_figure.svg&#39;</span>
+
+<span class="n">width</span><span class="p">,</span><span class="n">height</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span> <span class="c1"># these values are in inches</span>
+<span class="n">dpi</span> <span class="o">=</span> <span class="mi">150</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">width</span><span class="p">,</span><span class="n">height</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span><span class="n">constrained_layout</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># First we decide where the left and right side side of the axis are relative</span>
+<span class="c1"># to the figure where 0 is the left edge of the figure and 1 is the right edge</span>
+<span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.9</span>
+
+<span class="c1"># Next we decide where the top and bottom of the axis will be.</span>
+<span class="c1"># Here 0 is the bottom side of the figure and 1 is the top side of the figure.</span>
+<span class="n">top</span><span class="p">,</span> <span class="n">bottom</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.95</span><span class="p">,</span>
+               <span class="mf">0.075</span><span class="p">]</span>
+
+<span class="n">gs</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_gridspec</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">left</span><span class="p">,</span><span class="n">right</span><span class="o">=</span><span class="n">right</span><span class="p">,</span><span class="n">top</span><span class="o">=</span><span class="n">top</span><span class="p">,</span><span class="n">bottom</span><span class="o">=</span><span class="n">bottom</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">ofile</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Ok. I do agree that the current code is not the most beautiful code, but note that
+1st we have comments that would not usually be there and 2nd we are not taking
+advantage of one of the core features of python and the matplotlib library,
+the <code class="code docutils literal notranslate"><span class="pre">kwargs</span></code>. Lets make change the code again a bit!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">ofile</span> <span class="o">=</span> <span class="s1">&#39;fast_figure.svg&#39;</span>
+
+<span class="n">width</span><span class="p">,</span><span class="n">height</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span>
+<span class="n">dpi</span> <span class="o">=</span> <span class="mi">150</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">width</span><span class="p">,</span><span class="n">height</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span><span class="n">constrained_layout</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">gridspec_kwds</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">gridspec_kwds</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">gridspec_kwds</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.9</span>
+<span class="n">gridspec_kwds</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.95</span>
+<span class="n">gridspec_kwds</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.075</span>
+
+<span class="n">gs</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_gridspec</span><span class="p">(</span><span class="o">**</span><span class="n">gridspec_kwds</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">ofile</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="plot-types-plot-scatter-imgshow-bar">
+<h3>Plot types ( .plot, .scatter, .imgshow, .bar, … )<a class="headerlink" href="#plot-types-plot-scatter-imgshow-bar" title="Permalink to this heading"></a></h3>
+<p>Now allow me to introduce some basic drawing methods that we can have in
+matplotlib (for a full list check the
+<a class="reference external" href="https://matplotlib.org/stable/plot_types/index.html">Plot types</a> section
+of the pymol documentation) At the same time we will draw multiple axes in the
+same figure and try to exploit the gridspec to manipulate their distribution.</p>
+<p>Here we are going to use the <code class="code docutils literal notranslate"><span class="pre">plot</span></code>, <code class="code docutils literal notranslate"><span class="pre">scatter</span></code>, <code class="code docutils literal notranslate"><span class="pre">bar</span></code>,
+<code class="code docutils literal notranslate"><span class="pre">imgshow</span></code> methods to draw things on our axes. At the same time we are
+going to distribute our image so that the axes are positioned as follows:</p>
+<p class="centered">
+<strong><img alt="matplotlib_canvas" src="../../_images/matplotlib_canvas.png" /></strong></p><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is really usefull to draw by hand an initial sketch of how you want your
+figure to look like in the end. After you have a sketch, build the base
+structure of your python script to draw the figure. No need to do the plotting
+just make sure that the axes are created. Then tweak the positions and dimensions
+of the figure to make sure that they fit the layout that you want. Finally
+proceed to do the plotting. If your plotting involves a complex logic you can
+always create a single function per axes that takes an axes and whatever extra
+parameters that you need, and handles all the formatting related with that
+axes as well as the plotting.</p>
+</div>
+<p>First let's start generating the layout:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">ofile</span> <span class="o">=</span> <span class="s1">&#39;composite_figure.svg&#39;</span>
+
+<span class="n">width</span><span class="p">,</span><span class="n">height</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span>
+<span class="n">dpi</span> <span class="o">=</span> <span class="mi">150</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">width</span><span class="p">,</span><span class="n">height</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span><span class="n">constrained_layout</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># We create the grid_A</span>
+<span class="n">gridspec_A_kwds</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.95</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.95</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.4</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;ncols&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;nrows&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;hspace&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="n">grid_A</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_gridspec</span><span class="p">(</span><span class="o">**</span><span class="n">gridspec_A_kwds</span><span class="p">)</span>
+<span class="n">subgrid_kwds</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ncols&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+                <span class="s1">&#39;nrows&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+                <span class="s1">&#39;hspace&#39;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">}</span>
+<span class="n">subgrid</span> <span class="o">=</span> <span class="n">grid_A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">subgridspec</span><span class="p">(</span><span class="o">**</span><span class="n">subgrid_kwds</span><span class="p">)</span>
+
+<span class="c1"># We create the grid_B</span>
+<span class="n">gridspec_B_kwds</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">gridspec_B_kwds</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.333</span>
+<span class="n">gridspec_B_kwds</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.666</span>
+<span class="n">gridspec_B_kwds</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.333</span>
+<span class="n">gridspec_B_kwds</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="n">grid_B</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_gridspec</span><span class="p">(</span><span class="o">**</span><span class="n">gridspec_B_kwds</span><span class="p">)</span>
+
+<span class="c1"># Now we create the axes</span>
+<span class="n">ax_A00</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">subgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax_A01</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">subgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax_A10</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">subgrid</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax_A11</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">subgrid</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax_B</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">grid_B</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">ofile</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>I know, it looks like a lot of code, but it is written in this manner so that
+adapting the code for a new figure as well as to tweak its positioning is easy.
+The figure that we have just saved to see the layout will look like this:</p>
+<p class="centered">
+<strong><img alt="matplotlib_composite_figure_00" src="../../_images/matplotlib_composite_figure_00.png" /></strong></p><p>Now that we have the layout that we want let's include the different plots,
+As we have a small number of points we can directly create the array &quot;by hand&quot;
+rather than reading it, so in this example we will proceed in that manner.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">ofile</span> <span class="o">=</span> <span class="s1">&#39;composite_figure.svg&#39;</span>
+
+<span class="n">width</span><span class="p">,</span><span class="n">height</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span>
+<span class="n">dpi</span> <span class="o">=</span> <span class="mi">150</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">width</span><span class="p">,</span><span class="n">height</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span><span class="n">constrained_layout</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># We create the grid_A</span>
+<span class="n">gridspec_A_kwds</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.95</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.95</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.4</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;ncols&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;nrows&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;hspace&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="n">grid_A</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_gridspec</span><span class="p">(</span><span class="o">**</span><span class="n">gridspec_A_kwds</span><span class="p">)</span>
+<span class="n">subgrid_kwds</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ncols&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+                <span class="s1">&#39;nrows&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+                <span class="s1">&#39;hspace&#39;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">}</span>
+<span class="n">subgrid</span> <span class="o">=</span> <span class="n">grid_A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">subgridspec</span><span class="p">(</span><span class="o">**</span><span class="n">subgrid_kwds</span><span class="p">)</span>
+
+<span class="c1"># We create the grid_B</span>
+<span class="n">gridspec_B_kwds</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">gridspec_B_kwds</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.333</span>
+<span class="n">gridspec_B_kwds</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.666</span>
+<span class="n">gridspec_B_kwds</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.333</span>
+<span class="n">gridspec_B_kwds</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="n">grid_B</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_gridspec</span><span class="p">(</span><span class="o">**</span><span class="n">gridspec_B_kwds</span><span class="p">)</span>
+
+<span class="c1"># Now we create the axes</span>
+<span class="n">ax_A00</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">subgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax_A01</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">subgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax_A10</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">subgrid</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax_A11</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">subgrid</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax_B</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">grid_B</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># define the data to plot</span>
+<span class="n">xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.3</span><span class="p">],</span>
+               <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">2.4</span><span class="p">],</span>
+               <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">6.0</span><span class="p">],</span>
+               <span class="p">[</span><span class="mf">3.0</span><span class="p">,</span><span class="mf">4.8</span><span class="p">],</span>
+               <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span><span class="mf">7.2</span><span class="p">],</span>
+               <span class="p">[</span><span class="mf">5.0</span><span class="p">,</span><span class="mf">9.0</span><span class="p">]])</span>
+
+<span class="c1"># Now let&#39;s plot !!</span>
+<span class="n">ax_A00</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax_A01</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax_A10</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># kwargs are not exclusive of gridspecs so let&#39;s use them to enforce the same</span>
+<span class="c1"># color for the scatter and line plot!</span>
+<span class="n">ax_A11</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">ax_A11</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+
+<span class="c1"># Imshow allows us to plug an image, pixel by pixel within an axes, but it</span>
+<span class="c1"># can also serve to draw correlation matrices which is what we are going to</span>
+<span class="c1"># do here!</span>
+<span class="n">correlation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.0</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.8</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]])</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">ax_B</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">correlation</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">ofile</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is how our image looks like now.</p>
+<p class="centered">
+<strong><img alt="matplotlib_composite_figure_01" src="../../_images/matplotlib_composite_figure_01.png" /></strong></p><p>As we have saved it as a .svg we can edit
+it in inkscape to remove the axes labels and/or add titles, but in the next
+section we will see how to do this by hand.</p>
+</section>
+<section id="changing-axes-properties-and-cheatsheets">
+<h3>Changing axes properties and cheatsheets<a class="headerlink" href="#changing-axes-properties-and-cheatsheets" title="Permalink to this heading"></a></h3>
+<p>I probably have not mentioned that matplotlib's documentation is very very well
+done right? Look at these amazing
+<a class="reference external" href="https://matplotlib.org/cheatsheets/">cheatsheets</a> !</p>
+<p>Why am I mentioning this? because we are going to tune in a bit our previous
+figure remove unnecessary ticks in the axes, add titles, remove bounding boxes
+and even write some random text in our figure.</p>
+<p>We are going to first remove the ticks and tick labels of the x axis in the top row and
+the tick labels of the y axis of the second column.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ax_A00</span><span class="p">,</span><span class="n">ax_A01</span><span class="p">]:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([])</span>
+
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ax_A11</span><span class="p">,</span><span class="n">ax_A01</span><span class="p">]:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([])</span>
+</pre></div>
+</div>
+<p>We can probably agree that a x axis with missing ticks in the bar plot looks
+weird, so let's fix it!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ax_A10</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>And why not have all the y axis of the top for plots reach until 10 and a bit
+more for aesthetics ? And just to mess with the labels what about using
+non-evenly spaced ticks ?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a_bit</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">ymin</span><span class="p">,</span><span class="n">ymax</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">-</span> <span class="n">a_bit</span><span class="p">,</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">a_bit</span>
+<span class="n">yticks</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">8.25</span><span class="p">,</span> <span class="mf">9.7</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ax_A00</span><span class="p">,</span><span class="n">ax_A01</span><span class="p">,</span><span class="n">ax_A10</span><span class="p">,</span><span class="n">ax_A11</span><span class="p">]:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="n">ymin</span><span class="p">,</span><span class="n">ymax</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">yticks</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is how the figure currently looks like!</p>
+<p class="centered">
+<strong><img alt="matplotlib_composite_figure_02" src="../../_images/matplotlib_composite_figure_02.png" /></strong></p><p>I wouldn't say that it looks beautiful, but it's up to you to make it suit your
+taste!</p>
+<p>Now we are going to completely remove the x axis and y axis from the bottom plot
+as well as the bounding box (<em>spines</em>)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="s1">&#39;top bottom right left&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+    <span class="n">ax_B</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="n">spine</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">ax_B</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax_B</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And now let's add a legend to the bottom plot to the right side</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">colorbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax_B</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you look at the matplotlib API documentation of
+<a class="reference external" href="https://matplotlib.org/stable/api/colorbar_api.html#matplotlib.colorbar.Colorbar">Colorbar</a>
+you will see that a <code class="code docutils literal notranslate"><span class="pre">Colorbar</span></code> object, has an axes in the <code class="code docutils literal notranslate"><span class="pre">ax</span></code> attribute.
+This means that we can modify such axes as if it was any other axes. So let's
+increase the thickness of the yaxis ticks. Let's add a ylabel and modify the yticks.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cax</span> <span class="o">=</span> <span class="n">colorbar</span><span class="o">.</span><span class="n">ax</span>
+<span class="n">cax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">cax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mf">3.0</span><span class="p">)</span>
+<span class="n">cax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Color warmth&#39;</span><span class="p">,</span><span class="n">fontfamily</span><span class="o">=</span><span class="s1">&#39;Serif&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="centered">
+<strong><img alt="matplotlib_composite_figure_03" src="../../_images/matplotlib_composite_figure_03.png" /></strong></p><p>Now our full script to generate the figure looks like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">ofile</span> <span class="o">=</span> <span class="s1">&#39;composite_figure.svg&#39;</span>
+
+<span class="n">width</span><span class="p">,</span><span class="n">height</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span>
+<span class="n">dpi</span> <span class="o">=</span> <span class="mi">150</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">width</span><span class="p">,</span><span class="n">height</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span><span class="n">constrained_layout</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># We create the grid_A</span>
+<span class="n">gridspec_A_kwds</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.95</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.95</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.4</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;ncols&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;nrows&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;hspace&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="n">grid_A</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_gridspec</span><span class="p">(</span><span class="o">**</span><span class="n">gridspec_A_kwds</span><span class="p">)</span>
+<span class="n">subgrid_kwds</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ncols&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+                <span class="s1">&#39;nrows&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+                <span class="s1">&#39;hspace&#39;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">}</span>
+<span class="n">subgrid</span> <span class="o">=</span> <span class="n">grid_A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">subgridspec</span><span class="p">(</span><span class="o">**</span><span class="n">subgrid_kwds</span><span class="p">)</span>
+
+<span class="c1"># We create the grid_B</span>
+<span class="n">gridspec_B_kwds</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">gridspec_B_kwds</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.333</span>
+<span class="n">gridspec_B_kwds</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.666</span>
+<span class="n">gridspec_B_kwds</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.333</span>
+<span class="n">gridspec_B_kwds</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="n">grid_B</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_gridspec</span><span class="p">(</span><span class="o">**</span><span class="n">gridspec_B_kwds</span><span class="p">)</span>
+
+<span class="c1"># Now we create the axes</span>
+<span class="n">ax_A00</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">subgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax_A01</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">subgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax_A10</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">subgrid</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax_A11</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">subgrid</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax_B</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">grid_B</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># define the data to plot</span>
+<span class="n">xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.3</span><span class="p">],</span>
+               <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">2.4</span><span class="p">],</span>
+               <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">6.0</span><span class="p">],</span>
+               <span class="p">[</span><span class="mf">3.0</span><span class="p">,</span><span class="mf">4.8</span><span class="p">],</span>
+               <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span><span class="mf">7.2</span><span class="p">],</span>
+               <span class="p">[</span><span class="mf">5.0</span><span class="p">,</span><span class="mf">9.0</span><span class="p">]])</span>
+
+<span class="c1"># Now let&#39;s plot !!</span>
+<span class="n">ax_A00</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax_A01</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax_A10</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">ax_A11</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">ax_A11</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+
+<span class="n">correlation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.0</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.8</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]])</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">ax_B</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">correlation</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Axes formatting</span>
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ax_A00</span><span class="p">,</span><span class="n">ax_A01</span><span class="p">]:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([])</span>
+
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ax_A11</span><span class="p">,</span><span class="n">ax_A01</span><span class="p">]:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([])</span>
+
+<span class="n">ax_A10</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">a_bit</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">ymin</span><span class="p">,</span><span class="n">ymax</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">-</span> <span class="n">a_bit</span><span class="p">,</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">a_bit</span>
+<span class="n">yticks</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">8.25</span><span class="p">,</span> <span class="mf">9.7</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ax_A00</span><span class="p">,</span><span class="n">ax_A01</span><span class="p">,</span><span class="n">ax_A10</span><span class="p">,</span><span class="n">ax_A11</span><span class="p">]:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="n">ymin</span><span class="p">,</span><span class="n">ymax</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">yticks</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="s1">&#39;top bottom right left&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+    <span class="n">ax_B</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="n">spine</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">ax_B</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax_B</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">colorbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax_B</span><span class="p">)</span>
+<span class="n">cax</span> <span class="o">=</span> <span class="n">colorbar</span><span class="o">.</span><span class="n">ax</span>
+<span class="n">cax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">cax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mf">3.0</span><span class="p">)</span>
+<span class="n">cax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Color warmth&#39;</span><span class="p">,</span><span class="n">fontfamily</span><span class="o">=</span><span class="s1">&#39;Serif&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">ofile</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="colors-and-creating-a-custom-colormap">
+<h3>Colors and creating a custom colormap<a class="headerlink" href="#colors-and-creating-a-custom-colormap" title="Permalink to this heading"></a></h3>
+<p>Probably you noticed the keyword <code class="code docutils literal notranslate"><span class="pre">cmap</span></code> before when we were using imshow.
+This keyword stands for 'color map' and we can find
+<a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">here</a> all the
+already existing colormaps available in matplotlib. Now we are going to create
+our own color map. and use it instead of the 'bwr' that we used previously.</p>
+<p>The simplest way to create a colormap is by providing a sequence of colors:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
+
+<span class="n">custom_colors</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">128</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+                 <span class="p">(</span><span class="mi">146</span><span class="p">,</span><span class="mi">54</span><span class="p">,</span><span class="mi">54</span><span class="p">),</span>
+                 <span class="p">(</span><span class="mi">103</span><span class="p">,</span><span class="mi">54</span><span class="p">,</span><span class="mi">112</span><span class="p">),</span>
+                 <span class="p">(</span><span class="mi">80</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">220</span><span class="p">),</span><span class="c1">#(94,0,206),</span>
+                 <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">128</span><span class="p">),</span>
+                 <span class="p">(</span><span class="mi">38</span><span class="p">,</span><span class="mi">61</span><span class="p">,</span><span class="mi">90</span><span class="p">),</span>
+                 <span class="p">(</span><span class="mi">86</span><span class="p">,</span><span class="mi">138</span><span class="p">,</span><span class="mi">202</span><span class="p">)]</span>
+<span class="n">custom_colors</span> <span class="o">=</span> <span class="p">[(</span><span class="n">r</span><span class="o">/</span><span class="mi">256</span><span class="p">,</span><span class="n">g</span><span class="o">/</span><span class="mi">256</span><span class="p">,</span><span class="n">b</span><span class="o">/</span><span class="mi">256</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">b</span> <span class="ow">in</span> <span class="n">custom_colors</span><span class="p">]</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s1">&#39;custom&#39;</span><span class="p">,</span><span class="n">custom_colors</span><span class="p">,</span><span class="n">N</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, we can see that providing the colors in RGB can be bothersome as per each
+color that we select we need to write down three different numbers. Depending
+on where we look for those numbers they will be either between 0 and 256 or
+between 0 and 1. Here we have the same code but providing the colors in html
+notation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span><span class="p">,</span> <span class="n">to_rgba</span>
+
+<span class="n">custom_colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#800000ff&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;#923636ff&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;#673670ff&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;#371d3bff&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;#263d5aff&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;#568acaff&#39;</span><span class="p">]</span>
+<span class="n">custom_colors</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">to_rgba</span><span class="p">,</span><span class="n">custom_colors</span><span class="p">))</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s1">&#39;custom&#39;</span><span class="p">,</span><span class="n">custom_colors</span><span class="p">,</span><span class="n">N</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>With this we are ready to go, all that we need to do is to include this cmap
+in our previous code and we will see our new color map in action!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span><span class="p">,</span> <span class="n">to_rgba</span>
+
+<span class="n">ofile</span> <span class="o">=</span> <span class="s1">&#39;composite_figure.svg&#39;</span>
+
+<span class="n">custom_colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#800000ff&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;#923636ff&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;#673670ff&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;#371d3bff&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;#263d5aff&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;#568acaff&#39;</span><span class="p">]</span>
+<span class="n">custom_colors</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">to_rgba</span><span class="p">,</span><span class="n">custom_colors</span><span class="p">))</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s1">&#39;custom&#39;</span><span class="p">,</span><span class="n">custom_colors</span><span class="p">,</span><span class="n">N</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
+
+<span class="n">width</span><span class="p">,</span><span class="n">height</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span>
+<span class="n">dpi</span> <span class="o">=</span> <span class="mi">150</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">width</span><span class="p">,</span><span class="n">height</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span><span class="n">constrained_layout</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># We create the grid_A</span>
+<span class="n">gridspec_A_kwds</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.95</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.95</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.4</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;ncols&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;nrows&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">gridspec_A_kwds</span><span class="p">[</span><span class="s1">&#39;hspace&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="n">grid_A</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_gridspec</span><span class="p">(</span><span class="o">**</span><span class="n">gridspec_A_kwds</span><span class="p">)</span>
+<span class="n">subgrid_kwds</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ncols&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+                <span class="s1">&#39;nrows&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+                <span class="s1">&#39;hspace&#39;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">}</span>
+<span class="n">subgrid</span> <span class="o">=</span> <span class="n">grid_A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">subgridspec</span><span class="p">(</span><span class="o">**</span><span class="n">subgrid_kwds</span><span class="p">)</span>
+
+<span class="c1"># We create the grid_B</span>
+<span class="n">gridspec_B_kwds</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">gridspec_B_kwds</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.333</span>
+<span class="n">gridspec_B_kwds</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.666</span>
+<span class="n">gridspec_B_kwds</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.333</span>
+<span class="n">gridspec_B_kwds</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="n">grid_B</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_gridspec</span><span class="p">(</span><span class="o">**</span><span class="n">gridspec_B_kwds</span><span class="p">)</span>
+
+<span class="c1"># Now we create the axes</span>
+<span class="n">ax_A00</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">subgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax_A01</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">subgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax_A10</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">subgrid</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax_A11</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">subgrid</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax_B</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">grid_B</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># define the data to plot</span>
+<span class="n">xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.3</span><span class="p">],</span>
+               <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">2.4</span><span class="p">],</span>
+               <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">6.0</span><span class="p">],</span>
+               <span class="p">[</span><span class="mf">3.0</span><span class="p">,</span><span class="mf">4.8</span><span class="p">],</span>
+               <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span><span class="mf">7.2</span><span class="p">],</span>
+               <span class="p">[</span><span class="mf">5.0</span><span class="p">,</span><span class="mf">9.0</span><span class="p">]])</span>
+
+<span class="c1"># Now let&#39;s plot !!</span>
+<span class="n">ax_A00</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax_A01</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax_A10</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">ax_A11</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">ax_A11</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+
+<span class="n">correlation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.0</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.8</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]])</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">ax_B</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">correlation</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Axes formatting</span>
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ax_A00</span><span class="p">,</span><span class="n">ax_A01</span><span class="p">]:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([])</span>
+
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ax_A11</span><span class="p">,</span><span class="n">ax_A01</span><span class="p">]:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([])</span>
+
+<span class="n">ax_A10</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">a_bit</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">ymin</span><span class="p">,</span><span class="n">ymax</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">-</span> <span class="n">a_bit</span><span class="p">,</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">a_bit</span>
+<span class="n">yticks</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">8.25</span><span class="p">,</span> <span class="mf">9.7</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ax_A00</span><span class="p">,</span><span class="n">ax_A01</span><span class="p">,</span><span class="n">ax_A10</span><span class="p">,</span><span class="n">ax_A11</span><span class="p">]:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="n">ymin</span><span class="p">,</span><span class="n">ymax</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">yticks</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="s1">&#39;top bottom right left&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+    <span class="n">ax_B</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="n">spine</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">ax_B</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax_B</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">colorbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax_B</span><span class="p">)</span>
+<span class="n">cax</span> <span class="o">=</span> <span class="n">colorbar</span><span class="o">.</span><span class="n">ax</span>
+<span class="n">cax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">cax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mf">3.0</span><span class="p">)</span>
+<span class="n">cax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Color warmth&#39;</span><span class="p">,</span><span class="n">fontfamily</span><span class="o">=</span><span class="s1">&#39;Serif&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">ofile</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="centered">
+<strong><img alt="matplotlib_composite_figure_04" src="../../_images/matplotlib_composite_figure_04.png" /></strong></p></section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="inkscape_gimp.html" class="btn btn-neutral float-left" title="Inkscape &amp; GIMP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pymol.html" class="btn btn-neutral float-right" title="Pymol" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, csu-theory-suite.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
