@@ -26,7 +26,7 @@ Welcome to csu-wiki's Documentation!
    :maxdepth: 3
    :caption: Graphical Software
 
-   visualizing_figures/visualizing_figures
+   graphical_software/edition_generation
 
 
 .. toctree::
