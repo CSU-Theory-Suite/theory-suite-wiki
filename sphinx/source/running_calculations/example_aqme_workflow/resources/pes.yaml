@@ -1,0 +1,52 @@
+--- # PES
+​
+Me: [CIS-Me, TRANS-Me]
+Ph: [CIS-Ph, TRANS-Ph]
+2ClPh: [CIS-2ClPh, TRANS-2ClPh]
+tBu: [CIS-tBu, TRANS-tBu]
+Cy: [CIS-Cy, TRANS-Cy]
+Furan: [CIS-Furan, TRANS-Furan]
+2MeThiofuran: [CIS-2MeThiofuran, TRANS-2MeThiofuran]
+2Me: [CIS-2Me, TRANS-2Me]
+4ClPh: [CIS-4ClPh, TRANS-4ClPh] 
+Ene: [CIS-Ene, TRANS-Ene]
+Nap: [CIS-Nap, TRANS-Nap]
+​
+​
+--- # SPECIES
+​
+CIS-Me: CIS_MeBoryl_*
+TRANS-Me: TRANS_MeBoryl_*
+CIS-Ph: CIS_PhBoryl_*
+TRANS-Ph: TRANS_PhBoryl_*
+CIS-2ClPh: CIS_Ph2ClBoryl_*
+TRANS-2ClPh: TRANS_Ph2ClBoryl_*
+CIS-tBu: CIS_tBuBoryl_*
+TRANS-tBu: TRANS_tBuBoryl_*
+CIS-Cy: CIS_CyBoryl_*
+TRANS-Cy: TRANS_CyBoryl_*
+CIS-Furan: CIS_FuranBoryl_*
+TRANS-Furan: TRANS_FuranBoryl_*
+CIS-2MeThiofuran: CIS_2MeThiofuranBoryl_*
+TRANS-2MeThiofuran: TRANS_2MeThiofuranBoryl_*
+CIS-2Me: CIS_Me2Boryl_*
+TRANS-2Me: TRANS_Me2Boryl_*
+CIS-4ClPh: CIS_4ClPh*
+TRANS-4ClPh: TRANS_4ClPh*
+CIS-Ene: CIS_Ene*
+TRANS-Ene: TRANS_Ene*
+CIS-Nap: CIS_Nap*
+TRANS-Nap: TRANS_Nap*
+​
+--- # FORMAT
+    dec :  2 
+    legend : False
+    color : black, #ab3737
+    pointlabel : False 
+    gridlines: False
+    show_conformers: False
+    show_gconf: False
+    dpi : 400
+    title: BR
+    ylim : -15,30
+​
