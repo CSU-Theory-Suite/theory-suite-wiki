@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Example Workflow in ACME &mdash; csu-wiki  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Running Calculations" href="../running_calculations.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> csu-wiki
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Computing Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/computing_resources.html">Computing Resources</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Helpful Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/crest.html">CREST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/goodvibes.html">GoodVibes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/dbstep.html">DBSTEP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/disco.html">DISCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/regge.html">Regge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/rdkit.html">RDKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/aqme.html">AQME</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Graphical Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphical_software/edition_generation.html">Edition/Generation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Running Calculations</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../running_calculations.html">Running Calculations</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Example Workflow in ACME</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#activating-the-conda-environment">1. Activating the conda environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-openbabel">2. Using OpenBabel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-an-xtb-calculation">3. Running an XTB calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-a-crest-calculation">4. Running a CREST calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-a-censo-calculation">5. Running a CENSO calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-qm-calculations-gaussian-orca-aqme-and-goodvibes">6. Running QM calculations. Gaussian, ORCA, AQME and Goodvibes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">csu-wiki</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../running_calculations.html">Running Calculations</a></li>
+      <li class="breadcrumb-item active">Example Workflow in ACME</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/running_calculations/example_aqme_workflow/example_aqme_workflow.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="example-workflow-in-acme">
+<h1>Example Workflow in ACME<a class="headerlink" href="#example-workflow-in-acme" title="Permalink to this heading"></a></h1>
+<section id="activating-the-conda-environment">
+<h2>1. Activating the conda environment<a class="headerlink" href="#activating-the-conda-environment" title="Permalink to this heading"></a></h2>
+<p>First we start by activating the DL_CPU conda environment. This environment
+is only on ACME and not in the local machines and it is shared between the
+groups.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda activate DL_CPU
+</pre></div>
+</div>
+</section>
+<section id="using-openbabel">
+<h2>2. Using OpenBabel<a class="headerlink" href="#using-openbabel" title="Permalink to this heading"></a></h2>
+<p>We have previously created a .pdb file with gaussian for the pentene in the
+folder example_workflow in our home folder ( /home/username/ ). Our first step
+of the workflow will be to go to that folder and convert the .pdb file to a .xyz
+file that can be read by the xtb software.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> example_workflow
+obabel -ipdb pentene.pdb -oxyz -O*.xyz
+</pre></div>
+</div>
+<p>Here the <code class="code docutils literal notranslate"><span class="pre">-ipdb</span></code> specifies that the format of the input is pdb</p>
+</section>
+<section id="running-an-xtb-calculation">
+<h2>3. Running an XTB calculation<a class="headerlink" href="#running-an-xtb-calculation" title="Permalink to this heading"></a></h2>
+<p>We shouldn't directly run the xtb software because that will make the calculation
+not to run in one of the compute node but actually run in the node that controls
+the queue system and keeps everything connected.</p>
+<p>As a consecuence our next step is to prepare the SLURM script to submit the
+calculation to the queue system. Luckily we have available several scripts in
+acme that automate that process. For setting up an xtb calculation we can use
+<code class="code docutils literal notranslate"><span class="pre">xtbsetup.sh</span></code></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>xtbsetup.sh -i pentene.xyz -c <span class="m">0</span> -s ch2cl2
+</pre></div>
+</div>
+<p>We can also specify the number of processors as well as any extra command line
+options:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>xtbsetup.sh -i pentene.xyz -c <span class="m">0</span> -p <span class="m">1</span> -a <span class="s1">&#39;--opt&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Remember that we can always see how to use a command using either <code class="code docutils literal notranslate"><span class="pre">-h</span></code>
+or <code class="code docutils literal notranslate"><span class="pre">--help</span></code> i.e. <code class="code docutils literal notranslate"><span class="pre">xtbsetup.sh</span> <span class="pre">-h</span></code></p>
+</div>
+<p>the output file will look like:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>Currently empty <span class="k">if</span> someone runs the workflow it will be very appreciated
+<span class="k">if</span> they can provide the generated files to include them as examples<span class="o">)</span>
+</pre></div>
+</div>
+<p>Now we can proceed to submit the calculation to the queue system</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sbatch</span> <span class="o">./</span><span class="n">job_xtb</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>We can check the status of our calculation using the <code class="code docutils literal notranslate"><span class="pre">squeue</span></code> command
+which will return us something along the lines of:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#Currently empty it would be awesome if someone runs the workflow example and 
+#gives the generated files so that they can be included here.
+</pre></div>
+</div>
+</section>
+<section id="running-a-crest-calculation">
+<h2>4. Running a CREST calculation<a class="headerlink" href="#running-a-crest-calculation" title="Permalink to this heading"></a></h2>
+<p>Next, we will perform a conformational search using crest. To submit crest
+calculations we have the <code class="code docutils literal notranslate"><span class="pre">crestsetup.sh</span></code> script</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>crestsetup.sh -i xtbopt.xyz -c <span class="m">0</span> -p <span class="m">32</span>
+</pre></div>
+</div>
+<p>This will create the file <code class="code docutils literal notranslate"><span class="pre">job_crest.sh</span></code> with the contents:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>Currently empty <span class="k">if</span> someone runs the workflow it will be very appreciated
+<span class="k">if</span> they can provide the generated files to include them as examples<span class="o">)</span>
+</pre></div>
+</div>
+<p>Now we submit the calculation the same way that we did with the xtb job.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sbatch job_crest.sh
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>One way that we can follow how the calculation is going is to see the end of the
+log file. for crest calculations this file is <code class="code docutils literal notranslate"><span class="pre">crest.out</span></code> and we can use
+the <code class="code docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-f</span> <span class="pre">crest.out</span></code> command to display in the terminal the end of
+the file. To go back to the usual console, use <code class="code docutils literal notranslate"><span class="pre">ctrl+c</span></code></p>
+</div>
+</section>
+<section id="running-a-censo-calculation">
+<h2>5. Running a CENSO calculation<a class="headerlink" href="#running-a-censo-calculation" title="Permalink to this heading"></a></h2>
+<p>Now we are going to prepare a censo calculation. To do so we need to first create
+a .censorc file in our home directory.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ..
+touch .censorc
+</pre></div>
+</div>
+<p>Now we can use our favorite command-line editor to include all the parameters
+that are required for this program to run. For a detailed explanation please go
+to <code class="code docutils literal notranslate"><span class="pre">url</span></code>. Here we include an example of its contents:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$CENSO global configuration file: .censorc
+$VERSION:1.1.2 
+
+ORCA: /usr/local/ORCA501
+ORCA version: 5.0.1
+GFN-xTB: /opt/apps/xtb/bin/xtb
+CREST: /opt/apps/xtb/crest
+mpshift: /path/including/binary/mpshift-binary
+escf: /opt/apps/BIOVIA/TURBOMOLE/bin/x86_64-unknown-linux-gnu/escf
+
+#COSMO-RS
+ctd = BP_TZVPD_FINE_19.ctd cdir = &quot;/opt/apps/BIOVIA/COSMOthermX19/COSMOtherm/CTDATA-FILES&quot; ldir = &quot;/opt/apps/BIOVIA/COSMOthermX19/licensefiles&quot;
+$ENDPROGRAMS
+
+$CRE SORTING SETTINGS:
+$GENERAL SETTINGS:
+nconf: all                       # [&#39;all&#39;, &#39;number e.g. 10 up to all conformers&#39;] 
+charge: 0                        # [&#39;number e.g. 0&#39;] 
+unpaired: 0                      # [&#39;number e.g. 0&#39;] 
+solvent: gas                     # [&#39;gas&#39;, &#39;acetone&#39;, &#39;acetonitrile&#39;, &#39;aniline&#39;, &#39;benzaldehyde&#39;, &#39;benzene&#39;, &#39;ccl4&#39;, &#39;...&#39;] 
+prog_rrho: xtb                   # [&#39;xtb&#39;] 
+temperature: 298.15              # [&#39;temperature in K e.g. 298.15&#39;] 
+trange: [273.15, 378.15, 5]      # [&#39;temperature range [start, end, step]&#39;] 
+multitemp: on                    # [&#39;on&#39;, &#39;off&#39;] 
+evaluate_rrho: on                # [&#39;on&#39;, &#39;off&#39;] 
+consider_sym: on                 # [&#39;on&#39;, &#39;off&#39;] 
+bhess: on                        # [&#39;on&#39;, &#39;off&#39;] 
+imagthr: automatic               # [&#39;automatic or e.g., -100    # in cm-1&#39;] 
+sthr: automatic                  # [&#39;automatic or e.g., 50     # in cm-1&#39;] 
+scale: automatic                 # [&#39;automatic or e.g., 1.0 &#39;] 
+rmsdbias: off                    # [&#39;on&#39;, &#39;off&#39;] 
+sm_rrho: alpb                    # [&#39;alpb&#39;, &#39;gbsa&#39;] 
+progress: off                    # possibilities 
+check: on                        # [&#39;on&#39;, &#39;off&#39;] 
+prog: tm                         # [&#39;tm&#39;, &#39;orca&#39;] 
+func: r2scan-3c                  # [&#39;b3-lyp&#39;, &#39;b3lyp&#39;, &#39;b3lyp-3c&#39;, &#39;b3lyp-d3&#39;, &#39;b3lyp-d3(0)&#39;, &#39;b3lyp-d4&#39;, &#39;b3lyp-nl&#39;, &#39;...&#39;] 
+basis: automatic                 # [&#39;automatic&#39;, &#39;def2-TZVP&#39;, &#39;def2-mSVP&#39;, &#39;def2-mSVP&#39;, &#39;def2-mSVP&#39;, &#39;def2-mSVP&#39;, &#39;...&#39;] 
+maxthreads: 1                    # [&#39;number of threads e.g. 2&#39;] 
+omp: 1                           # [&#39;number cores per thread e.g. 4&#39;] 
+balance: on                      # possibilities 
+cosmorsparam: automatic          # [&#39;automatic&#39;, &#39;12-fine&#39;, &#39;12-normal&#39;, &#39;13-fine&#39;, &#39;13-normal&#39;, &#39;14-fine&#39;, &#39;...&#39;] 
+
+$PART0 - CHEAP-PRESCREENING - SETTINGS:
+part0: on                        # [&#39;on&#39;, &#39;off&#39;] 
+func0: b97-3c                    # [&#39;b3-lyp&#39;, &#39;b3lyp&#39;, &#39;b3lyp-3c&#39;, &#39;b3lyp-d3&#39;, &#39;b3lyp-d3(0)&#39;, &#39;b3lyp-d4&#39;, &#39;...&#39;] 
+basis0: automatic                # [&#39;automatic&#39;, &#39;def2-SV(P)&#39;, &#39;def2-TZVP&#39;, &#39;def2-mSVP&#39;, &#39;def2-mSVP&#39;, &#39;def2-mSVP&#39;, &#39;...&#39;] 
+part0_gfnv: gfn2                 # [&#39;gfn1&#39;, &#39;gfn2&#39;, &#39;gfnff&#39;] 
+part0_threshold: 6.0             # [&#39;number e.g. 4.0&#39;] 
+
+$PART1 - PRESCREENING - SETTINGS:
+# func and basis is set under GENERAL SETTINGS
+part1: on                        # [&#39;on&#39;, &#39;off&#39;] 
+smgsolv1: cosmo                  # [&#39;alpb_gsolv&#39;, &#39;cosmo&#39;, &#39;cosmors&#39;, &#39;cosmors-fine&#39;, &#39;cpcm&#39;, &#39;dcosmors&#39;, &#39;...&#39;] 
+part1_gfnv: gfn2                 # [&#39;gfn1&#39;, &#39;gfn2&#39;, &#39;gfnff&#39;] 
+part1_threshold: 10.0             # [&#39;number e.g. 5.0&#39;] 
+
+$PART2 - OPTIMIZATION - SETTINGS:
+# func and basis is set under GENERAL SETTINGS
+part2: on                        # [&#39;on&#39;, &#39;off&#39;] 
+opt_limit: 2.5                   # [&#39;number e.g. 4.0&#39;] 
+sm2: cosmo                       # [&#39;cosmo&#39;, &#39;cpcm&#39;, &#39;dcosmors&#39;, &#39;default&#39;, &#39;smd&#39;] 
+smgsolv2: cosmo                  # [&#39;alpb_gsolv&#39;, &#39;cosmo&#39;, &#39;cosmors&#39;, &#39;cosmors-fine&#39;, &#39;cpcm&#39;, &#39;dcosmors&#39;, &#39;...&#39;] 
+part2_gfnv: gfn2                 # [&#39;gfn1&#39;, &#39;gfn2&#39;, &#39;gfnff&#39;] 
+ancopt: on                       # [&#39;on&#39;] 
+hlow: 0.01                       # [&#39;lowest force constant in ANC generation, e.g. 0.01&#39;] 
+opt_spearman: on                 # [&#39;on&#39;, &#39;off&#39;] 
+part2_threshold: 99.99           # [&#39;Boltzmann sum threshold in %. e.g. 95 (between 1 and 100)&#39;] 
+optlevel2: lax                   # [&#39;crude&#39;, &#39;sloppy&#39;, &#39;loose&#39;, &#39;lax&#39;, &#39;normal&#39;, &#39;tight&#39;, &#39;vtight&#39;, &#39;extreme&#39;, &#39;...&#39;] 
+optcycles: 8                     # [&#39;number e.g. 5 or 10&#39;] 
+spearmanthr: -4.0                # [&#39;value between -1 and 1, if outside set automatically&#39;] 
+radsize: 10                      # [&#39;number e.g. 8 or 10&#39;] 
+crestcheck: on                   # [&#39;on&#39;, &#39;off&#39;] 
+
+$PART3 - REFINEMENT - SETTINGS:
+part3: off                       # [&#39;on&#39;, &#39;off&#39;] 
+prog3: prog                      # [&#39;tm&#39;, &#39;orca&#39;, &#39;prog&#39;] 
+func3: pbe0-d4                   # [&#39;b3-lyp&#39;, &#39;b3lyp&#39;, &#39;b3lyp-3c&#39;, &#39;b3lyp-d3&#39;, &#39;b3lyp-d3(0)&#39;, &#39;b3lyp-d4&#39;, &#39;b3lyp-nl&#39;, &#39;...&#39;] 
+basis3: def2-SVP                 # [&#39;DZ&#39;, &#39;QZV&#39;, &#39;QZVP&#39;, &#39;QZVPP&#39;, &#39;SV(P)&#39;, &#39;SVP&#39;, &#39;TZVP&#39;, &#39;TZVPP&#39;, &#39;aug-cc-pV5Z&#39;, &#39;...&#39;] 
+smgsolv3: cosmors                # [&#39;alpb_gsolv&#39;, &#39;cosmo&#39;, &#39;cosmors&#39;, &#39;cosmors-fine&#39;, &#39;cpcm&#39;, &#39;dcosmors&#39;, &#39;...&#39;] 
+part3_gfnv: gfn2                 # [&#39;gfn1&#39;, &#39;gfn2&#39;, &#39;gfnff&#39;] 
+part3_threshold: 99              # [&#39;Boltzmann sum threshold in %. e.g. 95 (between 1 and 100)&#39;] 
+
+$NMR PROPERTY SETTINGS:
+$PART4 SETTINGS:
+part4: off                       # [&#39;on&#39;, &#39;off&#39;] 
+couplings: on                    # [&#39;on&#39;, &#39;off&#39;] 
+progJ: prog                      # [&#39;tm&#39;, &#39;orca&#39;, &#39;adf&#39;, &#39;prog&#39;] 
+funcJ: pbe0                      # [&#39;b3-lyp&#39;, &#39;b3lyp&#39;, &#39;b3lyp-3c&#39;, &#39;b3lyp-d3&#39;, &#39;b3lyp-d3(0)&#39;, &#39;b3lyp-d4&#39;, &#39;b3lyp-nl&#39;, &#39;...&#39;] 
+basisJ: def2-TZVP                # [&#39;DZ&#39;, &#39;QZV&#39;, &#39;QZVP&#39;, &#39;QZVPP&#39;, &#39;SV(P)&#39;, &#39;SVP&#39;, &#39;TZVP&#39;, &#39;TZVPP&#39;, &#39;aug-cc-pV5Z&#39;, &#39;...&#39;] 
+sm4J: default                    # [&#39;cosmo&#39;, &#39;cpcm&#39;, &#39;dcosmors&#39;, &#39;smd&#39;] 
+shieldings: on                   # [&#39;on&#39;, &#39;off&#39;] 
+progS: prog                      # [&#39;tm&#39;, &#39;orca&#39;, &#39;adf&#39;, &#39;prog&#39;] 
+funcS: pbe0                      # [&#39;b3-lyp&#39;, &#39;b3lyp&#39;, &#39;b3lyp-3c&#39;, &#39;b3lyp-d3&#39;, &#39;b3lyp-d3(0)&#39;, &#39;b3lyp-d4&#39;, &#39;b3lyp-nl&#39;, &#39;...&#39;] 
+basisS: def2-TZVP                # [&#39;DZ&#39;, &#39;QZV&#39;, &#39;QZVP&#39;, &#39;QZVPP&#39;, &#39;SV(P)&#39;, &#39;SVP&#39;, &#39;TZVP&#39;, &#39;TZVPP&#39;, &#39;aug-cc-pV5Z&#39;, &#39;...&#39;] 
+sm4S: default                    # [&#39;cosmo&#39;, &#39;cpcm&#39;, &#39;dcosmors&#39;, &#39;smd&#39;] 
+reference_1H: TMS                # [&#39;TMS&#39;] 
+reference_13C: TMS               # [&#39;TMS&#39;] 
+reference_19F: CFCl3             # [&#39;CFCl3&#39;] 
+reference_29Si: TMS              # [&#39;TMS&#39;] 
+reference_31P: TMP               # [&#39;TMP&#39;, &#39;PH3&#39;] 
+1H_active: on                    # [&#39;on&#39;, &#39;off&#39;] 
+13C_active: on                   # [&#39;on&#39;, &#39;off&#39;] 
+19F_active: off                  # [&#39;on&#39;, &#39;off&#39;] 
+29Si_active: off                 # [&#39;on&#39;, &#39;off&#39;] 
+31P_active: off                  # [&#39;on&#39;, &#39;off&#39;] 
+resonance_frequency: 300.0       # [&#39;MHz number of your experimental spectrometer setup&#39;] 
+
+$OPTICAL ROTATION PROPERTY SETTINGS:
+$PART5 SETTINGS:
+optical_rotation: off            # [&#39;on&#39;, &#39;off&#39;] 
+funcOR: pbe                      # [&#39;functional for opt_rot e.g. pbe&#39;] 
+funcOR_SCF: r2scan-3c            # [&#39;functional for SCF in opt_rot e.g. r2scan-3c&#39;] 
+basisOR: def2-SVPD               # [&#39;basis set for opt_rot e.g. def2-SVPD&#39;] 
+frequency_optical_rot: [589.0]   # [&#39;list of freq in nm to evaluate opt rot at e.g. [589, 700]&#39;] 
+$END CENSORC
+</pre></div>
+</div>
+<p>We are now ready to generate the submit script for our censo calculation using
+<code class="code docutils literal notranslate"><span class="pre">censosetup.sh</span></code></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> example_workflow
+censosetup.sh -i crest_conformers.xyz -c <span class="m">0</span> -p <span class="m">4</span> -o <span class="m">8</span>
+</pre></div>
+</div>
+<p>This will create the file <code class="code docutils literal notranslate"><span class="pre">job_censo.sh</span></code> with the contents:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>Currently empty <span class="k">if</span> someone runs the workflow it will be very appreciated
+<span class="k">if</span> they can provide the generated files to include them as examples<span class="o">)</span>
+</pre></div>
+</div>
+<p>Now we submit the calculation to the queue system.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sbatch job_censo.sh
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We can follow the calculation status in the log file <code class="code docutils literal notranslate"><span class="pre">censo.out</span></code></p>
+</div>
+</section>
+<section id="running-qm-calculations-gaussian-orca-aqme-and-goodvibes">
+<h2>6. Running QM calculations. Gaussian, ORCA, AQME and Goodvibes<a class="headerlink" href="#running-qm-calculations-gaussian-orca-aqme-and-goodvibes" title="Permalink to this heading"></a></h2>
+<p>After we have generated our conformers using semi-empirical and low cost DFT we
+now proceed to refine them using the DFT method of our choice with Gaussian. To
+do so we will use the in-house developed software <code class="code docutils literal notranslate"><span class="pre">aqme</span></code></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -m aqme --qprep --program gaussian --files enso_ensemble_part2.xyz --qm_input <span class="s1">&#39;m062x def2svp opt freq=noraman&#39;</span> --mem 16GB --nproc <span class="m">8</span>
+</pre></div>
+</div>
+<p>This will create a new folder named <code class="code docutils literal notranslate"><span class="pre">QCALC</span></code> with our gaussian inputs.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> QCALC
+<span class="c1"># this command will display the full contents of a file in our terminal</span>
+cat enso_ensemble_part2_conf_6.com
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(Currently empty if someone runs the workflow it will be very appreciated
+if they can provide the generated files to include them as examples)
+</pre></div>
+</div>
+<p>Now to submit all the gausian calculations we have the <code class="code docutils literal notranslate"><span class="pre">gsub</span></code></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>gsub *.com -n <span class="m">8</span> -q normal
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We will be able to follow each one of the calculations progress in
+their respective .log files.</p>
+</div>
+<p>We now will use another in-house developed software, <code class="code docutils literal notranslate"><span class="pre">goodvibes</span></code>, to
+check if we have any imaginary frequencies or duplicate geometries.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -m goodvibes *.log --imag --dup
+</pre></div>
+</div>
+<p>Finally we are going to run SP calculations using ORCA. We use <code class="code docutils literal notranslate"><span class="pre">aqme</span></code> to
+generate the input files (That have the extension .inp) and proceed to submit them
+following the same exact process as with Gaussian calculations</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -m aqme --qprep --program orca --files <span class="s1">&#39;*.log&#39;</span> --qm_input <span class="s1">&#39;wb97m-v def2-tzvp&#39;</span> --mem 2GB --nproc <span class="m">8</span>
+<span class="nb">cd</span> QCALC/
+gsub *.inp -n <span class="m">8</span> -q normal
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be careful of how you write the basis set and functional as sometimes the
+&quot;spelling&quot; changes across programs and will lead to error terminations. i.e.
+<code class="code docutils literal notranslate"><span class="pre">def2tzvp</span></code> is valid for Gaussian but for ORCA <code class="code docutils literal notranslate"><span class="pre">def2-tzvp</span></code> is the
+appropriate &quot;spelling&quot;.</p>
+</div>
+<p>Now, we are going to obtain the thermochemistry of our calculations with the
+single point corrections using <code class="code docutils literal notranslate"><span class="pre">goodvibes</span></code></p>
+<p>First we will rename all ORCA calculations so that we can clearly remember that
+they are SP calculations. We can do it with a python script or in a python console:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="n">files</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*.out&#39;</span><span class="p">))</span>
+<span class="c1"># we rename the input and the output files</span>
+<span class="k">for</span> <span class="n">ofile</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="n">ifile</span> <span class="o">=</span> <span class="n">ofile</span><span class="o">.</span><span class="n">parent</span><span class="o">/</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">ofile</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s1">.inp&#39;</span>
+    <span class="n">ifile</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">ifile</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s1">_sp.inp&#39;</span><span class="p">)</span>
+    <span class="n">ofile</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">ofile</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s1">_sp.out&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can actually do this in a single line:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -c <span class="s2">&quot;from pathlib import Path; files = list(Path.cwd().glob(&#39;*.out&#39;)); for ofile in files: ifile = ofile.parent/f&#39;{ofile.stem}.inp&#39;; ifile.rename(f&#39;{ifile.stem}_sp.inp&#39;); ofile.rename(f&#39;{ofile.stem}_sp.out&#39;)&quot;</span>
+</pre></div>
+</div>
+<p>We can do it using bash:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># It is recommended to run first the following line to ensure that the</span>
+<span class="c1"># renaming is going to work as expected:</span>
+<span class="k">for</span> item <span class="k">in</span> *.out<span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="nv">$item</span> <span class="s2">&quot; -&gt; &quot;</span> <span class="si">${</span><span class="nv">item</span><span class="p">%.*</span><span class="si">}</span>_sp.out<span class="p">;</span> <span class="k">done</span>
+
+<span class="c1"># After checking that it will do the modifications that we want we proceed to</span>
+<span class="c1"># rename the files:</span>
+<span class="k">for</span> item <span class="k">in</span> *.out<span class="p">;</span> <span class="k">do</span> mv -v <span class="nv">$item</span> <span class="si">${</span><span class="nv">item</span><span class="p">%.*</span><span class="si">}</span>_sp.out<span class="p">;</span> <span class="k">done</span>
+<span class="k">for</span> item <span class="k">in</span> *.inp<span class="p">;</span> <span class="k">do</span> mv -v <span class="nv">$item</span> <span class="si">${</span><span class="nv">item</span><span class="p">%.*</span><span class="si">}</span>_sp.inp<span class="p">;</span> <span class="k">done</span>
+</pre></div>
+</div>
+<p>Finally we move all the QM outputs calculations to the same folder and run
+<code class="code docutils literal notranslate"><span class="pre">goodvibes</span></code></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># We first rename all the calculations</span>
+<span class="c1"># we first move all calculations to the same place</span>
+mv *.out ../
+<span class="nb">cd</span> ..
+python -m goodvibes *.log --imag --dup --spc sp
+</pre></div>
+</div>
+<p>The final step of our example workflow is going to include the drawing of the
+Potential Energy Surface (PES). To do so we need a file, <code class="code docutils literal notranslate"><span class="pre">pes.yaml</span></code> with
+the following contents:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>--- # PES
+​
+Me: [CIS-Me, TRANS-Me]
+Ph: [CIS-Ph, TRANS-Ph]
+2ClPh: [CIS-2ClPh, TRANS-2ClPh]
+tBu: [CIS-tBu, TRANS-tBu]
+Cy: [CIS-Cy, TRANS-Cy]
+Furan: [CIS-Furan, TRANS-Furan]
+2MeThiofuran: [CIS-2MeThiofuran, TRANS-2MeThiofuran]
+2Me: [CIS-2Me, TRANS-2Me]
+4ClPh: [CIS-4ClPh, TRANS-4ClPh] 
+Ene: [CIS-Ene, TRANS-Ene]
+Nap: [CIS-Nap, TRANS-Nap]
+​
+​
+--- # SPECIES
+​
+CIS-Me: CIS_MeBoryl_*
+TRANS-Me: TRANS_MeBoryl_*
+CIS-Ph: CIS_PhBoryl_*
+TRANS-Ph: TRANS_PhBoryl_*
+CIS-2ClPh: CIS_Ph2ClBoryl_*
+TRANS-2ClPh: TRANS_Ph2ClBoryl_*
+CIS-tBu: CIS_tBuBoryl_*
+TRANS-tBu: TRANS_tBuBoryl_*
+CIS-Cy: CIS_CyBoryl_*
+TRANS-Cy: TRANS_CyBoryl_*
+CIS-Furan: CIS_FuranBoryl_*
+TRANS-Furan: TRANS_FuranBoryl_*
+CIS-2MeThiofuran: CIS_2MeThiofuranBoryl_*
+TRANS-2MeThiofuran: TRANS_2MeThiofuranBoryl_*
+CIS-2Me: CIS_Me2Boryl_*
+TRANS-2Me: TRANS_Me2Boryl_*
+CIS-4ClPh: CIS_4ClPh*
+TRANS-4ClPh: TRANS_4ClPh*
+CIS-Ene: CIS_Ene*
+TRANS-Ene: TRANS_Ene*
+CIS-Nap: CIS_Nap*
+TRANS-Nap: TRANS_Nap*
+​
+--- # FORMAT
+    dec :  2 
+    legend : False
+    color : black, #ab3737
+    pointlabel : False 
+    gridlines: False
+    show_conformers: False
+    show_gconf: False
+    dpi : 400
+    title: BR
+    ylim : -15,30
+​
+</pre></div>
+</div>
+<p>And now we use <code class="code docutils literal notranslate"><span class="pre">goodvibes</span></code> to draw the PES.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -m goodvibes *.log --imag --dup --spc sp --pes pes.yaml
+</pre></div>
+</div>
+<p><img alt="PES" src="../../_images/PES.png" /></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../running_calculations.html" class="btn btn-neutral float-left" title="Running Calculations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, csu-theory-suite.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
