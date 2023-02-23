@@ -13,13 +13,9 @@ Welcome to csu-wiki's Documentation!
    :maxdepth: 3
    :caption: Helpful Packages
 
-   helpful_packages/crest
-   helpful_packages/goodvibes
-   helpful_packages/dbstep
-   helpful_packages/disco
-   helpful_packages/regge
-   helpful_packages/rdkit
-   helpful_packages/aqme
+   helpful_packages/inhouse
+   helpful_packages/external
+
 
 
 .. toctree::
