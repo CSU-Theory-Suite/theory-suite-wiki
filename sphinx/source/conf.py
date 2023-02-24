@@ -1,3 +1,8 @@
+import os
+import sys
+
+sys.path.insert(0,os.path.abspath('..'))
+
 # Configuration file for the Sphinx documentation builder.
 #
 # For the full list of built-in configuration values, see the documentation:
@@ -47,5 +52,4 @@ html_theme = 'sphinx_rtd_theme'
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'OneDarkPro.OneDarkPro' # 'paraiso-dark' #'default', 'emacs', 'friendly', 'colorful', 'autumn', 'murphy', 'manni', 'material', 'monokai', 'perldoc', 'pastie', 'borland', 'trac', 'native', 'fruity', 'bw', 'vim', 'vs', 'tango', 'rrt', 'xcode', 'igor', 'paraiso-light', 'paraiso-dark', 'lovelace', 'algol', 'algol_nu', 'arduino', 'rainbow_dash', 'abap', 'solarized-dark', 'solarized-light', 'sas', 'stata', 'stata-light', 'stata-dark', 'inkpot', 'zenburn', 'gruvbox-dark', 'gruvbox-light'
-
 
