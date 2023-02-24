@@ -2,5 +2,5 @@
 GoodVibes Workflow 
 ======================
 
-Heater 1
+Header 1
 --------
