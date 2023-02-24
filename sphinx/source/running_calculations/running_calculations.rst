@@ -7,3 +7,4 @@ Running Calculations
    :maxdepth: 2
    
    example_aqme_workflow/example_aqme_workflow
+   example_goodvibes_workflow/example_goodvibes_workflow
