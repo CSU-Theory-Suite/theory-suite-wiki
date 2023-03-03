@@ -32,7 +32,7 @@ or
 Computing Thermochemistry for QM Output Files
 ----------------------------------------------
 
-You can find the necessary files for this example :download:`here <resources/gv_files/>`.
+You can find the necessary files for this example :download:`here <resources/CompChem_2-15-23.zip>`.
 
 .. code:: shell
 
@@ -85,6 +85,7 @@ Useful for saving on computational resources:
 We can optimize molecules at a lower level of theory to still obtain an accurate geometry, but do a single point energy calculation (SPC) at a higher level of theory to obtain more accurate energy values.
 
 With the ``--spc`` argument, we can specify how the SPC file names are formatted.
+
 .. list-table:: File Naming Scheme
     :header-rows: 1
 
