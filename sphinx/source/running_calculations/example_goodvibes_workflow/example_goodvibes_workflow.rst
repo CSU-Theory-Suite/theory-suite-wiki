@@ -2,11 +2,11 @@
 Example GoodVibes Workflow 
 ==========================
 
-GoodVibes GitHub Page
+`GoodVibes GitHub Page <https://github.com/patonlab/GoodVibes/>`_
 
-Article
+`Article <https://f1000research.com/articles/9-291/v1>`_
 
-Installation:
+Installation
 -------------
 
 Version 3.2 is most up to date. Install with:
@@ -29,10 +29,10 @@ or
 
 (you may also need to install matplotlib)
 
-Computing Thermochemistry for QM Output Files:
+Computing Thermochemistry for QM Output Files
 ----------------------------------------------
 
-You can find the necessary files in this folder.
+You can find the necessary files for this example :download:`here <resources/gv_files/>`.
 
 .. code:: shell
 
@@ -41,12 +41,12 @@ You can find the necessary files in this folder.
 Grabs Energy, frequencies, and computes thermochemical values Enthalpy (H), Entropy (S), Gibbs Free Energy (G).
 Also computes quasi-harmonic corrected Entropy (qh-S) and Free Energy (qh-G).
 
-Compute G as G = H - T*S
+Compute G as ``G = H - (T * S)``
 
-Temperature
------------
+Temperature Corrections
+-----------------------
 
-The default temperature in GoodVibes in 298.15 K (25C)
+The default temperature in GoodVibes in ``298.15 K`` (25C)
 
 What if the reaction was run at 100C?
 
@@ -69,14 +69,13 @@ Quasi-Harmonic Corrections
 
 The quasi-harmonic correction has a greater effect when molecules have a greater number of low-frequency vibrational modes.
 For example:
+
 * Methylaniline: 2 vibrational modes below 200cm-1
 * Int-III: 23 vibrational modes below 200cm-1
 
 .. code:: shell
 
     python -m goodvibes methylaniline.log Int-III.log
-
-In each case, by how many kcal/mol does the quasi-harmonic differ from the uncorrected value:
 
 Single Point Calculations 
 -------------------------
@@ -85,8 +84,7 @@ Useful for saving on computational resources:
 
 We can optimize molecules at a lower level of theory to still obtain an accurate geometry, but do a single point energy calculation (SPC) at a higher level of theory to obtain more accurate energy values.
 
-With the --spc argument, we can specify how the SPC file names are formatted.
-
+With the ``--spc`` argument, we can specify how the SPC file names are formatted.
 .. list-table:: File Naming Scheme
     :header-rows: 1
 
@@ -97,7 +95,7 @@ With the --spc argument, we can specify how the SPC file names are formatted.
     * - SPC
       - file_SPC.log
 
-For example: ethane.log and ethane_TZ.out
+For example: ``ethane.log`` and ``ethane_TZ.out``
 
 .. code:: shell
 
@@ -111,31 +109,32 @@ GoodVibes can compute relative energy/thermochemistry values to describe a react
 To do this, we need to write a yaml file with 3 sections:
 
 * PES
-  * Defines reaction pathway
-  * Can add multiple pathways 
+    * Defines reaction pathway
+    * Can add multiple pathways 
 * SPECIES 
-  * Relates files to each species in the reaction pathway  
+    * Relates files to each species in the reaction pathway  
 * FORMAT 
-  * Optional additional formatting 
+    * Optional additional formatting 
   
 .. literalinclude:: resources/gv_files/pes/PhPy.yaml
 
-Putting it all together -
+Putting it All Together
+-----------------------
 
 * Temperature adjustments
 * Single Point Calculations
-* Potential Energy Surface calculations
+* Potential Energy Surface Calculations
 
-24 intermediate and transition state calculations + corresponding SPC files + yaml to define reaction pathway
+We can use these 24 intermediate and transition state calculations + corresponding SPC files + yaml to define a reaction pathway
 
 .. code:: shell
 
     python -m goodvibes *.log -t 353.15 --spc DLPNO --imag --invertifreq -f --pes PhPy.yaml
 
-Graphing these potential energy surfaces is simple once the yaml is created
+Graphing these potential energy surfaces is simple once the yaml file is created
 
 .. code:: shell
 
     python -m goodvibes *.log -t 353.15 --spc DLPNO --imag --invertifreq -5 --pes PhPy.yaml --graph PhPy.yaml
 
-Check out other packages by our lab @ our github
+Check out other packages by our lab @ our `github <https://github.com/patonlab>`_
