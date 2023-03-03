@@ -56,12 +56,13 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../running_calculations.html">Running Calculations</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../example_aqme_workflow/example_aqme_workflow.html">Example Workflow in ACME</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Example GoodVibes Workflow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#installation">Installation:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#computing-thermochemistry-for-qm-output-files">Computing Thermochemistry for QM Output Files:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#temperature">Temperature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#computing-thermochemistry-for-qm-output-files">Computing Thermochemistry for QM Output Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#temperature-corrections">Temperature Corrections</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#quasi-harmonic-corrections">Quasi-Harmonic Corrections</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#single-point-calculations">Single Point Calculations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#potential-energy-surface-calculations">Potential Energy Surface Calculations:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#putting-it-all-together">Putting it All Together</a></li>
 </ul>
 </li>
 </ul>
@@ -95,10 +96,10 @@
              
   <div class="section" id="example-goodvibes-workflow">
 <h1>Example GoodVibes Workflow<a class="headerlink" href="#example-goodvibes-workflow" title="Permalink to this headline">¶</a></h1>
-<p>GoodVibes GitHub Page</p>
-<p>Article</p>
+<p><a class="reference external" href="https://github.com/patonlab/GoodVibes/">GoodVibes GitHub Page</a></p>
+<p><a class="reference external" href="https://f1000research.com/articles/9-291/v1">Article</a></p>
 <div class="section" id="installation">
-<h2>Installation:<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>Version 3.2 is most up to date. Install with:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install goodvibes
 </pre></div>
@@ -114,18 +115,18 @@
 <p>(you may also need to install matplotlib)</p>
 </div>
 <div class="section" id="computing-thermochemistry-for-qm-output-files">
-<h2>Computing Thermochemistry for QM Output Files:<a class="headerlink" href="#computing-thermochemistry-for-qm-output-files" title="Permalink to this headline">¶</a></h2>
-<p>You can find the necessary files in this folder.</p>
+<h2>Computing Thermochemistry for QM Output Files<a class="headerlink" href="#computing-thermochemistry-for-qm-output-files" title="Permalink to this headline">¶</a></h2>
+<p>You can find the necessary files for this example <a class="reference download internal" download="" href="../../_downloads/1e96761b6e8431e2037abb7790d71b54/CompChem_2-15-23.zip"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -m goodvibes H2O.log
 </pre></div>
 </div>
 <p>Grabs Energy, frequencies, and computes thermochemical values Enthalpy (H), Entropy (S), Gibbs Free Energy (G).
 Also computes quasi-harmonic corrected Entropy (qh-S) and Free Energy (qh-G).</p>
-<p>Compute G as G = H - T*S</p>
+<p>Compute G as <code class="docutils literal notranslate"><span class="pre">G</span> <span class="pre">=</span> <span class="pre">H</span> <span class="pre">-</span> <span class="pre">(T</span> <span class="pre">*</span> <span class="pre">S)</span></code></p>
 </div>
-<div class="section" id="temperature">
-<h2>Temperature<a class="headerlink" href="#temperature" title="Permalink to this headline">¶</a></h2>
-<p>The default temperature in GoodVibes in 298.15 K (25C)</p>
+<div class="section" id="temperature-corrections">
+<h2>Temperature Corrections<a class="headerlink" href="#temperature-corrections" title="Permalink to this headline">¶</a></h2>
+<p>The default temperature in GoodVibes in <code class="docutils literal notranslate"><span class="pre">298.15</span> <span class="pre">K</span></code> (25C)</p>
 <p>What if the reaction was run at 100C?</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -m goodvibes benzene.log -t <span class="m">373</span>.15
 </pre></div>
@@ -139,19 +140,20 @@ Also computes quasi-harmonic corrected Entropy (qh-S) and Free Energy (qh-G).</p
 <div class="section" id="quasi-harmonic-corrections">
 <h2>Quasi-Harmonic Corrections<a class="headerlink" href="#quasi-harmonic-corrections" title="Permalink to this headline">¶</a></h2>
 <p>The quasi-harmonic correction has a greater effect when molecules have a greater number of low-frequency vibrational modes.
-For example:
-* Methylaniline: 2 vibrational modes below 200cm-1
-* Int-III: 23 vibrational modes below 200cm-1</p>
+For example:</p>
+<ul class="simple">
+<li><p>Methylaniline: 2 vibrational modes below 200cm-1</p></li>
+<li><p>Int-III: 23 vibrational modes below 200cm-1</p></li>
+</ul>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -m goodvibes methylaniline.log Int-III.log
 </pre></div>
 </div>
-<p>In each case, by how many kcal/mol does the quasi-harmonic differ from the uncorrected value:</p>
 </div>
 <div class="section" id="single-point-calculations">
 <h2>Single Point Calculations<a class="headerlink" href="#single-point-calculations" title="Permalink to this headline">¶</a></h2>
 <p>Useful for saving on computational resources:</p>
 <p>We can optimize molecules at a lower level of theory to still obtain an accurate geometry, but do a single point energy calculation (SPC) at a higher level of theory to obtain more accurate energy values.</p>
-<p>With the --spc argument, we can specify how the SPC file names are formatted.</p>
+<p>With the <code class="docutils literal notranslate"><span class="pre">--spc</span></code> argument, we can specify how the SPC file names are formatted.</p>
 <table class="docutils align-default" id="id1">
 <caption><span class="caption-text">File Naming Scheme</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -172,7 +174,7 @@ For example:
 </tr>
 </tbody>
 </table>
-<p>For example: ethane.log and ethane_TZ.out</p>
+<p>For example: <code class="docutils literal notranslate"><span class="pre">ethane.log</span></code> and <code class="docutils literal notranslate"><span class="pre">ethane_TZ.out</span></code></p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -m goodvibes ethane.log --spc TZ
 </pre></div>
 </div>
@@ -182,13 +184,28 @@ For example:
 <p>GoodVibes can compute relative energy/thermochemistry values to describe a reaction pathway with a potential energy surface</p>
 <p>To do this, we need to write a yaml file with 3 sections:</p>
 <ul class="simple">
-<li><p>PES
-* Defines reaction pathway
-* Can add multiple pathways</p></li>
-<li><p>SPECIES
-* Relates files to each species in the reaction pathway</p></li>
-<li><p>FORMAT
-* Optional additional formatting</p></li>
+<li><dl class="simple">
+<dt>PES</dt><dd><ul>
+<li><p>Defines reaction pathway</p></li>
+<li><p>Can add multiple pathways</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>SPECIES</dt><dd><ul>
+<li><p>Relates files to each species in the reaction pathway</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>FORMAT</dt><dd><ul>
+<li><p>Optional additional formatting</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span> <span class="c1"># PES</span>
     <span class="n">Ph</span><span class="p">:</span> <span class="p">[</span><span class="n">Ph</span><span class="o">-</span><span class="n">Int1</span> <span class="p">,</span> <span class="n">Ph</span><span class="o">-</span><span class="n">TS1</span> <span class="p">,</span> <span class="n">Ph</span><span class="o">-</span><span class="n">Int2</span> <span class="p">,</span> <span class="n">Ph</span><span class="o">-</span><span class="n">TS2</span> <span class="p">,</span> <span class="n">Ph</span><span class="o">-</span><span class="n">Int3</span> <span class="p">]</span>
@@ -219,21 +236,23 @@ For example:
 
 </pre></div>
 </div>
-<p>Putting it all together -</p>
+</div>
+<div class="section" id="putting-it-all-together">
+<h2>Putting it All Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Temperature adjustments</p></li>
 <li><p>Single Point Calculations</p></li>
-<li><p>Potential Energy Surface calculations</p></li>
+<li><p>Potential Energy Surface Calculations</p></li>
 </ul>
-<p>24 intermediate and transition state calculations + corresponding SPC files + yaml to define reaction pathway</p>
+<p>We can use these 24 intermediate and transition state calculations + corresponding SPC files + yaml to define a reaction pathway</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -m goodvibes *.log -t <span class="m">353</span>.15 --spc DLPNO --imag --invertifreq -f --pes PhPy.yaml
 </pre></div>
 </div>
-<p>Graphing these potential energy surfaces is simple once the yaml is created</p>
+<p>Graphing these potential energy surfaces is simple once the yaml file is created</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -m goodvibes *.log -t <span class="m">353</span>.15 --spc DLPNO --imag --invertifreq -5 --pes PhPy.yaml --graph PhPy.yaml
 </pre></div>
 </div>
-<p>Check out other packages by our lab &#64; our github</p>
+<p>Check out other packages by our lab &#64; our <a class="reference external" href="https://github.com/patonlab">github</a></p>
 </div>
 </div>
 
