@@ -3,6 +3,7 @@ Example GoodVibes Workflow
 ==========================
 
 GoodVibes GitHub Page
+
 Article
 
 Installation:
@@ -55,7 +56,7 @@ What if the reaction was run at 100C?
 
 GoodVibes can also compute temperature ranges.
 
-..code:: shell
+.. code:: shell
 
     python -m goodvibes benzene.log H2O.log --ti 250,400,50
 
@@ -88,7 +89,7 @@ With the --spc argument, we can specify how the SPC file names are formatted.
 
 .. list-table:: File Naming Scheme
     :header-rows: 1
-    
+
     * - Calculation Type
       - Filename
     * - opt/freq
@@ -110,16 +111,17 @@ GoodVibes can compute relative energy/thermochemistry values to describe a react
 To do this, we need to write a yaml file with 3 sections:
 
 * PES
-   * Defines reaction pathway
-   * Can add multiple pathways 
+  * Defines reaction pathway
+  * Can add multiple pathways 
 * SPECIES 
-   * Relates files to each species in the reaction pathway  
+  * Relates files to each species in the reaction pathway  
 * FORMAT 
-   * Optional additional formatting 
+  * Optional additional formatting 
   
 .. literalinclude:: resources/gv_files/pes/PhPy.yaml
 
 Putting it all together -
+
 * Temperature adjustments
 * Single Point Calculations
 * Potential Energy Surface calculations
@@ -136,4 +138,4 @@ Graphing these potential energy surfaces is simple once the yaml is created
 
     python -m goodvibes *.log -t 353.15 --spc DLPNO --imag --invertifreq -5 --pes PhPy.yaml --graph PhPy.yaml
 
-Check out other packages by our lab @ out github
+Check out other packages by our lab @ our github

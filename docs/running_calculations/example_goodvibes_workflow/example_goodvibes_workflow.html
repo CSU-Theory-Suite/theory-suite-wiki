@@ -95,8 +95,8 @@
              
   <div class="section" id="example-goodvibes-workflow">
 <h1>Example GoodVibes Workflow<a class="headerlink" href="#example-goodvibes-workflow" title="Permalink to this headline">¶</a></h1>
-<p>GoodVibes GitHub Page
-Article</p>
+<p>GoodVibes GitHub Page</p>
+<p>Article</p>
 <div class="section" id="installation">
 <h2>Installation:<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>Version 3.2 is most up to date. Install with:</p>
@@ -131,10 +131,9 @@ Also computes quasi-harmonic corrected Entropy (qh-S) and Free Energy (qh-G).</p
 </pre></div>
 </div>
 <p>GoodVibes can also compute temperature ranges.</p>
-<p>..code:: shell</p>
-<blockquote>
-<div><p>python -m goodvibes benzene.log H2O.log --ti 250,400,50</p>
-</div></blockquote>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -m goodvibes benzene.log H2O.log --ti <span class="m">250</span>,400,50
+</pre></div>
+</div>
 <p>This will compute the thermochemical values for both output files at temperatures ranging from 250K to 400K every 50K.</p>
 </div>
 <div class="section" id="quasi-harmonic-corrections">
@@ -183,28 +182,13 @@ For example:
 <p>GoodVibes can compute relative energy/thermochemistry values to describe a reaction pathway with a potential energy surface</p>
 <p>To do this, we need to write a yaml file with 3 sections:</p>
 <ul class="simple">
-<li><dl class="simple">
-<dt>PES</dt><dd><ul>
-<li><p>Defines reaction pathway</p></li>
-<li><p>Can add multiple pathways</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>SPECIES</dt><dd><ul>
-<li><p>Relates files to each species in the reaction pathway</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>FORMAT</dt><dd><ul>
-<li><p>Optional additional formatting</p></li>
-</ul>
-</dd>
-</dl>
-</li>
+<li><p>PES
+* Defines reaction pathway
+* Can add multiple pathways</p></li>
+<li><p>SPECIES
+* Relates files to each species in the reaction pathway</p></li>
+<li><p>FORMAT
+* Optional additional formatting</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span> <span class="c1"># PES</span>
     <span class="n">Ph</span><span class="p">:</span> <span class="p">[</span><span class="n">Ph</span><span class="o">-</span><span class="n">Int1</span> <span class="p">,</span> <span class="n">Ph</span><span class="o">-</span><span class="n">TS1</span> <span class="p">,</span> <span class="n">Ph</span><span class="o">-</span><span class="n">Int2</span> <span class="p">,</span> <span class="n">Ph</span><span class="o">-</span><span class="n">TS2</span> <span class="p">,</span> <span class="n">Ph</span><span class="o">-</span><span class="n">Int3</span> <span class="p">]</span>
@@ -235,10 +219,12 @@ For example:
 
 </pre></div>
 </div>
-<p>Putting it all together -
-* Temperature adjustments
-* Single Point Calculations
-* Potential Energy Surface calculations</p>
+<p>Putting it all together -</p>
+<ul class="simple">
+<li><p>Temperature adjustments</p></li>
+<li><p>Single Point Calculations</p></li>
+<li><p>Potential Energy Surface calculations</p></li>
+</ul>
 <p>24 intermediate and transition state calculations + corresponding SPC files + yaml to define reaction pathway</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -m goodvibes *.log -t <span class="m">353</span>.15 --spc DLPNO --imag --invertifreq -f --pes PhPy.yaml
 </pre></div>
@@ -247,7 +233,7 @@ For example:
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -m goodvibes *.log -t <span class="m">353</span>.15 --spc DLPNO --imag --invertifreq -5 --pes PhPy.yaml --graph PhPy.yaml
 </pre></div>
 </div>
-<p>Check out other packages by our lab &#64; out github</p>
+<p>Check out other packages by our lab &#64; our github</p>
 </div>
 </div>
 
