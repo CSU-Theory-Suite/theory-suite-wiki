@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GoodVibes Workflow &mdash; csu-wiki  documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>Example GoodVibes Workflow &mdash; csu-wiki  documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -55,8 +55,13 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../running_calculations.html">Running Calculations</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../example_aqme_workflow/example_aqme_workflow.html">Example Workflow in ACME</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">GoodVibes Workflow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#header-1">Header 1</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Example GoodVibes Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#computing-thermochemistry-for-qm-output-files">Computing Thermochemistry for QM Output Files:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#temperature">Temperature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quasi-harmonic-corrections">Quasi-Harmonic Corrections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#single-point-calculations">Single Point Calculations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#potential-energy-surface-calculations">Potential Energy Surface Calculations:</a></li>
 </ul>
 </li>
 </ul>
@@ -78,7 +83,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../running_calculations.html">Running Calculations</a></li>
-      <li class="breadcrumb-item active">GoodVibes Workflow</li>
+      <li class="breadcrumb-item active">Example GoodVibes Workflow</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/running_calculations/example_goodvibes_workflow/example_goodvibes_workflow.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -88,10 +93,161 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="goodvibes-workflow">
-<h1>GoodVibes Workflow<a class="headerlink" href="#goodvibes-workflow" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="header-1">
-<h2>Header 1<a class="headerlink" href="#header-1" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="example-goodvibes-workflow">
+<h1>Example GoodVibes Workflow<a class="headerlink" href="#example-goodvibes-workflow" title="Permalink to this headline">¶</a></h1>
+<p>GoodVibes GitHub Page
+Article</p>
+<div class="section" id="installation">
+<h2>Installation:<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Version 3.2 is most up to date. Install with:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install goodvibes
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install --upgrade goodvibes
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge goodvibes
+</pre></div>
+</div>
+<p>(you may also need to install matplotlib)</p>
+</div>
+<div class="section" id="computing-thermochemistry-for-qm-output-files">
+<h2>Computing Thermochemistry for QM Output Files:<a class="headerlink" href="#computing-thermochemistry-for-qm-output-files" title="Permalink to this headline">¶</a></h2>
+<p>You can find the necessary files in this folder.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -m goodvibes H2O.log
+</pre></div>
+</div>
+<p>Grabs Energy, frequencies, and computes thermochemical values Enthalpy (H), Entropy (S), Gibbs Free Energy (G).
+Also computes quasi-harmonic corrected Entropy (qh-S) and Free Energy (qh-G).</p>
+<p>Compute G as G = H - T*S</p>
+</div>
+<div class="section" id="temperature">
+<h2>Temperature<a class="headerlink" href="#temperature" title="Permalink to this headline">¶</a></h2>
+<p>The default temperature in GoodVibes in 298.15 K (25C)</p>
+<p>What if the reaction was run at 100C?</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -m goodvibes benzene.log -t <span class="m">373</span>.15
+</pre></div>
+</div>
+<p>GoodVibes can also compute temperature ranges.</p>
+<p>..code:: shell</p>
+<blockquote>
+<div><p>python -m goodvibes benzene.log H2O.log --ti 250,400,50</p>
+</div></blockquote>
+<p>This will compute the thermochemical values for both output files at temperatures ranging from 250K to 400K every 50K.</p>
+</div>
+<div class="section" id="quasi-harmonic-corrections">
+<h2>Quasi-Harmonic Corrections<a class="headerlink" href="#quasi-harmonic-corrections" title="Permalink to this headline">¶</a></h2>
+<p>The quasi-harmonic correction has a greater effect when molecules have a greater number of low-frequency vibrational modes.
+For example:
+* Methylaniline: 2 vibrational modes below 200cm-1
+* Int-III: 23 vibrational modes below 200cm-1</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -m goodvibes methylaniline.log Int-III.log
+</pre></div>
+</div>
+<p>In each case, by how many kcal/mol does the quasi-harmonic differ from the uncorrected value:</p>
+</div>
+<div class="section" id="single-point-calculations">
+<h2>Single Point Calculations<a class="headerlink" href="#single-point-calculations" title="Permalink to this headline">¶</a></h2>
+<p>Useful for saving on computational resources:</p>
+<p>We can optimize molecules at a lower level of theory to still obtain an accurate geometry, but do a single point energy calculation (SPC) at a higher level of theory to obtain more accurate energy values.</p>
+<p>With the --spc argument, we can specify how the SPC file names are formatted.</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">File Naming Scheme</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Calculation Type</p></th>
+<th class="head"><p>Filename</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>opt/freq</p></td>
+<td><p>file.log</p></td>
+</tr>
+<tr class="row-odd"><td><p>SPC</p></td>
+<td><p>file_SPC.log</p></td>
+</tr>
+</tbody>
+</table>
+<p>For example: ethane.log and ethane_TZ.out</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -m goodvibes ethane.log --spc TZ
+</pre></div>
+</div>
+</div>
+<div class="section" id="potential-energy-surface-calculations">
+<h2>Potential Energy Surface Calculations:<a class="headerlink" href="#potential-energy-surface-calculations" title="Permalink to this headline">¶</a></h2>
+<p>GoodVibes can compute relative energy/thermochemistry values to describe a reaction pathway with a potential energy surface</p>
+<p>To do this, we need to write a yaml file with 3 sections:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>PES</dt><dd><ul>
+<li><p>Defines reaction pathway</p></li>
+<li><p>Can add multiple pathways</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>SPECIES</dt><dd><ul>
+<li><p>Relates files to each species in the reaction pathway</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>FORMAT</dt><dd><ul>
+<li><p>Optional additional formatting</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span> <span class="c1"># PES</span>
+    <span class="n">Ph</span><span class="p">:</span> <span class="p">[</span><span class="n">Ph</span><span class="o">-</span><span class="n">Int1</span> <span class="p">,</span> <span class="n">Ph</span><span class="o">-</span><span class="n">TS1</span> <span class="p">,</span> <span class="n">Ph</span><span class="o">-</span><span class="n">Int2</span> <span class="p">,</span> <span class="n">Ph</span><span class="o">-</span><span class="n">TS2</span> <span class="p">,</span> <span class="n">Ph</span><span class="o">-</span><span class="n">Int3</span> <span class="p">]</span>
+    <span class="n">Py</span><span class="p">:</span> <span class="p">[</span><span class="n">Py</span><span class="o">-</span><span class="n">Int1</span> <span class="p">,</span> <span class="n">Py</span><span class="o">-</span><span class="n">TS1</span> <span class="p">,</span> <span class="n">Py</span><span class="o">-</span><span class="n">Int2</span> <span class="p">,</span> <span class="n">Py</span><span class="o">-</span><span class="n">TS2</span> <span class="p">,</span> <span class="n">Py</span><span class="o">-</span><span class="n">Int3</span> <span class="p">]</span>
+
+<span class="o">---</span> <span class="c1"># SPECIES</span>
+    <span class="n">Ph</span><span class="o">-</span><span class="n">Int1</span>     <span class="p">:</span> <span class="n">Int_I_Ph</span><span class="o">*</span>
+    <span class="n">Ph</span><span class="o">-</span><span class="n">TS1</span>      <span class="p">:</span> <span class="n">TS_1_Ph</span><span class="o">*</span>
+    <span class="n">Ph</span><span class="o">-</span><span class="n">Int2</span>     <span class="p">:</span> <span class="n">Int_II_Ph</span><span class="o">*</span>
+    <span class="n">Ph</span><span class="o">-</span><span class="n">TS2</span>      <span class="p">:</span> <span class="n">TS_II_Ph</span><span class="o">*</span>
+    <span class="n">Ph</span><span class="o">-</span><span class="n">Int3</span>     <span class="p">:</span> <span class="n">Int_III_Ph</span><span class="o">*</span>
+    <span class="n">Py</span><span class="o">-</span><span class="n">Int1</span>     <span class="p">:</span> <span class="n">Int_I_Py</span><span class="o">*</span>
+    <span class="n">Py</span><span class="o">-</span><span class="n">TS1</span>      <span class="p">:</span> <span class="n">TS_1_Py</span><span class="o">*</span>
+    <span class="n">Py</span><span class="o">-</span><span class="n">Int2</span>     <span class="p">:</span> <span class="n">Int_II_Py</span><span class="o">*</span>
+    <span class="n">Py</span><span class="o">-</span><span class="n">TS2</span>      <span class="p">:</span> <span class="n">TS_II_Py</span><span class="o">*</span>
+    <span class="n">Py</span><span class="o">-</span><span class="n">Int3</span>     <span class="p">:</span> <span class="n">Int_III_Py</span><span class="o">*</span>
+    
+<span class="o">---</span> <span class="c1"># FORMAT</span>
+    <span class="n">dec</span> <span class="p">:</span>  <span class="mi">2</span> 
+    <span class="n">legend</span> <span class="p">:</span> <span class="kc">False</span>
+    <span class="n">color</span> <span class="p">:</span> <span class="n">black</span><span class="p">,</span><span class="c1">#26a6a4</span>
+    <span class="n">pointlabel</span> <span class="p">:</span> <span class="kc">False</span> 
+    <span class="n">gridlines</span><span class="p">:</span> <span class="kc">True</span>
+    <span class="n">show_conformers</span><span class="p">:</span> <span class="kc">True</span>
+    <span class="n">show_gconf</span><span class="p">:</span> <span class="kc">False</span>
+    <span class="n">title</span><span class="p">:</span> <span class="n">Potential</span> <span class="n">Energy</span> <span class="n">Surface</span>
+
+
+</pre></div>
+</div>
+<p>Putting it all together -
+* Temperature adjustments
+* Single Point Calculations
+* Potential Energy Surface calculations</p>
+<p>24 intermediate and transition state calculations + corresponding SPC files + yaml to define reaction pathway</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -m goodvibes *.log -t <span class="m">353</span>.15 --spc DLPNO --imag --invertifreq -f --pes PhPy.yaml
+</pre></div>
+</div>
+<p>Graphing these potential energy surfaces is simple once the yaml is created</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -m goodvibes *.log -t <span class="m">353</span>.15 --spc DLPNO --imag --invertifreq -5 --pes PhPy.yaml --graph PhPy.yaml
+</pre></div>
+</div>
+<p>Check out other packages by our lab &#64; out github</p>
 </div>
 </div>
 
