@@ -30,4 +30,5 @@ Welcome to csu-wiki's Documentation!
    :maxdepth: 3
    :caption: Running Calculations
 
-   running_calculations/running_calculations
+   running_calculations/example_aqme_workflow/example_aqme_workflow.rst
+   running_calculations/example_goodvibes_workflow/example_goodvibes_workflow.rst
