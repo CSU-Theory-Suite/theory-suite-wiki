@@ -1,8 +1,11 @@
 .. |PES| image:: resources/PES.png
 
-
+========================
 Example Workflow in ACME
 ========================
+
+.. contents::
+   :local:
 
 1. Activating the conda environment
 ------------------------------------
