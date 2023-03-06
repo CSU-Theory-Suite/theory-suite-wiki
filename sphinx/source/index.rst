@@ -6,7 +6,8 @@ Welcome to csu-wiki's Documentation!
    :maxdepth: 3
    :caption: Computing Resources
 
-   computing_resources/computing_resources
+   computing_resources/paton_computing_resources.rst
+   computing_resources/kim_computing_resources.rst
 
 
 .. toctree::

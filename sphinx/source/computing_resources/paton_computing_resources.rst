@@ -1,6 +1,9 @@
-=========================
-Paton Computing Resources
-=========================
+=============================
+Paton Lab Computing Resources
+=============================
+
+.. contents::
+    :local:
 
 Here is an overall list of computing resources available to students in the Paton lab
 
@@ -16,7 +19,7 @@ But first, here are some tips for accessing these computers:
 Expanse and Bridges2
 --------------------
 
-We typically apply for an ACCESS grant each year to get compute time on the Expanse and Bridges2 clusters:
+We typically apply for an ACCESS grant each year to get compute time on the **Expanse** and **Bridges2** clusters:
 These aliases will allow you to type ``expanse`` or ``bridges2`` into your terminal and immediately ssh to that computer.
 You will still have to type in a password, but this will allow you to avoid typing the long hostname each time you want to access another computer.
 
@@ -41,6 +44,15 @@ As CSU students, we have access to a shared cluster **Alpine** with CU Boulder (
 In order to gain access to Alpine follow `this link <https://it.colostate.edu/research-computing-and-cyberinfrastructure/compute/get-started-with-summit/:~:text=Create%20an%20account,out%20the%20Account%20Application%20Form>`_
 Each time you log onto Alpine, you will need to run the command ``module load slurm/alpine``. More information can be found `here <https://curc.readthedocs.io/en/latest/clusters/alpine/quick-start.html>`_.
 
+The alias to log in to Alpine is:
+
+.. code:: shell
+
+    alias alpine='ssh $USER@colostate.edu@login.rc.colorado.edu'
+
+You will be required to log in using your CSU NetID information (username and password), as wel as sign in with Duo.
+There are two ways to sign in with Duo to this computer: type ``password`` then enter in the 6-digit pin on the Duo app, or type ``password,push`` which will send a Duo push notification to your phone.
+
 Before you can use Gaussian on Alpine, you will need to email ``rc-help@colorado.edu`` to be added to ``rpatongrp@colostate.edu`` (just send them your username).
 
 You should also add the following to your ~/.bashrc or ~/.bash_profile or ~/.zshrc on Alpine for additional group-specific messages:
@@ -58,20 +70,37 @@ You should also add the following to your ~/.bashrc or ~/.bash_profile or ~/.zsh
         source $PROJECTS/bin/.bashrc
     fi '''
 
-Here are aliases to the local CSU resources:
+ACME 
+----
+
+**ACME** is a shared computer between the Paton and Kim labs. This computer has a queueing system (sbatch) to allow for easy use for all students of the Theory Suite. There are also a number of premade submission scripts on ACME that are available to help with running jobs.
+
+Here is the alias for ACME:
 
 .. code:: shell
 
     alias acme='ssh $USER@acme.chem.colostate.edu'
+
+To gain access to ACME, contact an admin to make an account. The current admins are Yeonjoon, Collin, Sabari, and Guilian (March 2023).
+
+Local Resources
+---------------
+
+The Paton lab also has a number of **local machines** available to students to use. These machines do not have a queueing system like many of the other computers do, but are useful for different tasks you may have. 
+
+Here are aliases to the local CSU resources:
+
+.. code:: shell
+
     alias drmax='ssh $USER@drmaximus.chem.colostate.edu'
     alias subzero='ssh $USER@subzero.chem.colostate.edu'
     alias fireball='ssh $USER@fireball.chem.colostate.edu'
     alias dynamo='ssh $USER@dynamo.chem.colostate.edu'
     alias buzzsaw='ssh $USER@buzzsaw.chem.colostate.edu'
 
-To get accounts on these computers, you will need to contact an admin. This is Guilian, Collin, Yeonjoon, and Sabari (March 2023)
+To get accounts on these computers, you will need to contact an admin. For the Paton lab, this is Guilian (March 2023).
 
-Here are the IP addresses and CPU information for the local machines:
+Here are the IP addresses and CPU information for ACME and the local machines:
 
 .. code:: shell
 
