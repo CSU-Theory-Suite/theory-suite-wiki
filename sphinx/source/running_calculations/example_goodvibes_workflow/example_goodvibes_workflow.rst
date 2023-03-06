@@ -5,6 +5,9 @@
 Example GoodVibes Workflow 
 ==========================
 
+.. contents::
+    :local:
+
 Here is the `GoodVibes GitHub Page <https://github.com/patonlab/GoodVibes/>`_
 
 Here is the `Article <https://f1000research.com/articles/9-291/v1>`_
