@@ -38,12 +38,19 @@ for the visualization of the parameter measurements in PyMOL.
 Documentation can be found in the Readme 
 `here <https://github.com/patonlab/DBSTEP>`__
 
-Regge
+REGGAE
 -----
 
-(Insert short description here)
+Regression Generator and Analyzer (or REGGAE) is an R-language script for 
+statistical analysis of datasets. Statistical diagnostics include linear and 
+non-linear regression modeling, feature selection, data splitting, pairwise 
+correlations, ANOVA and QSAR analysis, PCA, and cross-validation analysis. 
+Users can also generate plots for these analyses.
 
-disco
+Documentation can be found in the Readme
+`here <https://github.com/Liliana-Gallegos/REGGAE>`__
+
+DISCO
 -----
 
 (Insert short description here)
