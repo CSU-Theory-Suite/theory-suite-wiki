@@ -39,7 +39,7 @@ Documentation can be found in the Readme
 `here <https://github.com/patonlab/DBSTEP>`__
 
 REGGAE
------
+------
 
 Regression Generator and Analyzer (or REGGAE) is an R-language script for 
 statistical analysis of datasets. Statistical diagnostics include linear and 
