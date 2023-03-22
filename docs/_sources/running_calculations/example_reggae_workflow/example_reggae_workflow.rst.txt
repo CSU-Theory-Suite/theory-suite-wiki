@@ -1,4 +1,5 @@
 .. |REGGAE-MV-linear-plot| image:: images/REGGAE-MV-linear-plot.png
+.. |REGGEA-correlation-plot| image:: images/REGGEA-correlation-plot.png
 .. |REGGAE-diagnostics-plot| image:: images/REGGAE-diagnostics-plot.png
 .. |PCA-clusters-REGGAE| image:: images/PCA-clusters-REGGAE.png
 
@@ -31,7 +32,7 @@ Installation
 
     conda activate r_env
 
-Note: To list the r packages already installed in r_env use :code: ``conda list``
+Note: To list the r packages already installed in r_env use ``conda list``
    
 4. Install all packages required for REGGAE with conda:
 
@@ -47,21 +48,25 @@ Note: Maybe need to install using older version of python. Add ``python=3.9``
 
     Rscript reggae.r -h
 
+.. warning:: 
+    With error: could not find function "all_of", then run setup_for_allof.r script
+    using ``Rscript setup_for_allof.r``
+
 
 Performing a multivariate regression Example 1
 ----------------------------------------------
-
 Using (i) Forward-stepwise feature selection and (ii) Random 70 Train and 30 Test split on a 
 dataset containg 20 samples and 17 features.
 
+.. code:: shell
+
+    Rscript reggae.r -i 20solvents.csv -y Exp_dG -m stepwise -r 0.7
+
 .. note::
-    Other feature selection options are available. 
+    Other feature selection ``-m`` options are available. 
 
 .. warning:: 
     Dredge option takes time and therefore should be executed with small number of features. 
-
-.. code:: shell
-    Rscript reggae.r -i 20solvents.csv -y Exp_dG -m stepwise -r 0.7
 
 First portion of the Terminal output (without using the verbose option) includes the split performed, 
 regression formula in both scaled and nonscaled versions, and the R2 and RMSE values.
@@ -76,18 +81,18 @@ regression formula in both scaled and nonscaled versions, and the R2 and RMSE va
 
 
 Performing a multivariate regression Example 2
------------------------
-
+----------------------------------------------
 Using (i) manual feature selection, (ii) predefined split selection, and (iii) cross-validation.
 The split has been defined as Train and Test within the 12kclusters column in the dataset. 
 Therefore, the script will pick up the column with two catagorical variables. 
 To execute this option, ``-r`` is set to 0.
 
+.. code:: shell
+
+    Rscript reggae.r -i 20solvents.csv -y Exp_dG -b Sig2,V -r 0 -q -v
+
 .. note:: 
     Error can occur if there are multiple columns with strings or characters.  
-
-.. code:: none
-    Rscript reggae.r -i 20solvents.csv -y Exp_dG -b Sig2,V -r 0 -q -v
 
 First portion of the Terminal output (without using the verbose option) includes the split performed, 
 regression formula in both scaled and nonscaled versions, R2 and RMSE values, 
@@ -125,7 +130,6 @@ Continued Terminal output includes analysis for the three cross-validation metho
 
 Regression Plot Generated
 --------------------------
-
 From Example2: Regression plot is saved in working folder as REGGAE-MV-linear-plot.png.
 
 .. centered:: |REGGAE-MV-linear-plot|
@@ -133,7 +137,6 @@ From Example2: Regression plot is saved in working folder as REGGAE-MV-linear-pl
 
 Pearson Correlation Plot  
 -------------------------
-
 Adding the ``-c 0.5`` option outputs: pairwise correlations between features > 0.5 
 
 .. highlight:: none
@@ -146,12 +149,11 @@ Adding the ``-c 0.5`` option outputs: pairwise correlations between features > 0
 
 Using the ``-v`` option saves the plot within the working folder as REGGEA-correlation-plot.png.
 
-.. centered:: |REGGAE-MV-linear-plot|
+.. centered:: |REGGEA-correlation-plot|
 
 
 Diagnostics Plot  
 -------------------------
-
 Adding the ``-d`` option outputs: QSAR analysis for the Test set and collinearity analysis in the first section (withou ``-v`` option).
 
 .. highlight:: none
@@ -169,7 +171,6 @@ Using the ``-v`` option saves the plot within the working folder as REGGAE-diagn
 
 PCA Plot  
 -------------------------
-
 Using the ``-p 5,2`` option requests running principal componenet analysis with k-means clustering using 5 clusters and 2 components. 
 Using the ``-v`` option gives the PCA-clusters and Scree plots (or elbow plots) for each the clusters and components. 
 Also, within the terminal output, the script returns the loadings. 
