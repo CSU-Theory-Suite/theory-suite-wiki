@@ -8,3 +8,6 @@ sphinx/_build/
 
 # Visual Studio Code configuration
 .vscode/
+
+# Mac stuff
+.DS_Store
