@@ -9,7 +9,7 @@ Example REGGAE Workflow
 .. contents::
     :local:
 
-Here is the `GoodVibes GitHub Page <https://github.com/Liliana-Gallegos/REGGAE/>`_
+Here is the `REGGAE GitHub Page <https://github.com/Liliana-Gallegos/REGGAE/>`_
 
 Installation
 -------------
