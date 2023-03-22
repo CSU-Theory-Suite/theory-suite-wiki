@@ -38,6 +38,8 @@ Note: To list the r packages already installed in r_env use :code: ``conda list`
 .. code:: shell
 
     conda install --yes --file requirements.txt
+
+Note: Maybe need to install using older version of python. Add ``python=3.9``
    
 5. Confirm by running REGGAE help options:
 
