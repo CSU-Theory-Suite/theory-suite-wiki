@@ -9,18 +9,23 @@ Example REGGAE Workflow
 .. contents::
     :local:
 
-Here is the `REGGAE GitHub Page <https://github.com/Liliana-Gallegos/REGGAE/>`_
-
 Installation
 -------------
 
-1. Create a new conda environment with all the r-essentials conda packages built from CRAN:
+1. Clone REGGAE from GitHub. Here is the `REGGAE GitHub Page <https://github.com/Liliana-Gallegos/REGGAE/>`_
+
+.. code:: shell
+
+    git clone https://github.com/Liliana-Gallegos/REGGAE.git
+    
+
+2. Create a new conda environment with all the r-essentials conda packages built from CRAN:
 
 .. code:: shell
 
     conda create -n r_env r-essentials r-base
    
-2. Activate the r_env:
+3. Activate the r_env:
 
 .. code:: shell
 
@@ -28,13 +33,13 @@ Installation
 
 Note: To list the r packages already installed in r_env use :code: ``conda list``
    
-3. Install all packages required for REGGAE with conda:
+4. Install all packages required for REGGAE with conda:
 
 .. code:: shell
 
     conda install --yes --file requirements.txt
    
-4. Confirm by running REGGAE help options:
+5. Confirm by running REGGAE help options:
 
 .. code:: shell
 
