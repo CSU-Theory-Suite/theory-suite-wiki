@@ -3,7 +3,6 @@ REGGAE Terminal Outputs
 =========================
 
 .. example1-start
-
 ***** RESULTS PROVIDED BY REGGAE *****
 
 o Using Random Sampling for "Train" Samples:  70 %
@@ -23,12 +22,10 @@ o Forward Step-wise features selected for linear regression:
 
   R2-train=  0.68 
   adj R2-train =  0.59 
-   RMSE-train =  0.25
-
+  RMSE-train =  0.25
 .. example1-end
 
 .. example2-start
-
 ***** RESULTS PROVIDED BY REGGAE *****
 
 o Using data option with pre-defined Test/Train split. 
@@ -51,7 +48,7 @@ o Linear regression model with SELECTED features:
 
   R2-train =  0.67 
   adj R2-train =  0.6 
-   RMSE-train =  0.29 
+  RMSE-train =  0.29 
 
 
 o Cross Validation for model ( k =  5 ): 
@@ -62,14 +59,12 @@ o Cross Validation for model ( k =  5 ):
   Iteration  4 : Kfold-q2 =  0.42 
   Iteration  5 : Kfold-q2 =  0.55 
   Avg Kfold-q2 (train) =  0.5 ( +/- 0.09 )
-   RMSE =  0.38 
+  RMSE =  0.38 
   q2 (test) =  0.76 
-   RMSE-test =  0.22 
-
+  RMSE-test =  0.22 
 .. example2-end
 
 .. example2v-start
-
 ********** DETAILED RESULTS **********
 
 o Dataset preview ( y = Exp_dG )
@@ -127,11 +122,9 @@ DMF            1.36   1.13 Train
 dodecane       1.46   1.18 Train
 DMSO           1.56   1.57 Train
 ...
-
 .. example2v-end
 
 .. example2cv-start
-
 o I. Leave-one-out Cross validation: 
 
 ---- CALL ----
@@ -208,11 +201,9 @@ mean (predicted): 	0.7306
 rmse (nu = 0): 		0.2181
 q^2: 			0.7592
 ******************END*****************
-
 .. example2cv-end
 
 .. pcorrelation-start
-
 ********** DETAILED RESULTS **********
 ...
 o Correlation table for all variables: 
@@ -222,11 +213,9 @@ Sig2 0.55  1.00 -0.61
 V    0.14 -0.61  1.00
 
 o Correlation plot saved in working file. 
-
 .. pcorrelation-end
 
 .. diagnostics-start
-
 o Diagnostic results:
 I. Reduced model significance:  
   F-value full =  9.238 
@@ -248,6 +237,5 @@ IV. Collinearity diagnostics for reduced model:
 
 
   No collinearity found within model. VIF < 4 
-
 .. diagnostics-end
 
