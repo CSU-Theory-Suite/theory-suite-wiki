@@ -32,3 +32,4 @@ Welcome to csu-wiki's Documentation!
 
    running_calculations/example_aqme_workflow/example_aqme_workflow.rst
    running_calculations/example_goodvibes_workflow/example_goodvibes_workflow.rst
+   running_calculations/example_reggae_workflow/example_reggae_workflow.rst
