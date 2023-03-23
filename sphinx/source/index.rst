@@ -27,9 +27,10 @@ Welcome to csu-wiki's Documentation!
 
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 4
    :caption: Running Calculations
 
    running_calculations/example_aqme_workflow/example_aqme_workflow.rst
    running_calculations/example_goodvibes_workflow/example_goodvibes_workflow.rst
    running_calculations/example_reggae_workflow/example_reggae_workflow.rst
+   running_calculations/example_descriptors_workflow/example_descriptors_workflow.rst
