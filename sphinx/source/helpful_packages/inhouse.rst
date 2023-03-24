@@ -53,7 +53,14 @@ Documentation can be found in the Readme
 DISCO
 -----
 
-(Insert short description here)
+Distributing Computed Outputs (or DISCO) is Python script to parse through 
+Gaussian (i) Natural Bond Analysis (NBO) calculations and (ii) NMR Shielding 
+calculations using the GIAO method for atomistic and molecular properties. 
+NBO atomic charges, NMR tensor values and chemical NMR shifts, HOMO, LUMO, 
+and Bond distance values.
+
+Documentation can be found in the Readme
+`here <https://github.com/Liliana-Gallegos/DISCO>`__
 
 aqme
 ----
