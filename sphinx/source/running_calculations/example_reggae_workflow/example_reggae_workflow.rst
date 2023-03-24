@@ -20,21 +20,23 @@ Installation
     git clone https://github.com/Liliana-Gallegos/REGGAE.git
     
 
-2. Create a new conda environment with all the r-essentials conda packages built from CRAN:
+2. Create and install a new conda environment with all the r-essentials conda packages built from CRAN:
 
 .. code:: shell
 
     conda create -n r_env r-essentials r-base
+    conda activate r_env
    
-3. Activate the r_env:
+or
 
 .. code:: shell
 
+    conda create -n r_env
     conda activate r_env
+    conda install -c conda-forge r-base
+    conda install -c conda-forge r-essentials
 
-Note: To list the r packages already installed in r_env use ``conda list``
-   
-4. Install all packages required for REGGAE with conda:
+3. Install all packages required for REGGAE with conda:
 
 .. code:: shell
 
@@ -42,16 +44,12 @@ Note: To list the r packages already installed in r_env use ``conda list``
 
 Note: Maybe need to install using older version of python. Add ``python=3.9``
    
-5. Confirm by running REGGAE help options:
+4. Confirm by running REGGAE help options:
 
 .. code:: shell
 
     Rscript reggae.r -h
-
-.. warning:: 
-    With error: could not find function "all_of", then run setup_for_allof.r script
-    using ``Rscript setup_for_allof.r``
-
+    
 
 Performing a multivariate regression Example 1
 ----------------------------------------------
