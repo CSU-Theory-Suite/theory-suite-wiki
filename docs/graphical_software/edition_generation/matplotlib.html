@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="python" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Matplotlib &mdash; csu-wiki  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -17,6 +16,7 @@
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -77,6 +77,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../running_calculations/example_aqme_workflow/example_aqme_workflow.html">Example Workflow in ACME</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../running_calculations/example_goodvibes_workflow/example_goodvibes_workflow.html">Example GoodVibes Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../running_calculations/example_reggae_workflow/example_reggae_workflow.html">Example REGGAE Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../running_calculations/example_descriptors_workflow/example_descriptors_workflow.html">Example Descriptors Workflow using RDKit, Modred, Morfeus &amp; DBStep</a></li>
 </ul>
 
         </div>
@@ -104,7 +105,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="matplotlib">
+  <div class="section" id="matplotlib">
 <h1>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this heading"></a></h1>
 <p>Although matplotlib is not included in the standard library of python it is a
 python library widely used by pythonists. Quoting the
@@ -117,9 +118,9 @@ and interactive visualizations in Python.</p>
 cheatsheets as well as examples. For installation please follow their
 <a class="reference external" href="https://matplotlib.org/stable/users/getting_started/">getting started</a>
 section and/or their <a class="reference external" href="https://matplotlib.org/stable/users/installing/index.html">installation guide</a></p>
-<section id="basics">
+<div class="section" id="basics">
 <h2>Basics<a class="headerlink" href="#basics" title="Permalink to this heading"></a></h2>
-<section id="simplest-usage">
+<div class="section" id="simplest-usage">
 <h3>Simplest usage<a class="headerlink" href="#simplest-usage" title="Permalink to this heading"></a></h3>
 <p>The first thing that we are going to do is a simple plot with matplotlib and
 we will go step by step on how gain more control on the drawing through the
@@ -177,8 +178,8 @@ instead use</p>
 this high-level interface is to use it for &quot;quick-and-dirty plots&quot; as you saw,
 the figure was generated in 3 lines of code: the import, the plot and the
 saving/showing steps.</p>
-</section>
-<section id="figure-axes-gridspec-and-kwargs">
+</div>
+<div class="section" id="figure-axes-gridspec-and-kwargs">
 <h3>Figure, Axes, Gridspec and kwargs<a class="headerlink" href="#figure-axes-gridspec-and-kwargs" title="Permalink to this heading"></a></h3>
 <p>If we want to gain a bit more of control of our drawings we need to use the
 basic structures of matplotlib: <code class="code docutils literal notranslate"><span class="pre">Figure</span></code>, <code class="code docutils literal notranslate"><span class="pre">Axes</span></code> and <code class="code docutils literal notranslate"><span class="pre">Gridspec</span></code></p>
@@ -277,8 +278,8 @@ the <code class="code docutils literal notranslate"><span class="pre">kwargs</sp
 <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">ofile</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="plot-types-plot-scatter-imgshow-bar">
+</div>
+<div class="section" id="plot-types-plot-scatter-imgshow-bar">
 <h3>Plot types ( .plot, .scatter, .imgshow, .bar, … )<a class="headerlink" href="#plot-types-plot-scatter-imgshow-bar" title="Permalink to this heading"></a></h3>
 <p>Now allow me to introduce some basic drawing methods that we can have in
 matplotlib (for a full list check the
@@ -430,8 +431,8 @@ rather than reading it, so in this example we will proceed in that manner.</p>
 <strong><img alt="matplotlib_composite_figure_01" src="../../_images/matplotlib_composite_figure_01.png" /></strong></p><p>As we have saved it as a .svg we can edit
 it in inkscape to remove the axes labels and/or add titles, but in the next
 section we will see how to do this by hand.</p>
-</section>
-<section id="changing-axes-properties-and-cheatsheets">
+</div>
+<div class="section" id="changing-axes-properties-and-cheatsheets">
 <h3>Changing axes properties and cheatsheets<a class="headerlink" href="#changing-axes-properties-and-cheatsheets" title="Permalink to this heading"></a></h3>
 <p>I probably have not mentioned that matplotlib's documentation is very very well
 done right? Look at these amazing
@@ -591,8 +592,8 @@ increase the thickness of the yaxis ticks. Let's add a ylabel and modify the yti
 <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">ofile</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="colors-and-creating-a-custom-colormap">
+</div>
+<div class="section" id="colors-and-creating-a-custom-colormap">
 <h3>Colors and creating a custom colormap<a class="headerlink" href="#colors-and-creating-a-custom-colormap" title="Permalink to this heading"></a></h3>
 <p>Probably you noticed the keyword <code class="code docutils literal notranslate"><span class="pre">cmap</span></code> before when we were using imshow.
 This keyword stands for 'color map' and we can find
@@ -739,9 +740,9 @@ in our previous code and we will see our new color map in action!</p>
 </pre></div>
 </div>
 <p class="centered">
-<strong><img alt="matplotlib_composite_figure_04" src="../../_images/matplotlib_composite_figure_04.png" /></strong></p></section>
-</section>
-</section>
+<strong><img alt="matplotlib_composite_figure_04" src="../../_images/matplotlib_composite_figure_04.png" /></strong></p></div>
+</div>
+</div>
 
 
            </div>
