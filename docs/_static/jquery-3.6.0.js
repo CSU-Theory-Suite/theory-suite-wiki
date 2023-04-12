@@ -1,9 +1,5 @@
 /*!
-<<<<<<< HEAD:docs/_static/jquery-3.5.1.js
- * jQuery JavaScript Library v3.5.1
-=======
  * jQuery JavaScript Library v3.6.0
->>>>>>> 0ff463296d5e4c2c760f83c06cc0aef733303237:docs/_static/jquery-3.6.0.js
  * https://jquery.com/
  *
  * Includes Sizzle.js
@@ -13,11 +9,7 @@
  * Released under the MIT license
  * https://jquery.org/license
  *
-<<<<<<< HEAD:docs/_static/jquery-3.5.1.js
- * Date: 2020-05-04T22:49Z
-=======
  * Date: 2021-03-02T17:08Z
->>>>>>> 0ff463296d5e4c2c760f83c06cc0aef733303237:docs/_static/jquery-3.6.0.js
  */
 ( function( global, factory ) {
 
@@ -159,11 +151,7 @@ function toType( obj ) {
 
 
 var
-<<<<<<< HEAD:docs/_static/jquery-3.5.1.js
-	version = "3.5.1",
-=======
 	version = "3.6.0",
->>>>>>> 0ff463296d5e4c2c760f83c06cc0aef733303237:docs/_static/jquery-3.6.0.js
 
 	// Define a local copy of jQuery
 	jQuery = function( selector, context ) {
@@ -512,15 +500,9 @@ if ( typeof Symbol === "function" ) {
 
 // Populate the class2type map
 jQuery.each( "Boolean Number String Function Array Date RegExp Object Error Symbol".split( " " ),
-<<<<<<< HEAD:docs/_static/jquery-3.5.1.js
-function( _i, name ) {
-	class2type[ "[object " + name + "]" ] = name.toLowerCase();
-} );
-=======
 	function( _i, name ) {
 		class2type[ "[object " + name + "]" ] = name.toLowerCase();
 	} );
->>>>>>> 0ff463296d5e4c2c760f83c06cc0aef733303237:docs/_static/jquery-3.6.0.js
 
 function isArrayLike( obj ) {
 
@@ -540,22 +522,14 @@ function isArrayLike( obj ) {
 }
 var Sizzle =
 /*!
-<<<<<<< HEAD:docs/_static/jquery-3.5.1.js
- * Sizzle CSS Selector Engine v2.3.5
-=======
  * Sizzle CSS Selector Engine v2.3.6
->>>>>>> 0ff463296d5e4c2c760f83c06cc0aef733303237:docs/_static/jquery-3.6.0.js
  * https://sizzlejs.com/
  *
  * Copyright JS Foundation and other contributors
  * Released under the MIT license
  * https://js.foundation/
  *
-<<<<<<< HEAD:docs/_static/jquery-3.5.1.js
- * Date: 2020-03-14
-=======
  * Date: 2021-02-16
->>>>>>> 0ff463296d5e4c2c760f83c06cc0aef733303237:docs/_static/jquery-3.6.0.js
  */
 ( function( window ) {
 var i,
@@ -1138,13 +1112,8 @@ support = Sizzle.support = {};
  * @returns {Boolean} True iff elem is a non-HTML XML node
  */
 isXML = Sizzle.isXML = function( elem ) {
-<<<<<<< HEAD:docs/_static/jquery-3.5.1.js
-	var namespace = elem.namespaceURI,
-		docElem = ( elem.ownerDocument || elem ).documentElement;
-=======
 	var namespace = elem && elem.namespaceURI,
 		docElem = elem && ( elem.ownerDocument || elem ).documentElement;
->>>>>>> 0ff463296d5e4c2c760f83c06cc0aef733303237:docs/_static/jquery-3.6.0.js
 
 	// Support: IE <=8
 	// Assume HTML when documentElement doesn't yet exist, such as inside loading iframes
@@ -5124,14 +5093,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 }
 
 
-<<<<<<< HEAD:docs/_static/jquery-3.5.1.js
-var
-	rkeyEvent = /^key/,
-	rmouseEvent = /^(?:mouse|pointer|contextmenu|drag|drop)|click/,
-	rtypenamespace = /^([^.]*)(?:\.(.+)|)/;
-=======
 var rtypenamespace = /^([^.]*)(?:\.(.+)|)/;
->>>>>>> 0ff463296d5e4c2c760f83c06cc0aef733303237:docs/_static/jquery-3.6.0.js
 
 function returnTrue() {
 	return true;
@@ -5426,13 +5388,8 @@ jQuery.event = {
 			event = jQuery.event.fix( nativeEvent ),
 
 			handlers = (
-<<<<<<< HEAD:docs/_static/jquery-3.5.1.js
-					dataPriv.get( this, "events" ) || Object.create( null )
-				)[ event.type ] || [],
-=======
 				dataPriv.get( this, "events" ) || Object.create( null )
 			)[ event.type ] || [],
->>>>>>> 0ff463296d5e4c2c760f83c06cc0aef733303237:docs/_static/jquery-3.6.0.js
 			special = jQuery.event.special[ event.type ] || {};
 
 		// Use the fix-ed jQuery.Event rather than the (read-only) native event
@@ -6570,13 +6527,10 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 		// set in CSS while `offset*` properties report correct values.
 		// Behavior in IE 9 is more subtle than in newer versions & it passes
 		// some versions of this test; make sure not to make it pass there!
-<<<<<<< HEAD:docs/_static/jquery-3.5.1.js
-=======
 		//
 		// Support: Firefox 70+
 		// Only Firefox includes border widths
 		// in computed dimensions. (gh-4529)
->>>>>>> 0ff463296d5e4c2c760f83c06cc0aef733303237:docs/_static/jquery-3.6.0.js
 		reliableTrDimensions: function() {
 			var table, tr, trChild, trStyle;
 			if ( reliableTrDimensionsVal == null ) {
@@ -6584,12 +6538,6 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 				tr = document.createElement( "tr" );
 				trChild = document.createElement( "div" );
 
-<<<<<<< HEAD:docs/_static/jquery-3.5.1.js
-				table.style.cssText = "position:absolute;left:-11111px";
-				tr.style.height = "1px";
-				trChild.style.height = "9px";
-
-=======
 				table.style.cssText = "position:absolute;left:-11111px;border-collapse:separate";
 				tr.style.cssText = "border:1px solid";
 
@@ -6607,20 +6555,15 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 				// gets around this issue.
 				trChild.style.display = "block";
 
->>>>>>> 0ff463296d5e4c2c760f83c06cc0aef733303237:docs/_static/jquery-3.6.0.js
 				documentElement
 					.appendChild( table )
 					.appendChild( tr )
 					.appendChild( trChild );
 
 				trStyle = window.getComputedStyle( tr );
-<<<<<<< HEAD:docs/_static/jquery-3.5.1.js
-				reliableTrDimensionsVal = parseInt( trStyle.height ) > 3;
-=======
 				reliableTrDimensionsVal = ( parseInt( trStyle.height, 10 ) +
 					parseInt( trStyle.borderTopWidth, 10 ) +
 					parseInt( trStyle.borderBottomWidth, 10 ) ) === tr.offsetHeight;
->>>>>>> 0ff463296d5e4c2c760f83c06cc0aef733303237:docs/_static/jquery-3.6.0.js
 
 				documentElement.removeChild( table );
 			}
@@ -8770,13 +8713,7 @@ jQuery.extend( jQuery.event, {
 				special.bindType || type;
 
 			// jQuery handler
-<<<<<<< HEAD:docs/_static/jquery-3.5.1.js
-			handle = (
-					dataPriv.get( cur, "events" ) || Object.create( null )
-				)[ event.type ] &&
-=======
 			handle = ( dataPriv.get( cur, "events" ) || Object.create( null ) )[ event.type ] &&
->>>>>>> 0ff463296d5e4c2c760f83c06cc0aef733303237:docs/_static/jquery-3.6.0.js
 				dataPriv.get( cur, "handle" );
 			if ( handle ) {
 				handle.apply( cur, data );
@@ -9050,12 +8987,7 @@ jQuery.fn.extend( {
 			return this.name && !jQuery( this ).is( ":disabled" ) &&
 				rsubmittable.test( this.nodeName ) && !rsubmitterTypes.test( type ) &&
 				( this.checked || !rcheckableType.test( type ) );
-<<<<<<< HEAD:docs/_static/jquery-3.5.1.js
-		} )
-		.map( function( _i, elem ) {
-=======
 		} ).map( function( _i, elem ) {
->>>>>>> 0ff463296d5e4c2c760f83c06cc0aef733303237:docs/_static/jquery-3.6.0.js
 			var val = jQuery( this ).val();
 
 			if ( val == null ) {
@@ -9803,15 +9735,10 @@ jQuery.extend( {
 				response = ajaxHandleResponses( s, jqXHR, responses );
 			}
 
-<<<<<<< HEAD:docs/_static/jquery-3.5.1.js
-			// Use a noop converter for missing script
-			if ( !isSuccess && jQuery.inArray( "script", s.dataTypes ) > -1 ) {
-=======
 			// Use a noop converter for missing script but not if jsonp
 			if ( !isSuccess &&
 				jQuery.inArray( "script", s.dataTypes ) > -1 &&
 				jQuery.inArray( "json", s.dataTypes ) < 0 ) {
->>>>>>> 0ff463296d5e4c2c760f83c06cc0aef733303237:docs/_static/jquery-3.6.0.js
 				s.converters[ "text script" ] = function() {};
 			}
 
@@ -10549,12 +10476,6 @@ jQuery.offset = {
 			options.using.call( elem, props );
 
 		} else {
-			if ( typeof props.top === "number" ) {
-				props.top += "px";
-			}
-			if ( typeof props.left === "number" ) {
-				props.left += "px";
-			}
 			curElem.css( props );
 		}
 	}
@@ -10812,12 +10733,8 @@ jQuery.fn.extend( {
 	}
 } );
 
-<<<<<<< HEAD:docs/_static/jquery-3.5.1.js
-jQuery.each( ( "blur focus focusin focusout resize scroll click dblclick " +
-=======
 jQuery.each(
 	( "blur focus focusin focusout resize scroll click dblclick " +
->>>>>>> 0ff463296d5e4c2c760f83c06cc0aef733303237:docs/_static/jquery-3.6.0.js
 	"mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave " +
 	"change select submit keydown keypress keyup contextmenu" ).split( " " ),
 	function( _i, name ) {
@@ -10828,12 +10745,8 @@ jQuery.each(
 				this.on( name, null, data, fn ) :
 				this.trigger( name );
 		};
-<<<<<<< HEAD:docs/_static/jquery-3.5.1.js
-	} );
-=======
 	}
 );
->>>>>>> 0ff463296d5e4c2c760f83c06cc0aef733303237:docs/_static/jquery-3.6.0.js
 
 
 

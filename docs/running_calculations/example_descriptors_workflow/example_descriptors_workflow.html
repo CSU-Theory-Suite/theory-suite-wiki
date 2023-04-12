@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="python" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Example Descriptors Workflow using RDKit, Modred, Morfeus &amp; DBStep &mdash; csu-wiki  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -15,11 +16,11 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Classical Molecular Dynamics" href="../../concepts/classical_molecular_dynamics.html" />
     <link rel="prev" title="Example REGGAE Workflow" href="../example_reggae_workflow/example_reggae_workflow.html" /> 
 </head>
 
@@ -82,6 +83,10 @@
 </ul>
 </li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/classical_molecular_dynamics.html">Classical Molecular Dynamics</a></li>
+</ul>
 
         </div>
       </div>
@@ -107,9 +112,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="example-descriptors-workflow-using-rdkit-modred-morfeus-dbstep">
+  <section id="example-descriptors-workflow-using-rdkit-modred-morfeus-dbstep">
 <h1>Example Descriptors Workflow using RDKit, Modred, Morfeus &amp; DBStep<a class="headerlink" href="#example-descriptors-workflow-using-rdkit-modred-morfeus-dbstep" title="Permalink to this heading"></a></h1>
-<div class="contents local topic" id="contents">
+<nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#installation" id="id1">Installation</a></p></li>
 <li><p><a class="reference internal" href="#dependencies" id="id2">Dependencies</a></p></li>
@@ -135,73 +140,73 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="installation">
-<h2><a class="toc-backref" href="#id1">Installation</a><a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+</nav>
+<section id="installation">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Installation</a><a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>Installation of RDKit</p></li>
 </ol>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>rdkit
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge rdkit
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li><p>Installation of Modred</p></li>
 </ol>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>modred
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install modred
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
 <li><p>Installation of Morfeus</p></li>
 </ol>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>morfeus-ml
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge morfeus-ml
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
 <li><p>Installation of Dbstep</p></li>
 </ol>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>dbstep
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge dbstep
 </pre></div>
 </div>
-</div>
-<div class="section" id="dependencies">
-<h2><a class="toc-backref" href="#id2">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this heading"></a></h2>
+</section>
+<section id="dependencies">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>numpy</p></li>
 <li><p>scipy</p></li>
 <li><p>xtb-python (Morfeus)</p></li>
 </ol>
-</div>
-<div class="section" id="example-notebook">
-<h2><a class="toc-backref" href="#id3">Example notebook</a><a class="headerlink" href="#example-notebook" title="Permalink to this heading"></a></h2>
-<div class="section" id="rdkit-a-cheminformatics-package">
-<h3><a class="toc-backref" href="#id4">RDKit: a cheminformatics package</a><a class="headerlink" href="#rdkit-a-cheminformatics-package" title="Permalink to this heading"></a></h3>
+</section>
+<section id="example-notebook">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Example notebook</a><a class="headerlink" href="#example-notebook" title="Permalink to this heading"></a></h2>
+<section id="rdkit-a-cheminformatics-package">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">RDKit: a cheminformatics package</a><a class="headerlink" href="#rdkit-a-cheminformatics-package" title="Permalink to this heading"></a></h3>
 <p>RDKit is primiarly used for creation, and manipulation of chemical
 structures.</p>
 <p><a class="reference external" href="https://www.rdkit.org/docs/GettingStartedInPython.html">https://www.rdkit.org/docs/GettingStartedInPython.html</a></p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rdkit</span> <span class="c1">#rdkit.Chem.SOMEFUNCTION</span>
-<span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span> <span class="c1">#Chem.SOMEFUNCTION</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import rdkit #rdkit.Chem.SOMEFUNCTION
+from rdkit import Chem #Chem.SOMEFUNCTION
 </pre></div>
 </div>
-<div class="section" id="step-1-2d-smiles-to-3d-structure">
-<h4><a class="toc-backref" href="#id5">Step 1: 2D smiles to 3D structure</a><a class="headerlink" href="#step-1-2d-smiles-to-3d-structure" title="Permalink to this heading"></a></h4>
+<section id="step-1-2d-smiles-to-3d-structure">
+<h4><a class="toc-backref" href="#id5" role="doc-backlink">Step 1: 2D smiles to 3D structure</a><a class="headerlink" href="#step-1-2d-smiles-to-3d-structure" title="Permalink to this heading"></a></h4>
 <p>RDkit deals with molecules as mol objects. These mol objects can be
 created from either 2D or 3D files. This mol object is the base to
 everything that is done in rdkit</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m1</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;CCc1ccccc1&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>m1 = Chem.MolFromSmiles(&#39;CCc1ccccc1&#39;)
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">m1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>type(m1)
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rdkit</span><span class="o">.</span><span class="n">Chem</span><span class="o">.</span><span class="n">rdchem</span><span class="o">.</span><span class="n">Mol</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>m1
 </pre></div>
 </div>
 <img alt="../../_images/cheminfo_7_0.png" src="../../_images/cheminfo_7_0.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#What is the coordinates of the molecule?</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">Chem</span><span class="o">.</span><span class="n">MolToMolBlock</span><span class="p">(</span><span class="n">m1</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#What is the coordinates of the molecule?
+print(Chem.MolToMolBlock(m1))
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     <span class="n">RDKit</span>          <span class="mi">2</span><span class="n">D</span>
@@ -226,13 +231,13 @@ everything that is done in rdkit</p>
 <span class="n">M</span>  <span class="n">END</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Notice only C, no H?</span>
-<span class="n">m2</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AddHs</span><span class="p">(</span><span class="n">m1</span><span class="p">)</span> <span class="c1">#m3 = Chem.RemoveHs(m2)</span>
-<span class="n">m2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#Notice only C, no H?
+m2 = Chem.AddHs(m1) #m3 = Chem.RemoveHs(m2)
+m2
 </pre></div>
 </div>
 <img alt="../../_images/cheminfo_9_0.png" src="../../_images/cheminfo_9_0.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Chem</span><span class="o">.</span><span class="n">MolToMolBlock</span><span class="p">(</span><span class="n">m2</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(Chem.MolToMolBlock(m2))
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     <span class="n">RDKit</span>          <span class="mi">2</span><span class="n">D</span>
@@ -277,13 +282,13 @@ everything that is done in rdkit</p>
 <span class="n">M</span>  <span class="n">END</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#going from 2D to 3D with proper coordinates?</span>
-<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">AllChem</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#going from 2D to 3D with proper coordinates?
+from rdkit.Chem import AllChem
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># rdkit.Chem.AllChem.EmbedMolecule(m2,randomSeed=0xf00d)</span>
-<span class="n">AllChem</span><span class="o">.</span><span class="n">EmbedMolecule</span><span class="p">(</span><span class="n">m2</span><span class="p">,</span><span class="n">randomSeed</span><span class="o">=</span><span class="mh">0xf00d</span><span class="p">)</span>   <span class="c1"># optional random seed for reproducibility)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">Chem</span><span class="o">.</span><span class="n">MolToMolBlock</span><span class="p">(</span><span class="n">m2</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># rdkit.Chem.AllChem.EmbedMolecule(m2,randomSeed=0xf00d)
+AllChem.EmbedMolecule(m2,randomSeed=0xf00d)   # optional random seed for reproducibility)
+print(Chem.MolToMolBlock(m2))
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     <span class="n">RDKit</span>          <span class="mi">3</span><span class="n">D</span>
@@ -328,39 +333,39 @@ everything that is done in rdkit</p>
 <span class="n">M</span>  <span class="n">END</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>m2
 </pre></div>
 </div>
 <img alt="../../_images/cheminfo_13_0.png" src="../../_images/cheminfo_13_0.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#can we wrtie it to a xyz file? sdf file?</span>
-<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">rdmolfiles</span> <span class="c1">#https://www.rdkit.org/docs/source/rdkit.Chem.rdmolfiles.html</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#can we wrtie it to a xyz file? sdf file?
+from rdkit.Chem import rdmolfiles #https://www.rdkit.org/docs/source/rdkit.Chem.rdmolfiles.html
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rdmolfiles</span><span class="o">.</span><span class="n">MolToXYZFile</span><span class="p">(</span><span class="n">m2</span><span class="p">,</span><span class="s1">&#39;mol1.xyz&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>rdmolfiles.MolToXYZFile(m2,&#39;mol1.xyz&#39;)
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rdmolfiles</span><span class="o">.</span><span class="n">MolToPDBFile</span><span class="p">(</span><span class="n">m2</span><span class="p">,</span><span class="s1">&#39;mol1.pdb&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>rdmolfiles.MolToPDBFile(m2,&#39;mol1.pdb&#39;)
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rdmolfiles</span><span class="o">.</span><span class="n">MolToSmiles</span><span class="p">(</span><span class="n">m2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>rdmolfiles.MolToSmiles(m2)
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;[H]c1c([H])c([H])c(C([H])([H])C([H])([H])[H])c([H])c1[H]&#39;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="step-2-rdkit-for-molecular-atomic-and-bond-properties">
-<h4><a class="toc-backref" href="#id6">Step 2: RDKit for molecular, atomic and bond properties</a><a class="headerlink" href="#step-2-rdkit-for-molecular-atomic-and-bond-properties" title="Permalink to this heading"></a></h4>
+</section>
+<section id="step-2-rdkit-for-molecular-atomic-and-bond-properties">
+<h4><a class="toc-backref" href="#id6" role="doc-backlink">Step 2: RDKit for molecular, atomic and bond properties</a><a class="headerlink" href="#step-2-rdkit-for-molecular-atomic-and-bond-properties" title="Permalink to this heading"></a></h4>
 <p>RDKit can obtain simple molecular properties. For example -&gt; number of
 atoms, number of bond, etcs.,</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># molecular weight</span>
-<span class="n">Chem</span><span class="o">.</span><span class="n">rdMolDescriptors</span><span class="o">.</span><span class="n">CalcExactMolWt</span><span class="p">(</span><span class="n">m2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># molecular weight
+Chem.rdMolDescriptors.CalcExactMolWt(m2)
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">106.07825032</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">m2</span><span class="o">.</span><span class="n">GetAtoms</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>list(m2.GetAtoms())
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="o">&lt;</span><span class="n">rdkit</span><span class="o">.</span><span class="n">Chem</span><span class="o">.</span><span class="n">rdchem</span><span class="o">.</span><span class="n">Atom</span> <span class="n">at</span> <span class="mh">0x7fa779dd5740</span><span class="o">&gt;</span><span class="p">,</span>
@@ -383,9 +388,9 @@ atoms, number of bond, etcs.,</p>
  <span class="o">&lt;</span><span class="n">rdkit</span><span class="o">.</span><span class="n">Chem</span><span class="o">.</span><span class="n">rdchem</span><span class="o">.</span><span class="n">Atom</span> <span class="n">at</span> <span class="mh">0x7fa779dd5eb0</span><span class="o">&gt;</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># can loop over every atom in the molecule</span>
-<span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">m2</span><span class="o">.</span><span class="n">GetAtoms</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">atom</span><span class="o">.</span><span class="n">GetSymbol</span><span class="p">(),</span><span class="n">atom</span><span class="o">.</span><span class="n">GetIdx</span><span class="p">(),</span><span class="n">atom</span><span class="o">.</span><span class="n">GetAtomicNum</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># can loop over every atom in the molecule
+for atom in m2.GetAtoms():
+    print(atom.GetSymbol(),atom.GetIdx(),atom.GetAtomicNum())
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="mi">0</span> <span class="mi">6</span>
@@ -408,13 +413,13 @@ atoms, number of bond, etcs.,</p>
 <span class="n">H</span> <span class="mi">17</span> <span class="mi">1</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">m2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>type(m2)
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rdkit</span><span class="o">.</span><span class="n">Chem</span><span class="o">.</span><span class="n">rdchem</span><span class="o">.</span><span class="n">Mol</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">m2</span><span class="o">.</span><span class="n">GetBonds</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>list(m2.GetBonds())
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="o">&lt;</span><span class="n">rdkit</span><span class="o">.</span><span class="n">Chem</span><span class="o">.</span><span class="n">rdchem</span><span class="o">.</span><span class="n">Bond</span> <span class="n">at</span> <span class="mh">0x7fa779f293c0</span><span class="o">&gt;</span><span class="p">,</span>
@@ -437,9 +442,9 @@ atoms, number of bond, etcs.,</p>
  <span class="o">&lt;</span><span class="n">rdkit</span><span class="o">.</span><span class="n">Chem</span><span class="o">.</span><span class="n">rdchem</span><span class="o">.</span><span class="n">Bond</span> <span class="n">at</span> <span class="mh">0x7fa779f29b30</span><span class="o">&gt;</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># can loop over every atom in the molecule</span>
-<span class="k">for</span> <span class="n">bond</span> <span class="ow">in</span> <span class="n">m2</span><span class="o">.</span><span class="n">GetBonds</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">bond</span><span class="o">.</span><span class="n">GetBondType</span><span class="p">(),</span><span class="n">bond</span><span class="o">.</span><span class="n">GetBeginAtomIdx</span><span class="p">(),</span> <span class="n">bond</span><span class="o">.</span><span class="n">GetEndAtomIdx</span><span class="p">(),</span> <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># can loop over every atom in the molecule
+for bond in m2.GetBonds():
+    print(bond.GetBondType(),bond.GetBeginAtomIdx(), bond.GetEndAtomIdx(), )
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SINGLE</span> <span class="mi">0</span> <span class="mi">1</span>
@@ -462,11 +467,11 @@ atoms, number of bond, etcs.,</p>
 <span class="n">SINGLE</span> <span class="mi">7</span> <span class="mi">17</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">m2</span><span class="o">.</span><span class="n">GetAtomWithIdx</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">GetSymbol</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">m2</span><span class="o">.</span><span class="n">GetAtomWithIdx</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">GetExplicitValence</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">m2</span><span class="o">.</span><span class="n">GetBondWithIdx</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">GetBeginAtomIdx</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">m2</span><span class="o">.</span><span class="n">GetBondWithIdx</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">GetEndAtomIdx</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">m2</span><span class="o">.</span><span class="n">GetBondBetweenAtoms</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">GetBondType</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(m2.GetAtomWithIdx(0).GetSymbol())
+print(m2.GetAtomWithIdx(0).GetExplicitValence())
+print(m2.GetBondWithIdx(6).GetBeginAtomIdx())
+print(m2.GetBondWithIdx(3).GetEndAtomIdx())
+print(m2.GetBondBetweenAtoms(0,1).GetBondType())
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span>
@@ -476,59 +481,59 @@ atoms, number of bond, etcs.,</p>
 <span class="n">SINGLE</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mol_with_atom_index</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">mol</span><span class="o">.</span><span class="n">GetAtoms</span><span class="p">():</span>
-        <span class="n">atom</span><span class="o">.</span><span class="n">SetAtomMapNum</span><span class="p">(</span><span class="n">atom</span><span class="o">.</span><span class="n">GetIdx</span><span class="p">())</span>
-    <span class="k">return</span> <span class="n">mol</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def mol_with_atom_index(mol):
+    for atom in mol.GetAtoms():
+        atom.SetAtomMapNum(atom.GetIdx())
+    return mol
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol_with_atom_index</span><span class="p">(</span><span class="n">m2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mol_with_atom_index(m2)
 </pre></div>
 </div>
 <img alt="../../_images/cheminfo_27_0.png" src="../../_images/cheminfo_27_0.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Whats next to each other? Atoms keep track of their neighbors</span>
-<span class="n">atom</span> <span class="o">=</span> <span class="n">m2</span><span class="o">.</span><span class="n">GetAtomWithIdx</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">neighbors</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">GetAtomicNum</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">atom</span><span class="o">.</span><span class="n">GetNeighbors</span><span class="p">()]</span>
-<span class="n">neighbors</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#Whats next to each other? Atoms keep track of their neighbors
+atom = m2.GetAtomWithIdx(0)
+neighbors = [x.GetAtomicNum() for x in atom.GetNeighbors()]
+neighbors
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Can check if in a ring?</span>
-<span class="n">m2</span><span class="o">.</span><span class="n">GetAtomWithIdx</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">IsInRingSize</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#Can check if in a ring?
+m2.GetAtomWithIdx(1).IsInRingSize(6)
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">False</span>
 </pre></div>
 </div>
-<div class="section" id="other-rdkit-properties-check-out-https-www-rdkit-org-docs-gettingstartedinpython-html">
+<section id="other-rdkit-properties-check-out-https-www-rdkit-org-docs-gettingstartedinpython-html">
 <h5>Other RDKit properties -&gt; check out <a class="reference external" href="https://www.rdkit.org/docs/GettingStartedInPython.html">https://www.rdkit.org/docs/GettingStartedInPython.html</a><a class="headerlink" href="#other-rdkit-properties-check-out-https-www-rdkit-org-docs-gettingstartedinpython-html" title="Permalink to this heading"></a></h5>
-</div>
-</div>
-<div class="section" id="step-3-other-rdkit-descriptors">
-<h4><a class="toc-backref" href="#id8">Step 3: Other RDkit Descriptors</a><a class="headerlink" href="#step-3-other-rdkit-descriptors" title="Permalink to this heading"></a></h4>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Descriptors - https://www.rdkit.org/docs/source/rdkit.Chem.Descriptors.html#module-rdkit.Chem.Descriptors</span>
-<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">Descriptors</span>
+</section>
+</section>
+<section id="step-3-other-rdkit-descriptors">
+<h4><a class="toc-backref" href="#id8" role="doc-backlink">Step 3: Other RDkit Descriptors</a><a class="headerlink" href="#step-3-other-rdkit-descriptors" title="Permalink to this heading"></a></h4>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Descriptors - https://www.rdkit.org/docs/source/rdkit.Chem.Descriptors.html#module-rdkit.Chem.Descriptors
+from rdkit.Chem import Descriptors
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;c1ccccc1C(=O)O&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;TPSA:&#39;</span><span class="p">,</span> <span class="n">Descriptors</span><span class="o">.</span><span class="n">TPSA</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ExactMolWt:&#39;</span><span class="p">,</span> <span class="n">Descriptors</span><span class="o">.</span><span class="n">ExactMolWt</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>m = Chem.MolFromSmiles(&#39;c1ccccc1C(=O)O&#39;)
+print(&#39;TPSA:&#39;, Descriptors.TPSA(m))
+print(&#39;ExactMolWt:&#39;, Descriptors.ExactMolWt(m))
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TPSA</span><span class="p">:</span> <span class="mf">37.3</span>
 <span class="n">ExactMolWt</span><span class="p">:</span> <span class="mf">122.036779432</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Graph Descriptors - https://www.rdkit.org/docs/source/rdkit.Chem.GraphDescriptors.html</span>
-<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">GraphDescriptors</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Graph Descriptors - https://www.rdkit.org/docs/source/rdkit.Chem.GraphDescriptors.html
+from rdkit.Chem import GraphDescriptors
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;c1ccccc1C(=O)O&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;BalabanJ:&#39;</span><span class="p">,</span> <span class="n">GraphDescriptors</span><span class="o">.</span><span class="n">BalabanJ</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;BertzCT:&#39;</span><span class="p">,</span> <span class="n">GraphDescriptors</span><span class="o">.</span><span class="n">BertzCT</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;HallKierAlpha:&#39;</span><span class="p">,</span><span class="n">GraphDescriptors</span><span class="o">.</span><span class="n">HallKierAlpha</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>m = Chem.MolFromSmiles(&#39;c1ccccc1C(=O)O&#39;)
+print(&#39;BalabanJ:&#39;, GraphDescriptors.BalabanJ(m))
+print(&#39;BertzCT:&#39;, GraphDescriptors.BertzCT(m))
+print(&#39;HallKierAlpha:&#39;,GraphDescriptors.HallKierAlpha(m))
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BalabanJ</span><span class="p">:</span> <span class="mf">2.98145461404113</span>
@@ -536,52 +541,52 @@ atoms, number of bond, etcs.,</p>
 <span class="n">HallKierAlpha</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.31</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fingerprints - https://www.rdkit.org/docs/source/rdkit.Chem.GraphDescriptors.html</span>
-<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">GraphDescriptors</span>
-<span class="kn">from</span> <span class="nn">rdkit.Chem.AtomPairs.Pairs</span> <span class="kn">import</span> <span class="n">GetAtomPairFingerprintAsBitVect</span>
-<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">MACCSkeys</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Fingerprints - https://www.rdkit.org/docs/source/rdkit.Chem.GraphDescriptors.html
+from rdkit.Chem import GraphDescriptors
+from rdkit.Chem.AtomPairs.Pairs import GetAtomPairFingerprintAsBitVect
+from rdkit.Chem import MACCSkeys
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;c1ccccc1C(=O)O&#39;</span><span class="p">)</span>
-<span class="n">fp1</span> <span class="o">=</span> <span class="n">AllChem</span><span class="o">.</span><span class="n">GetMorganFingerprint</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># radius, number of bits</span>
-<span class="n">fp2</span> <span class="o">=</span> <span class="n">GetAtomPairFingerprintAsBitVect</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="c1"># number of bits</span>
-<span class="n">fp3</span> <span class="o">=</span> <span class="n">MACCSkeys</span><span class="o">.</span><span class="n">GenMACCSKeys</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>m = Chem.MolFromSmiles(&#39;c1ccccc1C(=O)O&#39;)
+fp1 = AllChem.GetMorganFingerprint(m, 2) # radius, number of bits
+fp2 = GetAtomPairFingerprintAsBitVect(m) # number of bits
+fp3 = MACCSkeys.GenMACCSKeys(m)
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">fp1</span><span class="p">,</span> <span class="n">fp2</span><span class="p">,</span> <span class="n">fp3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(fp1, fp2, fp3)
 </pre></div>
 </div>
 <pre class="literal-block">&lt;rdkit.DataStructs.cDataStructs.UIntSparseIntVect object at 0x7fa779f8d900&gt; &lt;rdkit.DataStructs.cDataStructs.SparseBitVect object at 0x7fa779f2b8b0&gt;  &lt;rdkit.DataStructs.cDataStructs.ExplicitBitVect object at 0x7fa779fa0900&gt;</pre>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">fp3</span><span class="o">.</span><span class="n">ToList</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(fp3.ToList())
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">info</span><span class="o">=</span><span class="p">{}</span>
-<span class="n">m</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;c1ccccc1C(=O)O&#39;</span><span class="p">)</span>
-<span class="n">fp</span> <span class="o">=</span> <span class="n">AllChem</span><span class="o">.</span><span class="n">GetMorganFingerprint</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">bitInfo</span><span class="o">=</span><span class="n">info</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;length of non zero elements:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">fp</span><span class="o">.</span><span class="n">GetNonzeroElements</span><span class="p">()))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>info={}
+m = Chem.MolFromSmiles(&#39;c1ccccc1C(=O)O&#39;)
+fp = AllChem.GetMorganFingerprint(m,2,bitInfo=info)
+print(&#39;length of non zero elements:&#39;, len(fp.GetNonzeroElements()))
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;information of bits:&#39;</span><span class="p">,</span> <span class="n">info</span><span class="p">)</span>
+print(&#39;information of bits:&#39;, info)
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;bit on:&#39;</span><span class="p">,</span> <span class="n">info</span><span class="p">[</span><span class="mi">98513984</span><span class="p">])</span>
+print(&#39;bit on:&#39;, info[98513984])
 
-<span class="c1">#bit 98513984 is set three times: once by atom 1, once by atom 2,  and once by atom 3</span>
-<span class="c1">#each at radius 1.</span>
+#bit 98513984 is set three times: once by atom 1, once by atom 2,  and once by atom 3
+#each at radius 1.
 </pre></div>
 </div>
 <pre class="literal-block">length of non zero elements: 16
 information of bits: {98513984: ((1, 1), (2, 1), (3, 1)), 128522177: ((0, 2), (4, 2)),                     864662311: ((8, 0),), 864942730: ((7, 0),), 951226070: ((4, 1), (0, 1)),                     1466409066: ((5, 2),), 1510328189: ((7, 1),), 1533864325: ((8, 1),),                     1710869618: ((6, 2),), 2246699815: ((6, 0),), 2763854213: ((2, 2),),                      2784506312: ((6, 1),), 2994748777: ((5, 1),), 3217380708: ((5, 0),),
                      3218693969: ((0, 0), (1, 0), (2, 0), (3, 0), (4, 0)), 3999906991: ((3, 2), (1, 2))}
 bit on: ((1, 1), (2, 1), (3, 1))</pre>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">env</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">FindAtomEnvironmentOfRadiusN</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">amap</span><span class="o">=</span><span class="p">{}</span>
-<span class="n">submol</span><span class="o">=</span><span class="n">Chem</span><span class="o">.</span><span class="n">PathToSubmol</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">env</span><span class="p">,</span><span class="n">atomMap</span><span class="o">=</span><span class="n">amap</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of atoms in substructure:&#39;</span><span class="p">,</span><span class="n">submol</span><span class="o">.</span><span class="n">GetNumAtoms</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">amap</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;substructure:&#39;</span><span class="p">,</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolToSmiles</span><span class="p">(</span><span class="n">submol</span><span class="p">))</span>
-<span class="n">submol</span> <span class="c1"># can be used in finding important subtructures when modelling a reaction.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>env = Chem.FindAtomEnvironmentOfRadiusN(m,1,1)
+amap={}
+submol=Chem.PathToSubmol(m,env,atomMap=amap)
+print(&#39;Number of atoms in substructure:&#39;,submol.GetNumAtoms())
+print(amap)
+print(&#39;substructure:&#39;, Chem.MolToSmiles(submol))
+submol # can be used in finding important subtructures when modelling a reaction.
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Number</span> <span class="n">of</span> <span class="n">atoms</span> <span class="ow">in</span> <span class="n">substructure</span><span class="p">:</span> <span class="mi">3</span>
@@ -590,18 +595,18 @@ bit on: ((1, 1), (2, 1), (3, 1))</pre>
 </pre></div>
 </div>
 <img alt="../../_images/cheminfo_41_1.png" src="../../_images/cheminfo_41_1.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#3D Descriptors - https://www.rdkit.org/docs/source/rdkit.Chem.Descriptors3D.html</span>
-<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">Descriptors3D</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#3D Descriptors - https://www.rdkit.org/docs/source/rdkit.Chem.Descriptors3D.html
+from rdkit.Chem import Descriptors3D
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;c1ccccc1C(=O)O&#39;</span><span class="p">)</span>
-<span class="n">m</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AddHs</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-<span class="n">AllChem</span><span class="o">.</span><span class="n">EmbedMolecule</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">randomSeed</span><span class="o">=</span><span class="mh">0xf00d</span><span class="p">)</span>   <span class="c1"># need to get 3D coordinates</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>m = Chem.MolFromSmiles(&#39;c1ccccc1C(=O)O&#39;)
+m = Chem.AddHs(m)
+AllChem.EmbedMolecule(m,randomSeed=0xf00d)   # need to get 3D coordinates
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Asphericity:&#39;</span><span class="p">,</span> <span class="n">Descriptors3D</span><span class="o">.</span><span class="n">Asphericity</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Eccentricity:&#39;</span><span class="p">,</span> <span class="n">Descriptors3D</span><span class="o">.</span><span class="n">Eccentricity</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;PMI1:&#39;</span><span class="p">,</span><span class="n">Descriptors3D</span><span class="o">.</span><span class="n">PMI1</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RadiusOfGyration:&#39;</span><span class="p">,</span><span class="n">Descriptors3D</span><span class="o">.</span><span class="n">RadiusOfGyration</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+print(&#39;Asphericity:&#39;, Descriptors3D.Asphericity(m))
+print(&#39;Eccentricity:&#39;, Descriptors3D.Eccentricity(m))
+print(&#39;PMI1:&#39;,Descriptors3D.PMI1(m))
+print(&#39;RadiusOfGyration:&#39;,Descriptors3D.RadiusOfGyration(m))
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Asphericity</span><span class="p">:</span> <span class="mf">0.4655222070385021</span>
@@ -610,136 +615,136 @@ bit on: ((1, 1), (2, 1), (3, 1))</pre>
 <span class="n">RadiusOfGyration</span><span class="p">:</span> <span class="mf">2.1193375600449276</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="step-4-substructure-matching">
-<h4><a class="toc-backref" href="#id9">Step 4: Substructure matching</a><a class="headerlink" href="#step-4-substructure-matching" title="Permalink to this heading"></a></h4>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;c1ccccc1C(=O)O&#39;</span><span class="p">)</span> <span class="c1"># can be done with chiral smiles to preserve chirality</span>
-<span class="n">patt</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmarts</span><span class="p">(</span><span class="s1">&#39;C(=O)O&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Is substructure present?&#39;</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">HasSubstructMatch</span><span class="p">(</span><span class="n">patt</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Atoms in substurcture:&#39;</span><span class="p">,</span><span class="n">m</span><span class="o">.</span><span class="n">GetSubstructMatch</span><span class="p">(</span><span class="n">patt</span><span class="p">))</span>
+</section>
+<section id="step-4-substructure-matching">
+<h4><a class="toc-backref" href="#id9" role="doc-backlink">Step 4: Substructure matching</a><a class="headerlink" href="#step-4-substructure-matching" title="Permalink to this heading"></a></h4>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>m = Chem.MolFromSmiles(&#39;c1ccccc1C(=O)O&#39;) # can be done with chiral smiles to preserve chirality
+patt = Chem.MolFromSmarts(&#39;C(=O)O&#39;)
+print(&#39;Is substructure present?&#39;, m.HasSubstructMatch(patt), &#39;\nAtoms in substurcture:&#39;,m.GetSubstructMatch(patt))
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Is substructure present? True
 Atoms in substurcture: (6, 7, 8)
 </pre></div>
 </div>
-</div>
-<div class="section" id="step-5-chemical-transformations">
-<h4><a class="toc-backref" href="#id10">Step 5: Chemical transformations</a><a class="headerlink" href="#step-5-chemical-transformations" title="Permalink to this heading"></a></h4>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rxn</span> <span class="o">=</span> <span class="n">AllChem</span><span class="o">.</span><span class="n">ReactionFromSmarts</span><span class="p">(</span><span class="s1">&#39;[C:1]=[C:2].[C:3]=[*:4][*:5]=[C:6]&gt;&gt;[C:1]1[C:2][C:3][*:4]=[*:5][C:6]1&#39;</span><span class="p">)</span>
-<span class="n">rxn</span>
+</section>
+<section id="step-5-chemical-transformations">
+<h4><a class="toc-backref" href="#id10" role="doc-backlink">Step 5: Chemical transformations</a><a class="headerlink" href="#step-5-chemical-transformations" title="Permalink to this heading"></a></h4>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>rxn = AllChem.ReactionFromSmarts(&#39;[C:1]=[C:2].[C:3]=[*:4][*:5]=[C:6]&gt;&gt;[C:1]1[C:2][C:3][*:4]=[*:5][C:6]1&#39;)
+rxn
 </pre></div>
 </div>
 <img alt="../../_images/cheminfo_47_0.png" src="../../_images/cheminfo_47_0.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;number of reactant:&#39;</span><span class="p">,</span> <span class="n">rxn</span><span class="o">.</span><span class="n">GetNumReactantTemplates</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;number of product:&#39;</span><span class="p">,</span> <span class="n">rxn</span><span class="o">.</span><span class="n">GetNumProductTemplates</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print( &#39;number of reactant:&#39;, rxn.GetNumReactantTemplates())
+print( &#39;number of product:&#39;, rxn.GetNumProductTemplates())
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="n">of</span> <span class="n">reactant</span><span class="p">:</span> <span class="mi">2</span>
 <span class="n">number</span> <span class="n">of</span> <span class="n">product</span><span class="p">:</span> <span class="mi">1</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mols</span> <span class="o">=</span> <span class="p">[</span><span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;OC=C&#39;</span><span class="p">),</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;C=CC(N)=C&#39;</span><span class="p">)]</span>
-<span class="n">mols</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mols = [Chem.MolFromSmiles(&#39;OC=C&#39;), Chem.MolFromSmiles(&#39;C=CC(N)=C&#39;)]
+mols[0]
 </pre></div>
 </div>
 <img alt="../../_images/cheminfo_49_0.png" src="../../_images/cheminfo_49_0.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ps</span> <span class="o">=</span> <span class="n">rxn</span><span class="o">.</span><span class="n">RunReactants</span><span class="p">((</span><span class="n">mols</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mols</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ps = rxn.RunReactants((mols[0], mols[1]))
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;product:&#39;</span><span class="p">,</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolToSmiles</span><span class="p">(</span><span class="n">ps</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
-<span class="n">ps</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(&#39;product:&#39;, Chem.MolToSmiles(ps[0][0]))
+ps[0][0]
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">product</span><span class="p">:</span> <span class="n">NC1</span><span class="o">=</span><span class="n">CCCC</span><span class="p">(</span><span class="n">O</span><span class="p">)</span><span class="n">C1</span>
 </pre></div>
 </div>
 <img alt="../../_images/cheminfo_51_1.png" src="../../_images/cheminfo_51_1.png" />
-</div>
-<div class="section" id="step-6-atom-bond-deletion-addition">
-<h4><a class="toc-backref" href="#id11">Step 6: Atom/Bond deletion/addition</a><a class="headerlink" href="#step-6-atom-bond-deletion-addition" title="Permalink to this heading"></a></h4>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;CC(=O)C=CC=C&#39;</span><span class="p">)</span>
-<span class="n">mw</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">RWMol</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-<span class="n">mol_with_atom_index</span><span class="p">(</span><span class="n">mw</span><span class="p">)</span>
+</section>
+<section id="step-6-atom-bond-deletion-addition">
+<h4><a class="toc-backref" href="#id11" role="doc-backlink">Step 6: Atom/Bond deletion/addition</a><a class="headerlink" href="#step-6-atom-bond-deletion-addition" title="Permalink to this heading"></a></h4>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>m = Chem.MolFromSmiles(&#39;CC(=O)C=CC=C&#39;)
+mw = Chem.RWMol(m)
+mol_with_atom_index(mw)
 </pre></div>
 </div>
 <img alt="../../_images/cheminfo_53_0.png" src="../../_images/cheminfo_53_0.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mw</span><span class="o">.</span><span class="n">ReplaceAtom</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">Chem</span><span class="o">.</span><span class="n">Atom</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
-<span class="n">mw</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mw.ReplaceAtom(4,Chem.Atom(7))
+mw
 </pre></div>
 </div>
 <img alt="../../_images/cheminfo_54_0.png" src="../../_images/cheminfo_54_0.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mw</span><span class="o">.</span><span class="n">AddAtom</span><span class="p">(</span><span class="n">Chem</span><span class="o">.</span><span class="n">Atom</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">mw</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mw.AddAtom(Chem.Atom(6))
+mw
 </pre></div>
 </div>
 <img alt="../../_images/cheminfo_55_0.png" src="../../_images/cheminfo_55_0.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mw</span><span class="o">.</span><span class="n">AddAtom</span><span class="p">(</span><span class="n">Chem</span><span class="o">.</span><span class="n">Atom</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">mw</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mw.AddAtom(Chem.Atom(6))
+mw
 </pre></div>
 </div>
 <img alt="../../_images/cheminfo_56_0.png" src="../../_images/cheminfo_56_0.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mw</span><span class="o">.</span><span class="n">AddBond</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="n">Chem</span><span class="o">.</span><span class="n">BondType</span><span class="o">.</span><span class="n">SINGLE</span><span class="p">)</span>
-<span class="n">mw</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mw.AddBond(6,7,Chem.BondType.SINGLE)
+mw
 </pre></div>
 </div>
 <img alt="../../_images/cheminfo_57_0.png" src="../../_images/cheminfo_57_0.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mw</span><span class="o">.</span><span class="n">AddBond</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="n">Chem</span><span class="o">.</span><span class="n">BondType</span><span class="o">.</span><span class="n">DOUBLE</span><span class="p">)</span>
-<span class="n">mw</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mw.AddBond(7,8,Chem.BondType.DOUBLE)
+mw
 </pre></div>
 </div>
 <img alt="../../_images/cheminfo_58_0.png" src="../../_images/cheminfo_58_0.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mw</span><span class="o">.</span><span class="n">AddBond</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">Chem</span><span class="o">.</span><span class="n">BondType</span><span class="o">.</span><span class="n">SINGLE</span><span class="p">)</span>
-<span class="n">mw</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mw.AddBond(8,3,Chem.BondType.SINGLE)
+mw
 </pre></div>
 </div>
 <img alt="../../_images/cheminfo_59_0.png" src="../../_images/cheminfo_59_0.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mw</span><span class="o">.</span><span class="n">RemoveAtom</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">mw</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mw.RemoveAtom(0)
+mw
 </pre></div>
 </div>
 <img alt="../../_images/cheminfo_60_0.png" src="../../_images/cheminfo_60_0.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mw</span><span class="o">.</span><span class="n">GetNumAtoms</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mw.GetNumAtoms()
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">8</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### other RDKIT things: Fragments on a moelcule (functional groups), visualizing pictures of molecules</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>### other RDKIT things: Fragments on a moelcule (functional groups), visualizing pictures of molecules
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="modred-a-descriptors-package">
-<h3><a class="toc-backref" href="#id12">Modred: a descriptors package</a><a class="headerlink" href="#modred-a-descriptors-package" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="modred-a-descriptors-package">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Modred: a descriptors package</a><a class="headerlink" href="#modred-a-descriptors-package" title="Permalink to this heading"></a></h3>
 <p>Modred is used to collect important chemical descriptors</p>
 <p><a class="reference external" href="https://github.com/mordred-descriptor/mordred">https://github.com/mordred-descriptor/mordred</a></p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
-<span class="kn">from</span> <span class="nn">mordred</span> <span class="kn">import</span> <span class="n">Calculator</span><span class="p">,</span> <span class="n">descriptors</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from rdkit import Chem
+from mordred import Calculator, descriptors
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create descriptor calculator with all descriptors</span>
-<span class="n">calc</span> <span class="o">=</span> <span class="n">Calculator</span><span class="p">(</span><span class="n">descriptors</span><span class="p">,</span> <span class="n">ignore_3D</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;all descriptors:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">calc</span><span class="o">.</span><span class="n">descriptors</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">non 3D descriptors:&#39;</span><span class="p">,</span>
-    <span class="nb">len</span><span class="p">(</span><span class="n">Calculator</span><span class="p">(</span><span class="n">descriptors</span><span class="p">,</span> <span class="n">ignore_3D</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># create descriptor calculator with all descriptors
+calc = Calculator(descriptors, ignore_3D=True)
+print(&#39;all descriptors:&#39;, len(calc.descriptors), &#39;\nnon 3D descriptors:&#39;,
+    len(Calculator(descriptors, ignore_3D=True, version=&quot;1.0.0&quot;)))
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">all</span> <span class="n">descriptors</span><span class="p">:</span> <span class="mi">1613</span>
 <span class="n">non</span> <span class="mi">3</span><span class="n">D</span> <span class="n">descriptors</span><span class="p">:</span> <span class="mi">1612</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;c1ccccc1&#39;</span><span class="p">)</span>
-<span class="n">calc</span><span class="p">(</span><span class="n">mol</span><span class="p">)[:</span><span class="mi">3</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mol = Chem.MolFromSmiles(&#39;c1ccccc1&#39;)
+calc(mol)[:3]
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">4.242640687119286</span><span class="p">,</span> <span class="mf">3.9999999999999996</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate multiple molecule</span>
-<span class="n">mols</span> <span class="o">=</span> <span class="p">[</span><span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="n">smi</span><span class="p">)</span> <span class="k">for</span> <span class="n">smi</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;c1ccccc1Cl&#39;</span><span class="p">,</span> <span class="s1">&#39;c1ccccc1O&#39;</span><span class="p">,</span> <span class="s1">&#39;c1ccccc1N&#39;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># calculate multiple molecule
+mols = [Chem.MolFromSmiles(smi) for smi in [&#39;c1ccccc1Cl&#39;, &#39;c1ccccc1O&#39;, &#39;c1ccccc1N&#39;]]
 
-<span class="c1"># as pandas</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">calc</span><span class="o">.</span><span class="n">pandas</span><span class="p">(</span><span class="n">mols</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;SLogP&#39;</span><span class="p">]</span>
+# as pandas
+df = calc.pandas(mols)
+df[&#39;SLogP&#39;]
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>    <span class="mf">2.3400</span>
@@ -748,12 +753,12 @@ Atoms in substurcture: (6, 7, 8)
 <span class="n">Name</span><span class="p">:</span> <span class="n">SLogP</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#https://github.com/mordred-descriptor/mordred/tree/develop/examples for examples</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#https://github.com/mordred-descriptor/mordred/tree/develop/examples for examples
 </pre></div>
 </div>
-</div>
-<div class="section" id="morfeus-a-descriptors-package">
-<h3><a class="toc-backref" href="#id13">Morfeus: a descriptors package</a><a class="headerlink" href="#morfeus-a-descriptors-package" title="Permalink to this heading"></a></h3>
+</section>
+<section id="morfeus-a-descriptors-package">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Morfeus: a descriptors package</a><a class="headerlink" href="#morfeus-a-descriptors-package" title="Permalink to this heading"></a></h3>
 <p>Morfeus is used to collect chemical descriptors</p>
 <p><a class="reference external" href="https://github.com/kjelljorner/morfeus">https://github.com/kjelljorner/morfeus</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">Bite</span> <span class="n">angle</span>
@@ -769,37 +774,37 @@ Atoms in substurcture: (6, 7, 8)
 <span class="o">-</span> <span class="n">XTB</span> <span class="n">electronic</span> <span class="n">descriptors</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">morfeus</span> <span class="kn">import</span> <span class="n">BuriedVolume</span><span class="p">,</span> <span class="n">Dispersion</span><span class="p">,</span> <span class="n">SASA</span><span class="p">,</span> <span class="n">Sterimol</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from morfeus import BuriedVolume, Dispersion, SASA, Sterimol
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;c1ccccc1C(=O)O&#39;</span><span class="p">)</span>
-<span class="n">m</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AddHs</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-<span class="n">AllChem</span><span class="o">.</span><span class="n">EmbedMolecule</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">randomSeed</span><span class="o">=</span><span class="mh">0xf00d</span><span class="p">)</span>   <span class="c1"># need to get 3D coordinates</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>m = Chem.MolFromSmiles(&#39;c1ccccc1C(=O)O&#39;)
+m = Chem.AddHs(m)
+AllChem.EmbedMolecule(m,randomSeed=0xf00d)   # need to get 3D coordinates
 
-<span class="c1">#need xyz coords and elements</span>
-<span class="n">coords</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">GetConformers</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">GetPositions</span><span class="p">()</span>
-<span class="n">elements</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">atom</span><span class="o">.</span><span class="n">GetSymbol</span><span class="p">()</span> <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">GetAtoms</span><span class="p">()])</span>
+#need xyz coords and elements
+coords = m.GetConformers()[0].GetPositions()
+elements = np.array([atom.GetSymbol() for atom in m.GetAtoms()])
 
-<span class="n">atom1</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">atom2</span> <span class="o">=</span> <span class="mi">3</span>
+atom1 = 1
+atom2 = 3
 
-<span class="c1">#Buried Volume</span>
-<span class="n">bv</span> <span class="o">=</span> <span class="n">BuriedVolume</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">atom1</span><span class="p">,</span> <span class="n">z_axis_atoms</span><span class="o">=</span><span class="n">atom2</span><span class="p">)</span>
-<span class="n">bur_vol</span> <span class="o">=</span> <span class="n">bv</span><span class="o">.</span><span class="n">buried_volume</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Buried Volume:&#39;</span><span class="p">,</span> <span class="n">bur_vol</span><span class="p">)</span>
+#Buried Volume
+bv = BuriedVolume(elements, coords, atom1, z_axis_atoms=atom2)
+bur_vol = bv.buried_volume
+print(&#39;Buried Volume:&#39;, bur_vol)
 
-<span class="c1">#Dispersion - the molecular surface is constructed from vdW spheres and an internal D3 code is used.</span>
-<span class="c1">#Can change radii and D4 corrections</span>
-<span class="n">disp</span> <span class="o">=</span> <span class="n">Dispersion</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span> <span class="n">coords</span><span class="p">)</span>
-<span class="n">disp</span><span class="o">.</span><span class="n">print_report</span><span class="p">()</span>
+#Dispersion - the molecular surface is constructed from vdW spheres and an internal D3 code is used.
+#Can change radii and D4 corrections
+disp = Dispersion(elements, coords)
+disp.print_report()
 
-<span class="c1">#SASA</span>
-<span class="n">sasa</span> <span class="o">=</span> <span class="n">SASA</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span> <span class="n">coords</span><span class="p">)</span>
-<span class="n">sasa</span><span class="o">.</span><span class="n">print_report</span><span class="p">()</span>
+#SASA
+sasa = SASA(elements, coords)
+sasa.print_report()
 
-<span class="c1">#Sterimol</span>
-<span class="n">sterimol</span> <span class="o">=</span> <span class="n">Sterimol</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">atom1</span><span class="p">,</span> <span class="n">atom2</span><span class="p">)</span>
-<span class="n">sterimol</span><span class="o">.</span><span class="n">print_report</span><span class="p">()</span>
+#Sterimol
+sterimol = Sterimol(elements, coords, atom1, atom2)
+sterimol.print_report()
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Buried Volume: 89.27842130648575
@@ -813,33 +818,33 @@ L         B_1       B_5
 4.89      1.70      4.88
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">morfeus</span> <span class="kn">import</span> <span class="n">XTB</span>
-<span class="c1">#conda config --add channels conda-forge</span>
-<span class="c1">#conda install xtb-python</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from morfeus import XTB
+#conda config --add channels conda-forge
+#conda install xtb-python
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xtb</span> <span class="o">=</span> <span class="n">XTB</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span> <span class="n">coords</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;IP:&#39;</span><span class="p">,</span> <span class="n">xtb</span><span class="o">.</span><span class="n">get_ip</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>xtb = XTB(elements, coords)
+print(&#39;IP:&#39;, xtb.get_ip())
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;IP corrected:&#39;</span><span class="p">,</span> <span class="n">xtb</span><span class="o">.</span><span class="n">get_ip</span><span class="p">(</span><span class="n">corrected</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+print(&#39;IP corrected:&#39;, xtb.get_ip(corrected=True))
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;EA:&#39;</span><span class="p">,</span><span class="n">xtb</span><span class="o">.</span><span class="n">get_ea</span><span class="p">())</span>
+print(&#39;EA:&#39;,xtb.get_ea())
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;HOMO:&#39;</span><span class="p">,</span><span class="n">xtb</span><span class="o">.</span><span class="n">get_homo</span><span class="p">())</span>
+print(&#39;HOMO:&#39;,xtb.get_homo())
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;charges:&#39;</span><span class="p">,</span> <span class="n">xtb</span><span class="o">.</span><span class="n">get_charges</span><span class="p">())</span>
+print(&#39;charges:&#39;, xtb.get_charges())
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Bond order between 1 and 2:&#39;</span><span class="p">,</span> <span class="n">xtb</span><span class="o">.</span><span class="n">get_bond_order</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+print(&#39;Bond order between 1 and 2:&#39;, xtb.get_bond_order(1, 2))
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dipole:&#39;</span><span class="p">,</span> <span class="n">xtb</span><span class="o">.</span><span class="n">get_dipole</span><span class="p">())</span>
+print(&#39;Dipole:&#39;, xtb.get_dipole())
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Electrophilicity:&#39;</span><span class="p">,</span> <span class="n">xtb</span><span class="o">.</span><span class="n">get_global_descriptor</span><span class="p">(</span><span class="s2">&quot;electrophilicity&quot;</span><span class="p">,</span> <span class="n">corrected</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+print(&#39;Electrophilicity:&#39;, xtb.get_global_descriptor(&quot;electrophilicity&quot;, corrected=True))
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nucleophilicity:&#39;</span><span class="p">,</span> <span class="n">xtb</span><span class="o">.</span><span class="n">get_global_descriptor</span><span class="p">(</span><span class="s2">&quot;nucleophilicity&quot;</span><span class="p">,</span> <span class="n">corrected</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+print(&#39;Nucleophilicity:&#39;, xtb.get_global_descriptor(&quot;nucleophilicity&quot;, corrected=True))
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Electrophilicity:&#39;</span><span class="p">,</span> <span class="n">xtb</span><span class="o">.</span><span class="n">get_fukui</span><span class="p">(</span><span class="s2">&quot;electrophilicity&quot;</span><span class="p">))</span>
+print(&#39;Electrophilicity:&#39;, xtb.get_fukui(&quot;electrophilicity&quot;))
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nucleophilicity:&#39;</span><span class="p">,</span><span class="n">xtb</span><span class="o">.</span><span class="n">get_fukui</span><span class="p">(</span><span class="s2">&quot;nucleophilicity&quot;</span><span class="p">))</span>
+print(&#39;Nucleophilicity:&#39;,xtb.get_fukui(&quot;nucleophilicity&quot;))
 </pre></div>
 </div>
 <pre class="literal-block">IP: 14.21907376745269
@@ -863,30 +868,30 @@ Nucleophilicity: -9.37307376745269
 Electrophilicity: {1: 0.03911773287813523, 2: 0.026346314554852417, 3: 0.06454830639292795, 4: 0.02786250448009861, 5: 0.03376261308410905, 6: 0.05222019595834877, 7: 0.07074874851467716, 8: 0.171583858476282, 9: 0.07271258423075233, 10: 0.06680704294355236, 11: 0.07681263223202173, 12: 0.08592262797262706, 13: 0.07621979888353578,  14: 0.06477217961589259, 15: 0.07056285978219684}
 
 Nucleophilicity: {1: 0.04377913232024513, 2: 0.04531234210302857, 3: 0.02905922254817471, 4: 0.044454767912915666, 5: 0.03748785231291066, 6: 0.03691186476868924, 7: 0.021635431859494292, 8: 0.1786549461532222, 9: 0.07648297999552217, 10: 0.07833353457469319, 11: 0.09660677617261712, 12: 0.08845612247521087, 13: 0.0904851465534236, 14: 0.07415823218296759, 15: 0.05818164809002663}</pre>
-</div>
-<div class="section" id="dbstep-a-descriptors-package">
-<h3><a class="toc-backref" href="#id14">DBstep: a descriptors package</a><a class="headerlink" href="#dbstep-a-descriptors-package" title="Permalink to this heading"></a></h3>
+</section>
+<section id="dbstep-a-descriptors-package">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">DBstep: a descriptors package</a><a class="headerlink" href="#dbstep-a-descriptors-package" title="Permalink to this heading"></a></h3>
 <p>DBstep is used to collect sterimol descriptors</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dbstep.Dbstep</span> <span class="kn">import</span> <span class="n">dbstep</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from dbstep.Dbstep import dbstep
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;c1ccccc1C(=O)O&#39;</span><span class="p">)</span>
-<span class="n">m</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AddHs</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-<span class="n">AllChem</span><span class="o">.</span><span class="n">EmbedMolecule</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">randomSeed</span><span class="o">=</span><span class="mh">0xf00d</span><span class="p">)</span>   <span class="c1"># need to get 3D coordinates</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>m = Chem.MolFromSmiles(&#39;c1ccccc1C(=O)O&#39;)
+m = Chem.AddHs(m)
+AllChem.EmbedMolecule(m,randomSeed=0xf00d)   # need to get 3D coordinates
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol_with_atom_index</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mol_with_atom_index(m)
 </pre></div>
 </div>
 <img alt="../../_images/cheminfo_78_0.png" src="../../_images/cheminfo_78_0.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Et_sterics</span> <span class="o">=</span> <span class="n">dbstep</span><span class="p">(</span><span class="n">m2</span><span class="p">,</span> <span class="n">sterimol</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">volume</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">atom1</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">atom2</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>Et_sterics = dbstep(m2, sterimol=True,volume=True, atom1=7, atom2=6)
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">R</span><span class="o">/</span><span class="n">Å</span>     <span class="o">%</span><span class="n">V_Bur</span>     <span class="o">%</span><span class="n">S_Bur</span>       <span class="n">Bmin</span>       <span class="n">Bmax</span>          <span class="n">L</span>
 <span class="mf">3.50</span>      <span class="mf">37.08</span>       <span class="mf">0.00</span>       <span class="mf">1.68</span>       <span class="mf">6.41</span>       <span class="mf">4.30</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Et_sterics</span> <span class="o">=</span> <span class="n">dbstep</span><span class="p">(</span><span class="n">m2</span><span class="p">,</span> <span class="n">sterimol</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">volume</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">atom1</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">atom2</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">scan</span><span class="o">=</span><span class="s1">&#39;0:5:1&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>Et_sterics = dbstep(m2, sterimol=True,volume=True, atom1=7, atom2=6, scan=&#39;0:5:1&#39;)
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">R</span><span class="o">/</span><span class="n">Å</span>     <span class="o">%</span><span class="n">V_Bur</span>     <span class="o">%</span><span class="n">S_Bur</span>       <span class="n">Bmin</span>       <span class="n">Bmax</span>          <span class="n">L</span>
@@ -900,15 +905,16 @@ Nucleophilicity: {1: 0.04377913232024513, 2: 0.04531234210302857, 3: 0.029059222
 <span class="n">L</span> <span class="n">parameter</span> <span class="ow">is</span>  <span class="mf">4.30</span> <span class="n">Ang</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../example_reggae_workflow/example_reggae_workflow.html" class="btn btn-neutral float-left" title="Example REGGAE Workflow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../concepts/classical_molecular_dynamics.html" class="btn btn-neutral float-right" title="Classical Molecular Dynamics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

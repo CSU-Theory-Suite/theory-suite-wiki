@@ -4,86 +4,79 @@
  *
  * Base JavaScript utilities for all Sphinx HTML documentation.
  *
-<<<<<<< HEAD
- * :copyright: Copyright 2007-2021 by the Sphinx team, see AUTHORS.
- * :license: BSD, see LICENSE for details.
- *
- */
-
-/**
- * select a different prefix for underscore
- */
-$u = _.noConflict();
-
-/**
- * make the code below compatible with browsers without
- * an installed firebug like debugger
-if (!window.console || !console.firebug) {
-  var names = ["log", "debug", "info", "warn", "error", "assert", "dir",
-    "dirxml", "group", "groupEnd", "time", "timeEnd", "count", "trace",
-    "profile", "profileEnd"];
-  window.console = {};
-  for (var i = 0; i < names.length; ++i)
-    window.console[names[i]] = function() {};
-}
- */
-
-/**
- * small helper function to urldecode strings
- *
- * See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent#Decoding_query_parameters_from_a_URL
- */
-jQuery.urldecode = function(x) {
-  if (!x) {
-    return x
-  }
-  return decodeURIComponent(x.replace(/\+/g, ' '));
-};
-
-/**
- * small helper function to urlencode strings
- */
-jQuery.urlencode = encodeURIComponent;
-
-/**
- * This function returns the parsed url parameters of the
- * current request. Multiple values per key are supported,
- * it will always return arrays of strings for the value parts.
- */
-jQuery.getQueryParameters = function(s) {
-  if (typeof s === 'undefined')
-    s = document.location.search;
-  var parts = s.substr(s.indexOf('?') + 1).split('&');
-  var result = {};
-  for (var i = 0; i < parts.length; i++) {
-    var tmp = parts[i].split('=', 2);
-    var key = jQuery.urldecode(tmp[0]);
-    var value = jQuery.urldecode(tmp[1]);
-    if (key in result)
-      result[key].push(value);
-    else
-      result[key] = [value];
-=======
  * :copyright: Copyright 2007-2022 by the Sphinx team, see AUTHORS.
  * :license: BSD, see LICENSE for details.
  *
  */
 "use strict";
 
-const BLACKLISTED_KEY_CONTROL_ELEMENTS = new Set([
-  "TEXTAREA",
-  "INPUT",
-  "SELECT",
-  "BUTTON",
-]);
-
 const _ready = (callback) => {
   if (document.readyState !== "loading") {
     callback();
   } else {
     document.addEventListener("DOMContentLoaded", callback);
->>>>>>> 0ff463296d5e4c2c760f83c06cc0aef733303237
   }
+};
+
+/**
+ * highlight a given string on a node by wrapping it in
+ * span elements with the given class name.
+ */
+const _highlight = (node, addItems, text, className) => {
+  if (node.nodeType === Node.TEXT_NODE) {
+    const val = node.nodeValue;
+    const parent = node.parentNode;
+    const pos = val.toLowerCase().indexOf(text);
+    if (
+      pos >= 0 &&
+      !parent.classList.contains(className) &&
+      !parent.classList.contains("nohighlight")
+    ) {
+      let span;
+
+      const closestNode = parent.closest("body, svg, foreignObject");
+      const isInSVG = closestNode && closestNode.matches("svg");
+      if (isInSVG) {
+        span = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      } else {
+        span = document.createElement("span");
+        span.classList.add(className);
+      }
+
+      span.appendChild(document.createTextNode(val.substr(pos, text.length)));
+      parent.insertBefore(
+        span,
+        parent.insertBefore(
+          document.createTextNode(val.substr(pos + text.length)),
+          node.nextSibling
+        )
+      );
+      node.nodeValue = val.substr(0, pos);
+
+      if (isInSVG) {
+        const rect = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "rect"
+        );
+        const bbox = parent.getBBox();
+        rect.x.baseVal.value = bbox.x;
+        rect.y.baseVal.value = bbox.y;
+        rect.width.baseVal.value = bbox.width;
+        rect.height.baseVal.value = bbox.height;
+        rect.setAttribute("class", className);
+        addItems.push({ parent: parent, target: rect });
+      }
+    }
+  } else if (node.matches && !node.matches("button, select, textarea")) {
+    node.childNodes.forEach((el) => _highlight(el, addItems, text, className));
+  }
+};
+const _highlightText = (thisNode, text, className) => {
+  let addItems = [];
+  _highlight(thisNode, addItems, text, className);
+  addItems.forEach((obj) =>
+    obj.parent.insertAdjacentElement("beforebegin", obj.target)
+  );
 };
 
 /**
@@ -91,6 +84,7 @@ const _ready = (callback) => {
  */
 const Documentation = {
   init: () => {
+    Documentation.highlightSearchWords();
     Documentation.initDomainIndexTable();
     Documentation.initOnKeyListeners();
   },
@@ -133,6 +127,51 @@ const Documentation = {
   },
 
   /**
+   * highlight the search words provided in the url in the text
+   */
+  highlightSearchWords: () => {
+    const highlight =
+      new URLSearchParams(window.location.search).get("highlight") || "";
+    const terms = highlight.toLowerCase().split(/\s+/).filter(x => x);
+    if (terms.length === 0) return; // nothing to do
+
+    // There should never be more than one element matching "div.body"
+    const divBody = document.querySelectorAll("div.body");
+    const body = divBody.length ? divBody[0] : document.querySelector("body");
+    window.setTimeout(() => {
+      terms.forEach((term) => _highlightText(body, term, "highlighted"));
+    }, 10);
+
+    const searchBox = document.getElementById("searchbox");
+    if (searchBox === null) return;
+    searchBox.appendChild(
+      document
+        .createRange()
+        .createContextualFragment(
+          '<p class="highlight-link">' +
+            '<a href="javascript:Documentation.hideSearchWords()">' +
+            Documentation.gettext("Hide Search Matches") +
+            "</a></p>"
+        )
+    );
+  },
+
+  /**
+   * helper function to hide the search marks again
+   */
+  hideSearchWords: () => {
+    document
+      .querySelectorAll("#searchbox .highlight-link")
+      .forEach((el) => el.remove());
+    document
+      .querySelectorAll("span.highlighted")
+      .forEach((el) => el.classList.remove("highlighted"));
+    const url = new URL(window.location);
+    url.searchParams.delete("highlight");
+    window.history.replaceState({}, "", url);
+  },
+
+  /**
    * helper function to focus on search bar
    */
   focusSearchBar: () => {
@@ -163,21 +202,6 @@ const Documentation = {
     if (DOCUMENTATION_OPTIONS.COLLAPSE_INDEX) togglerElements.forEach(toggler);
   },
 
-<<<<<<< HEAD
-  initOnKeyListeners: function() {
-    $(document).keydown(function(event) {
-      var activeElementType = document.activeElement.tagName;
-      // don't navigate when in search box, textarea, dropdown or button
-      if (activeElementType !== 'TEXTAREA' && activeElementType !== 'INPUT' && activeElementType !== 'SELECT'
-          && activeElementType !== 'BUTTON' && !event.altKey && !event.ctrlKey && !event.metaKey
-          && !event.shiftKey) {
-        switch (event.keyCode) {
-          case 37: // left
-            var prevHref = $('link[rel="prev"]').prop('href');
-            if (prevHref) {
-              window.location.href = prevHref;
-              return false;
-=======
   initOnKeyListeners: () => {
     // only install a listener if it is really needed
     if (
@@ -186,11 +210,15 @@ const Documentation = {
     )
       return;
 
+    const blacklistedElements = new Set([
+      "TEXTAREA",
+      "INPUT",
+      "SELECT",
+      "BUTTON",
+    ]);
     document.addEventListener("keydown", (event) => {
-      // bail for input elements
-      if (BLACKLISTED_KEY_CONTROL_ELEMENTS.has(document.activeElement.tagName)) return;
-      // bail with special keys
-      if (event.altKey || event.ctrlKey || event.metaKey) return;
+      if (blacklistedElements.has(document.activeElement.tagName)) return; // bail for input elements
+      if (event.altKey || event.ctrlKey || event.metaKey) return; // bail with special keys
 
       if (!event.shiftKey) {
         switch (event.key) {
@@ -201,7 +229,6 @@ const Documentation = {
             if (prevLink && prevLink.href) {
               window.location.href = prevLink.href;
               event.preventDefault();
->>>>>>> 0ff463296d5e4c2c760f83c06cc0aef733303237
             }
             break;
           case "ArrowRight":
@@ -213,6 +240,10 @@ const Documentation = {
               event.preventDefault();
             }
             break;
+          case "Escape":
+            if (!DOCUMENTATION_OPTIONS.ENABLE_SEARCH_SHORTCUTS) break;
+            Documentation.hideSearchWords();
+            event.preventDefault();
         }
       }
 
