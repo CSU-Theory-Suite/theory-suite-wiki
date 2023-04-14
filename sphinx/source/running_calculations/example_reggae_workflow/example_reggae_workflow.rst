@@ -1,5 +1,5 @@
 .. |REGGAE-MV-linear-plot| image:: images/REGGAE-MV-linear-plot.png
-.. |REGGEA-correlation-plot| image:: images/REGGEA-correlation-plot.png
+.. |REGGAE-correlation-plot| image:: images/REGGAE-correlation-plot.png
 .. |REGGAE-diagnostics-plot| image:: images/REGGAE-diagnostics-plot.png
 .. |PCA-clusters-REGGAE| image:: images/PCA-clusters-REGGAE.png
 
@@ -151,9 +151,9 @@ Adding the ``-c 0.5`` option outputs: pairwise correlations between features > 0
 
 .. highlight:: default
 
-Using the ``-v`` option saves the plot within the working folder as REGGEA-correlation-plot.png.
+Using the ``-v`` option saves the plot within the working folder as REGGAE-correlation-plot.png.
 
-.. centered:: |REGGEA-correlation-plot|
+.. centered:: |REGGAE-correlation-plot|
 
 
 Diagnostics Plot
