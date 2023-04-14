@@ -54,7 +54,7 @@ structures.
 
 https://www.rdkit.org/docs/GettingStartedInPython.html
 
-.. code:: ipython3
+.. code:: python
 
     import rdkit #rdkit.Chem.SOMEFUNCTION
     from rdkit import Chem #Chem.SOMEFUNCTION
@@ -66,11 +66,11 @@ RDkit deals with molecules as mol objects. These mol objects can be
 created from either 2D or 3D files. This mol object is the base to
 everything that is done in rdkit
 
-.. code:: ipython3
+.. code:: python
 
     m1 = Chem.MolFromSmiles('CCc1ccccc1')
 
-.. code:: ipython3
+.. code:: python
 
     type(m1)
 
@@ -81,7 +81,7 @@ everything that is done in rdkit
 
 
 
-.. code:: ipython3
+.. code:: python
 
     m1
 
@@ -89,7 +89,7 @@ everything that is done in rdkit
 .. image:: images/cheminfo_7_0.png
 
 
-.. code:: ipython3
+.. code:: python
 
     #What is the coordinates of the molecule?
     print(Chem.MolToMolBlock(m1))
@@ -121,7 +121,7 @@ everything that is done in rdkit
     
 
 
-.. code:: ipython3
+.. code:: python
 
     #Notice only C, no H?
     m2 = Chem.AddHs(m1) #m3 = Chem.RemoveHs(m2)
@@ -131,7 +131,7 @@ everything that is done in rdkit
 .. image:: images/cheminfo_9_0.png
 
 
-.. code:: ipython3
+.. code:: python
 
     print(Chem.MolToMolBlock(m2))
 
@@ -179,12 +179,12 @@ everything that is done in rdkit
       8 18  1  0
     M  END
     
-.. code:: ipython3
+.. code:: python
 
     #going from 2D to 3D with proper coordinates?
     from rdkit.Chem import AllChem
 
-.. code:: ipython3
+.. code:: python
 
     # rdkit.Chem.AllChem.EmbedMolecule(m2,randomSeed=0xf00d)
     AllChem.EmbedMolecule(m2,randomSeed=0xf00d)   # optional random seed for reproducibility)
@@ -237,7 +237,7 @@ everything that is done in rdkit
     
 
 
-.. code:: ipython3
+.. code:: python
 
     m2
 
@@ -245,20 +245,20 @@ everything that is done in rdkit
 .. image:: images/cheminfo_13_0.png
 
 
-.. code:: ipython3
+.. code:: python
 
     #can we wrtie it to a xyz file? sdf file?
     from rdkit.Chem import rdmolfiles #https://www.rdkit.org/docs/source/rdkit.Chem.rdmolfiles.html
 
-.. code:: ipython3
+.. code:: python
 
     rdmolfiles.MolToXYZFile(m2,'mol1.xyz')
 
-.. code:: ipython3
+.. code:: python
 
     rdmolfiles.MolToPDBFile(m2,'mol1.pdb')
 
-.. code:: ipython3
+.. code:: python
 
     rdmolfiles.MolToSmiles(m2)
 
@@ -275,7 +275,7 @@ Step 2: RDKit for molecular, atomic and bond properties
 RDKit can obtain simple molecular properties. For example -> number of
 atoms, number of bond, etcs.,
 
-.. code:: ipython3
+.. code:: python
 
     # molecular weight
     Chem.rdMolDescriptors.CalcExactMolWt(m2)
@@ -286,7 +286,7 @@ atoms, number of bond, etcs.,
     106.07825032
 
 
-.. code:: ipython3
+.. code:: python
 
     list(m2.GetAtoms())
 
@@ -314,7 +314,7 @@ atoms, number of bond, etcs.,
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # can loop over every atom in the molecule
     for atom in m2.GetAtoms():
@@ -343,7 +343,7 @@ atoms, number of bond, etcs.,
     H 17 1
 
 
-.. code:: ipython3
+.. code:: python
 
     type(m2)
 
@@ -353,7 +353,7 @@ atoms, number of bond, etcs.,
     rdkit.Chem.rdchem.Mol
 
 
-.. code:: ipython3
+.. code:: python
 
     list(m2.GetBonds())
 
@@ -380,7 +380,7 @@ atoms, number of bond, etcs.,
      <rdkit.Chem.rdchem.Bond at 0x7fa779f29b30>]
 
 
-.. code:: ipython3
+.. code:: python
 
     # can loop over every atom in the molecule
     for bond in m2.GetBonds():
@@ -408,7 +408,7 @@ atoms, number of bond, etcs.,
     SINGLE 7 17
 
 
-.. code:: ipython3
+.. code:: python
 
     print(m2.GetAtomWithIdx(0).GetSymbol())
     print(m2.GetAtomWithIdx(0).GetExplicitValence())
@@ -426,14 +426,14 @@ atoms, number of bond, etcs.,
     SINGLE
 
 
-.. code:: ipython3
+.. code:: python
 
     def mol_with_atom_index(mol):
         for atom in mol.GetAtoms():
             atom.SetAtomMapNum(atom.GetIdx())
         return mol
 
-.. code:: ipython3
+.. code:: python
 
     mol_with_atom_index(m2)
 
@@ -444,7 +444,7 @@ atoms, number of bond, etcs.,
 
 
 
-.. code:: ipython3
+.. code:: python
 
     #Whats next to each other? Atoms keep track of their neighbors
     atom = m2.GetAtomWithIdx(0)
@@ -460,7 +460,7 @@ atoms, number of bond, etcs.,
 
 
 
-.. code:: ipython3
+.. code:: python
 
     #Can check if in a ring?
     m2.GetAtomWithIdx(1).IsInRingSize(6)
@@ -480,12 +480,12 @@ Other RDKit properties -> check out https://www.rdkit.org/docs/GettingStartedInP
 Step 3: Other RDkit Descriptors
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: ipython3
+.. code:: python
 
     # Descriptors - https://www.rdkit.org/docs/source/rdkit.Chem.Descriptors.html#module-rdkit.Chem.Descriptors
     from rdkit.Chem import Descriptors
 
-.. code:: ipython3
+.. code:: python
 
     m = Chem.MolFromSmiles('c1ccccc1C(=O)O')
     print('TPSA:', Descriptors.TPSA(m))
@@ -498,12 +498,12 @@ Step 3: Other RDkit Descriptors
     ExactMolWt: 122.036779432
 
 
-.. code:: ipython3
+.. code:: python
 
     # Graph Descriptors - https://www.rdkit.org/docs/source/rdkit.Chem.GraphDescriptors.html
     from rdkit.Chem import GraphDescriptors
 
-.. code:: ipython3
+.. code:: python
 
     m = Chem.MolFromSmiles('c1ccccc1C(=O)O')
     print('BalabanJ:', GraphDescriptors.BalabanJ(m))
@@ -518,21 +518,21 @@ Step 3: Other RDkit Descriptors
     HallKierAlpha: -1.31
 
 
-.. code:: ipython3
+.. code:: python
 
     # Fingerprints - https://www.rdkit.org/docs/source/rdkit.Chem.GraphDescriptors.html
     from rdkit.Chem import GraphDescriptors
     from rdkit.Chem.AtomPairs.Pairs import GetAtomPairFingerprintAsBitVect
     from rdkit.Chem import MACCSkeys
 
-.. code:: ipython3
+.. code:: python
 
     m = Chem.MolFromSmiles('c1ccccc1C(=O)O')
     fp1 = AllChem.GetMorganFingerprint(m, 2) # radius, number of bits
     fp2 = GetAtomPairFingerprintAsBitVect(m) # number of bits
     fp3 = MACCSkeys.GenMACCSKeys(m)
 
-.. code:: ipython3
+.. code:: python
 
     print(fp1, fp2, fp3)
 
@@ -544,7 +544,7 @@ Step 3: Other RDkit Descriptors
      <rdkit.DataStructs.cDataStructs.ExplicitBitVect object at 0x7fa779fa0900>
 
 
-.. code:: ipython3
+.. code:: python
 
     print(fp3.ToList())
 
@@ -554,7 +554,7 @@ Step 3: Other RDkit Descriptors
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0]
 
 
-.. code:: ipython3
+.. code:: python
 
     info={}
     m = Chem.MolFromSmiles('c1ccccc1C(=O)O')
@@ -581,7 +581,7 @@ Step 3: Other RDkit Descriptors
     bit on: ((1, 1), (2, 1), (3, 1))
 
 
-.. code:: ipython3
+.. code:: python
 
     env = Chem.FindAtomEnvironmentOfRadiusN(m,1,1)
     amap={}
@@ -605,12 +605,12 @@ Step 3: Other RDkit Descriptors
 
 
 
-.. code:: ipython3
+.. code:: python
 
     #3D Descriptors - https://www.rdkit.org/docs/source/rdkit.Chem.Descriptors3D.html
     from rdkit.Chem import Descriptors3D
 
-.. code:: ipython3
+.. code:: python
 
     m = Chem.MolFromSmiles('c1ccccc1C(=O)O')
     m = Chem.AddHs(m)
@@ -633,7 +633,7 @@ Step 3: Other RDkit Descriptors
 Step 4: Substructure matching
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: ipython3
+.. code:: python
 
     m = Chem.MolFromSmiles('c1ccccc1C(=O)O') # can be done with chiral smiles to preserve chirality
     patt = Chem.MolFromSmarts('C(=O)O') 
@@ -649,7 +649,7 @@ Step 4: Substructure matching
 Step 5: Chemical transformations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: ipython3
+.. code:: python
 
     rxn = AllChem.ReactionFromSmarts('[C:1]=[C:2].[C:3]=[*:4][*:5]=[C:6]>>[C:1]1[C:2][C:3][*:4]=[*:5][C:6]1')
     rxn
@@ -661,7 +661,7 @@ Step 5: Chemical transformations
 
 
 
-.. code:: ipython3
+.. code:: python
 
     print( 'number of reactant:', rxn.GetNumReactantTemplates())
     print( 'number of product:', rxn.GetNumProductTemplates())
@@ -673,7 +673,7 @@ Step 5: Chemical transformations
     number of product: 1
 
 
-.. code:: ipython3
+.. code:: python
 
     mols = [Chem.MolFromSmiles('OC=C'), Chem.MolFromSmiles('C=CC(N)=C')]
     mols[0]
@@ -685,11 +685,11 @@ Step 5: Chemical transformations
 
 
 
-.. code:: ipython3
+.. code:: python
 
     ps = rxn.RunReactants((mols[0], mols[1]))
 
-.. code:: ipython3
+.. code:: python
 
     print('product:', Chem.MolToSmiles(ps[0][0]))
     ps[0][0]
@@ -709,7 +709,7 @@ Step 5: Chemical transformations
 Step 6: Atom/Bond deletion/addition
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: ipython3
+.. code:: python
 
     m = Chem.MolFromSmiles('CC(=O)C=CC=C')
     mw = Chem.RWMol(m)
@@ -722,7 +722,7 @@ Step 6: Atom/Bond deletion/addition
 
 
 
-.. code:: ipython3
+.. code:: python
 
     mw.ReplaceAtom(4,Chem.Atom(7))
     mw
@@ -734,7 +734,7 @@ Step 6: Atom/Bond deletion/addition
 
 
 
-.. code:: ipython3
+.. code:: python
 
     mw.AddAtom(Chem.Atom(6))
     mw
@@ -746,7 +746,7 @@ Step 6: Atom/Bond deletion/addition
 
 
 
-.. code:: ipython3
+.. code:: python
 
     mw.AddAtom(Chem.Atom(6))
     mw
@@ -758,7 +758,7 @@ Step 6: Atom/Bond deletion/addition
 
 
 
-.. code:: ipython3
+.. code:: python
 
     mw.AddBond(6,7,Chem.BondType.SINGLE)
     mw
@@ -770,7 +770,7 @@ Step 6: Atom/Bond deletion/addition
 
 
 
-.. code:: ipython3
+.. code:: python
 
     mw.AddBond(7,8,Chem.BondType.DOUBLE)
     mw
@@ -782,7 +782,7 @@ Step 6: Atom/Bond deletion/addition
 
 
 
-.. code:: ipython3
+.. code:: python
 
     mw.AddBond(8,3,Chem.BondType.SINGLE)
     mw
@@ -794,7 +794,7 @@ Step 6: Atom/Bond deletion/addition
 
 
 
-.. code:: ipython3
+.. code:: python
 
     mw.RemoveAtom(0)
     mw
@@ -806,7 +806,7 @@ Step 6: Atom/Bond deletion/addition
 
 
 
-.. code:: ipython3
+.. code:: python
 
     mw.GetNumAtoms()
 
@@ -819,7 +819,7 @@ Step 6: Atom/Bond deletion/addition
 
 
 
-.. code:: ipython3
+.. code:: python
 
     ### other RDKIT things: Fragments on a moelcule (functional groups), visualizing pictures of molecules
 
@@ -830,12 +830,12 @@ Modred is used to collect important chemical descriptors
 
 https://github.com/mordred-descriptor/mordred
 
-.. code:: ipython3
+.. code:: python
 
     from rdkit import Chem
     from mordred import Calculator, descriptors
 
-.. code:: ipython3
+.. code:: python
 
     # create descriptor calculator with all descriptors
     calc = Calculator(descriptors, ignore_3D=True)
@@ -849,7 +849,7 @@ https://github.com/mordred-descriptor/mordred
     non 3D descriptors: 1612
 
 
-.. code:: ipython3
+.. code:: python
 
     mol = Chem.MolFromSmiles('c1ccccc1')
     calc(mol)[:3]
@@ -863,7 +863,7 @@ https://github.com/mordred-descriptor/mordred
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # calculate multiple molecule
     mols = [Chem.MolFromSmiles(smi) for smi in ['c1ccccc1Cl', 'c1ccccc1O', 'c1ccccc1N']]
@@ -880,7 +880,7 @@ https://github.com/mordred-descriptor/mordred
     Name: SLogP, dtype: float64
 
 
-.. code:: ipython3
+.. code:: python
 
     #https://github.com/mordred-descriptor/mordred/tree/develop/examples for examples
 
@@ -905,11 +905,11 @@ https://github.com/kjelljorner/morfeus
    - Sterimol parameters
    - XTB electronic descriptors
 
-.. code:: ipython3
+.. code:: python
 
     from morfeus import BuriedVolume, Dispersion, SASA, Sterimol
 
-.. code:: ipython3
+.. code:: python
 
     m = Chem.MolFromSmiles('c1ccccc1C(=O)O')
     m = Chem.AddHs(m)
@@ -954,13 +954,13 @@ https://github.com/kjelljorner/morfeus
     4.89      1.70      4.88      
 
 
-.. code:: ipython3
+.. code:: python
 
     from morfeus import XTB
     #conda config --add channels conda-forge
     #conda install xtb-python
 
-.. code:: ipython3
+.. code:: python
 
     xtb = XTB(elements, coords)
     print('IP:', xtb.get_ip())
@@ -1026,17 +1026,17 @@ DBstep: a descriptors package
 
 DBstep is used to collect sterimol descriptors
 
-.. code:: ipython3
+.. code:: python
 
     from dbstep.Dbstep import dbstep
 
-.. code:: ipython3
+.. code:: python
 
     m = Chem.MolFromSmiles('c1ccccc1C(=O)O')
     m = Chem.AddHs(m)
     AllChem.EmbedMolecule(m,randomSeed=0xf00d)   # need to get 3D coordinates
 
-.. code:: ipython3
+.. code:: python
 
     mol_with_atom_index(m)
 
@@ -1044,7 +1044,7 @@ DBstep is used to collect sterimol descriptors
 .. image:: images/cheminfo_78_0.png
 
 
-.. code:: ipython3
+.. code:: python
 
     Et_sterics = dbstep(m2, sterimol=True,volume=True, atom1=7, atom2=6)
 
@@ -1055,7 +1055,7 @@ DBstep is used to collect sterimol descriptors
          3.50      37.08       0.00       1.68       6.41       4.30
 
 
-.. code:: ipython3
+.. code:: python
 
     Et_sterics = dbstep(m2, sterimol=True,volume=True, atom1=7, atom2=6, scan='0:5:1')
 
