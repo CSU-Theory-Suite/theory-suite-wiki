@@ -1,13 +1,3 @@
-=========================
-GoodVibes Jupyter Outputs
-=========================
-
-.. introduction-start
-
-These are all the Jupyter Outputs for the GoodVibes Workflow
-
-.. introduction-end
-
 .. water-start
 
 o  Requested:
