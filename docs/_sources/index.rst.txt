@@ -39,4 +39,4 @@ Welcome to csu-wiki's Documentation!
    :maxdepth: 2
    :caption: Concepts
 
-   concepts/classical_molecular_dynamics.rst
+   concepts/classical_molecular_dynamics/classical_molecular_dynamics.rst

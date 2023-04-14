@@ -1,5 +1,5 @@
 .. |REGGAE-MV-linear-plot| image:: images/REGGAE-MV-linear-plot.png
-.. |REGGEA-correlation-plot| image:: images/REGGEA-correlation-plot.png
+.. |REGGAE-correlation-plot| image:: images/REGGAE-correlation-plot.png
 .. |REGGAE-diagnostics-plot| image:: images/REGGAE-diagnostics-plot.png
 .. |PCA-clusters-REGGAE| image:: images/PCA-clusters-REGGAE.png
 
@@ -53,8 +53,9 @@ Note: Maybe need to install using older version of python. Add ``python=3.9``
     using ``Rscript setup_for_allof.r``
 
 
-Performing a multivariate regression Example 1
-----------------------------------------------
+Example 1: Performing a multivariate regression 
+-----------------------------------------------
+
 Using (i) Forward-stepwise feature selection and (ii) Random 70 Train and 30 Test split on a 
 dataset containg 20 samples and 17 features.
 
@@ -73,15 +74,16 @@ regression formula in both scaled and nonscaled versions, and the R2 and RMSE va
 
 .. highlight:: none
 
-.. literalinclude:: resources/terminal_outputs.rst 
+.. literalinclude:: resources/terminal_outputs.txt 
     :start-after: example1-start
     :end-before: example1-end 
 
 .. highlight:: default
 
 
-Performing a multivariate regression Example 2
-----------------------------------------------
+Example 2: Performing a multivariate regression
+-----------------------------------------------
+
 Using (i) manual feature selection, (ii) predefined split selection, and (iii) cross-validation.
 The split has been defined as Train and Test within the 12kclusters column in the dataset. 
 Therefore, the script will pick up the column with two catagorical variables. 
@@ -100,7 +102,7 @@ and three cross validation analysis: Leave-one-out, K-fold (k=5), and Q2.
 
 .. highlight:: none
 
-.. literalinclude:: resources/terminal_outputs.rst 
+.. literalinclude:: resources/terminal_outputs.txt 
     :start-after: example2-start
     :end-before: example2-end
 
@@ -111,7 +113,7 @@ ANOVA analysis, regression plot (.png), a table of predicted y-values.
 
 .. highlight:: none
 
-.. literalinclude:: resources/terminal_outputs.rst 
+.. literalinclude:: resources/terminal_outputs.txt 
     :start-after: example2v-start
     :end-before: example2v-end
 
@@ -121,7 +123,7 @@ Continued Terminal output includes analysis for the three cross-validation metho
 
 .. highlight:: none
 
-.. literalinclude:: resources/terminal_outputs.rst 
+.. literalinclude:: resources/terminal_outputs.txt 
     :start-after: example2cv-start
     :end-before: example2cv-end
 
@@ -129,36 +131,39 @@ Continued Terminal output includes analysis for the three cross-validation metho
 
 
 Regression Plot Generated
---------------------------
+-------------------------
+
 From Example2: Regression plot is saved in working folder as REGGAE-MV-linear-plot.png.
 
 .. centered:: |REGGAE-MV-linear-plot|
 
 
 Pearson Correlation Plot  
--------------------------
+------------------------
+
 Adding the ``-c 0.5`` option outputs: pairwise correlations between features > 0.5 
 
 .. highlight:: none
 
-.. literalinclude:: resources/terminal_outputs.rst 
+.. literalinclude:: resources/terminal_outputs.txt 
     :start-after: pcorrelation-start
     :end-before: pcorrelation-end
 
 .. highlight:: default
 
-Using the ``-v`` option saves the plot within the working folder as REGGEA-correlation-plot.png.
+Using the ``-v`` option saves the plot within the working folder as REGGAE-correlation-plot.png.
 
-.. centered:: |REGGEA-correlation-plot|
+.. centered:: |REGGAE-correlation-plot|
 
 
-Diagnostics Plot  
--------------------------
+Diagnostics Plot
+----------------
+
 Adding the ``-d`` option outputs: QSAR analysis for the Test set and collinearity analysis in the first section (withou ``-v`` option).
 
 .. highlight:: none
 
-.. literalinclude:: resources/terminal_outputs.rst 
+.. literalinclude:: resources/terminal_outputs.txt 
     :start-after: diagnostics-start
     :end-before: diagnostics-end
 
@@ -169,8 +174,9 @@ Using the ``-v`` option saves the plot within the working folder as REGGAE-diagn
 .. centered:: |REGGAE-diagnostics-plot|
 
 
-PCA Plot  
--------------------------
+PCA Plot
+--------
+
 Using the ``-p 5,2`` option requests running principal componenet analysis with k-means clustering using 5 clusters and 2 components. 
 Using the ``-v`` option gives the PCA-clusters and Scree plots (or elbow plots) for each the clusters and components. 
 Also, within the terminal output, the script returns the loadings. 
