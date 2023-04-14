@@ -20,8 +20,7 @@ author = 'csu-theory-suite'
 
 extensions = ['sphinx.ext.viewcode',
               'sphinx.ext.todo',
-              'sphinx.ext.napoleon',
-              'nbsphinx']
+              'sphinx.ext.napoleon']
 
 templates_path = ['_templates']
 exclude_patterns = []
