@@ -55,6 +55,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#reggae">REGGAE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#disco">DISCO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#aqme">aqme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#slurm-job-tracking">Slurm Job Tracking</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="external.html">External</a></li>
@@ -108,6 +109,7 @@
 <li><p><a class="reference internal" href="#reggae" id="id3">REGGAE</a></p></li>
 <li><p><a class="reference internal" href="#disco" id="id4">DISCO</a></p></li>
 <li><p><a class="reference internal" href="#aqme" id="id5">aqme</a></p></li>
+<li><p><a class="reference internal" href="#slurm-job-tracking" id="id6">Slurm Job Tracking</a></p></li>
 </ul>
 </nav>
 <section id="goodvibes">
@@ -154,6 +156,33 @@ Users can also generate plots for these analyses.</p>
 <section id="aqme">
 <h2><a class="toc-backref" href="#id5" role="doc-backlink">aqme</a><a class="headerlink" href="#aqme" title="Permalink to this heading"></a></h2>
 <p>(Insert short description here)</p>
+</section>
+<section id="slurm-job-tracking">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Slurm Job Tracking</a><a class="headerlink" href="#slurm-job-tracking" title="Permalink to this heading"></a></h2>
+<p>A Python script that will allow you to track completion of slurm jobs. Especially useful if you are running numerous jobs in numerous locations.</p>
+<p>To install and use:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Copy jobcheck.py to machine</dt><dd><ul>
+<li><p><a class="reference external" href="https://github.com/hklem/slurm_job_tracking">https://github.com/hklem/slurm_job_tracking</a></p></li>
+<li><p>You can copy the file anywhere; I chose my home directory.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>(optional) Add alias to your .bashrc &gt;&gt; alias sq 'python ~/jobcheck.py'</p></li>
+<li><dl class="simple">
+<dt>Run command</dt><dd><ul>
+<li><p>When you run for the first time, the script initializes and logs current job information.</p></li>
+<li><p>Note you should run the command everytime aftet you submit jobs, or else it won't log current job info.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>This is what it looks like when you run the command and a job has ended since the last time the command was run:</p>
+<p class="centered">
+<strong><img alt="running_example" src="../_images/jobcheck.png" /></strong></p><p>Now I can quick cd into the directory of the finished job, or copy it over to my local machine.</p>
 </section>
 </section>
 
