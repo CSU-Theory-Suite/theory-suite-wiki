@@ -1,6 +1,9 @@
 ====================================
-Welcome to csu-wiki's Documentation!
+Welcome to CSU-wiki's Documentation!
 ====================================
+
+Thanks for visiting the CSU Theory Suite's wiki page! 
+Feel free to also visit the `Paton Lab Website <https://patonlab.com/>`_ or the `Kim Lab Website <https://bioenergy-kimlab.org/>`_!
 
 .. toctree::
    :maxdepth: 3

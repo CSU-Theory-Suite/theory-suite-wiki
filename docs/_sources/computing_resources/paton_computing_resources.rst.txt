@@ -13,8 +13,8 @@ But first, here are some tips for accessing these computers:
 *  $USER in all these example commands should be replaced with your username on these computers
 *  You will need to create accounts on all of these computers to gain access
 *  I recommend setting up aliases in your ~/.bashrc or ~/.bash_profile or ~/.zshrc
-   * Aliases can be used as short cuts for bash commands
-   * Using aliases to log into different computers can save time and confusion
+    *  Aliases can be used as short cuts for bash commands
+    *  Using aliases to log into different computers can save time and confusion
 
 Expanse and Bridges2
 --------------------
@@ -52,7 +52,7 @@ Additionally, you will need to fill out
 `this form <https://www.psc.edu/resources/software/gaussian/>`__ to gain access 
 to Gaussian, or email them for help.
 
-You should also get in contact with an ACCESS admin in the group (Rob and Miahi 
+You should also get in contact with an ACCESS admin in the group (Rob and Mihai 
 as of March 2023) to be added to the allocations group for the lab.
 
 Alpine
@@ -81,7 +81,7 @@ There are two ways to sign in with Duo to this computer: type
 
 .. note:: 
 
-   Lets say that for illustrative purposes that your password is ``123456`` and 
+   Let's say that for illustrative purposes that your password is ``123456`` and 
    that you want a Duo push. Then you will type ``123456,push``. 
 
 Before you can use Gaussian on Alpine, you will need to email 

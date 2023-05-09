@@ -5,7 +5,7 @@ Kim Lab Computing Resources
 .. contents::
     :local:
 
-Here is an overall list of computing resources available to students in the Paton lab
+Here is an overall list of computing resources available to students in the Kim lab
 
 But first, here are some tips for accessing these computers:
 
@@ -13,47 +13,8 @@ But first, here are some tips for accessing these computers:
 * $USER in all these example commands should be replaced with your username on these computers
 * You will need to create accounts on all of these computers to gain access
 * I recommend setting up aliases in your ~/.bashrc or ~/.bash_profile or ~/.zshrc
-   * Aliases are shortcuts for bash commands
-   * Using aliases to log into different computers can save time and confusion
-
-Expanse and Bridges2
---------------------
-
-We typically apply for an ACCESS grant each year to get compute time on the 
-**Expanse** and **Bridges2** clusters.
-
-The following aliases will allow you to type ``expanse`` or ``bridges2`` into 
-your terminal and immediately ssh to that computer. 
-
-.. code:: shell
-
-    alias expanse='ssh $USER@login.expanse.sdsc.edu'
-    alias bridges2='ssh $USER@bridges2.psc.edu'
-
-.. note:: 
-
-    You will still have to type in a password, but this will allow you to avoid 
-    typing the long hostname each time you want to access another computer.
-
-Before you can access either of these computers, you will have to create accounts 
-for both **Expanse** and **Bridges2**, as well as ACCESS in order to use the resources.
-
-.. note:: 
-
-   Make sure you know your username on each of these computers, as it may be 
-   different than what you normally use depending on how the account is created.
-
-You can follow these websites to make accounts on 
-`Expanse <https://www.sdsc.edu/index.html>`__, 
-`Bridges2 <https://www.psc.edu/>`__, and 
-`ACCESS <https://access-ci.org/>`__.
-
-Additionally, you will need to fill out 
-`this form <https://www.psc.edu/resources/software/gaussian/>`__ to gain access 
-to Gaussian, or email them for help.
-
-You should also get in contact with an ACCESS admin in the group 
-(Seonah as of March 2023) to be added to the allocations group for the lab.
+    * Aliases are shortcuts for bash commands
+    * Using aliases to log into different computers can save time and confusion
 
 Alpine
 ------
