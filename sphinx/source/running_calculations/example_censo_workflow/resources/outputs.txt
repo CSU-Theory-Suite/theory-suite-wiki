@@ -1,0 +1,57 @@
+
+.. crestsetup_help_start
+
+This is the help panel. Below is a list of variables recognised by the script in no specific order:
+-i,--input STR                  coord/file.xyz
+-c,--charge INT                 charge
+-u,--unpaired INT               number of unpaired electron
+-s,--solvent STRING             solvent for ALPB
+-p,--procs INT                  processors
+-fz,--freeze k,l,m              atoms that are to be constrained
+-ewin INT                       energy window for the conformers
+-nci                            for non-covalent complexes
+-noreftopo                      skip topology check after first xTB run
+-protonate                      protonation protocol
+-deprotonate                    deprotonation protocol
+-tautomerize                    tautomerization protocol
+-t,--time 00:00:00              wall time for your job. [01:00:00]
+-a,--add '...'                  additional arguments passed to Crest
+
+If no starting coordinates are supplied, the script will exit.
+
+.. crestsetup_help_end
+
+.. xtbsetup_help_start
+
+This is the help panel. Below is a list of variables recognised by the script in no specific order:
+-i,--input STR                  coord/file.xyz
+-j,--job STR                    opt/hess/ohess/bhess/scc
+-c,--charge INT                 charge
+-u,--unpaired INT               number of unpaired electron
+-s,--solvent STRING             solvent for ALPB
+-p,--procs INT                  processors
+-fz,--freeze k,l,m              atoms that are to be constrained
+-t,--time 00:00:00              wall time for your job. [00:05:00]
+-a,--add '...'                  additional arguments passed to xTB
+
+If no starting coordinates are supplied, the script will exit.
+
+.. xtbsetup_help_end
+
+.. censosetup_help_start
+
+This is the help panel. Below is a list of variables recognised by the script in no specific order:
+-i,--input STR                  ensemble file
+-c,--charge INT                 charge
+-u,--unpaired INT               number of unpaired electron
+-s,--solvent STRING             solvent for ALPB
+-p,--thread INT                 number of individual jobs
+-o,--omp INT                    number of procs for individual job
+-t,--time 00:00:00              wall time for your job. [05:00:00]
+-a,--add '...'                  additional arguments passed to Censo
+
+This script has no defaults, but Censo reads in defaults from .censorc
+If no starting coordinates are supplied, the script will exit.
+
+.. censosetup_help_end
+
