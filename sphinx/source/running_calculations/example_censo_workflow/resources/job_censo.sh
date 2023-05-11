@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -J bnah-censo
+#SBATCH -J censo_workflow-censo
 #SBATCH -p normal
 #SBATCH -t 12:00:00
 #SBATCH -N 1
@@ -26,7 +26,7 @@ start=$(date +%s)
 echo "Calculation from $(date)" >> RUNTIME
 export PYTHONUNBUFFERED=1
 
-nohup censo -inp crest_conformers.xyz.sorted -chrg 0 -P 4 -O 4 -part2 off > censo.out
+nohup censo -inp crest_conformers.xyz.sorted -chrg 1 -P 4 -O 4 -part2 off > censo.out
 
 end=$(date +%s)
 secs=$(expr $end - $start)
