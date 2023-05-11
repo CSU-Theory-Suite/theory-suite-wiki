@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH -J censo_workflow-crest
+#SBATCH -J bnah-crest
 #SBATCH -p normal
-#SBATCH -t 12:00:00
+#SBATCH -t 24:00:00
 #SBATCH -N 1
 #SBATCH --export=NONE
 #SBATCH --ntasks-per-node 8
@@ -19,4 +19,4 @@ export OMP_NUM_THREADS=8,1
 export OMP_MAX_ACTIVE_LEVELS=1
 export MKL_NUM_THREADS=8
 
-crest xtbopt.xyz -chrg 1 -T 8 --noreftopo > crest.out
+crest xtbopt.xyz -T 8 --ewin 12 --noreftopo -chrg 0 > crest.out

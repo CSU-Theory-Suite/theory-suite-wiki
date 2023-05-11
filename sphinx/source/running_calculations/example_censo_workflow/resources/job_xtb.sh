@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -J censo_workflow-xtb
+#SBATCH -J bnah-xtb
 #SBATCH -p normal
 #SBATCH -t 12:00:00
 #SBATCH -N 1
@@ -19,4 +19,4 @@ export OMP_NUM_THREADS=8,1
 export OMP_MAX_ACTIVE_LEVELS=1
 export MKL_NUM_THREADS=8
 
-xtb BuNA.xyz --opt -c 1 -P 8 > xtb.out
+xtb bnah.xyz --opt -P 8 > xtb.out
