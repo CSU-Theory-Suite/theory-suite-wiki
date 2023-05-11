@@ -188,7 +188,7 @@ If no starting coordinates are supplied, the script will exit.
 </div>
 <p>This will generate a script to submit an optimization using 8 processors on the molecule BuNA+, specifying a charge of +1, with a maximum wall time of 12 hours.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
-#SBATCH -J bnah-xtb
+#SBATCH -J censo_workflow-xtb
 #SBATCH -p normal
 #SBATCH -t 12:00:00
 #SBATCH -N 1
@@ -208,7 +208,7 @@ export OMP_NUM_THREADS=8,1
 export OMP_MAX_ACTIVE_LEVELS=1
 export MKL_NUM_THREADS=8
 
-xtb bnah.xyz --opt -P 8 &gt; xtb.out
+xtb BuNA.xyz --opt -c 1 -P 8 &gt; xtb.out
 </pre></div>
 </div>
 <p>Once this script is created, you can submit the job with:</p>
@@ -256,9 +256,9 @@ If no starting coordinates are supplied, the script will exit.
 file <code class="docutils literal notranslate"><span class="pre">xtbopt.xyz</span></code>, specifying that there is a +1 charge, and running for a maximum of 12 hours on 8 processors.
 The keyword <code class="docutils literal notranslate"><span class="pre">-noreftopo</span></code> is generally used is there is not a DFT optimized structure.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
-#SBATCH -J bnah-crest
+#SBATCH -J censo_workflow-crest
 #SBATCH -p normal
-#SBATCH -t 24:00:00
+#SBATCH -t 12:00:00
 #SBATCH -N 1
 #SBATCH --export=NONE
 #SBATCH --ntasks-per-node 8
@@ -276,7 +276,7 @@ export OMP_NUM_THREADS=8,1
 export OMP_MAX_ACTIVE_LEVELS=1
 export MKL_NUM_THREADS=8
 
-crest xtbopt.xyz -T 8 --ewin 12 --noreftopo -chrg 0 &gt; crest.out
+crest xtbopt.xyz -chrg 1 -T 8 --noreftopo &gt; crest.out
 </pre></div>
 </div>
 <p>At this point, you should open the submission script <code class="docutils literal notranslate"><span class="pre">job_crest.sh</span></code> to make sure that everything looks correct.
@@ -349,7 +349,7 @@ these prescreening calculations 4 conformers at a time using 4 processors per co
 and making sure that CENSO knows that we do not want to complete Part2 of the workflow (and therefore no parts after that).</p>
 <p>Running the setup script will give the submission script <code class="docutils literal notranslate"><span class="pre">job_censo.sh</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
-#SBATCH -J bnah-censo
+#SBATCH -J censo_workflow-censo
 #SBATCH -p normal
 #SBATCH -t 12:00:00
 #SBATCH -N 1
@@ -376,7 +376,7 @@ start=$(date +%s)
 echo &quot;Calculation from $(date)&quot; &gt;&gt; RUNTIME
 export PYTHONUNBUFFERED=1
 
-nohup censo -inp crest_conformers.xyz.sorted -chrg 0 -P 4 -O 4 -part2 off &gt; censo.out
+nohup censo -inp crest_conformers.xyz.sorted -chrg 1 -P 4 -O 4 -part2 off &gt; censo.out
 
 end=$(date +%s)
 secs=$(expr $end - $start)
