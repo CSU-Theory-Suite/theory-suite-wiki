@@ -36,9 +36,9 @@ Using this smiles string and a program called `Open Babel <https://openbabel.org
 
 .. code:: shell
 
-    obabel -:"O=C(N)C1=C[N+](CCCC)=CC=C1" -oxyz -O BuNA.xyz
+    obabel -:"O=C(N)C1=C[N+](CCCC)=CC=C1" -oxyz -O BuNA.xyz --gen3d
 
-This command will give you the following xyz coordinate file for our molecule:
+This command will give you the following xyz coordinate file for the 3D structure of our molecule:
 
 .. highlight:: none
 
@@ -73,7 +73,7 @@ In this case, we want an optimization, so we will use the command:
 
     xtbsetup.sh -i BuNA.xyz -j opt -c 1 -p 8 -t 12:00:00
 
-This will generate a script to submit an optimization using 8 processors on the molecule BuNA+, specifying a charge of +1, with a maximum walltime of 12 hours.
+This will generate a script to submit an optimization using 8 processors on the molecule BuNA+, specifying a charge of +1, with a maximum wall time of 12 hours.
 
 .. literalinclude:: resources/job_xtb.sh
 
@@ -131,6 +131,8 @@ It is important that you use the command ``sbatch`` to make sure that your job i
 You will get a number of outputs from this job, but the one we will be using in this workflow is ``crest_ensemble.xyz``
 This file contains xyz coordinates for all of the different conformers found using this conformer search.
 
+In the case of our structure, we have 43 conformers, too many to realistically perform high-level DFT calcualtions on, so we have to narrow it down.
+
 Initial Sorting with CREGEN
 ---------------------------
 
@@ -138,7 +140,7 @@ Overall, we want to use CENSO to reduce the number of conformers that will go on
 However, there are computationally cheaper methods that can remove duplicate structures from the ensembles before we move on to the more advanced calculations.
 An easy way to remove duplicate structures is using CREGEN, part of CREST's package.
 
-CREGEN does quick calculations to remove duplicates. 
+CREGEN does quick calculations to remove duplicate structures. 
 There are a number of keywords that you can use to reduce the number of conformers that you get out at the end.
 This can include making an energy threshold cut-off, where any structures within a certain number of kcal in energy are considered the same structure.
 Additional information about the CREGEN keywords can be found in the `CREST documentation <https://crest-lab.github.io/crest-docs/page/documentation/keywords.html>`_.
@@ -151,7 +153,7 @@ For our system, this is how we will initially sort/reduce our number of conforme
 
 This uses ``BuNA.xyz`` as a reference structure, then sorts ``crest_conformers.xyz`` using keywords ``--ewin``, ``--ethr``, ``--bthr``, and ``--rthr``, then writing the output to a file called ``cregen_output.txt``.
 The output file that we will use moving forward is ``crest_conformers.xyz.sorted``, which has removed all duplicates based on the keywords that we entered and sorted the conformers by energy.
-
+ 
 Now that we have performed a conformer search and done a quick reduction of the number of conformers, we are ready for CENSO.
 
 Running CENSO
@@ -219,12 +221,26 @@ At this point, the energies associated with each conformer are more accurate tha
 Final Sorting
 -------------
 
-For this particular example, we just wanted to use CENSO to help us cut down on the number of conformers that we need to run through DFT.
+For this particular example, we just wanted to use CENSO to help us cut down on the number of conformers that we need to run through high-level DFT.
 Since we didn't continue with CENSO optimization, we might still want to reduce the conformations using CREGEN again.
 This time, since we now have more accurate energies, we can be more aggressive with our CREGEN sorting and still achieve physically accurate results.
 
 For instance, now that we know we have accurate value for the energies of the conformers,
 we can confidently limit our conformers to those within 3-4 kcal of the lowest energy structure without removing a significant conformer.
+Additionally, since the structures have been optimized at a low DFT level, we can remove any duplicates that may have optimized to the same structure,
+or use a higher RMSD threshold since we know that the structures are more accurate than xTB calculations.
 
 This CREGEN calculation is performed the same way as above, editing the keywords as desired.
+
+With these calculations, using the command
+
+.. code:: shell
+
+    crest BuNA.xyz --cregen enso_ensemble_part1.xyz --ewin 3 --rthr 0.25 --ethr 0.5 > cregen2_output.txt
+
+we have already reduced the number of conformations to 35 from 43. 
+Since the energies and structures are more accurate than for the first CREGEN calculation,
+we can change the energy window and different thresholds more aggressively to limit the number of conformers
+without removing important conformations.
+You will have to change the keywords as is appropriate for your project, but this will be a good start to make conformational analysis a feasible option.
 

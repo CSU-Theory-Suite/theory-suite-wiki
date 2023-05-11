@@ -135,10 +135,10 @@ You can also generate the structural ensemble starting from a smiles string, whi
 Drawn out, this is the molecule:</p>
 <p class="centered">
 <strong><img alt="BuNAH_lines" src="../../_images/bunah_structure.png" /></strong></p><p>Using this smiles string and a program called <a class="reference external" href="https://openbabel.org/docs/dev/Command-line_tools/babel.html">Open Babel</a>, we can generate 3D coordinates of this molecule.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>obabel -:<span class="s2">&quot;O=C(N)C1=C[N+](CCCC)=CC=C1&quot;</span> -oxyz -O BuNA.xyz
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>obabel -:<span class="s2">&quot;O=C(N)C1=C[N+](CCCC)=CC=C1&quot;</span> -oxyz -O BuNA.xyz --gen3d
 </pre></div>
 </div>
-<p>This command will give you the following xyz coordinate file for our molecule:</p>
+<p>This command will give you the following xyz coordinate file for the 3D structure of our molecule:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>13
 
 O          0.00000        0.00000        0.00000
@@ -186,9 +186,9 @@ If no starting coordinates are supplied, the script will exit.
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>xtbsetup.sh -i BuNA.xyz -j opt -c <span class="m">1</span> -p <span class="m">8</span> -t <span class="m">12</span>:00:00
 </pre></div>
 </div>
-<p>This will generate a script to submit an optimization using 8 processors on the molecule BuNA+, specifying a charge of +1, with a maximum walltime of 12 hours.</p>
+<p>This will generate a script to submit an optimization using 8 processors on the molecule BuNA+, specifying a charge of +1, with a maximum wall time of 12 hours.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
-#SBATCH -J censo_workflow-xtb
+#SBATCH -J bnah-xtb
 #SBATCH -p normal
 #SBATCH -t 12:00:00
 #SBATCH -N 1
@@ -208,7 +208,7 @@ export OMP_NUM_THREADS=8,1
 export OMP_MAX_ACTIVE_LEVELS=1
 export MKL_NUM_THREADS=8
 
-xtb BuNA.xyz --opt -c 1 -P 8 &gt; xtb.out
+xtb bnah.xyz --opt -P 8 &gt; xtb.out
 </pre></div>
 </div>
 <p>Once this script is created, you can submit the job with:</p>
@@ -256,9 +256,9 @@ If no starting coordinates are supplied, the script will exit.
 file <code class="docutils literal notranslate"><span class="pre">xtbopt.xyz</span></code>, specifying that there is a +1 charge, and running for a maximum of 12 hours on 8 processors.
 The keyword <code class="docutils literal notranslate"><span class="pre">-noreftopo</span></code> is generally used is there is not a DFT optimized structure.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
-#SBATCH -J censo_workflow-crest
+#SBATCH -J bnah-crest
 #SBATCH -p normal
-#SBATCH -t 12:00:00
+#SBATCH -t 24:00:00
 #SBATCH -N 1
 #SBATCH --export=NONE
 #SBATCH --ntasks-per-node 8
@@ -276,7 +276,7 @@ export OMP_NUM_THREADS=8,1
 export OMP_MAX_ACTIVE_LEVELS=1
 export MKL_NUM_THREADS=8
 
-crest xtbopt.xyz -chrg 1 -T 8 --noreftopo &gt; crest.out
+crest xtbopt.xyz -T 8 --ewin 12 --noreftopo -chrg 0 &gt; crest.out
 </pre></div>
 </div>
 <p>At this point, you should open the submission script <code class="docutils literal notranslate"><span class="pre">job_crest.sh</span></code> to make sure that everything looks correct.
@@ -288,13 +288,14 @@ When you have double checked that everything looks right and you are ready to pe
 <p>It is important that you use the command <code class="docutils literal notranslate"><span class="pre">sbatch</span></code> to make sure that your job is entered into the queue and does not run on the head node of ACME.</p>
 <p>You will get a number of outputs from this job, but the one we will be using in this workflow is <code class="docutils literal notranslate"><span class="pre">crest_ensemble.xyz</span></code>
 This file contains xyz coordinates for all of the different conformers found using this conformer search.</p>
+<p>In the case of our structure, we have 43 conformers, too many to realistically perform high-level DFT calcualtions on, so we have to narrow it down.</p>
 </div>
 <div class="section" id="initial-sorting-with-cregen">
 <h2><a class="toc-backref" href="#id5">Initial Sorting with CREGEN</a><a class="headerlink" href="#initial-sorting-with-cregen" title="Permalink to this headline">¶</a></h2>
 <p>Overall, we want to use CENSO to reduce the number of conformers that will go on to DFT calculations.
 However, there are computationally cheaper methods that can remove duplicate structures from the ensembles before we move on to the more advanced calculations.
 An easy way to remove duplicate structures is using CREGEN, part of CREST's package.</p>
-<p>CREGEN does quick calculations to remove duplicates.
+<p>CREGEN does quick calculations to remove duplicate structures.
 There are a number of keywords that you can use to reduce the number of conformers that you get out at the end.
 This can include making an energy threshold cut-off, where any structures within a certain number of kcal in energy are considered the same structure.
 Additional information about the CREGEN keywords can be found in the <a class="reference external" href="https://crest-lab.github.io/crest-docs/page/documentation/keywords.html">CREST documentation</a>.</p>
@@ -348,7 +349,7 @@ these prescreening calculations 4 conformers at a time using 4 processors per co
 and making sure that CENSO knows that we do not want to complete Part2 of the workflow (and therefore no parts after that).</p>
 <p>Running the setup script will give the submission script <code class="docutils literal notranslate"><span class="pre">job_censo.sh</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
-#SBATCH -J censo_workflow-censo
+#SBATCH -J bnah-censo
 #SBATCH -p normal
 #SBATCH -t 12:00:00
 #SBATCH -N 1
@@ -375,7 +376,7 @@ start=$(date +%s)
 echo &quot;Calculation from $(date)&quot; &gt;&gt; RUNTIME
 export PYTHONUNBUFFERED=1
 
-nohup censo -inp crest_conformers.xyz.sorted -chrg 1 -P 4 -O 4 -part2 off &gt; censo.out
+nohup censo -inp crest_conformers.xyz.sorted -chrg 0 -P 4 -O 4 -part2 off &gt; censo.out
 
 end=$(date +%s)
 secs=$(expr $end - $start)
@@ -398,12 +399,23 @@ At this point, the energies associated with each conformer are more accurate tha
 </div>
 <div class="section" id="final-sorting">
 <h2><a class="toc-backref" href="#id7">Final Sorting</a><a class="headerlink" href="#final-sorting" title="Permalink to this headline">¶</a></h2>
-<p>For this particular example, we just wanted to use CENSO to help us cut down on the number of conformers that we need to run through DFT.
+<p>For this particular example, we just wanted to use CENSO to help us cut down on the number of conformers that we need to run through high-level DFT.
 Since we didn't continue with CENSO optimization, we might still want to reduce the conformations using CREGEN again.
 This time, since we now have more accurate energies, we can be more aggressive with our CREGEN sorting and still achieve physically accurate results.</p>
 <p>For instance, now that we know we have accurate value for the energies of the conformers,
-we can confidently limit our conformers to those within 3-4 kcal of the lowest energy structure without removing a significant conformer.</p>
+we can confidently limit our conformers to those within 3-4 kcal of the lowest energy structure without removing a significant conformer.
+Additionally, since the structures have been optimized at a low DFT level, we can remove any duplicates that may have optimized to the same structure,
+or use a higher RMSD threshold since we know that the structures are more accurate than xTB calculations.</p>
 <p>This CREGEN calculation is performed the same way as above, editing the keywords as desired.</p>
+<p>With these calculations, using the command</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>crest BuNA.xyz --cregen enso_ensemble_part1.xyz --ewin <span class="m">3</span> --rthr <span class="m">0</span>.25 --ethr <span class="m">0</span>.5 &gt; cregen2_output.txt
+</pre></div>
+</div>
+<p>we have already reduced the number of conformations to 35 from 43.
+Since the energies and structures are more accurate than for the first CREGEN calculation,
+we can change the energy window and different thresholds more aggressively to limit the number of conformers
+without removing important conformations.
+You will have to change the keywords as is appropriate for your project, but this will be a good start to make conformational analysis a feasible option.</p>
 </div>
 </div>
 
