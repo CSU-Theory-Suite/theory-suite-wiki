@@ -1,10 +1,5 @@
-pre { line-height: 125%; }
-td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
-span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
-td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
-span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 .highlight .hll { background-color: #ffffcc }
-.highlight { background: #282c34; color: #fbfbfb }
+.highlight  { background: #282c34; color: #fbfbfb }
 .highlight .c { color: #7f848e; font-style: italic } /* Comment */
 .highlight .err { color: #c24038; background-color: #181a1f } /* Error */
 .highlight .k { color: #c678dd; font-weight: bold } /* Keyword */

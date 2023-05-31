@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="python" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Example Workflow in ACME &mdash; csu-wiki  documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>Example Workflow in ACME &mdash; csu-wiki  documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+  <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -42,21 +40,21 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Computing Resources</span></p>
+              <p class="caption"><span class="caption-text">Computing Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../computing_resources/paton_computing_resources.html">Paton Lab Computing Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing_resources/kim_computing_resources.html">Kim Lab Computing Resources</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Helpful Packages</span></p>
+<p class="caption"><span class="caption-text">Helpful Packages</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/inhouse.html">In-house</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/external.html">External</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Graphical Software</span></p>
+<p class="caption"><span class="caption-text">Graphical Software</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../graphical_software/edition_generation.html">Edition/Generation</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Running Calculations</span></p>
+<p class="caption"><span class="caption-text">Running Calculations</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Example Workflow in ACME</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#activating-the-conda-environment">1. Activating the conda environment</a></li>
@@ -73,7 +71,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../example_censo_workflow/example_censo_workflow.html">Example CENSO Workflow for ACME</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../example_nciplot_calculation/example_nciplot_calculation.html">Example NCIPLOT Calculation</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
+<p class="caption"><span class="caption-text">Concepts</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/classical_molecular_dynamics/classical_molecular_dynamics.html">Classical Molecular Dynamics</a></li>
 </ul>
@@ -102,9 +100,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="example-workflow-in-acme">
-<h1>Example Workflow in ACME<a class="headerlink" href="#example-workflow-in-acme" title="Permalink to this heading"></a></h1>
-<nav class="contents local" id="contents">
+  <div class="section" id="example-workflow-in-acme">
+<h1>Example Workflow in ACME<a class="headerlink" href="#example-workflow-in-acme" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#activating-the-conda-environment" id="id1">1. Activating the conda environment</a></p></li>
 <li><p><a class="reference internal" href="#using-openbabel" id="id2">2. Using OpenBabel</a></p></li>
@@ -113,18 +111,18 @@
 <li><p><a class="reference internal" href="#running-a-censo-calculation" id="id5">5. Running a CENSO calculation</a></p></li>
 <li><p><a class="reference internal" href="#running-qm-calculations-gaussian-orca-aqme-and-goodvibes" id="id6">6. Running QM calculations. Gaussian, ORCA, AQME and Goodvibes</a></p></li>
 </ul>
-</nav>
-<section id="activating-the-conda-environment">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">1. Activating the conda environment</a><a class="headerlink" href="#activating-the-conda-environment" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="activating-the-conda-environment">
+<h2><a class="toc-backref" href="#id1">1. Activating the conda environment</a><a class="headerlink" href="#activating-the-conda-environment" title="Permalink to this headline">¶</a></h2>
 <p>First we start by activating the DL_CPU conda environment. This environment
 is only on ACME and not in the local machines and it is shared between the
 groups.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda activate DL_CPU
 </pre></div>
 </div>
-</section>
-<section id="using-openbabel">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">2. Using OpenBabel</a><a class="headerlink" href="#using-openbabel" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="using-openbabel">
+<h2><a class="toc-backref" href="#id2">2. Using OpenBabel</a><a class="headerlink" href="#using-openbabel" title="Permalink to this headline">¶</a></h2>
 <p>We have previously created a .pdb file with gaussian for the pentene in the
 folder example_workflow in our home folder ( /home/username/ ). Our first step
 of the workflow will be to go to that folder and convert the .pdb file to a .xyz
@@ -134,9 +132,9 @@ obabel -ipdb pentene.pdb -oxyz -O*.xyz
 </pre></div>
 </div>
 <p>Here the <code class="code docutils literal notranslate"><span class="pre">-ipdb</span></code> specifies that the format of the input is pdb</p>
-</section>
-<section id="running-an-xtb-calculation">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">3. Running an XTB calculation</a><a class="headerlink" href="#running-an-xtb-calculation" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="running-an-xtb-calculation">
+<h2><a class="toc-backref" href="#id3">3. Running an XTB calculation</a><a class="headerlink" href="#running-an-xtb-calculation" title="Permalink to this headline">¶</a></h2>
 <p>We shouldn't directly run the xtb software because that will make the calculation
 not to run in one of the compute node but actually run in the node that controls
 the queue system and keeps everything connected.</p>
@@ -172,9 +170,9 @@ which will return us something along the lines of:</p>
 #gives the generated files so that they can be included here.
 </pre></div>
 </div>
-</section>
-<section id="running-a-crest-calculation">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">4. Running a CREST calculation</a><a class="headerlink" href="#running-a-crest-calculation" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="running-a-crest-calculation">
+<h2><a class="toc-backref" href="#id4">4. Running a CREST calculation</a><a class="headerlink" href="#running-a-crest-calculation" title="Permalink to this headline">¶</a></h2>
 <p>Next, we will perform a conformational search using crest. To submit crest
 calculations we have the <code class="code docutils literal notranslate"><span class="pre">crestsetup.sh</span></code> script</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>crestsetup.sh -i xtbopt.xyz -c <span class="m">0</span> -p <span class="m">32</span>
@@ -196,9 +194,9 @@ log file. for crest calculations this file is <code class="code docutils literal
 the <code class="code docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-f</span> <span class="pre">crest.out</span></code> command to display in the terminal the end of
 the file. To go back to the usual console, use <code class="code docutils literal notranslate"><span class="pre">ctrl+c</span></code></p>
 </div>
-</section>
-<section id="running-a-censo-calculation">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">5. Running a CENSO calculation</a><a class="headerlink" href="#running-a-censo-calculation" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="running-a-censo-calculation">
+<h2><a class="toc-backref" href="#id5">5. Running a CENSO calculation</a><a class="headerlink" href="#running-a-censo-calculation" title="Permalink to this headline">¶</a></h2>
 <p>Now we are going to prepare a censo calculation. To do so we need to first create
 a .censorc file in our home directory.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ..
@@ -344,9 +342,9 @@ censosetup.sh -i crest_conformers.xyz -c <span class="m">0</span> -p <span class
 <p class="admonition-title">Note</p>
 <p>We can follow the calculation status in the log file <code class="code docutils literal notranslate"><span class="pre">censo.out</span></code></p>
 </div>
-</section>
-<section id="running-qm-calculations-gaussian-orca-aqme-and-goodvibes">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">6. Running QM calculations. Gaussian, ORCA, AQME and Goodvibes</a><a class="headerlink" href="#running-qm-calculations-gaussian-orca-aqme-and-goodvibes" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="running-qm-calculations-gaussian-orca-aqme-and-goodvibes">
+<h2><a class="toc-backref" href="#id6">6. Running QM calculations. Gaussian, ORCA, AQME and Goodvibes</a><a class="headerlink" href="#running-qm-calculations-gaussian-orca-aqme-and-goodvibes" title="Permalink to this headline">¶</a></h2>
 <p>After we have generated our conformers using semi-empirical and low cost DFT we
 now proceed to refine them using the DFT method of our choice with Gaussian. To
 do so we will use the in-house developed software <code class="code docutils literal notranslate"><span class="pre">aqme</span></code></p>
@@ -403,9 +401,9 @@ they are SP calculations. We can do it with a python script or in a python conso
 <span class="n">files</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*.out&#39;</span><span class="p">))</span>
 <span class="c1"># we rename the input and the output files</span>
 <span class="k">for</span> <span class="n">ofile</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-    <span class="n">ifile</span> <span class="o">=</span> <span class="n">ofile</span><span class="o">.</span><span class="n">parent</span><span class="o">/</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">ofile</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s1">.inp&#39;</span>
-    <span class="n">ifile</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">ifile</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s1">_sp.inp&#39;</span><span class="p">)</span>
-    <span class="n">ofile</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">ofile</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s1">_sp.out&#39;</span><span class="p">)</span>
+    <span class="n">ifile</span> <span class="o">=</span> <span class="n">ofile</span><span class="o">.</span><span class="n">parent</span><span class="o">/</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{ofile.stem}</span><span class="s1">.inp&#39;</span>
+    <span class="n">ifile</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{ifile.stem}</span><span class="s1">_sp.inp&#39;</span><span class="p">)</span>
+    <span class="n">ofile</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{ofile.stem}</span><span class="s1">_sp.out&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>We can actually do this in a single line:</p>
@@ -415,12 +413,12 @@ they are SP calculations. We can do it with a python script or in a python conso
 <p>We can do it using bash:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># It is recommended to run first the following line to ensure that the</span>
 <span class="c1"># renaming is going to work as expected:</span>
-<span class="k">for</span> item <span class="k">in</span> *.out<span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="nv">$item</span> <span class="s2">&quot; -&gt; &quot;</span> <span class="si">${</span><span class="nv">item</span><span class="p">%.*</span><span class="si">}</span>_sp.out<span class="p">;</span> <span class="k">done</span>
+<span class="k">for</span> item in *.out<span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="nv">$item</span> <span class="s2">&quot; -&gt; &quot;</span> <span class="si">${</span><span class="nv">item</span><span class="p">%.*</span><span class="si">}</span>_sp.out<span class="p">;</span> <span class="k">done</span>
 
 <span class="c1"># After checking that it will do the modifications that we want we proceed to</span>
 <span class="c1"># rename the files:</span>
-<span class="k">for</span> item <span class="k">in</span> *.out<span class="p">;</span> <span class="k">do</span> mv -v <span class="nv">$item</span> <span class="si">${</span><span class="nv">item</span><span class="p">%.*</span><span class="si">}</span>_sp.out<span class="p">;</span> <span class="k">done</span>
-<span class="k">for</span> item <span class="k">in</span> *.inp<span class="p">;</span> <span class="k">do</span> mv -v <span class="nv">$item</span> <span class="si">${</span><span class="nv">item</span><span class="p">%.*</span><span class="si">}</span>_sp.inp<span class="p">;</span> <span class="k">done</span>
+<span class="k">for</span> item in *.out<span class="p">;</span> <span class="k">do</span> mv -v <span class="nv">$item</span> <span class="si">${</span><span class="nv">item</span><span class="p">%.*</span><span class="si">}</span>_sp.out<span class="p">;</span> <span class="k">done</span>
+<span class="k">for</span> item in *.inp<span class="p">;</span> <span class="k">do</span> mv -v <span class="nv">$item</span> <span class="si">${</span><span class="nv">item</span><span class="p">%.*</span><span class="si">}</span>_sp.inp<span class="p">;</span> <span class="k">done</span>
 </pre></div>
 </div>
 <p>Finally we move all the QM outputs calculations to the same folder and run
@@ -494,8 +492,8 @@ TRANS-Nap: TRANS_Nap*
 </pre></div>
 </div>
 <p><img alt="PES" src="../../_images/PES.png" /></p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
