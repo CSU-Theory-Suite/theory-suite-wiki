@@ -52,8 +52,8 @@ Additionally, you will need to fill out
 `this form <https://www.psc.edu/resources/software/gaussian/>`__ to gain access 
 to Gaussian, or email them for help.
 
-You should also get in contact with an ACCESS admin in the group (Rob and Mihai 
-as of March 2023) to be added to the allocations group for the lab.
+You should also get in contact with an ACCESS admin in the group (Mihai and Graham 
+as of June 2023) to be added to the allocations group for the lab.
 
 Alpine
 ------
@@ -74,10 +74,10 @@ The alias to log in to Alpine is:
     alias alpine='ssh $USER@colostate.edu@login.rc.colorado.edu'
 
 You will be required to log in using your CSU NetID information 
-(username and password), as wel as sign in with Duo.
+(username and password), as well as sign in with Duo.
 There are two ways to sign in with Duo to this computer: type 
-``password`` then enter in the 6-digit pin on the Duo app, or type 
-``password,push`` which will send a Duo push notification to your phone.
+``your_password`` then enter in the 6-digit pin on the Duo app, or type 
+``your_password,push`` which will send a Duo push notification to your phone.
 
 .. note:: 
 
@@ -108,7 +108,7 @@ ACME
 ----
 
 **ACME** is a shared computer between the Paton and Kim labs. This computer has 
-a queueing system (sbatch) to allow for easy use for all students of the Theory 
+a queueing system (SLURM) to allow for easy use for all students of the Theory 
 Suite. There are also a number of premade submission scripts on ACME that are 
 available to help with running jobs.
 
@@ -118,14 +118,14 @@ Here is the alias for ACME:
 
     alias acme='ssh $USER@acme.chem.colostate.edu'
 
-To gain access to ACME, contact an admin to make an account. The current admins 
-are Yeonjoon, Collin, Sabari, and Guilian (March 2023).
+To gain access to ACME, contact an admin to make an account. The current admin 
+is Abhijeet (June 2023).
 
 Local Resources
 ---------------
 
 The Paton lab also has a number of **local machines** available to students to 
-use. These machines do not have a queueing system like many of the other 
+use. These machines do not have a queueing system like many other 
 computers do, but are useful for different tasks you may have. 
 
 Here are aliases to the local CSU resources:
@@ -139,7 +139,7 @@ Here are aliases to the local CSU resources:
     alias buzzsaw='ssh $USER@buzzsaw.chem.colostate.edu'
 
 To get accounts on these computers, you will need to contact an admin. For the 
-Paton lab, this is Guilian (March 2023).
+Paton lab, this is Abhijeet (June 2023).
 
 Here is the CPU information for ACME and the local machines:
 

@@ -151,8 +151,8 @@ different than what you normally use depending on how the account is created.</p
 <p>Additionally, you will need to fill out
 <a class="reference external" href="https://www.psc.edu/resources/software/gaussian/">this form</a> to gain access
 to Gaussian, or email them for help.</p>
-<p>You should also get in contact with an ACCESS admin in the group (Rob and Mihai
-as of March 2023) to be added to the allocations group for the lab.</p>
+<p>You should also get in contact with an ACCESS admin in the group (Mihai and Graham
+as of June 2023) to be added to the allocations group for the lab.</p>
 </div>
 <div class="section" id="alpine">
 <h2><a class="toc-backref" href="#id2">Alpine</a><a class="headerlink" href="#alpine" title="Permalink to this headline">¶</a></h2>
@@ -168,10 +168,10 @@ Each time you log onto Alpine, you will need to run the command
 </pre></div>
 </div>
 <p>You will be required to log in using your CSU NetID information
-(username and password), as wel as sign in with Duo.
+(username and password), as well as sign in with Duo.
 There are two ways to sign in with Duo to this computer: type
-<code class="docutils literal notranslate"><span class="pre">password</span></code> then enter in the 6-digit pin on the Duo app, or type
-<code class="docutils literal notranslate"><span class="pre">password,push</span></code> which will send a Duo push notification to your phone.</p>
+<code class="docutils literal notranslate"><span class="pre">your_password</span></code> then enter in the 6-digit pin on the Duo app, or type
+<code class="docutils literal notranslate"><span class="pre">your_password,push</span></code> which will send a Duo push notification to your phone.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Let's say that for illustrative purposes that your password is <code class="docutils literal notranslate"><span class="pre">123456</span></code> and
@@ -198,20 +198,20 @@ that you want a Duo push. Then you will type <code class="docutils literal notra
 <div class="section" id="acme">
 <h2><a class="toc-backref" href="#id3">ACME</a><a class="headerlink" href="#acme" title="Permalink to this headline">¶</a></h2>
 <p><strong>ACME</strong> is a shared computer between the Paton and Kim labs. This computer has
-a queueing system (sbatch) to allow for easy use for all students of the Theory
+a queueing system (SLURM) to allow for easy use for all students of the Theory
 Suite. There are also a number of premade submission scripts on ACME that are
 available to help with running jobs.</p>
 <p>Here is the alias for ACME:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">acme</span><span class="o">=</span><span class="s1">&#39;ssh $USER@acme.chem.colostate.edu&#39;</span>
 </pre></div>
 </div>
-<p>To gain access to ACME, contact an admin to make an account. The current admins
-are Yeonjoon, Collin, Sabari, and Guilian (March 2023).</p>
+<p>To gain access to ACME, contact an admin to make an account. The current admin
+is Abhijeet (June 2023).</p>
 </div>
 <div class="section" id="local-resources">
 <h2><a class="toc-backref" href="#id4">Local Resources</a><a class="headerlink" href="#local-resources" title="Permalink to this headline">¶</a></h2>
 <p>The Paton lab also has a number of <strong>local machines</strong> available to students to
-use. These machines do not have a queueing system like many of the other
+use. These machines do not have a queueing system like many other
 computers do, but are useful for different tasks you may have.</p>
 <p>Here are aliases to the local CSU resources:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">drmax</span><span class="o">=</span><span class="s1">&#39;ssh $USER@drmaximus.chem.colostate.edu&#39;</span>
@@ -222,7 +222,7 @@ computers do, but are useful for different tasks you may have.</p>
 </pre></div>
 </div>
 <p>To get accounts on these computers, you will need to contact an admin. For the
-Paton lab, this is Guilian (March 2023).</p>
+Paton lab, this is Abhijeet (June 2023).</p>
 <p>Here is the CPU information for ACME and the local machines:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>acme.chem.colostate.edu acme <span class="o">(</span><span class="m">16</span> x <span class="m">32</span> cpus<span class="o">)</span>
 dynamo.chem.colostate.edu dynamo <span class="o">(</span><span class="m">2</span> x <span class="m">24</span> cpus<span class="o">)</span>
