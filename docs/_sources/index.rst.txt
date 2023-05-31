@@ -38,6 +38,7 @@ Feel free to also visit the `Paton Lab Website <https://patonlab.com/>`_ or the 
    running_calculations/example_reggae_workflow/example_reggae_workflow.rst
    running_calculations/example_descriptors_workflow/example_descriptors_workflow.rst
    running_calculations/example_censo_workflow/example_censo_workflow.rst
+   running_calculations/example_nciplot_calculation/example_nciplot_calculation.rst
 
 .. toctree::
    :maxdepth: 2
