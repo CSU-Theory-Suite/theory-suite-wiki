@@ -50,6 +50,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="kim_computing_resources.html">Kim Lab Computing Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unix_commands.html">Helpful Unix Commands</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Helpful Packages</span></p>
 <ul>
@@ -224,13 +225,50 @@ computers do, but are useful for different tasks you may have.</p>
 </div>
 <p>To get accounts on these computers, you will need to contact an admin. For the
 Paton lab, this is Abhijeet (June 2023).</p>
-<p>Here is the CPU information for ACME and the local machines:</p>
+<p>Here is the CPU information for ACME and the local linux machines:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>acme.chem.colostate.edu acme <span class="o">(</span><span class="m">16</span> x <span class="m">32</span> cpus<span class="o">)</span>
 dynamo.chem.colostate.edu dynamo <span class="o">(</span><span class="m">2</span> x <span class="m">24</span> cpus<span class="o">)</span>
 buzzsaw.chem.colostate.edu buzzsaw <span class="o">(</span><span class="m">2</span> x <span class="m">24</span> cpus<span class="o">)</span>
 fireball.chem.colostate.edu fireball <span class="o">(</span><span class="m">2</span> x <span class="m">24</span> cpus<span class="o">)</span>
 subzero.chem.colostate.edu subzero <span class="o">(</span><span class="m">2</span> x <span class="m">24</span> cpus<span class="o">)</span>
 drmaximus.chem.colostate.edu drmaximus <span class="o">(</span><span class="m">2</span> x <span class="m">12</span> cpus<span class="o">)</span>
+</pre></div>
+</div>
+<p>On the linux machines, it may also be helpful to test to see what
+software is correctly installed/called. To check this make sure that
+this line is included in your <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/usr/local/patonlab/python:/usr/local/patonlab/autotest
+</pre></div>
+</div>
+<p>then create an empty folder (probably called autotest), go into the
+folder, and type the command</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>AUTOTEST
+</pre></div>
+</div>
+<p>Running this command goes through several useful packages that are
+installed on these machines and submits a quick test job to ensure
+that they are working. If everything is working and set up correctly,
+you should get a result that looks something like:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>!  Gaussian <span class="m">16</span> is working properly
+!  NBO7 is working properly
+!  Orca is working properly in serial
+!  Orca is working properly in parallel
+!  QChem is working properly
+normal termination of xtb
+!  XTB is working properly
+!  CREST is working properly
+!  NCIPLOT is working properly
+!  COSMOTHERM is working properly
+ridft ended normally
+!  TURBOMOLE is working properly in parallel
+</pre></div>
+</div>
+<p>If you get an error for one of the packages, it is most likely a
+problem with the path set for that program in your <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>, and
+you should correct/add the path and run <code class="docutils literal notranslate"><span class="pre">AUTOTEST</span></code> again.</p>
+<p>When you are finished testing the programs, you can delete the files
+with the command</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>AUTOTEST_CLEAN
 </pre></div>
 </div>
 </div>

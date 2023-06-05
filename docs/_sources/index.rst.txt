@@ -11,6 +11,7 @@ Feel free to also visit the `Paton Lab Website <https://patonlab.com/>`_ or the 
 
    computing_resources/paton_computing_resources.rst
    computing_resources/kim_computing_resources.rst
+   computing_resources/unix_commands.rst
 
 
 .. toctree::
