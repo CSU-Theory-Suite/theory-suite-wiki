@@ -141,7 +141,7 @@ Here are aliases to the local CSU resources:
 To get accounts on these computers, you will need to contact an admin. For the 
 Paton lab, this is Abhijeet (June 2023).
 
-Here is the CPU information for ACME and the local machines:
+Here is the CPU information for ACME and the local linux machines:
 
 .. code:: shell
 
@@ -151,3 +151,51 @@ Here is the CPU information for ACME and the local machines:
     fireball.chem.colostate.edu fireball (2 x 24 cpus)
     subzero.chem.colostate.edu subzero (2 x 24 cpus)
     drmaximus.chem.colostate.edu drmaximus (2 x 12 cpus)
+
+On the linux machines, it may also be helpful to test to see what 
+software is correctly installed/called. To check this make sure that 
+this line is included in your ``.bashrc``:
+
+.. code:: shell
+
+    export PATH=$PATH:/usr/local/patonlab/python:/usr/local/patonlab/autotest
+
+then create an empty folder (probably called autotest), go into the 
+folder, and type the command 
+
+.. code:: shell
+
+    AUTOTEST 
+
+Running this command goes through several useful packages that are 
+installed on these machines and submits a quick test job to ensure 
+that they are working. If everything is working and set up correctly, 
+you should get a result that looks something like:
+
+.. code:: shell
+
+    !  Gaussian 16 is working properly
+    !  NBO7 is working properly
+    !  Orca is working properly in serial
+    !  Orca is working properly in parallel
+    !  QChem is working properly
+    normal termination of xtb
+    !  XTB is working properly
+    !  CREST is working properly
+    !  NCIPLOT is working properly
+    !  COSMOTHERM is working properly
+    ridft ended normally 
+    !  TURBOMOLE is working properly in parallel
+
+
+If you get an error for one of the packages, it is most likely a 
+problem with the path set for that program in your ``.bashrc``, and 
+you should correct/add the path and run ``AUTOTEST`` again.
+
+When you are finished testing the programs, you can delete the files 
+with the command 
+
+.. code:: shell
+
+    AUTOTEST_CLEAN
+
