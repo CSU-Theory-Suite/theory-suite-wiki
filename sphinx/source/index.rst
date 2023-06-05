@@ -6,12 +6,13 @@ Thanks for visiting the CSU Theory Suite's wiki page!
 Feel free to also visit the `Paton Lab Website <https://patonlab.com/>`_ or the `Kim Lab Website <https://bioenergy-kimlab.org/>`_!
 
 .. toctree::
-   :maxdepth: 3
-   :caption: Computing Resources
+   :maxdepth: 2
+   :caption: Getting Started
 
    computing_resources/paton_computing_resources.rst
    computing_resources/kim_computing_resources.rst
    computing_resources/unix_commands.rst
+   computing_resources/coding_resources.rst
 
 
 .. toctree::
