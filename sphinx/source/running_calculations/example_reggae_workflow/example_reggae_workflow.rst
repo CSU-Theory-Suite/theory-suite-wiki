@@ -4,7 +4,7 @@
 .. |PCA-clusters-REGGAE| image:: images/PCA-clusters-REGGAE.png
 
 ==========================
-Example REGGAE Workflow 
+REGGAE 
 ==========================
 
 .. contents::

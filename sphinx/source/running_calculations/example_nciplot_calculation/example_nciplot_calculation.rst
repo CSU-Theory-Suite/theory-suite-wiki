@@ -35,7 +35,7 @@
    :height: 600
 
 ===========================
-Example NCIPLOT Calculation
+NCIPLOT
 ===========================
 
 This is a fast-usage guide for nciplot. For a detailed information on its usage
