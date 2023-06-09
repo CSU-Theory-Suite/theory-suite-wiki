@@ -33,7 +33,7 @@ Feel free to also visit the `Paton Lab Website <https://patonlab.com/>`_ or the 
 
 .. toctree::
    :maxdepth: 4
-   :caption: Running Calculations
+   :caption: Example Workflows
 
    running_calculations/example_aqme_workflow/example_aqme_workflow.rst
    running_calculations/example_goodvibes_workflow/example_goodvibes_workflow.rst

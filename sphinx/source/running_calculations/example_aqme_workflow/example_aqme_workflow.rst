@@ -1,8 +1,8 @@
 .. |PES| image:: resources/PES.png
 
-========================
-Example Workflow in ACME
-========================
+===========================
+End-to-End Workflow in ACME
+===========================
 
 .. contents::
    :local:
@@ -17,6 +17,10 @@ groups.
 .. code:: shell
 
    conda activate DL_CPU
+
+Activating this conda environment gives us access to the different software/packages 
+that we might want to use, such as xTB and AQME. Without this step, the computer 
+will behave as though the programs are not installed.
 
 2. Using OpenBabel
 ------------------

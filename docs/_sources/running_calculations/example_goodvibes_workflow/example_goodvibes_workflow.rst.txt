@@ -2,7 +2,7 @@
 .. |PhPy-PES| image:: images/Rxn_profile_PhPy.png
 
 ==========================
-Example GoodVibes Workflow 
+GoodVibes 
 ==========================
 
 .. contents::

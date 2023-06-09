@@ -67,6 +67,11 @@ Each time you log onto Alpine, you will need to run the command
 ``module load slurm/alpine``. More information can be found 
 `here <https://curc.readthedocs.io/en/latest/clusters/alpine/quick-start.html>`__.
 
+.. note::
+
+    We have access to Alpine as CSU students, not through an ACCESS allocation. Because of this, 
+    make sure that you are logging in with your CSU information, not your ACCESS information.
+
 The alias to log in to Alpine is:
 
 .. code:: shell
@@ -119,7 +124,7 @@ Here is the alias for ACME:
     alias acme='ssh $USER@acme.chem.colostate.edu'
 
 To gain access to ACME, contact an admin to make an account. The current admin 
-is Abhijeet (June 2023).
+for the Paton group is Abhijeet, and from the Kim group you can go to Yeonjoon, Sabari, or Collin (June 2023).
 
 Local Resources
 ---------------

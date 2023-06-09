@@ -1,7 +1,7 @@
 .. |BuNAH_lines| image:: images/bunah_structure.png
 
 ===============================
-Example CENSO Workflow for ACME
+CENSO
 ===============================
 
 .. contents::

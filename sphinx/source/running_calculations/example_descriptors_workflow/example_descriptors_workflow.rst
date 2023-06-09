@@ -1,6 +1,6 @@
 
 ===================================================================
-Example Descriptors Workflow using RDKit, Modred, Morfeus & DBStep
+RDKit, Mordred, Morfeus & DBStep
 ===================================================================
 
 .. contents::
@@ -16,11 +16,11 @@ Installation
     conda install -c conda-forge rdkit
     
 
-2. Installation of Modred
+2. Installation of Mordred
 
 .. code:: shell
 
-    pip install modred
+    pip install mordred
     
    
 3. Installation of Morfeus
