@@ -53,7 +53,11 @@ Documentation can be found in the Readme
 DISCO
 -----
 
-(Insert short description here)
+Python script to parse through Gaussian NBO and GIAO outputs for atomistic and
+molecular properties. Collects NBO atomic charges, NMR tensor values and/or chemical
+NMR shifts, HOMO, LUMO and Bond distance values.
+
+Access the `GitHub <github.com/Liliana-Gallegos/DISCO>`_
 
 aqme
 ----
