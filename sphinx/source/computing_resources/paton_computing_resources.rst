@@ -177,8 +177,9 @@ installed on these machines and submits a quick test job to ensure
 that they are working. If everything is working and set up correctly, 
 you should get a result that looks something like:
 
+.. highlight:: none
 .. code:: shell
-
+    
     !  Gaussian 16 is working properly
     !  NBO7 is working properly
     !  Orca is working properly in serial
@@ -192,6 +193,7 @@ you should get a result that looks something like:
     ridft ended normally 
     !  TURBOMOLE is working properly in parallel
 
+.. highlight:: default
 
 If you get an error for one of the packages, it is most likely a 
 problem with the path set for that program in your ``.bashrc``, and 
