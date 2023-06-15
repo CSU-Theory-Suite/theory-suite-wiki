@@ -13,7 +13,7 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -410,9 +410,9 @@ they are SP calculations. We can do it with a python script or in a python conso
 <span class="n">files</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*.out&#39;</span><span class="p">))</span>
 <span class="c1"># we rename the input and the output files</span>
 <span class="k">for</span> <span class="n">ofile</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-    <span class="n">ifile</span> <span class="o">=</span> <span class="n">ofile</span><span class="o">.</span><span class="n">parent</span><span class="o">/</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{ofile.stem}</span><span class="s1">.inp&#39;</span>
-    <span class="n">ifile</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{ifile.stem}</span><span class="s1">_sp.inp&#39;</span><span class="p">)</span>
-    <span class="n">ofile</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{ofile.stem}</span><span class="s1">_sp.out&#39;</span><span class="p">)</span>
+    <span class="n">ifile</span> <span class="o">=</span> <span class="n">ofile</span><span class="o">.</span><span class="n">parent</span><span class="o">/</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">ofile</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s1">.inp&#39;</span>
+    <span class="n">ifile</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">ifile</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s1">_sp.inp&#39;</span><span class="p">)</span>
+    <span class="n">ofile</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">ofile</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s1">_sp.out&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>We can actually do this in a single line:</p>
