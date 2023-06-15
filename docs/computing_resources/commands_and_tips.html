@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Helpful Unix Commands &mdash; csu-wiki  documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>Helpful Commands and Tips &mdash; csu-wiki  documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -17,8 +17,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Coding Resources" href="coding_resources.html" />
-    <link rel="prev" title="Kim Lab Computing Resources" href="kim_computing_resources.html" /> 
+    <link rel="next" title="Fun with Coworkers" href="fun_with_coworkers.html" />
+    <link rel="prev" title="Running Commands" href="running_commands.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,77 +44,64 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="paton_computing_resources.html">Paton Lab Computing Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kim_computing_resources.html">Kim Lab Computing Resources</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Helpful Unix Commands</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#essential-commands">Essential Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#file-system-layout">File System Layout</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#root-directory">Root Directory</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#bin-directories">Bin Directories</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#home-directory">Home Directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="essential_unix_commands.html">Essential Unix Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_system_layout.html">File System Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_commands.html">Running Commands</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Helpful Commands and Tips</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-wild-cards">Using Wild Cards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#redirecting-output-to-a-file">Redirecting Output to a File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-shortcuts-for-common-commands">Creating Shortcuts for Common Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pattern-scanning">Pattern Scanning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#back-to-the-beginning-of-the-command-prompt">Back to the Beginning of the Command Prompt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#canceling-a-command-before-you-execute">Canceling a Command Before you Execute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clearing-the-terminal-screen">Clearing the Terminal Screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#search-previous-commands">Search Previous Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#disk-usage-details">Disk Usage Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#display-a-line-of-text">Display a Line of Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-logout">How to Logout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#search-for-files">Search for Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#print-lines-matching-a-pattern">Print Lines Matching a Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#printing-the-beginning-of-a-file">Printing the Beginning of a File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#viewing-your-recent-commands">Viewing Your Recent Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-computer-am-i-working-on">What Computer am I Working on?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#terminating-interactive-processes">Terminating Interactive Processes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#read-files-without-editing">Read Files Without Editing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#less">Less</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#more">More</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#helpful-commands-and-tips">Helpful Commands and Tips</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#using-wild-cards">Using Wild Cards</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#redirecting-output-to-a-file">Redirecting Output to a File</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#creating-shortcuts-for-common-commands">Creating Shortcuts for Common Commands</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pattern-scanning">Pattern Scanning</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#back-to-the-beginning-of-the-command-prompt">Back to the Beginning of the Command Prompt</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#canceling-a-command-before-you-execute">Canceling a Command Before you Execute</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#clearing-the-terminal-screen">Clearing the Terminal Screen</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#search-previous-commands">Search Previous Commands</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#disk-usage-details">Disk Usage Details</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#display-a-line-of-text">Display a Line of Text</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#how-to-logout">How to Logout</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#search-for-files">Search for Files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#print-lines-matching-a-pattern">Print Lines Matching a Pattern</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#printing-the-beginning-of-a-file">Printing the Beginning of a File</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#viewing-your-recent-commands">Viewing Your Recent Commands</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#what-computer-am-i-working-on">What Computer am I Working on?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#terminating-interactive-processes">Terminating Interactive Processes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#read-files-without-editing">Read Files Without Editing</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#less">Less</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#more">More</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#different-ways-to-list-files">Different Ways to List Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#combining-commands-into-a-single-line">Combining Commands into a Single Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-processes-are-running-in-my-terminal-window">What Processes are Running in my Terminal Window</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ps">ps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#top">top</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#different-ways-to-list-files">Different Ways to List Files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#combining-commands-into-a-single-line">Combining Commands into a Single Line</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#what-processes-are-running-in-my-terminal-window">What Processes are Running in my Terminal Window</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ps">ps</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#top">top</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#what-directory-am-i-in">What Directory am I in?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#transferring-files">Transferring Files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#filtering-and-modifying-text">Filtering and Modifying Text</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tell-the-computer-to-wait">Tell the Computer to Wait</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#remotely-accessing-computers-or-clusters">Remotely Accessing Computers or Clusters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sorting-and-re-ordering-data">Sorting and Re-Ordering Data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#auto-fill-unique-names">Auto Fill Unique Names</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#printing-the-end-of-a-file">Printing the End of a File</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#packaging-your-files-into-a-single-combined-file">Packaging your Files into a Single Combined File</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-new-file">Create a New File</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#touch">touch</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#vi">vi</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#running-previous-commands">Running Previous Commands</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#what-program-am-i-using">What Program am I Using?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#learn-about-the-computer">Learn About the Computer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#in-case-you-re-confused">In Case You're Confused...</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#running-commands">Running Commands</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#halting-and-canceling-interactive-processes">Halting and Canceling Interactive Processes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#running-in-background-vs-foreground-and-nohup">Running in Background vs Foreground, and nohup</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#listing-and-killing-jobs-running-in-background">Listing and Killing Jobs Running in Background</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#fun-with-coworkers">Fun with Coworkers</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#send-a-message-to-all-users-terminal-windows">Send a Message to All Users' Terminal Windows</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#send-a-message-to-a-user-s-terminal-window">Send a Message to a User's Terminal Window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-directory-am-i-in">What Directory am I in?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transferring-files">Transferring Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#filtering-and-modifying-text">Filtering and Modifying Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tell-the-computer-to-wait">Tell the Computer to Wait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#remotely-accessing-computers-or-clusters">Remotely Accessing Computers or Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sorting-and-re-ordering-data">Sorting and Re-Ordering Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#auto-fill-unique-names">Auto Fill Unique Names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#printing-the-end-of-a-file">Printing the End of a File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#packaging-your-files-into-a-single-combined-file">Packaging your Files into a Single Combined File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-new-file">Create a New File</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#touch">touch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vi">vi</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#general-concepts">General Concepts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modes">Modes</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#running-previous-commands">Running Previous Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-program-am-i-using">What Program am I Using?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#learn-about-the-computer">Learn About the Computer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#in-case-you-re-confused">In Case You're Confused...</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fun_with_coworkers.html">Fun with Coworkers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coding_resources.html">Coding Resources</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Helpful Packages</span></p>
@@ -154,9 +141,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Helpful Unix Commands</li>
+      <li class="breadcrumb-item active">Helpful Commands and Tips</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/computing_resources/unix_commands.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/computing_resources/commands_and_tips.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -164,287 +151,81 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="helpful-unix-commands">
-<h1>Helpful Unix Commands<a class="headerlink" href="#helpful-unix-commands" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="helpful-commands-and-tips">
+<h1>Helpful Commands and Tips<a class="headerlink" href="#helpful-commands-and-tips" title="Permalink to this headline">¶</a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#essential-commands" id="id2">Essential Commands</a></p></li>
-<li><p><a class="reference internal" href="#file-system-layout" id="id3">File System Layout</a></p>
+<li><p><a class="reference internal" href="#using-wild-cards" id="id1">Using Wild Cards</a></p></li>
+<li><p><a class="reference internal" href="#redirecting-output-to-a-file" id="id2">Redirecting Output to a File</a></p></li>
+<li><p><a class="reference internal" href="#creating-shortcuts-for-common-commands" id="id3">Creating Shortcuts for Common Commands</a></p></li>
+<li><p><a class="reference internal" href="#pattern-scanning" id="id4">Pattern Scanning</a></p></li>
+<li><p><a class="reference internal" href="#back-to-the-beginning-of-the-command-prompt" id="id5">Back to the Beginning of the Command Prompt</a></p></li>
+<li><p><a class="reference internal" href="#canceling-a-command-before-you-execute" id="id6">Canceling a Command Before you Execute</a></p></li>
+<li><p><a class="reference internal" href="#clearing-the-terminal-screen" id="id7">Clearing the Terminal Screen</a></p></li>
+<li><p><a class="reference internal" href="#search-previous-commands" id="id8">Search Previous Commands</a></p></li>
+<li><p><a class="reference internal" href="#disk-usage-details" id="id9">Disk Usage Details</a></p></li>
+<li><p><a class="reference internal" href="#display-a-line-of-text" id="id10">Display a Line of Text</a></p></li>
+<li><p><a class="reference internal" href="#how-to-logout" id="id11">How to Logout</a></p></li>
+<li><p><a class="reference internal" href="#search-for-files" id="id12">Search for Files</a></p></li>
+<li><p><a class="reference internal" href="#print-lines-matching-a-pattern" id="id13">Print Lines Matching a Pattern</a></p></li>
+<li><p><a class="reference internal" href="#printing-the-beginning-of-a-file" id="id14">Printing the Beginning of a File</a></p></li>
+<li><p><a class="reference internal" href="#viewing-your-recent-commands" id="id15">Viewing Your Recent Commands</a></p></li>
+<li><p><a class="reference internal" href="#what-computer-am-i-working-on" id="id16">What Computer am I Working on?</a></p></li>
+<li><p><a class="reference internal" href="#terminating-interactive-processes" id="id17">Terminating Interactive Processes</a></p></li>
+<li><p><a class="reference internal" href="#read-files-without-editing" id="id18">Read Files Without Editing</a></p>
 <ul>
-<li><p><a class="reference internal" href="#root-directory" id="id4">Root Directory</a></p></li>
-<li><p><a class="reference internal" href="#bin-directories" id="id5">Bin Directories</a></p></li>
-<li><p><a class="reference internal" href="#home-directory" id="id6">Home Directory</a></p></li>
+<li><p><a class="reference internal" href="#less" id="id19">Less</a></p></li>
+<li><p><a class="reference internal" href="#more" id="id20">More</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#helpful-commands-and-tips" id="id7">Helpful Commands and Tips</a></p>
+<li><p><a class="reference internal" href="#different-ways-to-list-files" id="id21">Different Ways to List Files</a></p></li>
+<li><p><a class="reference internal" href="#combining-commands-into-a-single-line" id="id22">Combining Commands into a Single Line</a></p></li>
+<li><p><a class="reference internal" href="#what-processes-are-running-in-my-terminal-window" id="id23">What Processes are Running in my Terminal Window</a></p>
 <ul>
-<li><p><a class="reference internal" href="#using-wild-cards" id="id8">Using Wild Cards</a></p></li>
-<li><p><a class="reference internal" href="#redirecting-output-to-a-file" id="id9">Redirecting Output to a File</a></p></li>
-<li><p><a class="reference internal" href="#creating-shortcuts-for-common-commands" id="id10">Creating Shortcuts for Common Commands</a></p></li>
-<li><p><a class="reference internal" href="#pattern-scanning" id="id11">Pattern Scanning</a></p></li>
-<li><p><a class="reference internal" href="#back-to-the-beginning-of-the-command-prompt" id="id12">Back to the Beginning of the Command Prompt</a></p></li>
-<li><p><a class="reference internal" href="#canceling-a-command-before-you-execute" id="id13">Canceling a Command Before you Execute</a></p></li>
-<li><p><a class="reference internal" href="#clearing-the-terminal-screen" id="id14">Clearing the Terminal Screen</a></p></li>
-<li><p><a class="reference internal" href="#search-previous-commands" id="id15">Search Previous Commands</a></p></li>
-<li><p><a class="reference internal" href="#disk-usage-details" id="id16">Disk Usage Details</a></p></li>
-<li><p><a class="reference internal" href="#display-a-line-of-text" id="id17">Display a Line of Text</a></p></li>
-<li><p><a class="reference internal" href="#how-to-logout" id="id18">How to Logout</a></p></li>
-<li><p><a class="reference internal" href="#search-for-files" id="id19">Search for Files</a></p></li>
-<li><p><a class="reference internal" href="#print-lines-matching-a-pattern" id="id20">Print Lines Matching a Pattern</a></p></li>
-<li><p><a class="reference internal" href="#printing-the-beginning-of-a-file" id="id21">Printing the Beginning of a File</a></p></li>
-<li><p><a class="reference internal" href="#viewing-your-recent-commands" id="id22">Viewing Your Recent Commands</a></p></li>
-<li><p><a class="reference internal" href="#what-computer-am-i-working-on" id="id23">What Computer am I Working on?</a></p></li>
-<li><p><a class="reference internal" href="#terminating-interactive-processes" id="id24">Terminating Interactive Processes</a></p></li>
-<li><p><a class="reference internal" href="#read-files-without-editing" id="id25">Read Files Without Editing</a></p>
-<ul>
-<li><p><a class="reference internal" href="#less" id="id26">Less</a></p></li>
-<li><p><a class="reference internal" href="#more" id="id27">More</a></p></li>
+<li><p><a class="reference internal" href="#ps" id="id24">ps</a></p></li>
+<li><p><a class="reference internal" href="#top" id="id25">top</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#different-ways-to-list-files" id="id28">Different Ways to List Files</a></p></li>
-<li><p><a class="reference internal" href="#combining-commands-into-a-single-line" id="id29">Combining Commands into a Single Line</a></p></li>
-<li><p><a class="reference internal" href="#what-processes-are-running-in-my-terminal-window" id="id30">What Processes are Running in my Terminal Window</a></p>
+<li><p><a class="reference internal" href="#what-directory-am-i-in" id="id26">What Directory am I in?</a></p></li>
+<li><p><a class="reference internal" href="#transferring-files" id="id27">Transferring Files</a></p></li>
+<li><p><a class="reference internal" href="#filtering-and-modifying-text" id="id28">Filtering and Modifying Text</a></p></li>
+<li><p><a class="reference internal" href="#tell-the-computer-to-wait" id="id29">Tell the Computer to Wait</a></p></li>
+<li><p><a class="reference internal" href="#remotely-accessing-computers-or-clusters" id="id30">Remotely Accessing Computers or Clusters</a></p></li>
+<li><p><a class="reference internal" href="#sorting-and-re-ordering-data" id="id31">Sorting and Re-Ordering Data</a></p></li>
+<li><p><a class="reference internal" href="#auto-fill-unique-names" id="id32">Auto Fill Unique Names</a></p></li>
+<li><p><a class="reference internal" href="#printing-the-end-of-a-file" id="id33">Printing the End of a File</a></p></li>
+<li><p><a class="reference internal" href="#packaging-your-files-into-a-single-combined-file" id="id34">Packaging your Files into a Single Combined File</a></p></li>
+<li><p><a class="reference internal" href="#create-a-new-file" id="id35">Create a New File</a></p>
 <ul>
-<li><p><a class="reference internal" href="#ps" id="id31">ps</a></p></li>
-<li><p><a class="reference internal" href="#top" id="id32">top</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#what-directory-am-i-in" id="id33">What Directory am I in?</a></p></li>
-<li><p><a class="reference internal" href="#transferring-files" id="id34">Transferring Files</a></p></li>
-<li><p><a class="reference internal" href="#filtering-and-modifying-text" id="id35">Filtering and Modifying Text</a></p></li>
-<li><p><a class="reference internal" href="#tell-the-computer-to-wait" id="id36">Tell the Computer to Wait</a></p></li>
-<li><p><a class="reference internal" href="#remotely-accessing-computers-or-clusters" id="id37">Remotely Accessing Computers or Clusters</a></p></li>
-<li><p><a class="reference internal" href="#sorting-and-re-ordering-data" id="id38">Sorting and Re-Ordering Data</a></p></li>
-<li><p><a class="reference internal" href="#auto-fill-unique-names" id="id39">Auto Fill Unique Names</a></p></li>
-<li><p><a class="reference internal" href="#printing-the-end-of-a-file" id="id40">Printing the End of a File</a></p></li>
-<li><p><a class="reference internal" href="#packaging-your-files-into-a-single-combined-file" id="id41">Packaging your Files into a Single Combined File</a></p></li>
-<li><p><a class="reference internal" href="#create-a-new-file" id="id42">Create a New File</a></p>
+<li><p><a class="reference internal" href="#touch" id="id36">touch</a></p></li>
+<li><p><a class="reference internal" href="#vi" id="id37">vi</a></p>
 <ul>
-<li><p><a class="reference internal" href="#touch" id="id43">touch</a></p></li>
-<li><p><a class="reference internal" href="#vi" id="id44">vi</a></p>
+<li><p><a class="reference internal" href="#general-concepts" id="id38">General Concepts</a></p></li>
+<li><p><a class="reference internal" href="#modes" id="id39">Modes</a></p>
 <ul>
-<li><p><a class="reference internal" href="#general-concepts" id="id45">General Concepts</a></p></li>
-<li><p><a class="reference internal" href="#modes" id="id46">Modes</a></p>
-<ul>
-<li><p><a class="reference internal" href="#insert" id="id47">Insert</a></p></li>
-<li><p><a class="reference internal" href="#macros" id="id48">Macros</a></p></li>
-<li><p><a class="reference internal" href="#replace" id="id49">Replace</a></p></li>
-<li><p><a class="reference internal" href="#visual" id="id50">Visual</a></p></li>
+<li><p><a class="reference internal" href="#insert" id="id40">Insert</a></p></li>
+<li><p><a class="reference internal" href="#macros" id="id41">Macros</a></p></li>
+<li><p><a class="reference internal" href="#replace" id="id42">Replace</a></p></li>
+<li><p><a class="reference internal" href="#visual" id="id43">Visual</a></p></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#running-previous-commands" id="id51">Running Previous Commands</a></p></li>
-<li><p><a class="reference internal" href="#what-program-am-i-using" id="id52">What Program am I Using?</a></p></li>
-<li><p><a class="reference internal" href="#learn-about-the-computer" id="id53">Learn About the Computer</a></p></li>
-<li><p><a class="reference internal" href="#in-case-you-re-confused" id="id54">In Case You're Confused...</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#running-commands" id="id55">Running Commands</a></p>
-<ul>
-<li><p><a class="reference internal" href="#halting-and-canceling-interactive-processes" id="id56">Halting and Canceling Interactive Processes</a></p></li>
-<li><p><a class="reference internal" href="#running-in-background-vs-foreground-and-nohup" id="id57">Running in Background vs Foreground, and nohup</a></p></li>
-<li><p><a class="reference internal" href="#listing-and-killing-jobs-running-in-background" id="id58">Listing and Killing Jobs Running in Background</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#fun-with-coworkers" id="id59">Fun with Coworkers</a></p>
-<ul>
-<li><p><a class="reference internal" href="#send-a-message-to-all-users-terminal-windows" id="id60">Send a Message to All Users' Terminal Windows</a></p></li>
-<li><p><a class="reference internal" href="#send-a-message-to-a-user-s-terminal-window" id="id61">Send a Message to a User's Terminal Window</a></p></li>
-</ul>
-</li>
+<li><p><a class="reference internal" href="#running-previous-commands" id="id44">Running Previous Commands</a></p></li>
+<li><p><a class="reference internal" href="#what-program-am-i-using" id="id45">What Program am I Using?</a></p></li>
+<li><p><a class="reference internal" href="#learn-about-the-computer" id="id46">Learn About the Computer</a></p></li>
+<li><p><a class="reference internal" href="#in-case-you-re-confused" id="id47">In Case You're Confused...</a></p></li>
 </ul>
 </div>
-<p>This page serves as a unix manual to help users get to know unix
-commands and allow for more efficient research in the command line.</p>
 <p>Most of the information on this page comes from Dr. Bill Miller III at Truman State University.</p>
-<div class="section" id="essential-commands">
-<h2><a class="toc-backref" href="#id2">Essential Commands</a><a class="headerlink" href="#essential-commands" title="Permalink to this headline">¶</a></h2>
-<p>Here are some of the most important/frequently used commands.
-These are the basics to using linux machines and working on the command line.</p>
-<table class="colwidths-given docutils align-default" id="id1">
-<caption><span class="caption-text">Essential Linux Commands</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 22%" />
-<col style="width: 11%" />
-<col style="width: 44%" />
-<col style="width: 22%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Command</p></th>
-<th class="head"><p>Option (appendage)</p></th>
-<th class="head"><p>What it does</p></th>
-<th class="head"><p>Example</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>cd</p></td>
-<td></td>
-<td><p>Changes the working directory to the home directory (a folder named your net id)</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">cd</span></code></p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">..</span></code></p></td>
-<td><p>Changes the working directory to the folder containing the current working directory.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code></p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">[destination</span> <span class="pre">directory]</span></code></p></td>
-<td><p>Changes the working directory to the one specified (destination directory)</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/home/$USER/project</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>exit</p></td>
-<td></td>
-<td><p>Exits the current working network point. If you are logged into a node on ACME, this command will move the working location to the head node on ACME.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">exit</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p>ssh [cluster name]</p></td>
-<td></td>
-<td><p>Moves working location onto another computer in the network</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">$USER&#64;acme.chem.colostate.edu</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>pwd</p></td>
-<td></td>
-<td><p>Returns the current working directory.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">pwd</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p>ls</p></td>
-<td></td>
-<td><p>Lists all of the folders and files in the working directory.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">ls</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>cp [file 1] [file 2 or different directory]</p></td>
-<td></td>
-<td><p>Copies file 1 and makes a duplicate in the same working directory named file 2 <strong>OR</strong> makes a copy of file 1 in the different specified directory.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">test.txt</span> <span class="pre">test_copy.txt</span></code> <strong>OR</strong> <code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">test.txt</span> <span class="pre">test_files/</span></code></p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">-r</span></code></p></td>
-<td><p>Same as the previous, but allows the copying of folders (including their contents) too.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span> <span class="pre">folder1/</span> <span class="pre">desired_location/</span></code> <strong>OR</strong> <code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span> <span class="pre">folder1/</span> <span class="pre">/home/$USER/project_folder/</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>spc [file] [cluster]</p></td>
-<td></td>
-<td><p>Copies files to another computer in the network. The <code class="docutils literal notranslate"><span class="pre">-r</span></code> option works for secure copy as well.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">file.txt</span> <span class="pre">$USER&#64;acme.chem.colostate.edu</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p>mv [item] [destination]</p></td>
-<td></td>
-<td><p>Moves a file (or folder if using the <code class="docutils literal notranslate"><span class="pre">-r</span></code> option) to the specified location. This is also how to change the names of files.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">test.txt</span> <span class="pre">project1/</span></code> <strong>OR</strong> <code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">test.txt</span> <span class="pre">water_test.txt</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>rm [file]</p></td>
-<td></td>
-<td><p>Deletes a file.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">test.txt</span></code></p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">-r</span></code></p></td>
-<td><p>Deletes a folder.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span> <span class="pre">test_folder/</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>mkdir [folder name]</p></td>
-<td></td>
-<td><p>Makes a folder.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">test_folder</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p>rmdir [folder name]</p></td>
-<td></td>
-<td><p>Deletes an EMPTY folder.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">rmdir</span> <span class="pre">empty_test/</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>less [file name]</p></td>
-<td></td>
-<td><p>Opens a file for viewing only. Once viewing the file, <code class="docutils literal notranslate"><span class="pre">shift</span> <span class="pre">+</span> <span class="pre">g</span></code> will take you to the bottom of the document (g alone will take you to the top). Typing <code class="docutils literal notranslate"><span class="pre">?[text]</span></code> will search the document for instances of [text] above the current cursor location. <code class="docutils literal notranslate"><span class="pre">q</span></code> quits.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">less</span> <span class="pre">output_file.log</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p>vi [file name]</p></td>
-<td></td>
-<td><p>Opens a file for viewing or editing. Files start in viewing mode. While in viewing mode, type <code class="docutils literal notranslate"><span class="pre">dd</span></code> to delete the line on which the cursor resides. To enter insert mode type <code class="docutils literal notranslate"><span class="pre">i</span></code>. Once in insert mode, you can make changes to the test. To exit insert mode, hit the esc key. To save and quit, type <code class="docutils literal notranslate"><span class="pre">:wq</span></code> and hit enter while not in insert mode. To quit without saving, type <code class="docutils literal notranslate"><span class="pre">:q!</span></code> then hit enter.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">vi</span> <span class="pre">input_file.log</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>cat</p></td>
-<td></td>
-<td><p>Prints the content of the file to the terminal. This is only for viewing the file.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">output_file.log</span></code></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="file-system-layout">
-<h2><a class="toc-backref" href="#id3">File System Layout</a><a class="headerlink" href="#file-system-layout" title="Permalink to this headline">¶</a></h2>
-<p>As you get started, you should have an idea of how the files are organized on your computer.</p>
-<div class="section" id="root-directory">
-<h3><a class="toc-backref" href="#id4">Root Directory</a><a class="headerlink" href="#root-directory" title="Permalink to this headline">¶</a></h3>
-<p>If you change to the top-most directory (<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/</span></code>), and list (<code class="docutils literal notranslate"><span class="pre">ls</span></code>)
-all the files there. This is called the root directory. All of the
-computer’s files are located in subdirectories of this folder.
-Most Unix computers are designed so that only administrators,
-also called ‘root’, can make changes in this directory.
-You do not need to know what is within most of these folders
-since they pertain to the operating system and are not something
-you can change without being root.</p>
-</div>
-<div class="section" id="bin-directories">
-<h3><a class="toc-backref" href="#id5">Bin Directories</a><a class="headerlink" href="#bin-directories" title="Permalink to this headline">¶</a></h3>
-<p>As you get more familiar with Unix, you will notice that one of the
-most important folders are called bin directories.
-These directories contain programs and can be executed to perform
-certain tasks. For example, if you cd to the root bin directory
-(<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/bin</span></code>) and <code class="docutils literal notranslate"><span class="pre">ls</span></code> you will notice there are a bunch of
-different programs in this directory.
-They are all executable (any file with an asterisk (*) at the end
-of the name is designated as executable), which means you can run
-the program. Most of the programs here are unimportant for our
-immediate purposes, but if you look closely, this folder contains
-several programs that you are already familiar with. For example,
-when you listed all the files in this directory, you typed <code class="docutils literal notranslate"><span class="pre">ls</span></code>.
-Guess where the ‘ls’ program is located? In the /bin/ directory!
-So every time you type <code class="docutils literal notranslate"><span class="pre">ls</span></code> you are actually executing the ls
-program in this folder, which lists all the files in your current
-directory. Other programs in this directory you already know
-include mkdir, rm, mv, and vi. This manual will actually introduce
-you to several more programs within this directory later.
-There are actually multiple bin directories on computers that
-include different programs that you already know and will learn
-about through this manual:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">/bin/</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/usr/bin/</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/usr/local/bin/</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sbin/</span></code></p></li>
-</ul>
-</div>
-<div class="section" id="home-directory">
-<h3><a class="toc-backref" href="#id6">Home Directory</a><a class="headerlink" href="#home-directory" title="Permalink to this headline">¶</a></h3>
-<p>Within the root directory, there is a subdirectory called home that
-contains folders for all users allowed to access the computer.
-When you open a brand new Terminal window, you will find yourself in
-your home directory (/home/$USER/). So if you change directories
-immediately, you should do so knowing that you begin in your home
-directory. You can also access the files in any other user’s home
-directory by changing to their directory in the /home/ folder.
-You can change directories to the home directory using the following
-command: <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/home/username</span></code>
-You can also just type <code class="docutils literal notranslate"><span class="pre">cd</span></code>.
-Typing cd without anything following it will automatically take you
-to your home directory. Another equivalent command would be
-<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/</span></code>
-which will also change directories to your home directory. Another
-interesting note is that you can easily get to other user’s home
-directories using the tilde.</p>
-</div>
-</div>
-<div class="section" id="helpful-commands-and-tips">
-<h2><a class="toc-backref" href="#id7">Helpful Commands and Tips</a><a class="headerlink" href="#helpful-commands-and-tips" title="Permalink to this headline">¶</a></h2>
 <p>This section contains many different commands and Unix tips that
 may be useful. The idea is to introduce them and provide some basic
 usage/examples to help with understanding, but this will not be
 an exhaustive explanation of the commands.</p>
 <div class="section" id="using-wild-cards">
-<h3><a class="toc-backref" href="#id8">Using Wild Cards</a><a class="headerlink" href="#using-wild-cards" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id1">Using Wild Cards</a><a class="headerlink" href="#using-wild-cards" title="Permalink to this headline">¶</a></h2>
 <p>Unix recognized certain &quot;wild-cards&quot;. If you have a number of files
 named in a similar way or all containing the same variables.
 For example, after running Gaussian jobs, you might want to work with
@@ -461,7 +242,7 @@ the name, you can list them with <code class="docutils literal notranslate"><spa
 very useful tool that will save a lot of time.</p>
 </div>
 <div class="section" id="redirecting-output-to-a-file">
-<h3><a class="toc-backref" href="#id9">Redirecting Output to a File</a><a class="headerlink" href="#redirecting-output-to-a-file" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id2">Redirecting Output to a File</a><a class="headerlink" href="#redirecting-output-to-a-file" title="Permalink to this headline">¶</a></h2>
 <p>When you run a command and the results are printed to Terminal
 window screen, the text printed is called standard output.
 Occasionally it is helpful to save the standard output to a file.
@@ -484,7 +265,7 @@ you could type <code class="docutils literal notranslate"><span class="pre">echo
 append your new line of text to the end of my_text.txt.</p>
 </div>
 <div class="section" id="creating-shortcuts-for-common-commands">
-<h3><a class="toc-backref" href="#id10">Creating Shortcuts for Common Commands</a><a class="headerlink" href="#creating-shortcuts-for-common-commands" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id3">Creating Shortcuts for Common Commands</a><a class="headerlink" href="#creating-shortcuts-for-common-commands" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">alias</span></code> command allows users to create shortcute for
 certain commands to limit the amount of typing necessary.</p>
 <p>One of the most useful commands available to users is the alias
@@ -499,7 +280,7 @@ to type</p>
 </pre></div>
 </div>
 <p>but you could setup an alias using the following command:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span> acme ‘ssh username@acme.chem.colsotate.edu’
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">acme</span><span class="o">=</span>‘ssh username@acme.chem.colsotate.edu’
 </pre></div>
 </div>
 <p>and now every time you type marcy it is the same as
@@ -531,7 +312,7 @@ option/command, but this sets the stage for you to have even more '
 flexibility when creating your alias shortcuts.</p>
 </div>
 <div class="section" id="pattern-scanning">
-<h3><a class="toc-backref" href="#id11">Pattern Scanning</a><a class="headerlink" href="#pattern-scanning" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id4">Pattern Scanning</a><a class="headerlink" href="#pattern-scanning" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">awk</span></code> is a language for pattern recognition and scanning.
 This is particularly useful when performing analysis and printing
 out a bunch of values and potentially even doing simple math
@@ -551,7 +332,7 @@ to multiply the value in the first column by 4, you could type:</p>
 </div>
 </div>
 <div class="section" id="back-to-the-beginning-of-the-command-prompt">
-<h3><a class="toc-backref" href="#id12">Back to the Beginning of the Command Prompt</a><a class="headerlink" href="#back-to-the-beginning-of-the-command-prompt" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id5">Back to the Beginning of the Command Prompt</a><a class="headerlink" href="#back-to-the-beginning-of-the-command-prompt" title="Permalink to this headline">¶</a></h2>
 <p>While you are typing a command on the Terminal prompt you may
 get near the end of writing a command that is very long and have
 the desire to go back to the beginning of the command to change
@@ -560,7 +341,7 @@ will immediately be moved to the very beginning of the command
 at the start of the prompt.</p>
 </div>
 <div class="section" id="canceling-a-command-before-you-execute">
-<h3><a class="toc-backref" href="#id13">Canceling a Command Before you Execute</a><a class="headerlink" href="#canceling-a-command-before-you-execute" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id6">Canceling a Command Before you Execute</a><a class="headerlink" href="#canceling-a-command-before-you-execute" title="Permalink to this headline">¶</a></h2>
 <p>At any point while on the command line if you want to effectively
 cancel whatever you are planning on executing, simply press <code class="docutils literal notranslate"><span class="pre">ctrl+c</span></code>
 and your command will be cancelled and you will be sent to the next
@@ -571,7 +352,7 @@ can just press <code class="docutils literal notranslate"><span class="pre">ctrl
 running).</p>
 </div>
 <div class="section" id="clearing-the-terminal-screen">
-<h3><a class="toc-backref" href="#id14">Clearing the Terminal Screen</a><a class="headerlink" href="#clearing-the-terminal-screen" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id7">Clearing the Terminal Screen</a><a class="headerlink" href="#clearing-the-terminal-screen" title="Permalink to this headline">¶</a></h2>
 <p>Occasionally your Terminal screen will be filled with a bunch of
 text that you do not need to look at, and it can be distracting
 if you are trying to run a new command where you want to look at
@@ -585,7 +366,7 @@ is at the top of the screen ready for the next command.</p>
 but you will not be able to scroll back up to see your previous output.</p>
 </div>
 <div class="section" id="search-previous-commands">
-<h3><a class="toc-backref" href="#id15">Search Previous Commands</a><a class="headerlink" href="#search-previous-commands" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id8">Search Previous Commands</a><a class="headerlink" href="#search-previous-commands" title="Permalink to this headline">¶</a></h2>
 <p>While on a Terminal prompt, if you press <code class="docutils literal notranslate"><span class="pre">ctrl+r</span></code> on your keyboard
 you will be able to search through your previous commands, with the
 most relevant (recent) command being entered on your command line.
@@ -605,7 +386,7 @@ that you don't want to search your previous commands, you can
 always press <code class="docutils literal notranslate"><span class="pre">ctrl-c</span></code> on your keyboard to terminate the search.</p>
 </div>
 <div class="section" id="disk-usage-details">
-<h3><a class="toc-backref" href="#id16">Disk Usage Details</a><a class="headerlink" href="#disk-usage-details" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id9">Disk Usage Details</a><a class="headerlink" href="#disk-usage-details" title="Permalink to this headline">¶</a></h2>
 <p>Our computers only have a limited amount of storage, so it is useful
 to know the disk usage details for our entire computer, as well as
 folders on our computer. For this purpose we use the du command.
@@ -620,7 +401,7 @@ This is useful if you only care about the total size of a directory
 and don't care about the size of individual subfolders.</p>
 </div>
 <div class="section" id="display-a-line-of-text">
-<h3><a class="toc-backref" href="#id17">Display a Line of Text</a><a class="headerlink" href="#display-a-line-of-text" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id10">Display a Line of Text</a><a class="headerlink" href="#display-a-line-of-text" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">echo</span></code> is a very simple command that is used to print text to
 the screen. A common reason to use <code class="docutils literal notranslate"><span class="pre">echo</span></code> is to display the
 definition of an environment variable.</p>
@@ -631,14 +412,14 @@ is done and how long it took to complete. <code class="docutils literal notransl
 to print statements in python.</p>
 </div>
 <div class="section" id="how-to-logout">
-<h3><a class="toc-backref" href="#id18">How to Logout</a><a class="headerlink" href="#how-to-logout" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id11">How to Logout</a><a class="headerlink" href="#how-to-logout" title="Permalink to this headline">¶</a></h2>
 <p>Typing the <code class="docutils literal notranslate"><span class="pre">exit</span></code> command will log you out of any remote computer
 you have connected to using ssh. If you type <code class="docutils literal notranslate"><span class="pre">exit</span></code> on the command
 prompt of your local workstation, you will close that Terminal
 window/tab.</p>
 </div>
 <div class="section" id="search-for-files">
-<h3><a class="toc-backref" href="#id19">Search for Files</a><a class="headerlink" href="#search-for-files" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id12">Search for Files</a><a class="headerlink" href="#search-for-files" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">find</span></code> command searches a directory/path for files that match the
 given expression provided by the user. The general syntax is</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>find <span class="o">[</span>path<span class="o">]</span> expression
@@ -664,7 +445,7 @@ The portion after the <code class="docutils literal notranslate"><span class="pr
 to run on the files you've found.</p>
 </div>
 <div class="section" id="print-lines-matching-a-pattern">
-<h3><a class="toc-backref" href="#id20">Print Lines Matching a Pattern</a><a class="headerlink" href="#print-lines-matching-a-pattern" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id13">Print Lines Matching a Pattern</a><a class="headerlink" href="#print-lines-matching-a-pattern" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">grep</span></code> is a very useful tool for searching a very long file for
 a certain string and printing the results to the screen. The
 general syntax is</p>
@@ -683,7 +464,7 @@ file when the calculation finsihed normally/without error. This can
 also be done to search for energies or timing information.</p>
 </div>
 <div class="section" id="printing-the-beginning-of-a-file">
-<h3><a class="toc-backref" href="#id21">Printing the Beginning of a File</a><a class="headerlink" href="#printing-the-beginning-of-a-file" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id14">Printing the Beginning of a File</a><a class="headerlink" href="#printing-the-beginning-of-a-file" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">head</span></code> command will print the top lines of a file to the
 Terminal screen. The general syntax for the <code class="docutils literal notranslate"><span class="pre">head</span></code> command is
 <code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">[options]</span> <span class="pre">filename</span></code>. By default, <code class="docutils literal notranslate"><span class="pre">head</span></code> will print the first
@@ -696,7 +477,7 @@ print a different number of lines at the top of a file. For example,</p>
 Using the <code class="docutils literal notranslate"><span class="pre">-n</span></code> flag allows you to specify the number of lines printed.</p>
 </div>
 <div class="section" id="viewing-your-recent-commands">
-<h3><a class="toc-backref" href="#id22">Viewing Your Recent Commands</a><a class="headerlink" href="#viewing-your-recent-commands" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id15">Viewing Your Recent Commands</a><a class="headerlink" href="#viewing-your-recent-commands" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">history</span></code> command will print out your recently executed commands.
 By default, history will print out your most recent ~100 commands.
 You can also specify that history only print out a certain number
@@ -705,14 +486,14 @@ For example, <code class="docutils literal notranslate"><span class="pre">histor
 will print the most recent ten commands that you entered.</p>
 </div>
 <div class="section" id="what-computer-am-i-working-on">
-<h3><a class="toc-backref" href="#id23">What Computer am I Working on?</a><a class="headerlink" href="#what-computer-am-i-working-on" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id16">What Computer am I Working on?</a><a class="headerlink" href="#what-computer-am-i-working-on" title="Permalink to this headline">¶</a></h2>
 <p>When you can easily ssh from one computer to another it is easy
 to get confused and not know which computer you are working on.
 Thus, the command <code class="docutils literal notranslate"><span class="pre">hostname</span></code> was created to print out the name of
 the host computer you are actively working on.</p>
 </div>
 <div class="section" id="terminating-interactive-processes">
-<h3><a class="toc-backref" href="#id24">Terminating Interactive Processes</a><a class="headerlink" href="#terminating-interactive-processes" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id17">Terminating Interactive Processes</a><a class="headerlink" href="#terminating-interactive-processes" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">kill</span></code> command is used to terminate processes that you are
 running on your computer. The general syntax for the <code class="docutils literal notranslate"><span class="pre">kill</span></code>
 command is</p>
@@ -726,9 +507,9 @@ process. You can obtain the <code class="docutils literal notranslate"><span cla
 linux machines, as SLURM has it's own way to kill/cancel a job.</p>
 </div>
 <div class="section" id="read-files-without-editing">
-<h3><a class="toc-backref" href="#id25">Read Files Without Editing</a><a class="headerlink" href="#read-files-without-editing" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id18">Read Files Without Editing</a><a class="headerlink" href="#read-files-without-editing" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="less">
-<h4><a class="toc-backref" href="#id26">Less</a><a class="headerlink" href="#less" title="Permalink to this headline">¶</a></h4>
+<h3><a class="toc-backref" href="#id19">Less</a><a class="headerlink" href="#less" title="Permalink to this headline">¶</a></h3>
 <p>The less command provides users with the ability to read a file
 without worrying about the chance of unintentionally editing the
 file. The general syntax for less is</p>
@@ -759,7 +540,7 @@ on the keyboard.</p>
 <p>To quit less just press the Q key (for quit).</p>
 </div>
 <div class="section" id="more">
-<h4><a class="toc-backref" href="#id27">More</a><a class="headerlink" href="#more" title="Permalink to this headline">¶</a></h4>
+<h3><a class="toc-backref" href="#id20">More</a><a class="headerlink" href="#more" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">more</span></code> is an antiquated version of <code class="docutils literal notranslate"><span class="pre">less</span></code> that can be used
 for reading (but not editing) files. Unlike <code class="docutils literal notranslate"><span class="pre">less</span></code>, with <code class="docutils literal notranslate"><span class="pre">more</span></code>
 you can only page down (e.g. you cannot scroll line-by-line with
@@ -768,7 +549,7 @@ cannot search the text for a string of phrase.</p>
 </div>
 </div>
 <div class="section" id="different-ways-to-list-files">
-<h3><a class="toc-backref" href="#id28">Different Ways to List Files</a><a class="headerlink" href="#different-ways-to-list-files" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id21">Different Ways to List Files</a><a class="headerlink" href="#different-ways-to-list-files" title="Permalink to this headline">¶</a></h2>
 <p>You should already know how to list files with the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command,
 but there are many options with <code class="docutils literal notranslate"><span class="pre">ls</span></code> that can be useful. For
 example, if you type</p>
@@ -813,7 +594,7 @@ all the files in a given folder I typically use the ls command</p>
 human-readable format.</p>
 </div>
 <div class="section" id="combining-commands-into-a-single-line">
-<h3><a class="toc-backref" href="#id29">Combining Commands into a Single Line</a><a class="headerlink" href="#combining-commands-into-a-single-line" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id22">Combining Commands into a Single Line</a><a class="headerlink" href="#combining-commands-into-a-single-line" title="Permalink to this headline">¶</a></h2>
 <p>“Pipe” is a very helpful tool to know to help you combine commands
 into a single line, simplifying scripts and generally making life
 easier. “Piping” simply refers to the process of relocating the
@@ -839,9 +620,9 @@ the button right under the backspace button, as shown on the
 keyboard below.</p>
 </div>
 <div class="section" id="what-processes-are-running-in-my-terminal-window">
-<h3><a class="toc-backref" href="#id30">What Processes are Running in my Terminal Window</a><a class="headerlink" href="#what-processes-are-running-in-my-terminal-window" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id23">What Processes are Running in my Terminal Window</a><a class="headerlink" href="#what-processes-are-running-in-my-terminal-window" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="ps">
-<h4><a class="toc-backref" href="#id31">ps</a><a class="headerlink" href="#ps" title="Permalink to this headline">¶</a></h4>
+<h3><a class="toc-backref" href="#id24">ps</a><a class="headerlink" href="#ps" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">ps</span></code> command is similar to the top command,
 except instead of viewing all the processes that are running on your
 computer, <code class="docutils literal notranslate"><span class="pre">ps</span></code> will only display the processes that are running in
@@ -856,7 +637,7 @@ just printed to the screen and the command prompt is available for
 another unix command.</p>
 </div>
 <div class="section" id="top">
-<h4><a class="toc-backref" href="#id32">top</a><a class="headerlink" href="#top" title="Permalink to this headline">¶</a></h4>
+<h3><a class="toc-backref" href="#id25">top</a><a class="headerlink" href="#top" title="Permalink to this headline">¶</a></h3>
 <p>Occasionally it will be helpful to determine what processes are
 currently running on your computer. For this situation, we have
 the <code class="docutils literal notranslate"><span class="pre">top</span></code> command. <code class="docutils literal notranslate"><span class="pre">top</span></code> will display the processes currently
@@ -884,7 +665,7 @@ pressing <code class="docutils literal notranslate"><span class="pre">q</span></
 </div>
 </div>
 <div class="section" id="what-directory-am-i-in">
-<h3><a class="toc-backref" href="#id33">What Directory am I in?</a><a class="headerlink" href="#what-directory-am-i-in" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id26">What Directory am I in?</a><a class="headerlink" href="#what-directory-am-i-in" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pwd</span></code> is a very simple and frequently used command in unix.
 The command simply prints the full path of your current working
 directory to the screen in your Terminal window. At first this
@@ -899,7 +680,7 @@ It is much easier to just type <code class="docutils literal notranslate"><span 
 then just copy and paste it into your <code class="docutils literal notranslate"><span class="pre">cp</span></code> or <code class="docutils literal notranslate"><span class="pre">rsync</span></code> command.</p>
 </div>
 <div class="section" id="transferring-files">
-<h3><a class="toc-backref" href="#id34">Transferring Files</a><a class="headerlink" href="#transferring-files" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id27">Transferring Files</a><a class="headerlink" href="#transferring-files" title="Permalink to this headline">¶</a></h2>
 <p>You may have already been introduced to the <code class="docutils literal notranslate"><span class="pre">scp</span></code> or <code class="docutils literal notranslate"><span class="pre">ftp</span></code>
 commands to transfer files, and that’s great, but rsync is better
 than both of them. <code class="docutils literal notranslate"><span class="pre">rsync</span></code> allows you the ability to zip files
@@ -940,7 +721,7 @@ and the <code class="docutils literal notranslate"><span class="pre">--progress<
 each file during the transfer process.</p>
 </div>
 <div class="section" id="filtering-and-modifying-text">
-<h3><a class="toc-backref" href="#id35">Filtering and Modifying Text</a><a class="headerlink" href="#filtering-and-modifying-text" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id28">Filtering and Modifying Text</a><a class="headerlink" href="#filtering-and-modifying-text" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">sed</span></code> is an extremely useful tool, especially to the two people
 in the world that really know how to use it. And I am not one of
 those two people. As you might be guessing from my previous
@@ -973,7 +754,7 @@ And if you do actually learn how to actually use <code class="docutils literal n
 write it up here. :)</p>
 </div>
 <div class="section" id="tell-the-computer-to-wait">
-<h3><a class="toc-backref" href="#id36">Tell the Computer to Wait</a><a class="headerlink" href="#tell-the-computer-to-wait" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id29">Tell the Computer to Wait</a><a class="headerlink" href="#tell-the-computer-to-wait" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">sleep</span></code> command simply tells the computer to pause and wait for
 a user-specified amount of time. I have really only found this
 useful when writing scripts. The command does not return anything
@@ -990,7 +771,7 @@ type</p>
 <p>Wasn’t that useful?</p>
 </div>
 <div class="section" id="remotely-accessing-computers-or-clusters">
-<h3><a class="toc-backref" href="#id37">Remotely Accessing Computers or Clusters</a><a class="headerlink" href="#remotely-accessing-computers-or-clusters" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id30">Remotely Accessing Computers or Clusters</a><a class="headerlink" href="#remotely-accessing-computers-or-clusters" title="Permalink to this headline">¶</a></h2>
 <p>The great part of computational work is that you should never have
 to leave your desk to do any work. You can be logged into a computer
 halfway around the world and you should be able to work as if you
@@ -1031,7 +812,7 @@ should not notice a difference and thus you can use either
 interchangeably.</p>
 </div>
 <div class="section" id="sorting-and-re-ordering-data">
-<h3><a class="toc-backref" href="#id38">Sorting and Re-Ordering Data</a><a class="headerlink" href="#sorting-and-re-ordering-data" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id31">Sorting and Re-Ordering Data</a><a class="headerlink" href="#sorting-and-re-ordering-data" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">sort</span></code> command does exactly what its name implies - it sorts
 the lines of text files and puts them in a specific order. The
 general syntax is</p>
@@ -1051,7 +832,7 @@ alphabetically. Consider a file that contains a bunch of types of
 animals. <code class="docutils literal notranslate"><span class="pre">sort</span></code> will automatically reorder them alphabetically.</p>
 </div>
 <div class="section" id="auto-fill-unique-names">
-<h3><a class="toc-backref" href="#id39">Auto Fill Unique Names</a><a class="headerlink" href="#auto-fill-unique-names" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id32">Auto Fill Unique Names</a><a class="headerlink" href="#auto-fill-unique-names" title="Permalink to this headline">¶</a></h2>
 <p>This is a helpful tip and not a command. Whenever you are
 maneuvering directories and trying to access a file or folder,
 you should be aware that you can press the <code class="docutils literal notranslate"><span class="pre">tab</span></code> button on your
@@ -1079,7 +860,7 @@ since that is the only file that is in that folder that begins
 “states.”.</p>
 </div>
 <div class="section" id="printing-the-end-of-a-file">
-<h3><a class="toc-backref" href="#id40">Printing the End of a File</a><a class="headerlink" href="#printing-the-end-of-a-file" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id33">Printing the End of a File</a><a class="headerlink" href="#printing-the-end-of-a-file" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">tail</span></code> is a simple command that prints the last lines of a file.
 By default, <code class="docutils literal notranslate"><span class="pre">tail</span></code> prints the final 10 lines of a file to the
 Terminal screen.</p>
@@ -1102,7 +883,7 @@ end the printing by pressing <code class="docutils literal notranslate"><span cl
 terminates the <code class="docutils literal notranslate"><span class="pre">tail</span></code> command.</p>
 </div>
 <div class="section" id="packaging-your-files-into-a-single-combined-file">
-<h3><a class="toc-backref" href="#id41">Packaging your Files into a Single Combined File</a><a class="headerlink" href="#packaging-your-files-into-a-single-combined-file" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id34">Packaging your Files into a Single Combined File</a><a class="headerlink" href="#packaging-your-files-into-a-single-combined-file" title="Permalink to this headline">¶</a></h2>
 <p>Often if you are asked to package up some of your files to send to
 someone else, they will request you send them a tarball. Don’t be
 scared, this is not an athletic term that you haven’t heard of
@@ -1152,9 +933,9 @@ Tarballs can also be zipped using <code class="docutils literal notranslate"><sp
 will need to replace the <code class="docutils literal notranslate"><span class="pre">-z</span></code> flag with a <code class="docutils literal notranslate"><span class="pre">-j</span></code> flag.</p>
 </div>
 <div class="section" id="create-a-new-file">
-<h3><a class="toc-backref" href="#id42">Create a New File</a><a class="headerlink" href="#create-a-new-file" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id35">Create a New File</a><a class="headerlink" href="#create-a-new-file" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="touch">
-<h4><a class="toc-backref" href="#id43">touch</a><a class="headerlink" href="#touch" title="Permalink to this headline">¶</a></h4>
+<h3><a class="toc-backref" href="#id36">touch</a><a class="headerlink" href="#touch" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">touch</span></code> is a very simple program that allows you to create a new,
 empty file. The general syntax is</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>touch <span class="o">[</span>options<span class="o">]</span> filename
@@ -1171,9 +952,9 @@ all your files and update the modified date/times so the
 supercomputer does not automatically delete them.</p>
 </div>
 <div class="section" id="vi">
-<h4><a class="toc-backref" href="#id44">vi</a><a class="headerlink" href="#vi" title="Permalink to this headline">¶</a></h4>
+<h3><a class="toc-backref" href="#id37">vi</a><a class="headerlink" href="#vi" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="general-concepts">
-<h5><a class="toc-backref" href="#id45">General Concepts</a><a class="headerlink" href="#general-concepts" title="Permalink to this headline">¶</a></h5>
+<h4><a class="toc-backref" href="#id38">General Concepts</a><a class="headerlink" href="#general-concepts" title="Permalink to this headline">¶</a></h4>
 <p>You should already know the basics of using <code class="docutils literal notranslate"><span class="pre">vi</span></code> (also known as
 <code class="docutils literal notranslate"><span class="pre">vim</span></code>) for text editing, but I wanted to cover a few more useful
 parts of <code class="docutils literal notranslate"><span class="pre">vi</span></code> that you may not be aware of. You should already
@@ -1249,12 +1030,12 @@ try to make sure you always close out of your file before
 exiting the terminal.</p>
 </div>
 <div class="section" id="modes">
-<h5><a class="toc-backref" href="#id46">Modes</a><a class="headerlink" href="#modes" title="Permalink to this headline">¶</a></h5>
+<h4><a class="toc-backref" href="#id39">Modes</a><a class="headerlink" href="#modes" title="Permalink to this headline">¶</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">vi</span></code> program has several available modes/options that help
 you edit a text file. The ones that I will cover here include
 Insert, Macro, and Replace.</p>
 <div class="section" id="insert">
-<h6><a class="toc-backref" href="#id47">Insert</a><a class="headerlink" href="#insert" title="Permalink to this headline">¶</a></h6>
+<h5><a class="toc-backref" href="#id40">Insert</a><a class="headerlink" href="#insert" title="Permalink to this headline">¶</a></h5>
 <p>The Insert mode in <code class="docutils literal notranslate"><span class="pre">vi</span></code> is used to, you guessed it, insert new
 text. To enter insert mode, press the <code class="docutils literal notranslate"><span class="pre">I</span></code> key on your keyboard.
 Once you do this, and while you remain in insert mode, the bottom
@@ -1278,7 +1059,7 @@ new text. Once you are done making your edits, you need to exit
 Insert mode by pressing the <code class="docutils literal notranslate"><span class="pre">Esc</span></code> key on your keyboard.</p>
 </div>
 <div class="section" id="macros">
-<h6><a class="toc-backref" href="#id48">Macros</a><a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h6>
+<h5><a class="toc-backref" href="#id41">Macros</a><a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h5>
 <p>A helpful but slightly more advanced technique is creating
 macros (a shortcut to a task you do repeatedly) in <code class="docutils literal notranslate"><span class="pre">vi</span></code>.
 You can easily use Insert mode to edit your text. But if you need
@@ -1328,7 +1109,7 @@ After defining the macro and running it 5 times the text now
 looks like what we wanted.</p>
 </div>
 <div class="section" id="replace">
-<h6><a class="toc-backref" href="#id49">Replace</a><a class="headerlink" href="#replace" title="Permalink to this headline">¶</a></h6>
+<h5><a class="toc-backref" href="#id42">Replace</a><a class="headerlink" href="#replace" title="Permalink to this headline">¶</a></h5>
 <p>The <code class="docutils literal notranslate"><span class="pre">vi</span></code> program has two different methods of text replacement.
 The first is to only replace a single character in the text file.
 If you press the <code class="docutils literal notranslate"><span class="pre">R</span></code> key followed by pressing the <code class="docutils literal notranslate"><span class="pre">K</span></code> key,
@@ -1364,7 +1145,7 @@ will disappear. Just like with Insert mode, you will need to exit
 Replace mode before you can save any changes.</p>
 </div>
 <div class="section" id="visual">
-<h6><a class="toc-backref" href="#id50">Visual</a><a class="headerlink" href="#visual" title="Permalink to this headline">¶</a></h6>
+<h5><a class="toc-backref" href="#id43">Visual</a><a class="headerlink" href="#visual" title="Permalink to this headline">¶</a></h5>
 <p><code class="docutils literal notranslate"><span class="pre">vi</span></code> also has a Visual block mode available that you can
 enter by pressing the <code class="docutils literal notranslate"><span class="pre">V</span></code> key on your keyboard, but I won’t go
 into any detail about this mode now. I just want to mention
@@ -1374,7 +1155,7 @@ that it exists. If you want to know more information, Google it. :)</p>
 </div>
 </div>
 <div class="section" id="running-previous-commands">
-<h3><a class="toc-backref" href="#id51">Running Previous Commands</a><a class="headerlink" href="#running-previous-commands" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id44">Running Previous Commands</a><a class="headerlink" href="#running-previous-commands" title="Permalink to this headline">¶</a></h2>
 <p>While on the command prompt of your Terminal window you can press
 the up arrow on your keyboard and scroll through previous commands
 you have entered. This is especially helpful if you are executing
@@ -1386,7 +1167,7 @@ command.</p>
 the <code class="docutils literal notranslate"><span class="pre">history</span></code> command.</p>
 </div>
 <div class="section" id="what-program-am-i-using">
-<h3><a class="toc-backref" href="#id52">What Program am I Using?</a><a class="headerlink" href="#what-program-am-i-using" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id45">What Program am I Using?</a><a class="headerlink" href="#what-program-am-i-using" title="Permalink to this headline">¶</a></h2>
 <p>The which command can be extremely useful for determining:</p>
 <ol class="arabic simple">
 <li><p>if a command is in your PATH and</p></li>
@@ -1415,7 +1196,7 @@ Typing <code class="docutils literal notranslate"><span class="pre">which</span>
 attempting to use.</p>
 </div>
 <div class="section" id="learn-about-the-computer">
-<h3><a class="toc-backref" href="#id53">Learn About the Computer</a><a class="headerlink" href="#learn-about-the-computer" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id46">Learn About the Computer</a><a class="headerlink" href="#learn-about-the-computer" title="Permalink to this headline">¶</a></h2>
 <p>Depending on the machine that you are working on, there may be
 a different architecture/setup of that computer. There can also be
 different numbers of CPUs that are available for use on different
@@ -1460,7 +1241,7 @@ Flags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca 
 looking for about a computer.</p>
 </div>
 <div class="section" id="in-case-you-re-confused">
-<h3><a class="toc-backref" href="#id54">In Case You're Confused...</a><a class="headerlink" href="#in-case-you-re-confused" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id47">In Case You're Confused...</a><a class="headerlink" href="#in-case-you-re-confused" title="Permalink to this headline">¶</a></h2>
 <p>In case you find yourself questioning your very existence and
 who you are as a person, you can always ask your computer. Typing</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>whoami
@@ -1469,191 +1250,13 @@ who you are as a person, you can always ask your computer. Typing</p>
 <p>will print the username you used to login to your computer.</p>
 </div>
 </div>
-<div class="section" id="running-commands">
-<h2><a class="toc-backref" href="#id55">Running Commands</a><a class="headerlink" href="#running-commands" title="Permalink to this headline">¶</a></h2>
-<p>There are a couple different ways of running/executing commands
-and calculations. Typically, if you are going to execute a command
-straight from the command line on your local computer, then that
-is called running a command (or job/calculation) interactively.
-Interactive jobs run immediately after you execute them regardless
-of the other processes that are occurring already on the computer
-that it may or may not conflict with for the available resources.
-If you run a job on a cluster (or supercomputer) you are likely
-running the command through a queue where you have to share
-resources with the other users and the queue scheduler
-(which is a script/program itself, not a real person so don’t
-try to bribe the scheduler; he doesn’t need your money)
-distributes calculations to free compute nodes that have enough
-available resources to run the program. This section of the
-manual, though, will focus on running jobs interactively on a
-local computer/workstation.</p>
-<p>Scripts and calculations expected to take limited resources or
-very little time can simply be run from the command line without
-any real considerations. However, when calculations are expected
-to take long periods of times (i.e. more than a few minutes),
-I have a few suggestions that might help.</p>
-<div class="section" id="halting-and-canceling-interactive-processes">
-<h3><a class="toc-backref" href="#id56">Halting and Canceling Interactive Processes</a><a class="headerlink" href="#halting-and-canceling-interactive-processes" title="Permalink to this headline">¶</a></h3>
-<p>If you are running a job interactively (i.e. the command prompt is
-unresponsive will the command is running), then you can press
-<code class="docutils literal notranslate"><span class="pre">ctrl+C</span></code> to cancel/kill the process at any time while it is running.
-This will terminate the job from running any longer.</p>
-<p>Additionally, you have the option to halt or suspend an interactive
-process while it is running using <code class="docutils literal notranslate"><span class="pre">ctrl+Z</span></code>. In other words, you can
-press <code class="docutils literal notranslate"><span class="pre">ctrl+Z</span></code> while a command is running and this will temporarily
-suspend the process from running. It halts, but it is not killed. This
-allows you to use the Terminal’s command prompt again while the job is
-halted. At any point, you can continue running the job by typing <code class="docutils literal notranslate"><span class="pre">fg</span></code> to
-bring the command back to the foreground.</p>
-</div>
-<div class="section" id="running-in-background-vs-foreground-and-nohup">
-<h3><a class="toc-backref" href="#id57">Running in Background vs Foreground, and nohup</a><a class="headerlink" href="#running-in-background-vs-foreground-and-nohup" title="Permalink to this headline">¶</a></h3>
-<p>A typical, short calculation is run in the foreground. This means when you
-execute the command, the command prompt on your Terminal becomes unresponsive
-until the process has completed. For long processes, I suggest running commands
-in the background. This allows the job to continue running in the background
-(i.e. without you knowing any difference) and for you to be able to use that
-Terminal’s command prompt to do other things.</p>
-<p>To run a job in the background, simply append an ampersand (&amp;) to the end of
-the command. So if I were going to run a Gaussian 09 QM calculation in the
-foreground, the command would simply be</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>g09 structure.com
-</pre></div>
-</div>
-<p>But if I wanted to run that same calculation in the background, the command
-would look like this</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>g09 structure.com <span class="p">&amp;</span>
-</pre></div>
-</div>
-<p>When you press enter to run this command, a line will be printed to the screen
-letting you know the job is running</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="m">1</span><span class="o">]</span> g09 structure.com <span class="p">&amp;</span>
-</pre></div>
-</div>
-<p>At this point (i.e. after this previous line is printed to the screen), if
-you press enter again your cursor will be back on the command prompt and you
-will be able to use your Terminal window to do more unix-y (yeah, that’s a word) things.</p>
-<p>Occasionally, I accidentally execute a command without adding the ampersand at the
-end when I really wanted to run the job in the background. So instead of running in
-the background, the calculation is running in the foreground. In this situation, I
-press <code class="docutils literal notranslate"><span class="pre">ctrl+Z</span></code> to suspend the job. This means the job is simply waiting for you to
-let it know it can continue running. If you want the job to begin running in the foreground
-again (as it was originally), you could type <code class="docutils literal notranslate"><span class="pre">fg</span></code> (short for foreground). But if you
-are like me, and wanted to run the job in the background, simply type <code class="docutils literal notranslate"><span class="pre">bg</span></code> (short
-for background; see how they did that?) and press enter on the command prompt and the
-job will begin running again but now in the background (and you will get a notification
-line like the one mentioned above when I explained how to run g09 in the background).</p>
-<p>An extremely helpful program when running process in the background is the <code class="docutils literal notranslate"><span class="pre">nohup</span></code>
-command. <code class="docutils literal notranslate"><span class="pre">nohup</span></code> can be added at the beginning of any command and essentially what
-it does it ensure that your job continues running, even if you logout of your computer.
-This is especially helpful if you are using a public or lb computer that others users
-access, or if you are working remotely (i.e. ssh’d into another computer) because using
-<code class="docutils literal notranslate"><span class="pre">nohup</span></code> means you can exit (or logout) the remote workstation and your process/command
-will continue to run. I use this frequently if I am running a command remotely just in
-case the connection between my computer and the remote computer is broken. If you do
-not use <code class="docutils literal notranslate"><span class="pre">nohup</span></code>, when the connection is severed, your command will be terminated.
-Continuing with the Gaussian 09 theme, if we wanted to initiate a g09 calculation
-on a remote computer using nohup, the command would look something like this</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nohup g09 structure.com <span class="p">&amp;</span>
-</pre></div>
-</div>
-<p>Notice that in addition to using <code class="docutils literal notranslate"><span class="pre">nohup</span></code> at the beginning of the command, we
-also made the process run in the background (using the &amp;). If you run a
-command using <code class="docutils literal notranslate"><span class="pre">nohup</span></code> in the foreground, then you are defeating the purpose
-of using nohup altogether since you are unable to use your Terminal’s command
-prompt and when you close the Terminal window or the connection to the remote
-computer is lost, your calculation would be killed.</p>
-</div>
-<div class="section" id="listing-and-killing-jobs-running-in-background">
-<h3><a class="toc-backref" href="#id58">Listing and Killing Jobs Running in Background</a><a class="headerlink" href="#listing-and-killing-jobs-running-in-background" title="Permalink to this headline">¶</a></h3>
-<p>I have already described to you how to run commands in the background. As long as
-you are still using the same Terminal window/tab you used to execute the background
-commands, you can type the command jobs to see what processes are running in the
-background.</p>
-<p>Two processes are distinguished by the [1] or [2] shown at the beginning of each
-line. If for some reason I wanted to kill the first job (which I could do
-using the kill command along with the corresponding PID number),
-I could simple type</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">kill</span> %1
-</pre></div>
-</div>
-<p>and press enter. Similarly, to kill the second job I would just type</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">kill</span> %2
-</pre></div>
-</div>
-<p>In the event I am running a job in the background, I find using jobs
-and <code class="docutils literal notranslate"><span class="pre">kill</span> <span class="pre">%</span></code> much more convenient than determining the PID
-number from <code class="docutils literal notranslate"><span class="pre">top</span></code> or <code class="docutils literal notranslate"><span class="pre">ps</span></code> and using the <code class="docutils literal notranslate"><span class="pre">kill</span> <span class="pre">-9</span></code> command.</p>
-</div>
-</div>
-<div class="section" id="fun-with-coworkers">
-<h2><a class="toc-backref" href="#id59">Fun with Coworkers</a><a class="headerlink" href="#fun-with-coworkers" title="Permalink to this headline">¶</a></h2>
-<p>In this section I have included some commands that are not extremely useful for
-productive work, but can make work more enjoyable by sending messages to
-your colleagues.</p>
-<div class="section" id="send-a-message-to-all-users-terminal-windows">
-<h3><a class="toc-backref" href="#id60">Send a Message to All Users' Terminal Windows</a><a class="headerlink" href="#send-a-message-to-all-users-terminal-windows" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">wall</span></code> command works very similar to the <code class="docutils literal notranslate"><span class="pre">write</span></code> command,
-except that instead of sending a message to only one person’s
-Terminal window, you send that message to every Terminal window
-open by all users currently logged into that computer, including
-yourself. To initiate a wall message, type</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wall
-</pre></div>
-</div>
-<p>This will bring you to the next line in your Terminal window. You
-can write as much or as little as you want. You can press enter to
-go to another line even; so you can send a multi-line message.
-Once you are done drafting your message, press <code class="docutils literal notranslate"><span class="pre">ctrl+D</span></code> on your
-keyboard to end the wall command and send the message to all users.</p>
-<p>Notice that <code class="docutils literal notranslate"><span class="pre">wall</span></code> was entered, the message was written,
-and then <code class="docutils literal notranslate"><span class="pre">ctrl+D</span></code> was pressed (which you can’t actually see)
-to terminate wall and send the message to everyone. After
-<code class="docutils literal notranslate"><span class="pre">ctrl+D</span></code> was pressed, the message was also sent to my
-Terminal window, so the message shows up a second time after a
-Broadcast message that shows it was send from
-user me using the Terminal window <code class="docutils literal notranslate"><span class="pre">pts/7</span></code>. Pressing enter after
-receiving the message will bring up the command prompt again in the
-Terminal window.</p>
-</div>
-<div class="section" id="send-a-message-to-a-user-s-terminal-window">
-<h3><a class="toc-backref" href="#id61">Send a Message to a User's Terminal Window</a><a class="headerlink" href="#send-a-message-to-a-user-s-terminal-window" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">write</span></code> command gives a user the ability to send a message
-directly to another user’s terminal window on the same computer.
-Before you send a message to a user, you need to decide what
-Terminal window you want to send your message to. For this, you
-should use the <code class="docutils literal notranslate"><span class="pre">who</span></code> command. This will allow you to see who
-has a Terminal window open on that computer, along with dates
-and times to see when each Terminal was opened by the user. To send
-a message to one of the Terminal windows you can use the <code class="docutils literal notranslate"><span class="pre">write</span></code>
-command. The general syntax is</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>write user window
-</pre></div>
-</div>
-<p>For an example, if you want to send a message to a terminal called
-&quot;pts/3&quot; or a user named &quot;theorysuite&quot;, I would type</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>write theorysuite pts/3
-</pre></div>
-</div>
-<p>Once you hit enter to execute the command, you can type whatever
-you want as your message. You can press enter and it will continue
-to the next line (not send the message). When you are done typing
-your message and want to send it, press <code class="docutils literal notranslate"><span class="pre">ctrl-D</span></code> on the keyboard to
-end the command and send the message.</p>
-<p>If the receiver of this message wants to send you a message back,
-they will need to know what Terminal window you are sending from
-so that you will see it on the same Terminal window you are
-writing from.</p>
-</div>
-</div>
-</div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="kim_computing_resources.html" class="btn btn-neutral float-left" title="Kim Lab Computing Resources" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="coding_resources.html" class="btn btn-neutral float-right" title="Coding Resources" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="running_commands.html" class="btn btn-neutral float-left" title="Running Commands" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fun_with_coworkers.html" class="btn btn-neutral float-right" title="Fun with Coworkers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -11,7 +11,11 @@ Feel free to also visit the `Paton Lab Website <https://patonlab.com/>`_ or the 
 
    computing_resources/paton_computing_resources.rst
    computing_resources/kim_computing_resources.rst
-   computing_resources/unix_commands.rst
+   computing_resources/essential_unix_commands.rst
+   computing_resources/file_system_layout.rst
+   computing_resources/running_commands.rst 
+   computing_resources/commands_and_tips.rst
+   computing_resources/fun_with_coworkers.rst 
    computing_resources/coding_resources.rst
 
 
