@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NCIPLOT &mdash; csu-wiki  documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Classical Molecular Dynamics" href="../../concepts/classical_molecular_dynamics/classical_molecular_dynamics.html" />
+    <link rel="prev" title="CENSO" href="../example_censo_workflow/example_censo_workflow.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            csu-wiki
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/paton_computing_resources.html">Paton Lab Computing Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/kim_computing_resources.html">Kim Lab Computing Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/essential_unix_commands.html">Essential Unix Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/file_system_layout.html">File System Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/running_commands.html">Running Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/commands_and_tips.html">Helpful Commands and Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/fun_with_coworkers.html">Fun with Coworkers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/coding_resources.html">Coding Resources</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Helpful Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/inhouse.html">In-house</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/external.html">External</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Graphical Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphical_software/edition_generation.html">Edition/Generation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Example Workflows</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../example_aqme_workflow/example_aqme_workflow.html">End-to-End Workflow in ACME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_goodvibes_workflow/example_goodvibes_workflow.html">GoodVibes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_reggae_workflow/example_reggae_workflow.html">REGGAE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_descriptors_workflow/example_descriptors_workflow.html">RDKit, Mordred, Morfeus &amp; DBStep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_censo_workflow/example_censo_workflow.html">CENSO</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">NCIPLOT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#running-the-nciplot-calculation">Running the NCIPLOT calculation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prepare-basic-files">1. Prepare basic files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#if-we-want-to-use-pure-xyz">if we want to use pure xyz</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#if-we-want-to-use-wfn">if we want to use wfn</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#prepare-the-nci-input-file">2. Prepare the nci input file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-nciplot">3. Run nciplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plot-the-results">4. Plot the results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">5. Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#plotting-in-pymol">Plotting in Pymol</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prepare-the-files">1. Prepare the files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#starting-pymol">2. Starting Pymol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loading-the-geometry">3. Loading the geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#start-making-things-pretty">4. Start making things pretty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loading-the-density-and-gradient">5. Loading the density and gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plotting-the-nci">6. plotting the NCI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basics-of-visualization">7. Basics of visualization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generating-a-nice-image">8. Generating a nice image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generating-image-layers-for-composition">9. Generating image layers for composition</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/classical_molecular_dynamics/classical_molecular_dynamics.html">Classical Molecular Dynamics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">csu-wiki</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">NCIPLOT</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/running_calculations/example_nciplot_calculation/example_nciplot_calculation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="nciplot">
+<h1>NCIPLOT<a class="headerlink" href="#nciplot" title="Permalink to this headline">¶</a></h1>
+<p>This is a fast-usage guide for nciplot. For a detailed information on its usage
+please check the guide of the version of nciplot that you are using.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#running-the-nciplot-calculation" id="id1">Running the NCIPLOT calculation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#prepare-basic-files" id="id2">1. Prepare basic files</a></p>
+<ul>
+<li><p><a class="reference internal" href="#if-we-want-to-use-pure-xyz" id="id3">if we want to use pure xyz</a></p></li>
+<li><p><a class="reference internal" href="#if-we-want-to-use-wfn" id="id4">if we want to use wfn</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#prepare-the-nci-input-file" id="id5">2. Prepare the nci input file</a></p></li>
+<li><p><a class="reference internal" href="#run-nciplot" id="id6">3. Run nciplot</a></p></li>
+<li><p><a class="reference internal" href="#plot-the-results" id="id7">4. Plot the results</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id8">5. Examples</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#plotting-in-pymol" id="id9">Plotting in Pymol</a></p>
+<ul>
+<li><p><a class="reference internal" href="#prepare-the-files" id="id10">1. Prepare the files</a></p></li>
+<li><p><a class="reference internal" href="#starting-pymol" id="id11">2. Starting Pymol</a></p></li>
+<li><p><a class="reference internal" href="#loading-the-geometry" id="id12">3. Loading the geometry</a></p></li>
+<li><p><a class="reference internal" href="#start-making-things-pretty" id="id13">4. Start making things pretty</a></p></li>
+<li><p><a class="reference internal" href="#loading-the-density-and-gradient" id="id14">5. Loading the density and gradient</a></p></li>
+<li><p><a class="reference internal" href="#plotting-the-nci" id="id15">6. plotting the NCI</a></p></li>
+<li><p><a class="reference internal" href="#basics-of-visualization" id="id16">7. Basics of visualization</a></p></li>
+<li><p><a class="reference internal" href="#generating-a-nice-image" id="id17">8. Generating a nice image</a></p></li>
+<li><p><a class="reference internal" href="#generating-image-layers-for-composition" id="id18">9. Generating image layers for composition</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="running-the-nciplot-calculation">
+<h2><a class="toc-backref" href="#id1">Running the NCIPLOT calculation</a><a class="headerlink" href="#running-the-nciplot-calculation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="prepare-basic-files">
+<h3><a class="toc-backref" href="#id2">1. Prepare basic files</a><a class="headerlink" href="#prepare-basic-files" title="Permalink to this headline">¶</a></h3>
+<p>For calculating the reduced gradient, nciplot requires some way of obtaining the
+electronic density and its gradient. nciplot has some low level pre-computed
+atom-centered functions to derive them from pure xyz coordinates which is
+generally faster. A second option is to provide a wfn file. From gaussian we can
+obtain it by adding the keyword <cite>output=wfn</cite> in the command line and specifying
+at the bottom of the input file the name of the file.</p>
+<p>Also we can divide our molecule in different fragments to check their
+interactions instead of all the interactions within the provided geometry. In
+those cases we need to divide our files into different files.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I recommend that per each nciplot you create a new folder. In that folder
+you should place only the files needed for the nciplot program to run similar
+to the examples in this folder. NCIPlot generates several files and it makes
+everything easier to find when you want to generate nice figures.</p>
+</div>
+<div class="section" id="if-we-want-to-use-pure-xyz">
+<h4><a class="toc-backref" href="#id3">if we want to use pure xyz</a><a class="headerlink" href="#if-we-want-to-use-pure-xyz" title="Permalink to this headline">¶</a></h4>
+<p>Per each fragment:</p>
+<ul class="simple">
+<li><p>Place the xyz file into the folder</p></li>
+</ul>
+</div>
+<div class="section" id="if-we-want-to-use-wfn">
+<h4><a class="toc-backref" href="#id4">if we want to use wfn</a><a class="headerlink" href="#if-we-want-to-use-wfn" title="Permalink to this headline">¶</a></h4>
+<p>Per each fragment:</p>
+<ul class="simple">
+<li><p>Place the xyz file into the folder (usefull for plotting not needed strictly)</p></li>
+<li><p>Create a gaussian input file with the output=wfn (SP works)</p></li>
+<li><p>Run the gaussian calculation</p></li>
+<li><p>Ensure a .wfn file has been created</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="prepare-the-nci-input-file">
+<h3><a class="toc-backref" href="#id5">2. Prepare the nci input file</a><a class="headerlink" href="#prepare-the-nci-input-file" title="Permalink to this headline">¶</a></h3>
+<p>You are more likely to need the NCIPLOT guide for this step if you want to do
+something fancy. Otherwise you can just copy one of the templates here and adapt
+it to your files.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><p>Examples</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>from_xyz</strong></p></td>
+<td><p><strong>from_wfn</strong></p></td>
+</tr>
+<tr class="row-odd"><td><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1
+W_W_W.xyz
+FINE
+INCREMENTS 0.05 0.05 0.05
+ONAME from_xyz
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1
+W_W_W.wfn
+FINE
+INCREMENTS 0.05 0.05 0.05
+ONAME from_wfn
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>intermolecular_from_xyz</strong></p></td>
+<td><p><strong>intermolecular_from_wfn</strong></p></td>
+</tr>
+<tr class="row-odd"><td><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2
+fragment_1.xyz
+fragment_2.xyz
+FINE
+INTERMOLECULAR
+INCREMENTS 0.05 0.05 0.05
+ONAME intermolecular_from_xyz
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2
+fragment_1.wfn
+fragment_2.wfn
+FINE
+INTERMOLECULAR
+INCREMENTS 0.05 0.05 0.05
+ONAME intermolecular_from_wfn
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="run-nciplot">
+<h3><a class="toc-backref" href="#id6">3. Run nciplot</a><a class="headerlink" href="#run-nciplot" title="Permalink to this headline">¶</a></h3>
+<p>In general you can run nciplot in your desktop computer without problems. Using
+xyz tends to be significantly faster than wfn files, but its theoretically less
+accurate. You can run it in the cluster though, The submit script is easy to
+create and it will be available in the templates/submit_jobs folder.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The qualitative picture its still the same, and until now I have not
+ever seen anyone properly reporting how did they calculated the nciplot, if
+it was from .xyz/.wfn I would only expect it to be relevant if you want to
+do a numeric treatment of the results.</p>
+</div>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> folder/where/my/files/are
+<span class="gp">$</span> nciplot my_calculation.nci
+</pre></div>
+</div>
+<p>nciplot will generate at least 4 files:</p>
+<ul class="simple">
+<li><p>my_calculation-dens.cube</p></li>
+<li><p>my_calculation-grad.cube</p></li>
+<li><p>my_calculation.dat</p></li>
+<li><p>my_calculation.vmd</p></li>
+</ul>
+</div>
+<div class="section" id="plot-the-results">
+<h3><a class="toc-backref" href="#id7">4. Plot the results</a><a class="headerlink" href="#plot-the-results" title="Permalink to this headline">¶</a></h3>
+<p>A fast representation of the results can be obtained with vmd. That is the
+reason nciplot generates a .vmd file by default. To do so type:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">vmd</span>
+</pre></div>
+</div>
+<p>Go to File, Load Visualization State, and select my_calculation.vmd.</p>
+<p>For fancier figures (Such as the ones in the examples) I do recommend using pymol.
+See the &quot;Plotting in Pymol&quot; section for a fast guide to obtain a pretty figure.</p>
+</div>
+<div class="section" id="examples">
+<h3><a class="toc-backref" href="#id8">5. Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<p>Folders <em>from_xyz</em>, <em>from_wfn</em>, <em>intermolecular_from_xyz</em>, and
+<em>intermolecular_from_wfn</em> contain the different basic files + nci input files
+and you can see the its effect in the table below</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 49%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><p>Examples</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>from_xyz</strong></p></td>
+<td><p><strong>from_wfn</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../_images/fig_from_xyz.png"><img alt="from_xyz" src="../../_images/fig_from_xyz.png" style="width: 400px; height: 400px;" /></a></p></td>
+<td><p><a class="reference internal" href="../../_images/fig_from_wfn.png"><img alt="from_wfn" src="../../_images/fig_from_wfn.png" style="width: 400px; height: 400px;" /></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>intermolecular_from_xyz</strong></p></td>
+<td><p><strong>intermolecular_from_wfn</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../_images/fig_inter_from_xyz.png"><img alt="from_ixyz" src="../../_images/fig_inter_from_xyz.png" style="width: 400px; height: 400px;" /></a></p></td>
+<td><p><a class="reference internal" href="../../_images/fig_inter_from_wfn.png"><img alt="from_iwfn" src="../../_images/fig_inter_from_wfn.png" style="width: 400px; height: 400px;" /></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="plotting-in-pymol">
+<h2><a class="toc-backref" href="#id9">Plotting in Pymol</a><a class="headerlink" href="#plotting-in-pymol" title="Permalink to this headline">¶</a></h2>
+<p>Here you will find a fast way of generating images of the NCI such as the ones
+displayed using pymol. This software is available in two versions, the source
+code which is open sorce and the precompiled which is usually associated with
+the Schroedinger software (Macromodel, Jaguar, Maestro ... etc)</p>
+<div class="section" id="prepare-the-files">
+<h3><a class="toc-backref" href="#id10">1. Prepare the files</a><a class="headerlink" href="#prepare-the-files" title="Permalink to this headline">¶</a></h3>
+<p>If you have followed the advice of the previous guide you will have most of the
+files needed. Please copy the pynci.py file in this repo to the appropiate place.
+That file was obtained from the developers of NCIPLOT and is shown here:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="c1"># nci.py, a tiny script to display plots from Nciplot in PyMOL</span>
+<span class="c1">#</span>
+<span class="c1">#get Nciplot at http://gatsby.ucmerced.edu/wiki/Nciplot</span>
+<span class="c1">#</span>
+<span class="c1">#Nciplot references:</span>
+<span class="c1">#</span>
+<span class="c1"># J. Contreras-Garcia, E. Johnson, S. Keinan, R. Chaudret, J-P Piquemal, D. Beratan, W. Yang, J. Chem. Theor. Comp. 7, 625 (2011).</span>
+<span class="c1"># E R. Johnson, S. Keinan, P. Mori-Sanchez, J. Contreras-Garcia, A J. Cohen, and W. Yang, J. Am. Chem. Soc., 132, 6498 (2010).</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">#Usage:</span>
+<span class="c1">#</span>
+<span class="c1">#Load the molecular geometry and the two cube files (-grad and -dens) into pymol</span>
+<span class="c1">#</span>
+<span class="c1">#load the script in pymol (for instance, using file-&gt;run and selecting the nci.py from the PyMOL GUI)</span>
+<span class="c1">#</span>
+<span class="c1">#Run the script by typing:   nci  basename</span>
+<span class="c1">#in pymol, where basename is the first part, before the dash, of the name of the cube files (i.e. basename-dens.cube)</span>
+
+
+<span class="c1">#</span>
+<span class="c1">#This python script is in the public domain.</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">pymol</span> <span class="kn">import</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">stored</span>
+
+<span class="k">def</span> <span class="nf">nci</span><span class="p">(</span> <span class="n">arg1</span> <span class="p">):</span>
+   <span class="n">densf</span><span class="o">=</span><span class="n">arg1</span><span class="o">+</span><span class="s2">&quot;-dens&quot;</span>
+   <span class="n">gradf</span><span class="o">=</span><span class="n">arg1</span><span class="o">+</span><span class="s2">&quot;-grad&quot;</span>
+<span class="c1">#  gdens=open(densf+&quot;.cube&quot;,&quot;r&quot;)</span>
+<span class="c1">#  grad=open(gradf+&quot;.cube&quot;,&quot;r&quot;)</span>
+   <span class="n">cmd</span><span class="o">.</span><span class="n">isosurface</span><span class="p">(</span><span class="s2">&quot;grad&quot;</span><span class="p">,</span><span class="n">gradf</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+   <span class="n">cmd</span><span class="o">.</span><span class="n">ramp_new</span><span class="p">(</span><span class="s2">&quot;ramp&quot;</span><span class="p">,</span> <span class="n">densf</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="s2">&quot;rainbow&quot;</span><span class="p">)</span>
+   <span class="n">cmd</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;surface_color&quot;</span><span class="p">,</span> <span class="s2">&quot;ramp&quot;</span><span class="p">,</span> <span class="s2">&quot;grad&quot;</span><span class="p">)</span>
+   <span class="n">cmd</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;two_sided_lighting&#39;</span><span class="p">,</span><span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">cmd</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span> <span class="s2">&quot;nci&quot;</span><span class="p">,</span> <span class="n">nci</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Although that's the version provided by NCIPLOT developers, I do recommend this
+custom version instead:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pymol</span> <span class="kn">import</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">stored</span>
+
+<span class="k">def</span> <span class="nf">nci</span><span class="p">(</span> <span class="n">filename</span><span class="p">,</span> <span class="n">isovalue</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">cmin</span><span class="o">=-</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">cmax</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;[blue, white, red]&#39;</span><span class="p">):</span>
+   <span class="n">densf</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{filename}</span><span class="s1">-dens&#39;</span>
+   <span class="n">gradf</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{filename}</span><span class="s1">-grad&#39;</span>
+
+   <span class="n">lims</span> <span class="o">=</span> <span class="p">(</span><span class="n">cmin</span><span class="p">,</span><span class="n">cmax</span><span class="p">)</span>
+
+   <span class="n">cmd</span><span class="o">.</span><span class="n">isosurface</span><span class="p">(</span><span class="s2">&quot;grad&quot;</span><span class="p">,</span><span class="n">gradf</span><span class="p">,</span> <span class="n">isovalue</span><span class="p">)</span>
+   <span class="n">cmd</span><span class="o">.</span><span class="n">ramp_new</span><span class="p">(</span><span class="n">ramp</span><span class="p">,</span> <span class="n">densf</span><span class="p">,</span> <span class="n">lims</span><span class="p">,</span> <span class="n">palette</span><span class="p">)</span>
+   <span class="n">cmd</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;surface_color&quot;</span><span class="p">,</span> <span class="s2">&quot;ramp&quot;</span><span class="p">,</span> <span class="s2">&quot;grad&quot;</span><span class="p">)</span>
+   <span class="n">cmd</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;two_sided_lighting&#39;</span><span class="p">,</span><span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">cmd</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span> <span class="s2">&quot;nci&quot;</span><span class="p">,</span> <span class="n">nci</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A quick note about bonds. Bonds in .xyz files will tend to appear always
+as single bonds. If you want your aldehyde to show properly the two bonds,
+convert the .xyz file to a .sdf file, and open that file instead.
+To do the conversion you can use openbabel: <code class="code docutils literal notranslate"><span class="pre">obabel</span> <span class="pre">-ixyz</span> <span class="pre">my_calculation.xyz</span> <span class="pre">-osdf</span> <span class="pre">-O</span> <span class="pre">my_calculation.sdf</span></code></p>
+</div>
+<p>So at this point you should have the following files in your folder:</p>
+<ul class="simple">
+<li><p>my_calculation-dens.cube</p></li>
+<li><p>my_calculation-grad.cube</p></li>
+<li><p>my_calculation.xyz</p></li>
+<li><p>pynci.py (the following tutorial figures will assume the NCIPLOT's developer version)</p></li>
+<li><p>(optional) my_calculation.sdf</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you used different fragments you will have different .xyz and .sdf also.</p>
+</div>
+</div>
+<div class="section" id="starting-pymol">
+<h3><a class="toc-backref" href="#id11">2. Starting Pymol</a><a class="headerlink" href="#starting-pymol" title="Permalink to this headline">¶</a></h3>
+<p>If you have pymol properly installed you should be able to just run the &quot;pymol&quot;
+command in the console. Otherwise you should look for the executable and either
+use it from command line or double click it.</p>
+<p>As you open pymol and you will see something like the following image:</p>
+<p><a class="reference internal" href="../../_images/pymol_welcome.png"><img alt="pymol_1" src="../../_images/pymol_welcome.png" style="width: 800px; height: 600px;" /></a></p>
+<p>pymol has two windows and two consoles. I generally prefer to type in the top
+one and leave the bottom one only for visualizing, changing the view and
+selecting atoms, but you can use both consoles equally.</p>
+<p>type the following code:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">PyMOL&gt; run path/to/pynci.py</span>
+</pre></div>
+</div>
+<p>if you opened pymol in the same folder that you have everything you can just
+type &quot;run pynci.py&quot;</p>
+</div>
+<div class="section" id="loading-the-geometry">
+<h3><a class="toc-backref" href="#id12">3. Loading the geometry</a><a class="headerlink" href="#loading-the-geometry" title="Permalink to this headline">¶</a></h3>
+<p>Now go to File -&gt; Open... and select the files with the geometries. This is when
+you choose either to load the .xyz or the .sdf</p>
+<p>After that, unless you have the defaults changed, you will see a horrible version
+of your molecule.</p>
+<p><a class="reference internal" href="../../_images/pymol_abomination.png"><img alt="pymol_2" src="../../_images/pymol_abomination.png" style="width: 800px; height: 600px;" /></a></p>
+<p>Do not worry, we will make it pretty.</p>
+</div>
+<div class="section" id="start-making-things-pretty">
+<h3><a class="toc-backref" href="#id13">4. Start making things pretty</a><a class="headerlink" href="#start-making-things-pretty" title="Permalink to this headline">¶</a></h3>
+<p>If you are picky with the colors like me, you are not gonna like the default
+colors. If that is the case go to the rainbow &quot;C&quot; on the rightmost part of the
+fragment and choose the colorset that suits you the best. I generally pick the
+one in the following image.</p>
+<p><a class="reference internal" href="../../_images/pymol_colors.png"><img alt="pymol_3" src="../../_images/pymol_colors.png" style="width: 800px; height: 600px;" /></a></p>
+<p>Before we plot the nciplot I do recommend to play with the representation of
+the molecules to suit your tastes. It is really easy to google the stuff and the
+pymol wiki is very complete and with pictures.</p>
+<p>A fast way of getting the ball and stick representation is to type in the pymol
+console:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">PyMOL&gt; preset.ball_and_stick(&#39;all&#39;,mode=1)</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="../../_images/pymol_pretty.png"><img alt="pymol_4" src="../../_images/pymol_pretty.png" style="width: 800px; height: 600px;" /></a></p>
+</div>
+<div class="section" id="loading-the-density-and-gradient">
+<h3><a class="toc-backref" href="#id14">5. Loading the density and gradient</a><a class="headerlink" href="#loading-the-density-and-gradient" title="Permalink to this headline">¶</a></h3>
+<p>To plot the NCI pymol will need both .cube files. Proceed as you did with the
+.xyz and/or .sdf and load my_calculation-dens.cube and my_calculation-grad.cube</p>
+</div>
+<div class="section" id="plotting-the-nci">
+<h3><a class="toc-backref" href="#id15">6. plotting the NCI</a><a class="headerlink" href="#plotting-the-nci" title="Permalink to this headline">¶</a></h3>
+<p>Now it is just as easy as running the following command in the pymol console:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">PyMOL&gt; nci my_calculation</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please, remember to substitute &quot;my_calculation&quot; by the name of your
+calculation</p>
+</div>
+<p>With this, two new items will appear: &quot;ramp&quot; (color legend) and &quot;grad&quot; (nci).
+Great if you like how you see it you are ready to go.</p>
+<p><a class="reference internal" href="../../_images/pymol_nci.png"><img alt="pymol_5" src="../../_images/pymol_nci.png" style="width: 800px; height: 600px;" /></a></p>
+</div>
+<div class="section" id="basics-of-visualization">
+<h3><a class="toc-backref" href="#id16">7. Basics of visualization</a><a class="headerlink" href="#basics-of-visualization" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Zoom out</strong>: press the right mouse button and move it towards you.</p></li>
+<li><p><strong>Zoom in</strong>: press the right mouse button and move it away from you.</p></li>
+<li><p><strong>Rotate view</strong>: press the left mouse button and move it.</p></li>
+<li><p><strong>Camera distance</strong>: Sometimes you will see that the atoms are cut, you can
+generally solve it using the mouse wheel.</p></li>
+<li><p><strong>Move view</strong>: To move without rotation click the mouse wheel and move the mouse accordingly</p></li>
+</ul>
+<p>Those are the basics, if you want more please look into the documentation it is
+really good.</p>
+</div>
+<div class="section" id="generating-a-nice-image">
+<h3><a class="toc-backref" href="#id17">8. Generating a nice image</a><a class="headerlink" href="#generating-a-nice-image" title="Permalink to this headline">¶</a></h3>
+<p>To end up with the result that you saw in the examples you need a finer control,
+but you can get nice looking pictures without such effort. To do so we run the
+following commands in the pymol console:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">PyMOL&gt; set opaque_background, 0</span>
+<span class="go">PyMOL&gt; set ray_trace_mode, 1</span>
+<span class="go">PyMOL&gt; ray 600,600</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The 600,600 correspond to width and height respectively in pixels. For a
+bigger quality and size, just increase the numbers.</p>
+</div>
+<p>Then we go to File -&gt; Export Image As... -&gt; PNG...
+We name the file and done!</p>
+</div>
+<div class="section" id="generating-image-layers-for-composition">
+<h3><a class="toc-backref" href="#id18">9. Generating image layers for composition</a><a class="headerlink" href="#generating-image-layers-for-composition" title="Permalink to this headline">¶</a></h3>
+<p>To end up with the result that you saw in the examples I overlayed
+different images with GIMP, that allows us to get a finer control. I generally
+add manualy the color of the background (if I add it) in GIMP.</p>
+<p>To generate the different layers we are gonna play with what we can see in the
+screen at any given time. To enable/disable the view of an element (let's say
+the &quot;ramp&quot; for example) we just have to click on it on the rightmost pannel.</p>
+<p>With that and changing the ray_trace_mode we can obtain different layers:</p>
+<ul class="simple">
+<li><p><strong>ray_trace_mode=0</strong> will render without contourn</p></li>
+<li><p><strong>ray_trace_mode=2</strong> will render only the contourn</p></li>
+<li><p><strong>ray_trace_gain=1.0</strong> will change the width of the contourn when rendering in mode=2</p></li>
+</ul>
+<p>You can also change the transparency of the surface and everything, but it is much
+easier to do so in GIMP.</p>
+<p>Composing in GIMP is out of the scope of this fast guide
+but overall you will have to open as layers all the different snapshots that you took
+order them accordingly, maybe invert the colors of the contourn and finally export
+as an image the result.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../example_censo_workflow/example_censo_workflow.html" class="btn btn-neutral float-left" title="CENSO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../concepts/classical_molecular_dynamics/classical_molecular_dynamics.html" class="btn btn-neutral float-right" title="Classical Molecular Dynamics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, csu-theory-suite.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

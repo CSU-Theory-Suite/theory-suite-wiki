@@ -53,16 +53,34 @@ Documentation can be found in the Readme
 DISCO
 -----
 
-Distributing Computed Outputs (or DISCO) is Python script to parse through 
-Gaussian (i) Natural Bond Analysis (NBO) calculations and (ii) NMR Shielding 
-calculations using the GIAO method for atomistic and molecular properties. 
-NBO atomic charges, NMR tensor values and chemical NMR shifts, HOMO, LUMO, 
-and Bond distance values.
-
-Documentation can be found in the Readme
-`here <https://github.com/Liliana-Gallegos/DISCO>`__
+(Insert short description here)
 
 aqme
 ----
 
 (Insert short description here)
+
+
+Slurm Job Tracking
+------------------
+.. |running_example| image:: images/jobcheck.png
+
+A Python script that will allow you to track completion of slurm jobs. Especially useful if you are running numerous jobs in numerous locations.
+
+To install and use:
+
+* Copy jobcheck.py to machine
+    - https://github.com/hklem/slurm_job_tracking
+    - You can copy the file anywhere; I chose my home directory.
+
+* (optional) Add alias to your .bashrc >> alias sq 'python ~/jobcheck.py'
+* Run command
+    - When you run for the first time, the script initializes and logs current job information.
+    - Note you should run the command everytime aftet you submit jobs, or else it won't log current job info. 
+
+This is what it looks like when you run the command and a job has ended since the last time the command was run:
+
+.. centered:: |running_example|
+
+Now I can quick cd into the directory of the finished job, or copy it over to my local machine.
+

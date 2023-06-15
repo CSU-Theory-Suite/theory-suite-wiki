@@ -1,0 +1,16 @@
+&cntrl 
+    imin=1,  # flag to start minimization procedure, perform single point energy calc 
+    ntx=1,   # read positions, but no initial velocity info 
+    irest=0, # not restarting from a previous point 
+    ntpr=100, # print MD progress every 100 steps
+    ntwx=100, # write out coordinates every 100 steps
+    ioutfm=1, # format of the output file (trajectory) with coordinate and velocity info. 1 is the flag for a binary  
+    # NetCDF traj file (it's smaller,has higher precision, and faster to work with.  
+    ntb=1, # periodic boundary conditions are imposed for constant volume 
+    iwrap=1,
+    maxcyc=10000, 
+    cut=12.0, 
+    ntr=1, # flag for restraining certain atoms
+    restraint_wt=75, # restraint force constant in kcal/(mol A**2) 
+    restraintmask=":1-454", 
+/

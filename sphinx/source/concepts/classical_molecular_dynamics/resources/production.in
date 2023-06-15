@@ -1,0 +1,24 @@
+NPT; no constraints; 10 ns chunks 
+&cntrl 
+imin=0, #no minimization
+irest=1, #flag to restart simulation, reading positions and velocities from a previous restart file
+ntx=5, #read coordinates and velocities from a previous restart file 
+ntpr=2500, #print MD progress every 2500 steps
+ntwr=5000, #restart file written every 50000 steps 
+ntwx=2500, #write out coordinates every 2500 steps 
+nstlim=5000000, #number of MD steps 
+dt=0.002, #timestep in picoseconds 
+ntt=3, #Langevin dynamics 
+temp0=303.0, 
+ig=-1, 
+gamma_ln=2, 
+ntp=1, #pressure regulation. 1=md with isotropic position scaling
+barostat=2, #Monte Carlo barostat 
+pres0=1.0,#bars 
+ntc=2, #bonds involving H are constrained according to SHAKE  
+ntf=2, #bond interactions with H omitted 
+ntb=2, #periodic boundary conditions are imposed for constant pressure 
+cut=12.0, #nonbonded cutoff in A 
+ioutfm=1,#binary NetCDF trajectory. Binaries are smaller, higher precision, and faster to read and write.
+iwrap=1, #the coordinates written to the rst and trajectory files will be 'wrapped' into a primary box. Has no effect on energy or forces, it's more of a visual thing. This CAN alter diffusion types of acalculations, so in such cases you want = 0. If you are running long trajectories this might be necessary to keep the coordinate output from overflowing the file formats, resulting in huge files.
+/

@@ -1,0 +1,7 @@
+2
+fragment_1.xyz
+fragment_2.xyz
+FINE
+INTERMOLECULAR
+INCREMENTS 0.05 0.05 0.05
+ONAME intermolecular_from_xyz

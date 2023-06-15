@@ -1,0 +1,32 @@
+Heating from 25 to 303K; NVT for 1 ns;
+&cntrl
+    imin=0, 
+    ntx=1, 
+    irest=0, 
+    ntxo=2, 
+    ntpr=2500, #print MD progress every 2500 steps 
+    ntwr=50000, #restart file written every 50000 steps 
+    iwrap=1, 
+    ntwx=2500, #write out coordinates every 2500 steps 
+    ioutfm=1, 
+    nstlim=500000, #number of MD steps 
+    dt=0.002, #timestep in picoseconds 
+    ntt=3, #thermostat. 3=langevin dynamics flag 
+    tempi=25., 
+    temp0=303.0, 
+    ig=-1, 
+    gamma_ln=2 #collision frequency in ps^(-1), variable in Langevin dynamics algorithm 
+    ntc=2, 
+    ntf=2, 
+    ntb=1, 
+    cut=12.0, 
+    ntr=1, 
+    restraint_wt=1, 
+    restraintmask=":1-454", 
+    nmropt=1, 
+/ 
+&wt type='TEMP0', istep1=0,istep2=500000, 
+value1=25.,value2=303. 
+/ 
+&wt type='END' 
+/ 

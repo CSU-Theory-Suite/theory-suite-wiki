@@ -1,13 +1,22 @@
 ====================================
-Welcome to csu-wiki's Documentation!
+Welcome to CSU-wiki's Documentation!
 ====================================
 
+Thanks for visiting the CSU Theory Suite's wiki page! 
+Feel free to also visit the `Paton Lab Website <https://patonlab.com/>`_ or the `Kim Lab Website <https://bioenergy-kimlab.org/>`_!
+
 .. toctree::
-   :maxdepth: 3
-   :caption: Computing Resources
+   :maxdepth: 2
+   :caption: Getting Started
 
    computing_resources/paton_computing_resources.rst
    computing_resources/kim_computing_resources.rst
+   computing_resources/essential_unix_commands.rst
+   computing_resources/file_system_layout.rst
+   computing_resources/running_commands.rst 
+   computing_resources/commands_and_tips.rst
+   computing_resources/fun_with_coworkers.rst 
+   computing_resources/coding_resources.rst
 
 
 .. toctree::
@@ -28,9 +37,17 @@ Welcome to csu-wiki's Documentation!
 
 .. toctree::
    :maxdepth: 4
-   :caption: Running Calculations
+   :caption: Example Workflows
 
    running_calculations/example_aqme_workflow/example_aqme_workflow.rst
    running_calculations/example_goodvibes_workflow/example_goodvibes_workflow.rst
    running_calculations/example_reggae_workflow/example_reggae_workflow.rst
    running_calculations/example_descriptors_workflow/example_descriptors_workflow.rst
+   running_calculations/example_censo_workflow/example_censo_workflow.rst
+   running_calculations/example_nciplot_calculation/example_nciplot_calculation.rst
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Concepts
+
+   concepts/classical_molecular_dynamics/classical_molecular_dynamics.rst

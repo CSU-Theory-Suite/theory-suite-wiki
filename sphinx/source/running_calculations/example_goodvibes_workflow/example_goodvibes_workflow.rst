@@ -2,7 +2,7 @@
 .. |PhPy-PES| image:: images/Rxn_profile_PhPy.png
 
 ==========================
-Example GoodVibes Workflow 
+GoodVibes 
 ==========================
 
 .. contents::
@@ -48,9 +48,9 @@ You should get the following output:
 
 .. highlight:: none
 
-.. literalinclude:: resources/jupyter_outputs.rst 
+.. literalinclude:: resources/jupyter_outputs.txt
     :start-after: water-start
-    :end-before: water-end 
+    :end-before: water-end
 
 .. highlight:: default
 
@@ -75,7 +75,7 @@ This will give the following output:
 
 .. highlight:: none
 
-.. literalinclude:: resources/jupyter_outputs.rst 
+.. literalinclude:: resources/jupyter_outputs.txt
     :start-after: benzene_temp-start
     :end-before: benzene_temp-end
 
@@ -91,7 +91,7 @@ This will give the output:
 
 .. highlight:: none
 
-.. literalinclude:: resources/jupyter_outputs.rst 
+.. literalinclude:: resources/jupyter_outputs.txt
     :start-after: benzene_water-start
     :end-before: benzene_water-end
 
@@ -118,7 +118,7 @@ This gives the output:
 
 .. highlight:: none
 
-.. literalinclude:: resources/jupyter_outputs.rst
+.. literalinclude:: resources/jupyter_outputs.txt
     :start-after: methylaniline-start
     :end-before: methylaniline-end
 
@@ -153,7 +153,7 @@ You will get the following output:
 
 .. highlight:: none
 
-.. literalinclude:: resources/jupyter_outputs.rst
+.. literalinclude:: resources/jupyter_outputs.txt
     :start-after: ethane_spc-start
     :end-before: ethane_spc-end
 
@@ -197,7 +197,7 @@ You will get the following as output:
 
 .. highlight:: none
 
-.. literalinclude:: resources/jupyter_outputs.rst
+.. literalinclude:: resources/jupyter_outputs.txt
     :start-after: pes_numbers-start
     :end-before: pes_numbers-end
 

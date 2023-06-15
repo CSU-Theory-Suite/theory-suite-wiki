@@ -1,0 +1,7 @@
+2
+fragment_1.wfn
+fragment_2.wfn
+FINE
+INTERMOLECULAR
+INCREMENTS 0.05 0.05 0.05
+ONAME intermolecular_from_wfn
