@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="python" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CENSO &mdash; csu-wiki  documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <title>CENSO &mdash; csu-wiki  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -109,8 +110,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="censo">
-<h1>CENSO<a class="headerlink" href="#censo" title="Permalink to this headline">¶</a></h1>
+  <section id="censo">
+<h1>CENSO<a class="headerlink" href="#censo" title="Permalink to this headline"></a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#getting-started" id="id1">Getting Started</a></p>
@@ -131,13 +132,13 @@
 </pre></div>
 </div>
 <p>This enviornment houses many useful programs such as GoodVibes and CREST as well.</p>
-<div class="section" id="getting-started">
-<h2><a class="toc-backref" href="#id1">Getting Started</a><a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<section id="getting-started">
+<h2><a class="toc-backref" href="#id1">Getting Started</a><a class="headerlink" href="#getting-started" title="Permalink to this headline"></a></h2>
 <p>CENSO is a program designed to help with energetic sorting of structural ensembles, so the first thing that you need to do is generate conformers of a molecule.
 If you already have the 3D coordinates of a molecule (most likely .xyz or .sdf), then you can run a conformer search right away.
 You can also generate the structural ensemble starting from a smiles string, which we will generate here.</p>
-<div class="section" id="generate-structure-from-smiles">
-<h3><a class="toc-backref" href="#id2">Generate Structure from smiles</a><a class="headerlink" href="#generate-structure-from-smiles" title="Permalink to this headline">¶</a></h3>
+<section id="generate-structure-from-smiles">
+<h3><a class="toc-backref" href="#id2">Generate Structure from smiles</a><a class="headerlink" href="#generate-structure-from-smiles" title="Permalink to this headline"></a></h3>
 <p>Here is the smiles string for a molecule called BuNA+: 'O=C(N)C1=C[N+](CCCC)=CC=C1'
 Drawn out, this is the molecule:</p>
 <p class="centered">
@@ -163,9 +164,9 @@ C          0.00000        0.00000        0.00000
 C          0.00000        0.00000        0.00000
 </pre></div>
 </div>
-</div>
-<div class="section" id="performing-a-quick-optimization">
-<h3><a class="toc-backref" href="#id3">Performing a Quick Optimization</a><a class="headerlink" href="#performing-a-quick-optimization" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="performing-a-quick-optimization">
+<h3><a class="toc-backref" href="#id3">Performing a Quick Optimization</a><a class="headerlink" href="#performing-a-quick-optimization" title="Permalink to this headline"></a></h3>
 <p>Once you have 3D coordinates for a molecule, you can run a quick optimization using <a class="reference external" href="https://xtb-docs.readthedocs.io/en/latest/contents.html">xTB</a>.
 This quick optimization will ensure more accurate conformations, as well as give us a good starting structure for the calculations.
 To run this optimization, we can use the setup script on ACME to generate a file we can submit for calculations.</p>
@@ -223,10 +224,10 @@ xtb BuNA.xyz --opt -c 1 -P 8 &gt; xtb.out
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">sbatch</span></code> ensures that you are submitting the calculation to the queue on ACME. You will get an output file called <code class="docutils literal notranslate"><span class="pre">xtbopt.xyz</span></code> that contains the 3D coordinates of your optimized structure.</p>
-</div>
-</div>
-<div class="section" id="performing-a-crest-conformation-search">
-<h2><a class="toc-backref" href="#id4">Performing a CREST Conformation Search</a><a class="headerlink" href="#performing-a-crest-conformation-search" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="performing-a-crest-conformation-search">
+<h2><a class="toc-backref" href="#id4">Performing a CREST Conformation Search</a><a class="headerlink" href="#performing-a-crest-conformation-search" title="Permalink to this headline"></a></h2>
 <p>With these coordinates, we can now perform a conformation search with <a class="reference external" href="https://crest-lab.github.io/crest-docs/">CREST</a>.
 ACME has a setup script in place to help ensure conformation searches can also access the queue system that is set up.
 To find out more information about how to use this script, run the following command:</p>
@@ -296,9 +297,9 @@ When you have double checked that everything looks right and you are ready to pe
 <p>You will get a number of outputs from this job, but the one we will be using in this workflow is <code class="docutils literal notranslate"><span class="pre">crest_ensemble.xyz</span></code>
 This file contains xyz coordinates for all of the different conformers found using this conformer search.</p>
 <p>In the case of our structure, we have 43 conformers, too many to realistically perform high-level DFT calcualtions on, so we have to narrow it down.</p>
-</div>
-<div class="section" id="initial-sorting-with-cregen">
-<h2><a class="toc-backref" href="#id5">Initial Sorting with CREGEN</a><a class="headerlink" href="#initial-sorting-with-cregen" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="initial-sorting-with-cregen">
+<h2><a class="toc-backref" href="#id5">Initial Sorting with CREGEN</a><a class="headerlink" href="#initial-sorting-with-cregen" title="Permalink to this headline"></a></h2>
 <p>Overall, we want to use CENSO to reduce the number of conformers that will go on to DFT calculations.
 However, there are computationally cheaper methods that can remove duplicate structures from the ensembles before we move on to the more advanced calculations.
 An easy way to remove duplicate structures is using CREGEN, part of CREST's package.</p>
@@ -313,9 +314,9 @@ Additional information about the CREGEN keywords can be found in the <a class="r
 <p>This uses <code class="docutils literal notranslate"><span class="pre">BuNA.xyz</span></code> as a reference structure, then sorts <code class="docutils literal notranslate"><span class="pre">crest_conformers.xyz</span></code> using keywords <code class="docutils literal notranslate"><span class="pre">--ewin</span></code>, <code class="docutils literal notranslate"><span class="pre">--ethr</span></code>, <code class="docutils literal notranslate"><span class="pre">--bthr</span></code>, and <code class="docutils literal notranslate"><span class="pre">--rthr</span></code>, then writing the output to a file called <code class="docutils literal notranslate"><span class="pre">cregen_output.txt</span></code>.
 The output file that we will use moving forward is <code class="docutils literal notranslate"><span class="pre">crest_conformers.xyz.sorted</span></code>, which has removed all duplicates based on the keywords that we entered and sorted the conformers by energy.</p>
 <p>Now that we have performed a conformer search and done a quick reduction of the number of conformers, we are ready for CENSO.</p>
-</div>
-<div class="section" id="running-censo">
-<h2><a class="toc-backref" href="#id6">Running CENSO</a><a class="headerlink" href="#running-censo" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="running-censo">
+<h2><a class="toc-backref" href="#id6">Running CENSO</a><a class="headerlink" href="#running-censo" title="Permalink to this headline"></a></h2>
 <p>CENSO uses very quick, cheap DFT calculations to help narrow down the number of conformers in an ensemble.
 More information as to how this is done can be found in the <a class="reference external" href="https://xtb-docs.readthedocs.io/en/latest/CENSO_docs/censo.html#censo">CENSO documentation</a>.</p>
 <p>There is also a script on ACME to help with the setup of CENSO called <code class="docutils literal notranslate"><span class="pre">censosetup.sh</span></code>.</p>
@@ -403,9 +404,9 @@ You can't do this if you are continuing with Step2, but since we are performing 
 <p>The main output that we will be using from these calculations is called <code class="docutils literal notranslate"><span class="pre">enso_ensemble_part1.xyz</span></code>.
 This file contains the screened ensemble from Part1 CENSO calculations.
 At this point, the energies associated with each conformer are more accurate than just from CREST, so it will be easier to reduce the number of conformers to perform DFT calculations on.</p>
-</div>
-<div class="section" id="final-sorting">
-<h2><a class="toc-backref" href="#id7">Final Sorting</a><a class="headerlink" href="#final-sorting" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="final-sorting">
+<h2><a class="toc-backref" href="#id7">Final Sorting</a><a class="headerlink" href="#final-sorting" title="Permalink to this headline"></a></h2>
 <p>For this particular example, we just wanted to use CENSO to help us cut down on the number of conformers that we need to run through high-level DFT.
 Since we didn't continue with CENSO optimization, we might still want to reduce the conformations using CREGEN again.
 This time, since we now have more accurate energies, we can be more aggressive with our CREGEN sorting and still achieve physically accurate results.</p>
@@ -423,8 +424,8 @@ Since the energies and structures are more accurate than for the first CREGEN ca
 we can change the energy window and different thresholds more aggressively to limit the number of conformers
 without removing important conformations.
 You will have to change the keywords as is appropriate for your project, but this will be a good start to make conformational analysis a feasible option.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

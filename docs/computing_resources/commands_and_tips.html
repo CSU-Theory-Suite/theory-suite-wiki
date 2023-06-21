@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="python" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Helpful Commands and Tips &mdash; csu-wiki  documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <title>Helpful Commands and Tips &mdash; csu-wiki  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -99,6 +100,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#what-program-am-i-using">What Program am I Using?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#learn-about-the-computer">Learn About the Computer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#in-case-you-re-confused">In Case You're Confused...</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#syncing-changes-between-computing-resources-using-github">Syncing Changes Between Computing Resources Using Github</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="fun_with_coworkers.html">Fun with Coworkers</a></li>
@@ -151,8 +153,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="helpful-commands-and-tips">
-<h1>Helpful Commands and Tips<a class="headerlink" href="#helpful-commands-and-tips" title="Permalink to this headline">¶</a></h1>
+  <section id="helpful-commands-and-tips">
+<h1>Helpful Commands and Tips<a class="headerlink" href="#helpful-commands-and-tips" title="Permalink to this headline"></a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#using-wild-cards" id="id1">Using Wild Cards</a></p></li>
@@ -217,6 +219,7 @@
 <li><p><a class="reference internal" href="#what-program-am-i-using" id="id45">What Program am I Using?</a></p></li>
 <li><p><a class="reference internal" href="#learn-about-the-computer" id="id46">Learn About the Computer</a></p></li>
 <li><p><a class="reference internal" href="#in-case-you-re-confused" id="id47">In Case You're Confused...</a></p></li>
+<li><p><a class="reference internal" href="#syncing-changes-between-computing-resources-using-github" id="id48">Syncing Changes Between Computing Resources Using Github</a></p></li>
 </ul>
 </div>
 <p>Most of the information on this page comes from Dr. Bill Miller III at Truman State University.</p>
@@ -224,8 +227,8 @@
 may be useful. The idea is to introduce them and provide some basic
 usage/examples to help with understanding, but this will not be
 an exhaustive explanation of the commands.</p>
-<div class="section" id="using-wild-cards">
-<h2><a class="toc-backref" href="#id1">Using Wild Cards</a><a class="headerlink" href="#using-wild-cards" title="Permalink to this headline">¶</a></h2>
+<section id="using-wild-cards">
+<h2><a class="toc-backref" href="#id1">Using Wild Cards</a><a class="headerlink" href="#using-wild-cards" title="Permalink to this headline"></a></h2>
 <p>Unix recognized certain &quot;wild-cards&quot;. If you have a number of files
 named in a similar way or all containing the same variables.
 For example, after running Gaussian jobs, you might want to work with
@@ -240,9 +243,9 @@ end with &quot;.com&quot;, you can list all of these files with <code class="doc
 Similarly, if you want to list all of the files that contain a &quot;2&quot; in
 the name, you can list them with <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">*2*</span></code>. The wild card can be a
 very useful tool that will save a lot of time.</p>
-</div>
-<div class="section" id="redirecting-output-to-a-file">
-<h2><a class="toc-backref" href="#id2">Redirecting Output to a File</a><a class="headerlink" href="#redirecting-output-to-a-file" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="redirecting-output-to-a-file">
+<h2><a class="toc-backref" href="#id2">Redirecting Output to a File</a><a class="headerlink" href="#redirecting-output-to-a-file" title="Permalink to this headline"></a></h2>
 <p>When you run a command and the results are printed to Terminal
 window screen, the text printed is called standard output.
 Occasionally it is helpful to save the standard output to a file.
@@ -263,9 +266,9 @@ that the output from those calculations is saved.</p>
 to the end of a file. If you wanted to add another line to my_text.txt,
 you could type <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;Here</span> <span class="pre">is</span> <span class="pre">more</span> <span class="pre">text.&quot;</span> <span class="pre">&gt;&gt;</span> <span class="pre">my_text.txt</span></code>, which will
 append your new line of text to the end of my_text.txt.</p>
-</div>
-<div class="section" id="creating-shortcuts-for-common-commands">
-<h2><a class="toc-backref" href="#id3">Creating Shortcuts for Common Commands</a><a class="headerlink" href="#creating-shortcuts-for-common-commands" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="creating-shortcuts-for-common-commands">
+<h2><a class="toc-backref" href="#id3">Creating Shortcuts for Common Commands</a><a class="headerlink" href="#creating-shortcuts-for-common-commands" title="Permalink to this headline"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">alias</span></code> command allows users to create shortcute for
 certain commands to limit the amount of typing necessary.</p>
 <p>One of the most useful commands available to users is the alias
@@ -310,9 +313,9 @@ the letter f. Then you can simply type</p>
 <p>This is a very simple example of the use of an alias with another
 option/command, but this sets the stage for you to have even more '
 flexibility when creating your alias shortcuts.</p>
-</div>
-<div class="section" id="pattern-scanning">
-<h2><a class="toc-backref" href="#id4">Pattern Scanning</a><a class="headerlink" href="#pattern-scanning" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="pattern-scanning">
+<h2><a class="toc-backref" href="#id4">Pattern Scanning</a><a class="headerlink" href="#pattern-scanning" title="Permalink to this headline"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">awk</span></code> is a language for pattern recognition and scanning.
 This is particularly useful when performing analysis and printing
 out a bunch of values and potentially even doing simple math
@@ -330,18 +333,18 @@ to multiply the value in the first column by 4, you could type:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>awk <span class="s1">&#39;{print($1*4)}&#39;</span> file_of_interest.txt
 </pre></div>
 </div>
-</div>
-<div class="section" id="back-to-the-beginning-of-the-command-prompt">
-<h2><a class="toc-backref" href="#id5">Back to the Beginning of the Command Prompt</a><a class="headerlink" href="#back-to-the-beginning-of-the-command-prompt" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="back-to-the-beginning-of-the-command-prompt">
+<h2><a class="toc-backref" href="#id5">Back to the Beginning of the Command Prompt</a><a class="headerlink" href="#back-to-the-beginning-of-the-command-prompt" title="Permalink to this headline"></a></h2>
 <p>While you are typing a command on the Terminal prompt you may
 get near the end of writing a command that is very long and have
 the desire to go back to the beginning of the command to change
 something. In this situation, if you press <code class="docutils literal notranslate"><span class="pre">ctrl+a</span></code> your cursor
 will immediately be moved to the very beginning of the command
 at the start of the prompt.</p>
-</div>
-<div class="section" id="canceling-a-command-before-you-execute">
-<h2><a class="toc-backref" href="#id6">Canceling a Command Before you Execute</a><a class="headerlink" href="#canceling-a-command-before-you-execute" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="canceling-a-command-before-you-execute">
+<h2><a class="toc-backref" href="#id6">Canceling a Command Before you Execute</a><a class="headerlink" href="#canceling-a-command-before-you-execute" title="Permalink to this headline"></a></h2>
 <p>At any point while on the command line if you want to effectively
 cancel whatever you are planning on executing, simply press <code class="docutils literal notranslate"><span class="pre">ctrl+c</span></code>
 and your command will be cancelled and you will be sent to the next
@@ -350,9 +353,9 @@ line of the command prompt where you can begin another command.</p>
 do not want to run it, instead of waiting for it to complete, you
 can just press <code class="docutils literal notranslate"><span class="pre">ctrl+c</span></code> to cancel the process (assuming it is still
 running).</p>
-</div>
-<div class="section" id="clearing-the-terminal-screen">
-<h2><a class="toc-backref" href="#id7">Clearing the Terminal Screen</a><a class="headerlink" href="#clearing-the-terminal-screen" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="clearing-the-terminal-screen">
+<h2><a class="toc-backref" href="#id7">Clearing the Terminal Screen</a><a class="headerlink" href="#clearing-the-terminal-screen" title="Permalink to this headline"></a></h2>
 <p>Occasionally your Terminal screen will be filled with a bunch of
 text that you do not need to look at, and it can be distracting
 if you are trying to run a new command where you want to look at
@@ -364,9 +367,9 @@ window that is visible to you is cleared and the command prompt
 is at the top of the screen ready for the next command.</p>
 <p>The command <code class="docutils literal notranslate"><span class="pre">clear</span></code> will also clear your Terminal screen,
 but you will not be able to scroll back up to see your previous output.</p>
-</div>
-<div class="section" id="search-previous-commands">
-<h2><a class="toc-backref" href="#id8">Search Previous Commands</a><a class="headerlink" href="#search-previous-commands" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="search-previous-commands">
+<h2><a class="toc-backref" href="#id8">Search Previous Commands</a><a class="headerlink" href="#search-previous-commands" title="Permalink to this headline"></a></h2>
 <p>While on a Terminal prompt, if you press <code class="docutils literal notranslate"><span class="pre">ctrl+r</span></code> on your keyboard
 you will be able to search through your previous commands, with the
 most relevant (recent) command being entered on your command line.
@@ -384,9 +387,9 @@ like and press enter when you are ready to execute it.</p>
 <p>If at any point you don't find what you are looking for or decide
 that you don't want to search your previous commands, you can
 always press <code class="docutils literal notranslate"><span class="pre">ctrl-c</span></code> on your keyboard to terminate the search.</p>
-</div>
-<div class="section" id="disk-usage-details">
-<h2><a class="toc-backref" href="#id9">Disk Usage Details</a><a class="headerlink" href="#disk-usage-details" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="disk-usage-details">
+<h2><a class="toc-backref" href="#id9">Disk Usage Details</a><a class="headerlink" href="#disk-usage-details" title="Permalink to this headline"></a></h2>
 <p>Our computers only have a limited amount of storage, so it is useful
 to know the disk usage details for our entire computer, as well as
 folders on our computer. For this purpose we use the du command.
@@ -399,9 +402,9 @@ the screen can become quite large.</p>
 and just give you the final details if that is all you want.
 This is useful if you only care about the total size of a directory
 and don't care about the size of individual subfolders.</p>
-</div>
-<div class="section" id="display-a-line-of-text">
-<h2><a class="toc-backref" href="#id10">Display a Line of Text</a><a class="headerlink" href="#display-a-line-of-text" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="display-a-line-of-text">
+<h2><a class="toc-backref" href="#id10">Display a Line of Text</a><a class="headerlink" href="#display-a-line-of-text" title="Permalink to this headline"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">echo</span></code> is a very simple command that is used to print text to
 the screen. A common reason to use <code class="docutils literal notranslate"><span class="pre">echo</span></code> is to display the
 definition of an environment variable.</p>
@@ -410,16 +413,16 @@ to use <code class="docutils literal notranslate"><span class="pre">echo</span><
 or to print out a statement at the end to tell that the calculation
 is done and how long it took to complete. <code class="docutils literal notranslate"><span class="pre">echo</span></code> works similarly
 to print statements in python.</p>
-</div>
-<div class="section" id="how-to-logout">
-<h2><a class="toc-backref" href="#id11">How to Logout</a><a class="headerlink" href="#how-to-logout" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="how-to-logout">
+<h2><a class="toc-backref" href="#id11">How to Logout</a><a class="headerlink" href="#how-to-logout" title="Permalink to this headline"></a></h2>
 <p>Typing the <code class="docutils literal notranslate"><span class="pre">exit</span></code> command will log you out of any remote computer
 you have connected to using ssh. If you type <code class="docutils literal notranslate"><span class="pre">exit</span></code> on the command
 prompt of your local workstation, you will close that Terminal
 window/tab.</p>
-</div>
-<div class="section" id="search-for-files">
-<h2><a class="toc-backref" href="#id12">Search for Files</a><a class="headerlink" href="#search-for-files" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="search-for-files">
+<h2><a class="toc-backref" href="#id12">Search for Files</a><a class="headerlink" href="#search-for-files" title="Permalink to this headline"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">find</span></code> command searches a directory/path for files that match the
 given expression provided by the user. The general syntax is</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>find <span class="o">[</span>path<span class="o">]</span> expression
@@ -443,9 +446,9 @@ tree, select all of the files that end in &quot;.com&quot;, and run the
 <code class="docutils literal notranslate"><span class="pre">cp</span></code> command to move those files into a new folder that you made.
 The portion after the <code class="docutils literal notranslate"><span class="pre">-exec</span></code> can be any bash command you would like
 to run on the files you've found.</p>
-</div>
-<div class="section" id="print-lines-matching-a-pattern">
-<h2><a class="toc-backref" href="#id13">Print Lines Matching a Pattern</a><a class="headerlink" href="#print-lines-matching-a-pattern" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="print-lines-matching-a-pattern">
+<h2><a class="toc-backref" href="#id13">Print Lines Matching a Pattern</a><a class="headerlink" href="#print-lines-matching-a-pattern" title="Permalink to this headline"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">grep</span></code> is a very useful tool for searching a very long file for
 a certain string and printing the results to the screen. The
 general syntax is</p>
@@ -462,9 +465,9 @@ this might be</p>
 for the string &quot;Normal termination&quot;. This string is printed in the
 file when the calculation finsihed normally/without error. This can
 also be done to search for energies or timing information.</p>
-</div>
-<div class="section" id="printing-the-beginning-of-a-file">
-<h2><a class="toc-backref" href="#id14">Printing the Beginning of a File</a><a class="headerlink" href="#printing-the-beginning-of-a-file" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="printing-the-beginning-of-a-file">
+<h2><a class="toc-backref" href="#id14">Printing the Beginning of a File</a><a class="headerlink" href="#printing-the-beginning-of-a-file" title="Permalink to this headline"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">head</span></code> command will print the top lines of a file to the
 Terminal screen. The general syntax for the <code class="docutils literal notranslate"><span class="pre">head</span></code> command is
 <code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">[options]</span> <span class="pre">filename</span></code>. By default, <code class="docutils literal notranslate"><span class="pre">head</span></code> will print the first
@@ -475,25 +478,25 @@ print a different number of lines at the top of a file. For example,</p>
 </div>
 <p>will print out the first 25 lines of the file <code class="docutils literal notranslate"><span class="pre">water_optimization.log</span></code>.
 Using the <code class="docutils literal notranslate"><span class="pre">-n</span></code> flag allows you to specify the number of lines printed.</p>
-</div>
-<div class="section" id="viewing-your-recent-commands">
-<h2><a class="toc-backref" href="#id15">Viewing Your Recent Commands</a><a class="headerlink" href="#viewing-your-recent-commands" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="viewing-your-recent-commands">
+<h2><a class="toc-backref" href="#id15">Viewing Your Recent Commands</a><a class="headerlink" href="#viewing-your-recent-commands" title="Permalink to this headline"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">history</span></code> command will print out your recently executed commands.
 By default, history will print out your most recent ~100 commands.
 You can also specify that history only print out a certain number
 of your recent commands by putting a number after history.
 For example, <code class="docutils literal notranslate"><span class="pre">history</span> <span class="pre">10</span></code>
 will print the most recent ten commands that you entered.</p>
-</div>
-<div class="section" id="what-computer-am-i-working-on">
-<h2><a class="toc-backref" href="#id16">What Computer am I Working on?</a><a class="headerlink" href="#what-computer-am-i-working-on" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="what-computer-am-i-working-on">
+<h2><a class="toc-backref" href="#id16">What Computer am I Working on?</a><a class="headerlink" href="#what-computer-am-i-working-on" title="Permalink to this headline"></a></h2>
 <p>When you can easily ssh from one computer to another it is easy
 to get confused and not know which computer you are working on.
 Thus, the command <code class="docutils literal notranslate"><span class="pre">hostname</span></code> was created to print out the name of
 the host computer you are actively working on.</p>
-</div>
-<div class="section" id="terminating-interactive-processes">
-<h2><a class="toc-backref" href="#id17">Terminating Interactive Processes</a><a class="headerlink" href="#terminating-interactive-processes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="terminating-interactive-processes">
+<h2><a class="toc-backref" href="#id17">Terminating Interactive Processes</a><a class="headerlink" href="#terminating-interactive-processes" title="Permalink to this headline"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">kill</span></code> command is used to terminate processes that you are
 running on your computer. The general syntax for the <code class="docutils literal notranslate"><span class="pre">kill</span></code>
 command is</p>
@@ -505,11 +508,11 @@ survival. The <code class="docutils literal notranslate"><span class="pre">PID</
 process. You can obtain the <code class="docutils literal notranslate"><span class="pre">`PID</span></code> of any process using either the
 <code class="docutils literal notranslate"><span class="pre">ps</span></code> or <code class="docutils literal notranslate"><span class="pre">top</span></code> commands. This should only be used on the local
 linux machines, as SLURM has it's own way to kill/cancel a job.</p>
-</div>
-<div class="section" id="read-files-without-editing">
-<h2><a class="toc-backref" href="#id18">Read Files Without Editing</a><a class="headerlink" href="#read-files-without-editing" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="less">
-<h3><a class="toc-backref" href="#id19">Less</a><a class="headerlink" href="#less" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="read-files-without-editing">
+<h2><a class="toc-backref" href="#id18">Read Files Without Editing</a><a class="headerlink" href="#read-files-without-editing" title="Permalink to this headline"></a></h2>
+<section id="less">
+<h3><a class="toc-backref" href="#id19">Less</a><a class="headerlink" href="#less" title="Permalink to this headline"></a></h3>
 <p>The less command provides users with the ability to read a file
 without worrying about the chance of unintentionally editing the
 file. The general syntax for less is</p>
@@ -538,18 +541,18 @@ again.</p>
 <p>You can also go straight to the end of a file by pressing Shift+G
 on the keyboard.</p>
 <p>To quit less just press the Q key (for quit).</p>
-</div>
-<div class="section" id="more">
-<h3><a class="toc-backref" href="#id20">More</a><a class="headerlink" href="#more" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="more">
+<h3><a class="toc-backref" href="#id20">More</a><a class="headerlink" href="#more" title="Permalink to this headline"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">more</span></code> is an antiquated version of <code class="docutils literal notranslate"><span class="pre">less</span></code> that can be used
 for reading (but not editing) files. Unlike <code class="docutils literal notranslate"><span class="pre">less</span></code>, with <code class="docutils literal notranslate"><span class="pre">more</span></code>
 you can only page down (e.g. you cannot scroll line-by-line with
 the arrow keys, and you cannot page or scroll up at all) and you
 cannot search the text for a string of phrase.</p>
-</div>
-</div>
-<div class="section" id="different-ways-to-list-files">
-<h2><a class="toc-backref" href="#id21">Different Ways to List Files</a><a class="headerlink" href="#different-ways-to-list-files" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="different-ways-to-list-files">
+<h2><a class="toc-backref" href="#id21">Different Ways to List Files</a><a class="headerlink" href="#different-ways-to-list-files" title="Permalink to this headline"></a></h2>
 <p>You should already know how to list files with the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command,
 but there are many options with <code class="docutils literal notranslate"><span class="pre">ls</span></code> that can be useful. For
 example, if you type</p>
@@ -592,9 +595,9 @@ all the files in a given folder I typically use the ls command</p>
 </div>
 <p>where the additional <code class="docutils literal notranslate"><span class="pre">h</span></code> puts all folder/file sizes in
 human-readable format.</p>
-</div>
-<div class="section" id="combining-commands-into-a-single-line">
-<h2><a class="toc-backref" href="#id22">Combining Commands into a Single Line</a><a class="headerlink" href="#combining-commands-into-a-single-line" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="combining-commands-into-a-single-line">
+<h2><a class="toc-backref" href="#id22">Combining Commands into a Single Line</a><a class="headerlink" href="#combining-commands-into-a-single-line" title="Permalink to this headline"></a></h2>
 <p>“Pipe” is a very helpful tool to know to help you combine commands
 into a single line, simplifying scripts and generally making life
 easier. “Piping” simply refers to the process of relocating the
@@ -618,11 +621,11 @@ In this case, the “pipe” is the vertical line (|) between each
 command. You can use the keyboard make a pipe by pressing shift and
 the button right under the backspace button, as shown on the
 keyboard below.</p>
-</div>
-<div class="section" id="what-processes-are-running-in-my-terminal-window">
-<h2><a class="toc-backref" href="#id23">What Processes are Running in my Terminal Window</a><a class="headerlink" href="#what-processes-are-running-in-my-terminal-window" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="ps">
-<h3><a class="toc-backref" href="#id24">ps</a><a class="headerlink" href="#ps" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="what-processes-are-running-in-my-terminal-window">
+<h2><a class="toc-backref" href="#id23">What Processes are Running in my Terminal Window</a><a class="headerlink" href="#what-processes-are-running-in-my-terminal-window" title="Permalink to this headline"></a></h2>
+<section id="ps">
+<h3><a class="toc-backref" href="#id24">ps</a><a class="headerlink" href="#ps" title="Permalink to this headline"></a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">ps</span></code> command is similar to the top command,
 except instead of viewing all the processes that are running on your
 computer, <code class="docutils literal notranslate"><span class="pre">ps</span></code> will only display the processes that are running in
@@ -635,9 +638,9 @@ way of displaying them for you if you need to terminate one of them.
 are
 just printed to the screen and the command prompt is available for
 another unix command.</p>
-</div>
-<div class="section" id="top">
-<h3><a class="toc-backref" href="#id25">top</a><a class="headerlink" href="#top" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="top">
+<h3><a class="toc-backref" href="#id25">top</a><a class="headerlink" href="#top" title="Permalink to this headline"></a></h3>
 <p>Occasionally it will be helpful to determine what processes are
 currently running on your computer. For this situation, we have
 the <code class="docutils literal notranslate"><span class="pre">top</span></code> command. <code class="docutils literal notranslate"><span class="pre">top</span></code> will display the processes currently
@@ -662,10 +665,10 @@ this is not normal Earth time), and the name of the command that is
 running.</p>
 <p>Once you have finished examining top you can terminate it by just
 pressing <code class="docutils literal notranslate"><span class="pre">q</span></code> on the keyboard to quit (or pressing <code class="docutils literal notranslate"><span class="pre">ctrl+c</span></code>)</p>
-</div>
-</div>
-<div class="section" id="what-directory-am-i-in">
-<h2><a class="toc-backref" href="#id26">What Directory am I in?</a><a class="headerlink" href="#what-directory-am-i-in" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="what-directory-am-i-in">
+<h2><a class="toc-backref" href="#id26">What Directory am I in?</a><a class="headerlink" href="#what-directory-am-i-in" title="Permalink to this headline"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pwd</span></code> is a very simple and frequently used command in unix.
 The command simply prints the full path of your current working
 directory to the screen in your Terminal window. At first this
@@ -678,9 +681,9 @@ to explicitly list the pull path to that directory. If you type this
 by hand you could make several mistakes that are difficult to catch.
 It is much easier to just type <code class="docutils literal notranslate"><span class="pre">pwd</span></code>, print out the directory and
 then just copy and paste it into your <code class="docutils literal notranslate"><span class="pre">cp</span></code> or <code class="docutils literal notranslate"><span class="pre">rsync</span></code> command.</p>
-</div>
-<div class="section" id="transferring-files">
-<h2><a class="toc-backref" href="#id27">Transferring Files</a><a class="headerlink" href="#transferring-files" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="transferring-files">
+<h2><a class="toc-backref" href="#id27">Transferring Files</a><a class="headerlink" href="#transferring-files" title="Permalink to this headline"></a></h2>
 <p>You may have already been introduced to the <code class="docutils literal notranslate"><span class="pre">scp</span></code> or <code class="docutils literal notranslate"><span class="pre">ftp</span></code>
 commands to transfer files, and that’s great, but rsync is better
 than both of them. <code class="docutils literal notranslate"><span class="pre">rsync</span></code> allows you the ability to zip files
@@ -719,9 +722,9 @@ on my local computer. Different people use different options. These
 are helpful options because they zip the files prior to transferring
 and the <code class="docutils literal notranslate"><span class="pre">--progress</span></code> allows you to view the time remaining for
 each file during the transfer process.</p>
-</div>
-<div class="section" id="filtering-and-modifying-text">
-<h2><a class="toc-backref" href="#id28">Filtering and Modifying Text</a><a class="headerlink" href="#filtering-and-modifying-text" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="filtering-and-modifying-text">
+<h2><a class="toc-backref" href="#id28">Filtering and Modifying Text</a><a class="headerlink" href="#filtering-and-modifying-text" title="Permalink to this headline"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">sed</span></code> is an extremely useful tool, especially to the two people
 in the world that really know how to use it. And I am not one of
 those two people. As you might be guessing from my previous
@@ -752,9 +755,9 @@ in the original filename.</p>
 Many introductions and tutorials for sed can be found online.
 And if you do actually learn how to actually use <code class="docutils literal notranslate"><span class="pre">sed</span></code>, please
 write it up here. :)</p>
-</div>
-<div class="section" id="tell-the-computer-to-wait">
-<h2><a class="toc-backref" href="#id29">Tell the Computer to Wait</a><a class="headerlink" href="#tell-the-computer-to-wait" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="tell-the-computer-to-wait">
+<h2><a class="toc-backref" href="#id29">Tell the Computer to Wait</a><a class="headerlink" href="#tell-the-computer-to-wait" title="Permalink to this headline"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">sleep</span></code> command simply tells the computer to pause and wait for
 a user-specified amount of time. I have really only found this
 useful when writing scripts. The command does not return anything
@@ -769,9 +772,9 @@ type</p>
 </pre></div>
 </div>
 <p>Wasn’t that useful?</p>
-</div>
-<div class="section" id="remotely-accessing-computers-or-clusters">
-<h2><a class="toc-backref" href="#id30">Remotely Accessing Computers or Clusters</a><a class="headerlink" href="#remotely-accessing-computers-or-clusters" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="remotely-accessing-computers-or-clusters">
+<h2><a class="toc-backref" href="#id30">Remotely Accessing Computers or Clusters</a><a class="headerlink" href="#remotely-accessing-computers-or-clusters" title="Permalink to this headline"></a></h2>
 <p>The great part of computational work is that you should never have
 to leave your desk to do any work. You can be logged into a computer
 halfway around the world and you should be able to work as if you
@@ -810,9 +813,9 @@ if you were doing it on your own computer.</p>
 <code class="docutils literal notranslate"><span class="pre">-Y</span></code> and <code class="docutils literal notranslate"><span class="pre">-X</span></code> flag options, but for practical purposes you
 should not notice a difference and thus you can use either
 interchangeably.</p>
-</div>
-<div class="section" id="sorting-and-re-ordering-data">
-<h2><a class="toc-backref" href="#id31">Sorting and Re-Ordering Data</a><a class="headerlink" href="#sorting-and-re-ordering-data" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="sorting-and-re-ordering-data">
+<h2><a class="toc-backref" href="#id31">Sorting and Re-Ordering Data</a><a class="headerlink" href="#sorting-and-re-ordering-data" title="Permalink to this headline"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">sort</span></code> command does exactly what its name implies - it sorts
 the lines of text files and puts them in a specific order. The
 general syntax is</p>
@@ -830,9 +833,9 @@ to randomly reorder the values with the <code class="docutils literal notranslat
 <p><code class="docutils literal notranslate"><span class="pre">sort</span></code> also has the ability to order letters and words
 alphabetically. Consider a file that contains a bunch of types of
 animals. <code class="docutils literal notranslate"><span class="pre">sort</span></code> will automatically reorder them alphabetically.</p>
-</div>
-<div class="section" id="auto-fill-unique-names">
-<h2><a class="toc-backref" href="#id32">Auto Fill Unique Names</a><a class="headerlink" href="#auto-fill-unique-names" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="auto-fill-unique-names">
+<h2><a class="toc-backref" href="#id32">Auto Fill Unique Names</a><a class="headerlink" href="#auto-fill-unique-names" title="Permalink to this headline"></a></h2>
 <p>This is a helpful tip and not a command. Whenever you are
 maneuvering directories and trying to access a file or folder,
 you should be aware that you can press the <code class="docutils literal notranslate"><span class="pre">tab</span></code> button on your
@@ -858,9 +861,9 @@ and thus your command prompt would say</p>
 it will auto fill the command to completion (<code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">states.dat</span></code>)
 since that is the only file that is in that folder that begins
 “states.”.</p>
-</div>
-<div class="section" id="printing-the-end-of-a-file">
-<h2><a class="toc-backref" href="#id33">Printing the End of a File</a><a class="headerlink" href="#printing-the-end-of-a-file" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="printing-the-end-of-a-file">
+<h2><a class="toc-backref" href="#id33">Printing the End of a File</a><a class="headerlink" href="#printing-the-end-of-a-file" title="Permalink to this headline"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">tail</span></code> is a simple command that prints the last lines of a file.
 By default, <code class="docutils literal notranslate"><span class="pre">tail</span></code> prints the final 10 lines of a file to the
 Terminal screen.</p>
@@ -881,9 +884,9 @@ then as more lines are printed to <code class="docutils literal notranslate"><sp
 on the screen. This will continue until you signal the computer to
 end the printing by pressing <code class="docutils literal notranslate"><span class="pre">ctrl-c</span></code> on the keyboard, which
 terminates the <code class="docutils literal notranslate"><span class="pre">tail</span></code> command.</p>
-</div>
-<div class="section" id="packaging-your-files-into-a-single-combined-file">
-<h2><a class="toc-backref" href="#id34">Packaging your Files into a Single Combined File</a><a class="headerlink" href="#packaging-your-files-into-a-single-combined-file" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="packaging-your-files-into-a-single-combined-file">
+<h2><a class="toc-backref" href="#id34">Packaging your Files into a Single Combined File</a><a class="headerlink" href="#packaging-your-files-into-a-single-combined-file" title="Permalink to this headline"></a></h2>
 <p>Often if you are asked to package up some of your files to send to
 someone else, they will request you send them a tarball. Don’t be
 scared, this is not an athletic term that you haven’t heard of
@@ -931,11 +934,11 @@ to use the <code class="docutils literal notranslate"><span class="pre">z</span>
 <p>Finally, using the <code class="docutils literal notranslate"><span class="pre">-z</span></code> compresses the files using <code class="docutils literal notranslate"><span class="pre">gzip</span></code>
 Tarballs can also be zipped using <code class="docutils literal notranslate"><span class="pre">bzip</span></code>, and in that case you
 will need to replace the <code class="docutils literal notranslate"><span class="pre">-z</span></code> flag with a <code class="docutils literal notranslate"><span class="pre">-j</span></code> flag.</p>
-</div>
-<div class="section" id="create-a-new-file">
-<h2><a class="toc-backref" href="#id35">Create a New File</a><a class="headerlink" href="#create-a-new-file" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="touch">
-<h3><a class="toc-backref" href="#id36">touch</a><a class="headerlink" href="#touch" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="create-a-new-file">
+<h2><a class="toc-backref" href="#id35">Create a New File</a><a class="headerlink" href="#create-a-new-file" title="Permalink to this headline"></a></h2>
+<section id="touch">
+<h3><a class="toc-backref" href="#id36">touch</a><a class="headerlink" href="#touch" title="Permalink to this headline"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">touch</span></code> is a very simple program that allows you to create a new,
 empty file. The general syntax is</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>touch <span class="o">[</span>options<span class="o">]</span> filename
@@ -950,11 +953,11 @@ that have not been modified/changed in the last 30 days. With
 <code class="docutils literal notranslate"><span class="pre">touch</span></code> you could setup a script that will automatically touch
 all your files and update the modified date/times so the
 supercomputer does not automatically delete them.</p>
-</div>
-<div class="section" id="vi">
-<h3><a class="toc-backref" href="#id37">vi</a><a class="headerlink" href="#vi" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="general-concepts">
-<h4><a class="toc-backref" href="#id38">General Concepts</a><a class="headerlink" href="#general-concepts" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="vi">
+<h3><a class="toc-backref" href="#id37">vi</a><a class="headerlink" href="#vi" title="Permalink to this headline"></a></h3>
+<section id="general-concepts">
+<h4><a class="toc-backref" href="#id38">General Concepts</a><a class="headerlink" href="#general-concepts" title="Permalink to this headline"></a></h4>
 <p>You should already know the basics of using <code class="docutils literal notranslate"><span class="pre">vi</span></code> (also known as
 <code class="docutils literal notranslate"><span class="pre">vim</span></code>) for text editing, but I wanted to cover a few more useful
 parts of <code class="docutils literal notranslate"><span class="pre">vi</span></code> that you may not be aware of. You should already
@@ -1028,14 +1031,14 @@ with <code class="docutils literal notranslate"><span class="pre">ls</span></cod
 have one swap file for a given file at a time. For that reason,
 try to make sure you always close out of your file before
 exiting the terminal.</p>
-</div>
-<div class="section" id="modes">
-<h4><a class="toc-backref" href="#id39">Modes</a><a class="headerlink" href="#modes" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="modes">
+<h4><a class="toc-backref" href="#id39">Modes</a><a class="headerlink" href="#modes" title="Permalink to this headline"></a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">vi</span></code> program has several available modes/options that help
 you edit a text file. The ones that I will cover here include
 Insert, Macro, and Replace.</p>
-<div class="section" id="insert">
-<h5><a class="toc-backref" href="#id40">Insert</a><a class="headerlink" href="#insert" title="Permalink to this headline">¶</a></h5>
+<section id="insert">
+<h5><a class="toc-backref" href="#id40">Insert</a><a class="headerlink" href="#insert" title="Permalink to this headline"></a></h5>
 <p>The Insert mode in <code class="docutils literal notranslate"><span class="pre">vi</span></code> is used to, you guessed it, insert new
 text. To enter insert mode, press the <code class="docutils literal notranslate"><span class="pre">I</span></code> key on your keyboard.
 Once you do this, and while you remain in insert mode, the bottom
@@ -1057,9 +1060,9 @@ immediately to the right of its current position. This is
 helpful when you are at the end of a line and you want to add
 new text. Once you are done making your edits, you need to exit
 Insert mode by pressing the <code class="docutils literal notranslate"><span class="pre">Esc</span></code> key on your keyboard.</p>
-</div>
-<div class="section" id="macros">
-<h5><a class="toc-backref" href="#id41">Macros</a><a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h5>
+</section>
+<section id="macros">
+<h5><a class="toc-backref" href="#id41">Macros</a><a class="headerlink" href="#macros" title="Permalink to this headline"></a></h5>
 <p>A helpful but slightly more advanced technique is creating
 macros (a shortcut to a task you do repeatedly) in <code class="docutils literal notranslate"><span class="pre">vi</span></code>.
 You can easily use Insert mode to edit your text. But if you need
@@ -1107,9 +1110,9 @@ times, type <code class="docutils literal notranslate"><span class="pre">5&#64;A
 <code class="docutils literal notranslate"><span class="pre">Shift+2</span></code>, and then press the <code class="docutils literal notranslate"><span class="pre">A</span></code> key on your keyboard).
 After defining the macro and running it 5 times the text now
 looks like what we wanted.</p>
-</div>
-<div class="section" id="replace">
-<h5><a class="toc-backref" href="#id42">Replace</a><a class="headerlink" href="#replace" title="Permalink to this headline">¶</a></h5>
+</section>
+<section id="replace">
+<h5><a class="toc-backref" href="#id42">Replace</a><a class="headerlink" href="#replace" title="Permalink to this headline"></a></h5>
 <p>The <code class="docutils literal notranslate"><span class="pre">vi</span></code> program has two different methods of text replacement.
 The first is to only replace a single character in the text file.
 If you press the <code class="docutils literal notranslate"><span class="pre">R</span></code> key followed by pressing the <code class="docutils literal notranslate"><span class="pre">K</span></code> key,
@@ -1143,19 +1146,19 @@ keyboard (just like you do to exit Insert mode earlier) and the
 &quot;--Replace--&quot; in the bottom left corner of your Terminal window
 will disappear. Just like with Insert mode, you will need to exit
 Replace mode before you can save any changes.</p>
-</div>
-<div class="section" id="visual">
-<h5><a class="toc-backref" href="#id43">Visual</a><a class="headerlink" href="#visual" title="Permalink to this headline">¶</a></h5>
+</section>
+<section id="visual">
+<h5><a class="toc-backref" href="#id43">Visual</a><a class="headerlink" href="#visual" title="Permalink to this headline"></a></h5>
 <p><code class="docutils literal notranslate"><span class="pre">vi</span></code> also has a Visual block mode available that you can
 enter by pressing the <code class="docutils literal notranslate"><span class="pre">V</span></code> key on your keyboard, but I won’t go
 into any detail about this mode now. I just want to mention
 that it exists. If you want to know more information, Google it. :)</p>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="running-previous-commands">
-<h2><a class="toc-backref" href="#id44">Running Previous Commands</a><a class="headerlink" href="#running-previous-commands" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+</section>
+<section id="running-previous-commands">
+<h2><a class="toc-backref" href="#id44">Running Previous Commands</a><a class="headerlink" href="#running-previous-commands" title="Permalink to this headline"></a></h2>
 <p>While on the command prompt of your Terminal window you can press
 the up arrow on your keyboard and scroll through previous commands
 you have entered. This is especially helpful if you are executing
@@ -1165,9 +1168,9 @@ modify it if necessary before pressing enter and executing the
 command.</p>
 <p>You can also view a list of all your recently used commands using
 the <code class="docutils literal notranslate"><span class="pre">history</span></code> command.</p>
-</div>
-<div class="section" id="what-program-am-i-using">
-<h2><a class="toc-backref" href="#id45">What Program am I Using?</a><a class="headerlink" href="#what-program-am-i-using" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="what-program-am-i-using">
+<h2><a class="toc-backref" href="#id45">What Program am I Using?</a><a class="headerlink" href="#what-program-am-i-using" title="Permalink to this headline"></a></h2>
 <p>The which command can be extremely useful for determining:</p>
 <ol class="arabic simple">
 <li><p>if a command is in your PATH and</p></li>
@@ -1194,9 +1197,9 @@ $PATH section) so that when I type <code class="docutils literal notranslate"><s
 VMD instead of the native VMD in <code class="docutils literal notranslate"><span class="pre">/usr/local/bin/</span></code>.
 Typing <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">vmd</span></code> will let you know exactly which VMD you are
 attempting to use.</p>
-</div>
-<div class="section" id="learn-about-the-computer">
-<h2><a class="toc-backref" href="#id46">Learn About the Computer</a><a class="headerlink" href="#learn-about-the-computer" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="learn-about-the-computer">
+<h2><a class="toc-backref" href="#id46">Learn About the Computer</a><a class="headerlink" href="#learn-about-the-computer" title="Permalink to this headline"></a></h2>
 <p>Depending on the machine that you are working on, there may be
 a different architecture/setup of that computer. There can also be
 different numbers of CPUs that are available for use on different
@@ -1239,17 +1242,50 @@ Flags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca 
 </div>
 <p>This command should give you any of the information that you are
 looking for about a computer.</p>
-</div>
-<div class="section" id="in-case-you-re-confused">
-<h2><a class="toc-backref" href="#id47">In Case You're Confused...</a><a class="headerlink" href="#in-case-you-re-confused" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="in-case-you-re-confused">
+<h2><a class="toc-backref" href="#id47">In Case You're Confused...</a><a class="headerlink" href="#in-case-you-re-confused" title="Permalink to this headline"></a></h2>
 <p>In case you find yourself questioning your very existence and
 who you are as a person, you can always ask your computer. Typing</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>whoami
 </pre></div>
 </div>
 <p>will print the username you used to login to your computer.</p>
+</section>
+<section id="syncing-changes-between-computing-resources-using-github">
+<h2><a class="toc-backref" href="#id48">Syncing Changes Between Computing Resources Using Github</a><a class="headerlink" href="#syncing-changes-between-computing-resources-using-github" title="Permalink to this headline"></a></h2>
+<p>Here's a common problem you may run into: you start working on a
+cool new idea on a local computing resource. As things start to
+fall into place, you copy the directory over to another cluster
+resource, and do some work there, perhaps training a model or
+running calculations. You end up changing stuff. A week later,
+you want to revert those changes... if only you had used some
+sort of version control in the first place!</p>
+<p>Solution:
+This assumes that you are using &quot;main&quot; as the default branch.
+If you're using &quot;master&quot;, simply substitute it everywhere you
+see &quot;main&quot;</p>
+<ol class="arabic">
+<li><p>Set up a git repo from your local computer normally, and push
+your local computer changes to a new github repo.</p></li>
+<li><p>From the HPC machine, run</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git init
+git remote add origin ~~Your new repo&#39;s git file~~
+git fetch
+git reset origin/main
+git checkout -t origin/main
+</pre></div>
 </div>
-</div>
+<p>The reset line fixes conflicts with versioned files that
+existed in the directory prior to git init. The last line may
+fail depending on git version - this shouldn't matter for
+current git versions.</p>
+</li>
+<li><p>Commit and push the changes to overwrite the local machine
+files with the HPC files as you choose!</p></li>
+</ol>
+</section>
+</section>
 
 
            </div>
