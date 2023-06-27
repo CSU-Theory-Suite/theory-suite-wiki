@@ -764,6 +764,10 @@ div[class*="highlight-"] {
     margin: 1em 0;
 }
 
+div[class*="highlight-"] {
+    margin: 1em 0;
+}
+
 td.linenos pre {
     border: 0;
     background-color: transparent;
