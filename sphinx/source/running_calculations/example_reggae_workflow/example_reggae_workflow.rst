@@ -4,7 +4,7 @@
 .. |PCA-clusters-REGGAE| image:: images/PCA-clusters-REGGAE.png
 
 ==========================
-REGGAE 
+REGGAE
 ==========================
 
 .. contents::
@@ -18,14 +18,14 @@ Installation
 .. code:: shell
 
     git clone https://github.com/Liliana-Gallegos/REGGAE.git
-    
+
 
 2. Create a new conda environment with all the r-essentials conda packages built from CRAN:
 
 .. code:: shell
 
     conda create -n r_env r-essentials r-base
-   
+
 3. Activate the r_env:
 
 .. code:: shell
@@ -33,7 +33,7 @@ Installation
     conda activate r_env
 
 Note: To list the r packages already installed in r_env use ``conda list``
-   
+
 4. Install all packages required for REGGAE with conda:
 
 .. code:: shell
@@ -41,22 +41,20 @@ Note: To list the r packages already installed in r_env use ``conda list``
     conda install --yes --file requirements.txt
 
 Note: Maybe need to install using older version of python. Add ``python=3.9``
-   
+
 5. Confirm by running REGGAE help options:
 
 .. code:: shell
 
     Rscript reggae.r -h
 
-.. warning:: 
-    With error: could not find function "all_of", then run setup_for_allof.r script
-    using ``Rscript setup_for_allof.r``
+.. warning::
+    If you get the error ``could not find function “all_of”``, then run ``setup_for_allof.r`` script using ``Rscript setup_for_allof.r``
 
-
-Example 1: Performing a multivariate regression 
+Example 1: Performing a multivariate regression
 -----------------------------------------------
 
-Using (i) Forward-stepwise feature selection and (ii) Random 70 Train and 30 Test split on a 
+Using (i) Forward-stepwise feature selection and (ii) Random 70 Train and 30 Test split on a
 dataset containg 20 samples and 17 features.
 
 .. code:: shell
@@ -64,19 +62,19 @@ dataset containg 20 samples and 17 features.
     Rscript reggae.r -i 20solvents.csv -y Exp_dG -m stepwise -r 0.7
 
 .. note::
-    Other feature selection ``-m`` options are available. 
+    Other feature selection ``-m`` options are available.
 
-.. warning:: 
-    Dredge option takes time and therefore should be executed with small number of features. 
+.. warning::
+    Dredge option takes time and therefore should be executed with small number of features.
 
-First portion of the Terminal output (without using the verbose option) includes the split performed, 
+First portion of the Terminal output (without using the verbose option) includes the split performed,
 regression formula in both scaled and nonscaled versions, and the R2 and RMSE values.
 
 .. highlight:: none
 
-.. literalinclude:: resources/terminal_outputs.txt 
+.. literalinclude:: resources/terminal_outputs.txt
     :start-after: example1-start
-    :end-before: example1-end 
+    :end-before: example1-end
 
 .. highlight:: default
 
@@ -85,35 +83,35 @@ Example 2: Performing a multivariate regression
 -----------------------------------------------
 
 Using (i) manual feature selection, (ii) predefined split selection, and (iii) cross-validation.
-The split has been defined as Train and Test within the 12kclusters column in the dataset. 
-Therefore, the script will pick up the column with two catagorical variables. 
+The split has been defined as Train and Test within the 12kclusters column in the dataset.
+Therefore, the script will pick up the column with two catagorical variables.
 To execute this option, ``-r`` is set to 0.
 
 .. code:: shell
 
     Rscript reggae.r -i 20solvents.csv -y Exp_dG -b Sig2,V -r 0 -q -v
 
-.. note:: 
-    Error can occur if there are multiple columns with strings or characters.  
+.. warning::
+    Error can occur if there are multiple columns with strings or characters.
 
-First portion of the Terminal output (without using the verbose option) includes the split performed, 
-regression formula in both scaled and nonscaled versions, R2 and RMSE values, 
+First portion of the Terminal output (without using the verbose option) includes the split performed,
+regression formula in both scaled and nonscaled versions, R2 and RMSE values,
 and three cross validation analysis: Leave-one-out, K-fold (k=5), and Q2.
 
 .. highlight:: none
 
-.. literalinclude:: resources/terminal_outputs.txt 
+.. literalinclude:: resources/terminal_outputs.txt
     :start-after: example2-start
     :end-before: example2-end
 
 .. highlight:: default
 
-Using the ``-v`` option prints out the following Terminal output: preview of the scaled values, 
+Using the ``-v`` option prints out the following Terminal output: preview of the scaled values,
 ANOVA analysis, regression plot (.png), a table of predicted y-values.
 
 .. highlight:: none
 
-.. literalinclude:: resources/terminal_outputs.txt 
+.. literalinclude:: resources/terminal_outputs.txt
     :start-after: example2v-start
     :end-before: example2v-end
 
@@ -123,7 +121,7 @@ Continued Terminal output includes analysis for the three cross-validation metho
 
 .. highlight:: none
 
-.. literalinclude:: resources/terminal_outputs.txt 
+.. literalinclude:: resources/terminal_outputs.txt
     :start-after: example2cv-start
     :end-before: example2cv-end
 
@@ -138,14 +136,14 @@ From Example2: Regression plot is saved in working folder as REGGAE-MV-linear-pl
 .. centered:: |REGGAE-MV-linear-plot|
 
 
-Pearson Correlation Plot  
+Pearson Correlation Plot
 ------------------------
 
-Adding the ``-c 0.5`` option outputs: pairwise correlations between features > 0.5 
+Adding the ``-c 0.5`` option outputs: pairwise correlations between features > 0.5
 
 .. highlight:: none
 
-.. literalinclude:: resources/terminal_outputs.txt 
+.. literalinclude:: resources/terminal_outputs.txt
     :start-after: pcorrelation-start
     :end-before: pcorrelation-end
 
@@ -163,7 +161,7 @@ Adding the ``-d`` option outputs: QSAR analysis for the Test set and collinearit
 
 .. highlight:: none
 
-.. literalinclude:: resources/terminal_outputs.txt 
+.. literalinclude:: resources/terminal_outputs.txt
     :start-after: diagnostics-start
     :end-before: diagnostics-end
 
@@ -177,9 +175,9 @@ Using the ``-v`` option saves the plot within the working folder as REGGAE-diagn
 PCA Plot
 --------
 
-Using the ``-p 5,2`` option requests running principal componenet analysis with k-means clustering using 5 clusters and 2 components. 
-Using the ``-v`` option gives the PCA-clusters and Scree plots (or elbow plots) for each the clusters and components. 
-Also, within the terminal output, the script returns the loadings. 
+Using the ``-p 5,2`` option requests running principal componenet analysis with k-means clustering using 5 clusters and 2 components.
+Using the ``-v`` option gives the PCA-clusters and Scree plots (or elbow plots) for each the clusters and components.
+Also, within the terminal output, the script returns the loadings.
 Showing only the PCA clustering plot.
 
 .. centered:: |PCA-clusters-REGGAE|
