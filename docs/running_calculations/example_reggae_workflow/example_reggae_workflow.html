@@ -41,7 +41,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../computing_resources/paton_computing_resources.html">Paton Lab Computing Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing_resources/kim_computing_resources.html">Kim Lab Computing Resources</a></li>
@@ -52,16 +52,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../../computing_resources/fun_with_coworkers.html">Fun with Coworkers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing_resources/coding_resources.html">Coding Resources</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Helpful Packages</span></p>
+<p class="caption" role="heading"><span class="caption-text">Helpful Packages</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/inhouse.html">In-house</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/external.html">External</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Graphical Software</span></p>
+<p class="caption" role="heading"><span class="caption-text">Graphical Software</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../graphical_software/edition_generation.html">Edition/Generation</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Example Workflows</span></p>
+<p class="caption" role="heading"><span class="caption-text">Example Workflows</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../example_aqme_workflow/example_aqme_workflow.html">End-to-End Workflow in ACME</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../example_goodvibes_workflow/example_goodvibes_workflow.html">GoodVibes</a></li>
@@ -79,7 +79,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../example_censo_workflow/example_censo_workflow.html">CENSO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../example_nciplot_calculation/example_nciplot_calculation.html">NCIPLOT</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Concepts</span></p>
+<p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/classical_molecular_dynamics/classical_molecular_dynamics.html">Classical Molecular Dynamics</a></li>
 </ul>
@@ -157,8 +157,7 @@
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>With error: could not find function &quot;all_of&quot;, then run setup_for_allof.r script
-using <code class="docutils literal notranslate"><span class="pre">Rscript</span> <span class="pre">setup_for_allof.r</span></code></p>
+<p>If you get the error <code class="docutils literal notranslate"><span class="pre">could</span> <span class="pre">not</span> <span class="pre">find</span> <span class="pre">function</span> <span class="pre">“all_of”</span></code>, then run <code class="docutils literal notranslate"><span class="pre">setup_for_allof.r</span></code> script using <code class="docutils literal notranslate"><span class="pre">Rscript</span> <span class="pre">setup_for_allof.r</span></code></p>
 </div>
 </section>
 <section id="example-1-performing-a-multivariate-regression">
@@ -210,8 +209,8 @@ To execute this option, <code class="docutils literal notranslate"><span class="
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Rscript reggae.r -i 20solvents.csv -y Exp_dG -b Sig2,V -r <span class="m">0</span> -q -v
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>Error can occur if there are multiple columns with strings or characters.</p>
 </div>
 <p>First portion of the Terminal output (without using the verbose option) includes the split performed,
