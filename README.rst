@@ -222,7 +222,7 @@ as you expected/wanted before adding it to the primary version.
 ..........................
 
 Now we proceed to create a pull request. We go to the repository page of our 
-personal fork, click on the "Pull requests" tab and then on the green button 
+personal fork, click on the "Pull requests" tab (at the top left of the page) and then on the green button 
 "New pull request" at the top right of the page.
 
 Now we make sure that the base repository is the CSU-Theory-Suite/theory-suite-wiki (on the left) 
@@ -243,7 +243,7 @@ merge it 5 minutes before the web needs to be active for, lets say, a presentati
 
 .. note:: 
 
-   Usually github should notify them if they have it properly set up, but it is 
+   Usually GitHub should notify them if they have it properly set up, but it is 
    not a bad idea to send them a message or drop by their desk and tell them that 
    you created a pull request. 
 
