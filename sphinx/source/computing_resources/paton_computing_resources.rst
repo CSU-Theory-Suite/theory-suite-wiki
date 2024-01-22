@@ -203,3 +203,137 @@ with the command
 .. code:: shell
 
     AUTOTEST_CLEAN
+
+
+RStor File Storage
+------------------
+
+The Paton group also has a file backup system called RStor.
+This storage is a good way to put files for any completed 
+projects, as well as any large datasets that you may have 
+created or are using. Here are instructions for how to access 
+this drive and add files.
+
+.. note::
+    
+    This is a private drive only for students in 
+    the Paton group at CSU. For this reason, you will need to 
+    send Rob a message or email IT Support (Ross Madden) 
+    so that they can invite you to the drive.
+    Until then, you will be unable to access the drive.
+
+How you set up the drive on your personal computer might be 
+different based on if you have a Mac or a PC. I will include instructions 
+for both here to be followed **after** you have been added as a user.
+
+.. note:: 
+    
+    In order to access this drive, you have to be on campus or using the VPN. 
+    
+
+
+Mac Instructions
+++++++++++++++++
+
+To access the drive on your Mac, you have two options. First, 
+you can directly click this link: 
+`smb://campusrstor1.onefs.colostate.edu/natsci/patonlab <smb://campusrstor1.onefs.colostate.edu/natsci/patonlab>`__
+
+Otherwise, you can click on your desktop/background, then at the top 
+of your screen click **Go** then **Connect to Server...** in the pull-down 
+menu. This will take you to a finder page titled "Connect to Server". 
+Type in ``smb://campusrstor1.onefs.colostate.edu/natsci/patonlab`` in the 
+space and hit **Connect**. This will now prompt you to log in using your 
+CSU login information, possibly preceeding your username with ``COLOSTATE\``.
+
+.. warning:: 
+
+    Make sure that this login information matches how you log into RamWeb. 
+    The username for this drive will be your CSU username, regardless of 
+    what your username on your laptop is. If your CSU username is ``CamRam`` 
+    but your laptop knows you as ``CoolCam``, you will need to update the 
+    username field to read ``CamRam`` or ``COLOSTATE\CamRam``. 
+
+Once you've logged in, you should be in a Finder window called ``patonlab``. This is 
+the RStor drive, you're in! From here, you can also open a terminal window to this 
+folder directly from the Finder window, and you'll be able to use the drive to store 
+your files. Otherwise, you can type 
+
+.. code:: shell
+    
+    cd /Volumes/patonlab/`` 
+    
+in any terminal window to access the RStor drive.
+
+PC Instructions
++++++++++++++++
+
+The first step to accessing the drive on a Windows computer is opening the 
+File Explorer and going to **This PC**. If your computer is Windows 10, 
+click **Map Network Drive** while in the **File** tab. If your computer is 
+Windows 11, click the three dots on the top right ribbon (under the 
+search bar), then click **Map Network Drive**.
+
+Once on this page, choose an empty drive (probably **T:** or **Z:**). in 
+the **Folder** box, type ``\\campusrstor1.onefs.colostate.edu\natsci\patonlab``. 
+Now, a popup window should appear asking for your login information. You will 
+log in with your CSU information, the CSU net ID preceeded by ``COLOSTATE\`` 
+and your password like you would use for RamWeb or email.
+
+.. note::
+
+    Your username for this is going to be ``COLOSTATE\your_csu_netID`` 
+    and the password is your normal CSU password
+
+.. warning::
+    
+    You may need to alter auto-fill settings here to ensure that the 
+    login information is correct. For example, if your computer knows 
+    you as ``CoolCam``, it might try to fill that in automatically 
+    instead of your CSU net ID ``CamRam``.
+    Make sure that you change this to the correct information.
+
+Once you've logged in this way, you should be all set to use and 
+access all of the files in the drive. If you run into any issues 
+setting it up, just follow `this link <https://cnsit.colostate.edu/kb/mapping-a-network-drive/>`__ 
+for instructions, or email IT Support (Ross Madden).
+
+Transferring Files to RStor
++++++++++++++++++++++++++++
+
+.. note:: 
+    
+    Once you are logged in, you should see two folders, "Completed_projects" 
+    and "Users"
+    
+There are a few ways to transfer files into this backup drive. The first is to 
+just drag-and-drop files using the Finder or File Explorer windows. The next is 
+to transfer files using the terminal. My preference is ``rsync``, so I will go 
+over how to transfer files to the drive this way. You can also you ``scp``.
+
+Moving files into this drive works the same as any ``rsync`` command, where 
+you specify which files you're moving and where you plan to move them to.
+I recommend that you always pull the files from any other computer/HPC to 
+you while you are in the RStor drive on the terminal. For this, you will use:
+
+.. code:: shell
+
+    rsync -azvp --progress '<USERNAME>@<COMPUTER>:/location/of/files/to/store' .
+
+.. warning::
+
+    Some of the computers or HPCs have unexpected hostnames, or ``<COMPUTER>`` 
+    in my above example. You want to include the hostname you use when you 
+    ``ssh`` into the computer, not the output when you run  the 
+    ``hostname`` command. For example, **Alpine** is ``login.rc.colorado.edu``, 
+    not ``loginXX``. Also, make sure that ``<USERNAME>`` is what you use to 
+    login to the computer, so for Alpine your username is ``Your-CSU-ID@colostate.edu`` 
+    instead of just ``Your-CSU-ID``.
+
+From here, type in your password for the computer you are moving files from (Alpine in 
+my example) to start moving files. 
+This command takes files from a specified folder (``/location/of/files/to/store``) and 
+transfers them to the current working directory (``.``), so make sure the 
+current working directory is where you want the files to go before running this command.
+
+
