@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="python" >
+<html class="writer-html5" lang="python" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RDKit, Mordred, Morfeus &amp; DBStep &mdash; csu-wiki  documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a9e91e84" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=d048f138"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -121,8 +122,8 @@
            <div itemprop="articleBody">
              
   <section id="rdkit-mordred-morfeus-dbstep">
-<h1>RDKit, Mordred, Morfeus &amp; DBStep<a class="headerlink" href="#rdkit-mordred-morfeus-dbstep" title="Permalink to this headline"></a></h1>
-<div class="contents local topic" id="contents">
+<h1>RDKit, Mordred, Morfeus &amp; DBStep<a class="headerlink" href="#rdkit-mordred-morfeus-dbstep" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#installation" id="id1">Installation</a></p></li>
 <li><p><a class="reference internal" href="#dependencies" id="id2">Dependencies</a></p></li>
@@ -148,36 +149,36 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <section id="installation">
-<h2><a class="toc-backref" href="#id1">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Installation</a><a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>Installation of RDKit</p></li>
 </ol>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge rdkit
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>rdkit
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li><p>Installation of Mordred</p></li>
 </ol>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install mordred
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>mordred
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
 <li><p>Installation of Morfeus</p></li>
 </ol>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge morfeus-ml
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>morfeus-ml
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
 <li><p>Installation of Dbstep</p></li>
 </ol>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge dbstep
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>dbstep
 </pre></div>
 </div>
 </section>
 <section id="dependencies">
-<h2><a class="toc-backref" href="#id2">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Dependencies</a><a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>numpy</p></li>
 <li><p>scipy</p></li>
@@ -185,9 +186,9 @@
 </ol>
 </section>
 <section id="example-notebook">
-<h2><a class="toc-backref" href="#id3">Example notebook</a><a class="headerlink" href="#example-notebook" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Example notebook</a><a class="headerlink" href="#example-notebook" title="Link to this heading"></a></h2>
 <section id="rdkit-a-cheminformatics-package">
-<h3><a class="toc-backref" href="#id4">RDKit: a cheminformatics package</a><a class="headerlink" href="#rdkit-a-cheminformatics-package" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">RDKit: a cheminformatics package</a><a class="headerlink" href="#rdkit-a-cheminformatics-package" title="Link to this heading"></a></h3>
 <p>RDKit is primiarly used for creation, and manipulation of chemical
 structures.</p>
 <p><a class="reference external" href="https://www.rdkit.org/docs/GettingStartedInPython.html">https://www.rdkit.org/docs/GettingStartedInPython.html</a></p>
@@ -196,7 +197,7 @@ structures.</p>
 </pre></div>
 </div>
 <section id="step-1-2d-smiles-to-3d-structure">
-<h4><a class="toc-backref" href="#id5">Step 1: 2D smiles to 3D structure</a><a class="headerlink" href="#step-1-2d-smiles-to-3d-structure" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#id5" role="doc-backlink">Step 1: 2D smiles to 3D structure</a><a class="headerlink" href="#step-1-2d-smiles-to-3d-structure" title="Link to this heading"></a></h4>
 <p>RDkit deals with molecules as mol objects. These mol objects can be
 created from either 2D or 3D files. This mol object is the base to
 everything that is done in rdkit</p>
@@ -363,7 +364,7 @@ everything that is done in rdkit</p>
 </div>
 </section>
 <section id="step-2-rdkit-for-molecular-atomic-and-bond-properties">
-<h4><a class="toc-backref" href="#id6">Step 2: RDKit for molecular, atomic and bond properties</a><a class="headerlink" href="#step-2-rdkit-for-molecular-atomic-and-bond-properties" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#id6" role="doc-backlink">Step 2: RDKit for molecular, atomic and bond properties</a><a class="headerlink" href="#step-2-rdkit-for-molecular-atomic-and-bond-properties" title="Link to this heading"></a></h4>
 <p>RDKit can obtain simple molecular properties. For example -&gt; number of
 atoms, number of bond, etcs.,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># molecular weight</span>
@@ -516,11 +517,11 @@ atoms, number of bond, etcs.,</p>
 </pre></div>
 </div>
 <section id="other-rdkit-properties-check-out-https-www-rdkit-org-docs-gettingstartedinpython-html">
-<h5>Other RDKit properties -&gt; check out <a class="reference external" href="https://www.rdkit.org/docs/GettingStartedInPython.html">https://www.rdkit.org/docs/GettingStartedInPython.html</a><a class="headerlink" href="#other-rdkit-properties-check-out-https-www-rdkit-org-docs-gettingstartedinpython-html" title="Permalink to this headline"></a></h5>
+<h5>Other RDKit properties -&gt; check out <a class="reference external" href="https://www.rdkit.org/docs/GettingStartedInPython.html">https://www.rdkit.org/docs/GettingStartedInPython.html</a><a class="headerlink" href="#other-rdkit-properties-check-out-https-www-rdkit-org-docs-gettingstartedinpython-html" title="Link to this heading"></a></h5>
 </section>
 </section>
 <section id="step-3-other-rdkit-descriptors">
-<h4><a class="toc-backref" href="#id8">Step 3: Other RDkit Descriptors</a><a class="headerlink" href="#step-3-other-rdkit-descriptors" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#id8" role="doc-backlink">Step 3: Other RDkit Descriptors</a><a class="headerlink" href="#step-3-other-rdkit-descriptors" title="Link to this heading"></a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Descriptors - https://www.rdkit.org/docs/source/rdkit.Chem.Descriptors.html#module-rdkit.Chem.Descriptors</span>
 <span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">Descriptors</span>
 </pre></div>
@@ -625,7 +626,7 @@ bit on: ((1, 1), (2, 1), (3, 1))</pre>
 </div>
 </section>
 <section id="step-4-substructure-matching">
-<h4><a class="toc-backref" href="#id9">Step 4: Substructure matching</a><a class="headerlink" href="#step-4-substructure-matching" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#id9" role="doc-backlink">Step 4: Substructure matching</a><a class="headerlink" href="#step-4-substructure-matching" title="Link to this heading"></a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;c1ccccc1C(=O)O&#39;</span><span class="p">)</span> <span class="c1"># can be done with chiral smiles to preserve chirality</span>
 <span class="n">patt</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmarts</span><span class="p">(</span><span class="s1">&#39;C(=O)O&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Is substructure present?&#39;</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">HasSubstructMatch</span><span class="p">(</span><span class="n">patt</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Atoms in substurcture:&#39;</span><span class="p">,</span><span class="n">m</span><span class="o">.</span><span class="n">GetSubstructMatch</span><span class="p">(</span><span class="n">patt</span><span class="p">))</span>
@@ -637,7 +638,7 @@ Atoms in substurcture: (6, 7, 8)
 </div>
 </section>
 <section id="step-5-chemical-transformations">
-<h4><a class="toc-backref" href="#id10">Step 5: Chemical transformations</a><a class="headerlink" href="#step-5-chemical-transformations" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#id10" role="doc-backlink">Step 5: Chemical transformations</a><a class="headerlink" href="#step-5-chemical-transformations" title="Link to this heading"></a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rxn</span> <span class="o">=</span> <span class="n">AllChem</span><span class="o">.</span><span class="n">ReactionFromSmarts</span><span class="p">(</span><span class="s1">&#39;[C:1]=[C:2].[C:3]=[*:4][*:5]=[C:6]&gt;&gt;[C:1]1[C:2][C:3][*:4]=[*:5][C:6]1&#39;</span><span class="p">)</span>
 <span class="n">rxn</span>
 </pre></div>
@@ -669,7 +670,7 @@ Atoms in substurcture: (6, 7, 8)
 <img alt="../../_images/cheminfo_51_1.png" src="../../_images/cheminfo_51_1.png" />
 </section>
 <section id="step-6-atom-bond-deletion-addition">
-<h4><a class="toc-backref" href="#id11">Step 6: Atom/Bond deletion/addition</a><a class="headerlink" href="#step-6-atom-bond-deletion-addition" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#id11" role="doc-backlink">Step 6: Atom/Bond deletion/addition</a><a class="headerlink" href="#step-6-atom-bond-deletion-addition" title="Link to this heading"></a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;CC(=O)C=CC=C&#39;</span><span class="p">)</span>
 <span class="n">mw</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">RWMol</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span class="n">mol_with_atom_index</span><span class="p">(</span><span class="n">mw</span><span class="p">)</span>
@@ -723,7 +724,7 @@ Atoms in substurcture: (6, 7, 8)
 </section>
 </section>
 <section id="modred-a-descriptors-package">
-<h3><a class="toc-backref" href="#id12">Modred: a descriptors package</a><a class="headerlink" href="#modred-a-descriptors-package" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Modred: a descriptors package</a><a class="headerlink" href="#modred-a-descriptors-package" title="Link to this heading"></a></h3>
 <p>Modred is used to collect important chemical descriptors</p>
 <p><a class="reference external" href="https://github.com/mordred-descriptor/mordred">https://github.com/mordred-descriptor/mordred</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
@@ -766,7 +767,7 @@ Atoms in substurcture: (6, 7, 8)
 </div>
 </section>
 <section id="morfeus-a-descriptors-package">
-<h3><a class="toc-backref" href="#id13">Morfeus: a descriptors package</a><a class="headerlink" href="#morfeus-a-descriptors-package" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Morfeus: a descriptors package</a><a class="headerlink" href="#morfeus-a-descriptors-package" title="Link to this heading"></a></h3>
 <p>Morfeus is used to collect chemical descriptors</p>
 <p><a class="reference external" href="https://github.com/kjelljorner/morfeus">https://github.com/kjelljorner/morfeus</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">Bite</span> <span class="n">angle</span>
@@ -878,7 +879,7 @@ Electrophilicity: {1: 0.03911773287813523, 2: 0.026346314554852417, 3: 0.0645483
 Nucleophilicity: {1: 0.04377913232024513, 2: 0.04531234210302857, 3: 0.02905922254817471, 4: 0.044454767912915666, 5: 0.03748785231291066, 6: 0.03691186476868924, 7: 0.021635431859494292, 8: 0.1786549461532222, 9: 0.07648297999552217, 10: 0.07833353457469319, 11: 0.09660677617261712, 12: 0.08845612247521087, 13: 0.0904851465534236, 14: 0.07415823218296759, 15: 0.05818164809002663}</pre>
 </section>
 <section id="dbstep-a-descriptors-package">
-<h3><a class="toc-backref" href="#id14">DBstep: a descriptors package</a><a class="headerlink" href="#dbstep-a-descriptors-package" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">DBstep: a descriptors package</a><a class="headerlink" href="#dbstep-a-descriptors-package" title="Link to this heading"></a></h3>
 <p>DBstep is used to collect sterimol descriptors</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dbstep.Dbstep</span> <span class="kn">import</span> <span class="n">dbstep</span>
 </pre></div>

@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="python" >
+<html class="writer-html5" lang="python" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GoodVibes &mdash; csu-wiki  documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a9e91e84" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=d048f138"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -111,8 +112,8 @@
            <div itemprop="articleBody">
              
   <section id="goodvibes">
-<h1>GoodVibes<a class="headerlink" href="#goodvibes" title="Permalink to this headline"></a></h1>
-<div class="contents local topic" id="contents">
+<h1>GoodVibes<a class="headerlink" href="#goodvibes" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#installation" id="id2">Installation</a></p></li>
 <li><p><a class="reference internal" href="#computing-thermochemistry-for-qm-output-files" id="id3">Computing Thermochemistry for QM Output Files</a></p></li>
@@ -122,29 +123,29 @@
 <li><p><a class="reference internal" href="#potential-energy-surface-calculations" id="id7">Potential Energy Surface Calculations:</a></p></li>
 <li><p><a class="reference internal" href="#putting-it-all-together" id="id8">Putting it All Together</a></p></li>
 </ul>
-</div>
+</nav>
 <p>Here is the <a class="reference external" href="https://github.com/patonlab/GoodVibes/">GoodVibes GitHub Page</a></p>
 <p>Here is the <a class="reference external" href="https://f1000research.com/articles/9-291/v1">Article</a></p>
 <section id="installation">
-<h2><a class="toc-backref" href="#id2">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Installation</a><a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
 <p>Version 3.2 is most up to date. Install with:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install goodvibes
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>goodvibes
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install --upgrade goodvibes
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>goodvibes
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge goodvibes
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>goodvibes
 </pre></div>
 </div>
 <p>(you may also need to install matplotlib)</p>
 </section>
 <section id="computing-thermochemistry-for-qm-output-files">
-<h2><a class="toc-backref" href="#id3">Computing Thermochemistry for QM Output Files</a><a class="headerlink" href="#computing-thermochemistry-for-qm-output-files" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Computing Thermochemistry for QM Output Files</a><a class="headerlink" href="#computing-thermochemistry-for-qm-output-files" title="Link to this heading"></a></h2>
 <p>You can run this code using any output file from QM calculations.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -m goodvibes H2O.log
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>goodvibes<span class="w"> </span>H2O.log
 </pre></div>
 </div>
 <p>You should get the following output:</p>
@@ -173,7 +174,7 @@ Also computes quasi-harmonic corrected Entropy (qh-S) and Free Energy (qh-G).</p
 <p>Compute G as <code class="docutils literal notranslate"><span class="pre">G</span> <span class="pre">=</span> <span class="pre">H</span> <span class="pre">-</span> <span class="pre">(T</span> <span class="pre">*</span> <span class="pre">S)</span></code></p>
 </section>
 <section id="temperature-corrections">
-<h2><a class="toc-backref" href="#id4">Temperature Corrections</a><a class="headerlink" href="#temperature-corrections" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Temperature Corrections</a><a class="headerlink" href="#temperature-corrections" title="Link to this heading"></a></h2>
 <p>The default temperature in GoodVibes is <code class="docutils literal notranslate"><span class="pre">298.15</span> <span class="pre">K</span></code> (25C)</p>
 <p>What if the reaction was run at 100C?</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python -m goodvibes benzene.log -t 373.15
@@ -246,7 +247,7 @@ o  H2O                                             400.0               -76.34227
 <p>This computes the thermochemical values for both output files at temperatures ranging from 250K to 400K every 50K.</p>
 </section>
 <section id="quasi-harmonic-corrections">
-<h2><a class="toc-backref" href="#id5">Quasi-Harmonic Corrections</a><a class="headerlink" href="#quasi-harmonic-corrections" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Quasi-Harmonic Corrections</a><a class="headerlink" href="#quasi-harmonic-corrections" title="Link to this heading"></a></h2>
 <p class="centered">
 <strong><img alt="QH-correction" src="../../_images/QH_correction.png" /></strong></p><p>The quasi-harmonic correction has a greater effect when molecules have a greater number of low-frequency vibrational modes.
 For example:</p>
@@ -254,7 +255,7 @@ For example:</p>
 <li><p>Methylaniline: 2 vibrational modes below 200 cm<sup>-1</sup></p></li>
 <li><p>Int-III: 23 vibrational modes below 200 cm<sup>-1</sup></p></li>
 </ul>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -m goodvibes methylaniline.log Int-III.log
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>goodvibes<span class="w"> </span>methylaniline.log<span class="w"> </span>Int-III.log
 </pre></div>
 </div>
 <p>This gives the output:</p>
@@ -287,16 +288,12 @@ o  Int-III                                  -8986.063880   0.446831  -8985.58302
 </div>
 </section>
 <section id="single-point-calculations">
-<h2><a class="toc-backref" href="#id6">Single Point Calculations</a><a class="headerlink" href="#single-point-calculations" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Single Point Calculations</a><a class="headerlink" href="#single-point-calculations" title="Link to this heading"></a></h2>
 <p>Useful for saving on computational resources:</p>
 <p>We can optimize molecules at a lower level of theory to still obtain an accurate geometry, but do a single point energy calculation (SPC) at a higher level of theory to obtain more accurate energy values.</p>
 <p>With the <code class="docutils literal notranslate"><span class="pre">--spc</span></code> argument, we can specify how the SPC file names are formatted.</p>
 <table class="docutils align-default" id="id1">
-<caption><span class="caption-text">File Naming Scheme</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
+<caption><span class="caption-text">File Naming Scheme</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Calculation Type</p></th>
 <th class="head"><p>Filename</p></th>
@@ -312,7 +309,7 @@ o  Int-III                                  -8986.063880   0.446831  -8985.58302
 </tbody>
 </table>
 <p>For example: <code class="docutils literal notranslate"><span class="pre">ethane.log</span></code> and <code class="docutils literal notranslate"><span class="pre">ethane_TZ.out</span></code></p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -m goodvibes ethane.log --spc TZ
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>goodvibes<span class="w"> </span>ethane.log<span class="w"> </span>--spc<span class="w"> </span>TZ
 </pre></div>
 </div>
 <p>You will get the following output:</p>
@@ -340,7 +337,7 @@ o  ethane                                     -79.858399    -79.830421   0.07350
 </div>
 </section>
 <section id="potential-energy-surface-calculations">
-<h2><a class="toc-backref" href="#id7">Potential Energy Surface Calculations:</a><a class="headerlink" href="#potential-energy-surface-calculations" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Potential Energy Surface Calculations:</a><a class="headerlink" href="#potential-energy-surface-calculations" title="Link to this heading"></a></h2>
 <p>GoodVibes can compute relative energy/thermochemistry values to describe a reaction pathway with a potential energy surface</p>
 <p>To do this, we need to write a yaml file with 3 sections:</p>
 <ul class="simple">
@@ -398,7 +395,7 @@ o  ethane                                     -79.858399    -79.830421   0.07350
 </div>
 </section>
 <section id="putting-it-all-together">
-<h2><a class="toc-backref" href="#id8">Putting it All Together</a><a class="headerlink" href="#putting-it-all-together" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Putting it All Together</a><a class="headerlink" href="#putting-it-all-together" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Temperature adjustments</p></li>
 <li><p>Single Point Calculations</p></li>

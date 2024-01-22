@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="python" >
+<html class="writer-html5" lang="python" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Classical Molecular Dynamics &mdash; csu-wiki  documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a9e91e84" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=d048f138"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -138,8 +140,8 @@
            <div itemprop="articleBody">
              
   <section id="classical-molecular-dynamics">
-<h1>Classical Molecular Dynamics<a class="headerlink" href="#classical-molecular-dynamics" title="Permalink to this headline"></a></h1>
-<div class="contents local topic" id="contents">
+<h1>Classical Molecular Dynamics<a class="headerlink" href="#classical-molecular-dynamics" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#understanding-the-basics" id="id1">Understanding the Basics</a></p>
 <ul>
@@ -186,14 +188,14 @@
 <li><p><a class="reference internal" href="#step-4-equilibration" id="id25">Step 4: Equilibration</a></p></li>
 <li><p><a class="reference internal" href="#step-5-production" id="id26">Step 5: Production</a></p></li>
 </ul>
-</div>
+</nav>
 <p>Classical Molecular Dynamics (MD) is a simulation technique that makes use of
 simplifying assumptions about the motions of molecular systems by using
 Newtonian mechanics.</p>
 <section id="understanding-the-basics">
-<h2><a class="toc-backref" href="#id1">Understanding the Basics</a><a class="headerlink" href="#understanding-the-basics" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Understanding the Basics</a><a class="headerlink" href="#understanding-the-basics" title="Link to this heading"></a></h2>
 <section id="force-field">
-<h3><a class="toc-backref" href="#id2">Force Field</a><a class="headerlink" href="#force-field" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">Force Field</a><a class="headerlink" href="#force-field" title="Link to this heading"></a></h3>
 <p>An empirical potential energy function. If we know the forces acting in a system,
 we can calculate how particle positions will change with time using Newton's
 classical laws of motion. In order to calculate the forces <span class="math notranslate nohighlight">\(\vec F\)</span> of
@@ -219,7 +221,7 @@ terms.</p>
 not appear in parameter files, but are assigned differently.</p>
 </section>
 <section id="standard-forces">
-<h3><a class="toc-backref" href="#id3">Standard Forces</a><a class="headerlink" href="#standard-forces" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Standard Forces</a><a class="headerlink" href="#standard-forces" title="Link to this heading"></a></h3>
 <p>For each timestep in the simulation, the force on every atom is calculated. This is the most time-consuming component of the calculation.</p>
 <p>Interatomic forces:</p>
 <blockquote>
@@ -231,12 +233,12 @@ not appear in parameter files, but are assigned differently.</p>
 </div></blockquote>
 </section>
 <section id="integration-of-newton-s-laws-of-motion">
-<h3><a class="toc-backref" href="#id4">Integration of Newton's Laws of Motion</a><a class="headerlink" href="#integration-of-newton-s-laws-of-motion" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Integration of Newton's Laws of Motion</a><a class="headerlink" href="#integration-of-newton-s-laws-of-motion" title="Link to this heading"></a></h3>
 <p>Explaining how velocities and positions are stored at different offset steps and
 updated accordingly. Algorithm for integrating Newton's laws of motion.</p>
 </section>
 <section id="stochastic-thermostats">
-<h3><a class="toc-backref" href="#id5">Stochastic Thermostats</a><a class="headerlink" href="#stochastic-thermostats" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Stochastic Thermostats</a><a class="headerlink" href="#stochastic-thermostats" title="Link to this heading"></a></h3>
 <p>Thermostats maintain a constant temperature simulation. The system is coupled to
 a heat bath that imposes the desired temperature. With stochastic thermostats,
 this is done by introducing stochastic (random), occasional forces (collisions)
@@ -245,20 +247,20 @@ system's energy is appropriately distributed (according to a Boltzmann average).
 Common examples include the Andersen and Langevin thermostats.</p>
 </section>
 <section id="barostats">
-<h3><a class="toc-backref" href="#id6">Barostats</a><a class="headerlink" href="#barostats" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Barostats</a><a class="headerlink" href="#barostats" title="Link to this heading"></a></h3>
 <p>Many experiments are performed under constant pressure, rather than constant
 volume, so it's very common to perform MD simulations with a constant pressure
 ensemble (i.e., NPT). One of the most common is the Monte Carlo Barostat.</p>
 </section>
 <section id="periodic-boundary-conditions">
-<h3><a class="toc-backref" href="#id7">Periodic Boundary Conditions</a><a class="headerlink" href="#periodic-boundary-conditions" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Periodic Boundary Conditions</a><a class="headerlink" href="#periodic-boundary-conditions" title="Link to this heading"></a></h3>
 <p>Space is &quot;infinite&quot; tiled repeats of simulation box</p>
 </section>
 </section>
 <section id="step-1-prepare-system">
-<h2><a class="toc-backref" href="#id8">Step 1: Prepare System</a><a class="headerlink" href="#step-1-prepare-system" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Step 1: Prepare System</a><a class="headerlink" href="#step-1-prepare-system" title="Link to this heading"></a></h2>
 <section id="find-construct-initial-structure-of-your-system">
-<h3><a class="toc-backref" href="#id9">1.1 Find/construct initial structure of your system</a><a class="headerlink" href="#find-construct-initial-structure-of-your-system" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">1.1 Find/construct initial structure of your system</a><a class="headerlink" href="#find-construct-initial-structure-of-your-system" title="Link to this heading"></a></h3>
 <p>Once you know what system you want to simulate, the easiest way to set up the
 system is to find a crystal structure representative of the system you are
 interested in.</p>
@@ -273,7 +275,7 @@ authors will disclose if mutations are present, and provide additional
 information that may be important to know!</p>
 </div>
 <section id="do-you-want-to-simulate-a-system-that-has-a-ligand-bound-or-unbound">
-<h4><a class="toc-backref" href="#id10">1.1.1 Do you want to simulate a system that has a ligand bound or unbound?</a><a class="headerlink" href="#do-you-want-to-simulate-a-system-that-has-a-ligand-bound-or-unbound" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#id10" role="doc-backlink">1.1.1 Do you want to simulate a system that has a ligand bound or unbound?</a><a class="headerlink" href="#do-you-want-to-simulate-a-system-that-has-a-ligand-bound-or-unbound" title="Link to this heading"></a></h4>
 <p>Do you want to simulate a system that has a ligand bound or unbound?
 If you have a ligand you will need to include additional force field
 parameters in following steps. A number of small organic molecules have
@@ -292,28 +294,28 @@ get different treatment in later steps.</p>
 </div>
 </section>
 <section id="is-there-a-mutation-in-the-crystal-structure">
-<h4><a class="toc-backref" href="#id11">1.1.2 Is there a mutation in the crystal structure?</a><a class="headerlink" href="#is-there-a-mutation-in-the-crystal-structure" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#id11" role="doc-backlink">1.1.2 Is there a mutation in the crystal structure?</a><a class="headerlink" href="#is-there-a-mutation-in-the-crystal-structure" title="Link to this heading"></a></h4>
 <p>Pretty common. Easy fix, just delete the atoms that are not in the residue
 you want to be there, and change the three letter residue ID. A program used in
 later steps will be able to identify there are missing atoms in that residue
 and place them.</p>
 </section>
 <section id="are-there-missing-residues-or-heavy-atoms">
-<h4><a class="toc-backref" href="#id12">1.1.3 Are there missing residues or heavy atoms?</a><a class="headerlink" href="#are-there-missing-residues-or-heavy-atoms" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#id12" role="doc-backlink">1.1.3 Are there missing residues or heavy atoms?</a><a class="headerlink" href="#are-there-missing-residues-or-heavy-atoms" title="Link to this heading"></a></h4>
 <p>Probably, but it is only an issue if there are consecutive missing residues.
 There are programs that exist to try and predict positions of missing residues
 if this is the case, like <a class="reference external" href="https://salilab.org/modeller/tutorial/">modeller</a></p>
 </section>
 <section id="are-there-ions-or-cofactors-present-that-you-don-t-want-to-simulate">
-<h4><a class="toc-backref" href="#id13">1.1.4 Are there ions or cofactors present that you don't want to simulate?</a><a class="headerlink" href="#are-there-ions-or-cofactors-present-that-you-don-t-want-to-simulate" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#id13" role="doc-backlink">1.1.4 Are there ions or cofactors present that you don't want to simulate?</a><a class="headerlink" href="#are-there-ions-or-cofactors-present-that-you-don-t-want-to-simulate" title="Link to this heading"></a></h4>
 <p>Probably. Just remove those lines from the pdb file.</p>
 </section>
 <section id="do-you-want-to-keep-crystallographic-waters">
-<h4><a class="toc-backref" href="#id14">1.1.5 Do you want to keep crystallographic waters?</a><a class="headerlink" href="#do-you-want-to-keep-crystallographic-waters" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#id14" role="doc-backlink">1.1.5 Do you want to keep crystallographic waters?</a><a class="headerlink" href="#do-you-want-to-keep-crystallographic-waters" title="Link to this heading"></a></h4>
 <p>Probably.</p>
 </section>
 <section id="visualize-your-system">
-<h4><a class="toc-backref" href="#id15">1.1.6 Visualize your system</a><a class="headerlink" href="#visualize-your-system" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#id15" role="doc-backlink">1.1.6 Visualize your system</a><a class="headerlink" href="#visualize-your-system" title="Link to this heading"></a></h4>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>PyMol and VMD are my go-tos.</p>
@@ -325,7 +327,7 @@ Unless you intentially want to simulate repeating units
 repeats.</p>
 </section>
 <section id="add-ter-lines-to-the-pdb">
-<h4><a class="toc-backref" href="#id16">1.1.7 Add 'TER' lines to the PDB</a><a class="headerlink" href="#add-ter-lines-to-the-pdb" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#id16" role="doc-backlink">1.1.7 Add 'TER' lines to the PDB</a><a class="headerlink" href="#add-ter-lines-to-the-pdb" title="Link to this heading"></a></h4>
 <p>'TER' separates parts in the PDB file that are not covalently linked.
 If you have a dimer protein you should have two TER lines after the carboxylic
 acid terminal oxygens. You don't need to add TER between water molecules, tleap
@@ -333,12 +335,12 @@ will do that for you.</p>
 </section>
 </section>
 <section id="tleap">
-<h3><a class="toc-backref" href="#id17">1.2 tLEAP</a><a class="headerlink" href="#tleap" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">1.2 tLEAP</a><a class="headerlink" href="#tleap" title="Link to this heading"></a></h3>
 <p>This is a program that is used to prepare input for AMBER. Before you do
 anything with tleap make sure you have adjusted any mutated residues. That way,
 you won't have to worry about adjusting the hydrogens,just the heavy atoms.</p>
 <section id="protonate-your-system">
-<h4><a class="toc-backref" href="#id18">1.2.1 Protonate your system</a><a class="headerlink" href="#protonate-your-system" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#id18" role="doc-backlink">1.2.1 Protonate your system</a><a class="headerlink" href="#protonate-your-system" title="Link to this heading"></a></h4>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; source leaprc.protein.ff14SB #load in a force field
 &gt; source leaprc.water.tip3p #load in a force field
 &gt; x = loadpdb FILENAME.pdb #load in a structure
@@ -355,7 +357,7 @@ be protonated, and it will depend on the enrivornment which is more likely to
 be protonated. It is best practice to manually visualize each HIS residue and
 declare the protonation state.</p>
 <section id="evaluating-his-protonation-states">
-<h5><a class="toc-backref" href="#id19">Evaluating HIS protonation states:</a><a class="headerlink" href="#evaluating-his-protonation-states" title="Permalink to this headline"></a></h5>
+<h5><a class="toc-backref" href="#id19" role="doc-backlink">Evaluating HIS protonation states:</a><a class="headerlink" href="#evaluating-his-protonation-states" title="Link to this heading"></a></h5>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PyMol&gt; load FILENAME_PROTONATED.pdb
 PyMol&gt; hide nonbonded
 PyMol&gt; select &quot;his_residues&quot;, resn hie # tleap automated chooses the epsilon N to be protonated
@@ -373,7 +375,7 @@ that residue HID.</p>
 </section>
 </section>
 <section id="solvate-your-system">
-<h4><a class="toc-backref" href="#id20">1.2.2 Solvate your system</a><a class="headerlink" href="#solvate-your-system" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#id20" role="doc-backlink">1.2.2 Solvate your system</a><a class="headerlink" href="#solvate-your-system" title="Link to this heading"></a></h4>
 <p>Now we go back to tleap:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; source leaprc.protein.ff14SB #load force field
 &gt; source leaprc.water.TIP3P #load parameters for water
@@ -452,7 +454,7 @@ system! It's a pretty large file though...</p>
 </section>
 </section>
 <section id="step-2-minimization">
-<h2><a class="toc-backref" href="#id21">Step 2: Minimization</a><a class="headerlink" href="#step-2-minimization" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">Step 2: Minimization</a><a class="headerlink" href="#step-2-minimization" title="Link to this heading"></a></h2>
 <p>We must minimize our system such that we are starting our simulations in a local
 energy minimum. The crystal structure probably has some structural artifacts as
 a result of the procedure. We don't care for that. It is possible that if you
@@ -464,7 +466,7 @@ typically done in two steps: 1) water minimization, to allow the solvent to
 relax around your solute, and 2) system minimization, where you allow the solute
 to relax.</p>
 <section id="preliminary-minimization">
-<h3><a class="toc-backref" href="#id22">Preliminary minimization</a><a class="headerlink" href="#preliminary-minimization" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Preliminary minimization</a><a class="headerlink" href="#preliminary-minimization" title="Link to this heading"></a></h3>
 <p>First we will run an initial minimization. For that we will create a file
 with the appropriate parameters that we will name as <code class="docutils literal notranslate"><span class="pre">min.1.in</span></code>. Here we
 can see a general example of the contents of this file.</p>
@@ -487,15 +489,15 @@ can see a general example of the contents of this file.</p>
 </pre></div>
 </div>
 <p>To run:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>AMBERHOME/bin/pmemd.cuda -O -i ../min.1.in -o igps_wt_apo.w_ions_solv.min.1.out <span class="se">\</span>
--r igps_wt_apo.w_ions_solv.min.1.rst -x igps_wt_apo.w_ions_solv.min.1.mdcrd <span class="se">\</span>
--c ../igps_wt_apo.w_ions_solv.rst7 -p ../igps_wt_apo.w_ions_solv.prmtop <span class="se">\</span>
--ref ../igps_wt_apo.w_ions_solv.rst7 -inf igps_wt_apo.w_ions_solv.min.1.mdinfo
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>AMBERHOME/bin/pmemd.cuda<span class="w"> </span>-O<span class="w"> </span>-i<span class="w"> </span>../min.1.in<span class="w"> </span>-o<span class="w"> </span>igps_wt_apo.w_ions_solv.min.1.out<span class="w"> </span><span class="se">\</span>
+-r<span class="w"> </span>igps_wt_apo.w_ions_solv.min.1.rst<span class="w"> </span>-x<span class="w"> </span>igps_wt_apo.w_ions_solv.min.1.mdcrd<span class="w"> </span><span class="se">\</span>
+-c<span class="w"> </span>../igps_wt_apo.w_ions_solv.rst7<span class="w"> </span>-p<span class="w"> </span>../igps_wt_apo.w_ions_solv.prmtop<span class="w"> </span><span class="se">\</span>
+-ref<span class="w"> </span>../igps_wt_apo.w_ions_solv.rst7<span class="w"> </span>-inf<span class="w"> </span>igps_wt_apo.w_ions_solv.min.1.mdinfo
 </pre></div>
 </div>
 </section>
 <section id="preliminary-minimization-follow-up">
-<h3><a class="toc-backref" href="#id23">Preliminary minimization follow up</a><a class="headerlink" href="#preliminary-minimization-follow-up" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">Preliminary minimization follow up</a><a class="headerlink" href="#preliminary-minimization-follow-up" title="Link to this heading"></a></h3>
 <p>Next we create the file <code class="docutils literal notranslate"><span class="pre">min.2.in</span></code> to follow up our previous minimization. Here
 we have an example of the contents for a general example.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&amp;cntrl 
@@ -513,10 +515,10 @@ we have an example of the contents for a general example.</p>
 </pre></div>
 </div>
 <p>To run:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>AMBERHOME/bin/pmemd.cuda -O -i ../min.2.in -o igps_wt_apo.w_ions_solv.min.2.out <span class="se">\</span>
--r igps_wt_apo.w_ions_solv.min.2.rst -x igps_wt_apo.w_ions_solv.min.2.mdcrd <span class="se">\</span>
--c ../minimization.1/igps_wt_apo.w_ions_solv.min.1.rst -p ../igps_wt_apo.w_ions_solv.prmtop <span class="se">\</span>
--inf igps_wt_apo.w_ions_solv.min.2.mdinfo <span class="se">\</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>AMBERHOME/bin/pmemd.cuda<span class="w"> </span>-O<span class="w"> </span>-i<span class="w"> </span>../min.2.in<span class="w"> </span>-o<span class="w"> </span>igps_wt_apo.w_ions_solv.min.2.out<span class="w"> </span><span class="se">\</span>
+-r<span class="w"> </span>igps_wt_apo.w_ions_solv.min.2.rst<span class="w"> </span>-x<span class="w"> </span>igps_wt_apo.w_ions_solv.min.2.mdcrd<span class="w"> </span><span class="se">\</span>
+-c<span class="w"> </span>../minimization.1/igps_wt_apo.w_ions_solv.min.1.rst<span class="w"> </span>-p<span class="w"> </span>../igps_wt_apo.w_ions_solv.prmtop<span class="w"> </span><span class="se">\</span>
+-inf<span class="w"> </span>igps_wt_apo.w_ions_solv.min.2.mdinfo<span class="w"> </span><span class="se">\</span>
 </pre></div>
 </div>
 <p>And this is a good point to visualize your system, and make sure it hasn't
@@ -537,7 +539,7 @@ tertiary or secondary structure issues, for example.</p></li>
 </section>
 </section>
 <section id="step-3-heating">
-<h2><a class="toc-backref" href="#id24">Step 3: Heating</a><a class="headerlink" href="#step-3-heating" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id24" role="doc-backlink">Step 3: Heating</a><a class="headerlink" href="#step-3-heating" title="Link to this heading"></a></h2>
 <p>Now, we must invest some simulation time into unbiasing our system, and getting
 it to the right thermodynamics properties, such as a particular temperature.</p>
 <p>We will create the file <code class="docutils literal notranslate"><span class="pre">heating.in</span></code> with the parameters for the protocol.
@@ -577,15 +579,15 @@ value1=25.,value2=303.
 </pre></div>
 </div>
 <p>To run:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>AMBERHOME/bin/pmemd.cuda -O -i ../heating.in -o igps_wt_apo.w_ions_solv.heating.out <span class="se">\</span>
--r igps_wt_apo.w_ions_solv.heating.rst -x igps_wt_apo.w_ions_solv.heating.mdcrd <span class="se">\</span>
--c ../minimization.2/igps_wt_apo.w_ions_solv.min.2.rst -p ../igps_wt_apo.w_ions_solv.prmtop <span class="se">\</span>
--inf igps_wt_apo.w_ions_solv.heating.mdinfo -ref ../minimization.2/igps_wt_apo.w_ions_solv.min.2.rst
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>AMBERHOME/bin/pmemd.cuda<span class="w"> </span>-O<span class="w"> </span>-i<span class="w"> </span>../heating.in<span class="w"> </span>-o<span class="w"> </span>igps_wt_apo.w_ions_solv.heating.out<span class="w"> </span><span class="se">\</span>
+-r<span class="w"> </span>igps_wt_apo.w_ions_solv.heating.rst<span class="w"> </span>-x<span class="w"> </span>igps_wt_apo.w_ions_solv.heating.mdcrd<span class="w"> </span><span class="se">\</span>
+-c<span class="w"> </span>../minimization.2/igps_wt_apo.w_ions_solv.min.2.rst<span class="w"> </span>-p<span class="w"> </span>../igps_wt_apo.w_ions_solv.prmtop<span class="w"> </span><span class="se">\</span>
+-inf<span class="w"> </span>igps_wt_apo.w_ions_solv.heating.mdinfo<span class="w"> </span>-ref<span class="w"> </span>../minimization.2/igps_wt_apo.w_ions_solv.min.2.rst
 </pre></div>
 </div>
 </section>
 <section id="step-4-equilibration">
-<h2><a class="toc-backref" href="#id25">Step 4: Equilibration</a><a class="headerlink" href="#step-4-equilibration" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id25" role="doc-backlink">Step 4: Equilibration</a><a class="headerlink" href="#step-4-equilibration" title="Link to this heading"></a></h2>
 <p>How do you know if your system is equilibrated? Eh.. you don't ever know... but
 you can convince yourself it probably is by evaluated properties. For example,
 if you have an NVT system you can plot volume as a function of timestep and
@@ -623,10 +625,10 @@ case we will name as <code class="docutils literal notranslate"><span class="pre
 </pre></div>
 </div>
 <p>To run:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>AMBERHOME/bin/pmemd.cuda -O -i -O -i ../equilib.in -o igps_wt_apo.w_ions_solv.equilib.out <span class="se">\</span>
--r igps_wt_apo.w_ions_solv.equilib.rst -x igps_wt_apo.w_ions_solv.equilib.mdcrd <span class="se">\</span>
--c ../heating/igps_wt_apo.w_ions_solv.heating.rst -ref ../heating/igps_wt_apo.w_ions_solv.heating.rst <span class="se">\</span>
--p ../igps_wt_apo.w_ions_solv.prmtop -inf igps_wt_apo.w_ions_solv.equilib.mdinfo<span class="se">\</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>AMBERHOME/bin/pmemd.cuda<span class="w"> </span>-O<span class="w"> </span>-i<span class="w"> </span>-O<span class="w"> </span>-i<span class="w"> </span>../equilib.in<span class="w"> </span>-o<span class="w"> </span>igps_wt_apo.w_ions_solv.equilib.out<span class="w"> </span><span class="se">\</span>
+-r<span class="w"> </span>igps_wt_apo.w_ions_solv.equilib.rst<span class="w"> </span>-x<span class="w"> </span>igps_wt_apo.w_ions_solv.equilib.mdcrd<span class="w"> </span><span class="se">\</span>
+-c<span class="w"> </span>../heating/igps_wt_apo.w_ions_solv.heating.rst<span class="w"> </span>-ref<span class="w"> </span>../heating/igps_wt_apo.w_ions_solv.heating.rst<span class="w"> </span><span class="se">\</span>
+-p<span class="w"> </span>../igps_wt_apo.w_ions_solv.prmtop<span class="w"> </span>-inf<span class="w"> </span>igps_wt_apo.w_ions_solv.equilib.mdinfo<span class="se">\</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -655,7 +657,7 @@ explain how I calculate this using VMD. I do this after my equiibration is
 </div>
 </section>
 <section id="step-5-production">
-<h2><a class="toc-backref" href="#id26">Step 5: Production</a><a class="headerlink" href="#step-5-production" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id26" role="doc-backlink">Step 5: Production</a><a class="headerlink" href="#step-5-production" title="Link to this heading"></a></h2>
 <p>This will be the data collected for analysis! The essential difference between
 production and equilibration is simply that we plan to analyze the production
 data. You never want to perform production runs immediately after altering
@@ -716,10 +718,10 @@ iwrap=1, #the coordinates written to the rst and trajectory files will be &#39;w
 </pre></div>
 </div>
 <p>To run:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>AMBERHOME/bin/pmemd.cuda -O -i ../Production.in -o 1gpw_holo_wt.prod.prod.out <span class="se">\</span>
--r 1gpw_holo_wt.prod.prod.rst -x 1gpw_holo_wt.prod.prod.cd <span class="se">\</span>
--c ../Production_correct_ntwx.prev_prod/1gpw_holo_wt.prod.prev_prod.rst <span class="se">\</span>
--p ../1gpw_holo_wt.prmtop -inf 1gpw_holo_wt.prod.prod.mdinfo
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>AMBERHOME/bin/pmemd.cuda<span class="w"> </span>-O<span class="w"> </span>-i<span class="w"> </span>../Production.in<span class="w"> </span>-o<span class="w"> </span>1gpw_holo_wt.prod.prod.out<span class="w"> </span><span class="se">\</span>
+-r<span class="w"> </span>1gpw_holo_wt.prod.prod.rst<span class="w"> </span>-x<span class="w"> </span>1gpw_holo_wt.prod.prod.cd<span class="w"> </span><span class="se">\</span>
+-c<span class="w"> </span>../Production_correct_ntwx.prev_prod/1gpw_holo_wt.prod.prev_prod.rst<span class="w"> </span><span class="se">\</span>
+-p<span class="w"> </span>../1gpw_holo_wt.prmtop<span class="w"> </span>-inf<span class="w"> </span>1gpw_holo_wt.prod.prod.mdinfo
 </pre></div>
 </div>
 </section>
