@@ -9,7 +9,8 @@ Basic information
 -----------------
 
 This repo contains documentation created by members of the 
-`@Patonlab <patonlab>`__ and the `@BioE-KimLab <https://github.com/BioE-KimLab>`__
+`@Patonlab <https://github.com/patonlab>`__ and the 
+`@BioE-KimLab <https://github.com/BioE-KimLab>`__
 at the Colorado State University. 
 
 The contents are focused in the area of computational chemistry and range from 

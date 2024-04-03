@@ -10,7 +10,7 @@ class OneDarkPro(Style):
     #default_style = 'OneDark-Pro'
     #title = ''
 
-    background_color = "#000000" #282c34" 
+    background_color = "#c678dd" #282c34" 
 
     styles = {
         Comment.Multiline:              "italic #7f848e",
