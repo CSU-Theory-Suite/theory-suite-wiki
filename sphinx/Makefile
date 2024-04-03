@@ -21,6 +21,7 @@ help:
 
 # rule for making easier the update of documentation in the repository.
 github:
+	@mkdir -p $(SOURCEDIR)/../../docs/
 	@rm -rf $(SOURCEDIR)/../../docs/*
 	@touch $(SOURCEDIR)/../../docs/.nojekyll
 	@make clean
