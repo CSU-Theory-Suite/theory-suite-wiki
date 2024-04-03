@@ -3,8 +3,8 @@ name: pages-build-sphinx-deployment
 
 on:
   # Runs on pushes targeting the default branch
-  #push:
-  #  branches: ["master"]
+  push:
+    branches: ["master"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -23,6 +23,9 @@ concurrency:
 
 jobs:
   build:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -40,6 +43,7 @@ jobs:
           cd sphinx
           make github
           cd ..
+
   # Single deploy job since we're just deploying
   deploy:
     environment:
@@ -50,12 +54,15 @@ jobs:
     steps:
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Debug
+        run: |
+          echo $CWD
+          ls ./*
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: './docs/'
+          path: 'docs/'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
