@@ -177,7 +177,7 @@ on your computer to match that which is online, the command is:
    git pull origin master
 
 
-8. Creating a pull request
+7. Creating a pull request
 ..........................
 
 Now we proceed to create a pull request. We go to the repository page of our 
