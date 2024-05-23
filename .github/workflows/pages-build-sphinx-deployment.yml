@@ -46,6 +46,7 @@ jobs:
           path: docs/
 
   deploy:
+    if: github.repository == 'CSU-Theory-Suite/theory-suite-wiki'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
