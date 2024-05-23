@@ -177,48 +177,6 @@ on your computer to match that which is online, the command is:
    git pull origin master
 
 
-7. Rebuilding the Docs
-......................
-
-After various iterations of steps 4,5 and 6 you will arrive to a point where your
-changes are ready for other people to see them. After we make sure that all changes 
-to the files in source are properly commited and saved, we proceed to re-building 
-the documentation and updating all files in the docs/ folder. For convenience we 
-have a custom command to do that in our make files: 
-
-.. code:: shell 
-
-   cd ~/Documents/theory-suite-wiki/sphinx
-   make github
-
-Now we proceed to commit the changes and push them to our repo
-
-.. code:: shell
-
-   cd ~/Documents/theory-suite-wiki/
-   git status        # Always check
-   git add docs
-   git status        # Always check
-   git commit -m 'Rebuilt the Docs'
-
-Just so that it is easier to skim through the commits we will use this message ('Rebuilt the Docs')
-so that whoever is checking the changes knows that only files in the docs folder
-were changed and that it was in an automatic manner. This practice is not 
-necessarily a standard, but it is widely used (and in the future we will have a
-workflow doing this last step for us, so might as well get used to seeing this 
-message) 
-
-Finally we push the changes (rebuilding the docs) to our online GitHub fork again:
-
-.. code:: shell
-
-   git push origin master 
-
-Now all of the changes you made on your computer are included in your online fork of 
-the repository, and you should be able to view the website as you would in the 
-original repository. This is another good time to make sure that all changes appear 
-as you expected/wanted before adding it to the primary version.
-
 8. Creating a pull request
 ..........................
 
