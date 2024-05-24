@@ -19,7 +19,7 @@ but this will go into a little more detail.
 ----------------------
 
 At the top-right of the repository page, you should be able to 
-see a "Fork" button (between "Watch" and "Star"). This button 
+see a ``Fork`` button (between ``Watch`` and ``Star``). This button 
 allows you to create a clone of the current repository to 
 your personal GitHub account. Once you fork the repo, it is now
 yours, so you can make and implement changes as you see fit 
@@ -48,7 +48,7 @@ making changes and don't want to change your current version).
 
 To clone your fork onto your computer, open the repository page of 
 your fork (``YOUR-GITHUB-USERNAME/theory-suite-wiki``), go to the 
-green "<> Code" button at the top right, and copy your preferred 
+green ``<> Code`` button at the top right, and copy your preferred 
 URL.
 
 Once this is copied, open a terminal and navigate to the folder where 
@@ -159,7 +159,7 @@ will need to update it when you add new pages.
 
 To add a page, go into the ``index.rst`` file and scroll to 
 the section that you want to add your page to. Each section 
-is designated by a ".. toctree::" with the caption corresponding 
+is designated by a ``.. toctree::`` with the caption corresponding 
 to the title of the page. Find your section, then add the 
 appropriate file path in that section. 
 
@@ -237,9 +237,9 @@ look like when you're making a page for the website:
     You can use any style of punctuation to designate 
     headings/subheadings, but once you have picked an 
     order you must stick to it. In the example above, 
-    "+" represents the sub-subheading, and that will 
+    ``+`` represents the sub-subheading, and that will 
     still be the case if there are no headings before 
-    it. Similarly, "*" is the character that designates 
+    it. Similarly, ``*`` is the character that designates 
     the headings, nothing else will behave that way now.
 
 .. note::
@@ -336,7 +336,7 @@ This type of code block is added with this format:
 The other way to add code in RST files just changes the formatting 
 of the text in the paragraph. There are examples of this throughout 
 this page, but you can also see that ``here``. To add this kind of 
-formatting to your text, just surround your command with two "`" 
+formatting to your text, just surround your command with two ` 
 on each side of the command.
 
 Lists 
@@ -344,7 +344,7 @@ Lists
 
 Adding lists is faily intuitive in RST. With one blank line on 
 either side of the list, you can create a bulleted list by 
-having each point start with a "*" and starting new lines for 
+having each point start with a ``*`` and starting new lines for 
 new points. Here is the format:
 
 .. highlight:: none
@@ -483,13 +483,13 @@ Now that the online version is synced with the local version
 you were editing, we need to create a pull request to add 
 our changes to the primary repository owned by CSU-Theory-Suite.
 To do this, we go to the online repository page of our personal 
-fork, click on the "Pull requests" tab at the top left of the 
-page, then select the green button labeled "New pull request" 
+fork, click on the ``Pull requests`` tab at the top left of the 
+page, then select the green button labeled ``New pull request`` 
 at the top right of the page.
 
 Now, make sure that the base repository is the 
 ``CSU-Theory-Suite/theory-suite-wiki`` (on the left) and that the 
-head repository is ours (on the right), then click "Create pull request".
+head repository is ours (on the right), then click ``Create pull request``.
 
 Finally, write a short message as the title and description of the 
 changes that we made. This is likely going to be read by whoever 
@@ -514,7 +514,7 @@ page needs to be active).
     you created a pull request for the wiki.
 
 After you write the message describing the changes that 
-you made, click "Create pull request" to send if off. 
+you made, click ``Create pull request`` to send if off. 
 Now it's the admins' problem!
 
 .. note::
