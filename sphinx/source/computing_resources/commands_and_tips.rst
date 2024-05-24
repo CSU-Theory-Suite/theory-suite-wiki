@@ -1226,7 +1226,7 @@ who you are as a person, you can always ask your computer. Typing
 will print the username you used to login to your computer.
 
 Syncing Changes Between Computing Resources Using Github
-**************************
+********************************************************
 
 Here's a common problem you may run into: you start working on a
 cool new idea on a local computing resource. As things start to
@@ -1260,3 +1260,42 @@ see "main"
 
 3. Commit and push the changes to overwrite the local machine
    files with the HPC files as you choose!
+
+Moving Certain Files
+********************
+
+Sometimes, especially when dealing with QM output files,
+you might want to only move files which contain a 
+certain line of text. For example, all Gaussian output
+files for jobs that finished with no problems contain 
+the phrase "Normal termination" at the end. Similarly, 
+Orca files that finished normally contain the string 
+"ORCA TERMINATED NORMALLY".
+
+Sometimes, it would be helpful to move all normal terminations 
+into a separate folder for analysis. To do that, you can run
+the command:
+
+.. code:: shell
+
+    grep -l "phrase" *files* | while read -r filename; 
+    do mv ${filename%.*}* new_folder/; 
+    done
+
+This command searches all files for some phrase ("phrase" in 
+the example above), then moves all files which have the same 
+base as the file into ``new_folder/``. In case you wanted 
+to see how to move all Gaussian jobs that have finished into a 
+new folder, here is that command:
+
+.. code:: shell
+
+    grep -l 'Normal termination' *log | while read -r filename; 
+    do mv ${filename%.*}* finished/; 
+    done
+
+This will move the ``.com``, ``.log``, and ``.sh`` files 
+(and any others that have the same base name) for 
+all jobs which have terminated normally into the folder 
+``finished/``, separating the completed jobs from those still 
+running or any which have failed.
