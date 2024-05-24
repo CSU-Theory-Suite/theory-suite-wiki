@@ -7,6 +7,13 @@ Feel free to also visit the `Paton Lab Website <https://patonlab.com/>`_ or the 
 
 .. toctree::
    :maxdepth: 2
+   :caption: Adding Packages
+
+   adding_pages/how_to_add_pages.rst
+
+
+.. toctree::
+   :maxdepth: 2
    :caption: Getting Started
 
    computing_resources/paton_computing_resources.rst

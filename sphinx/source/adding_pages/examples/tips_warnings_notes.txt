@@ -1,0 +1,12 @@
+.. tip:: 
+
+    Here is how to structure a tip.
+
+.. note::
+
+    Here is how to structure a note.
+
+.. warning::
+
+    Here is how to structure a warning.
+
