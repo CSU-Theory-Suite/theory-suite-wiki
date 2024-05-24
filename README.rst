@@ -54,6 +54,8 @@ How to contribute to the wiki
 
 Here is a short walkthrough for making changes to the 
 webpage, such as correcting typos or adding tutorials. 
+There is a slightly more detailed version of these
+same instructions within the wiki website.
 
 1. Fork the repository
 ......................
@@ -138,7 +140,8 @@ to our web browser and navigate to the section we had edited.
 5. Make the modifications in the rst files
 ...........................................
 
-Using our preferred text editor, we will make the wanted changes and save those files. After 
+Using our preferred text editor, we will make the wanted changes and save those files. 
+For more details on how to edit the rst files, check within the wiki website. After 
 a set of related changes we will "locally save them" in our git repository. As an
 example, let's assume we made changes in one file of graphical_software and another 
 of helpful_packages. 
