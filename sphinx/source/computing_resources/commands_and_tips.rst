@@ -1299,3 +1299,68 @@ This will move the ``.com``, ``.log``, and ``.sh`` files
 all jobs which have terminated normally into the folder 
 ``finished/``, separating the completed jobs from those still 
 running or any which have failed.
+
+Find and Replace in Files
+*************************
+
+Information for this section can be found on 
+`this StackOverflow page <https://stackoverflow.com/questions/11392478/how-to-replace-a-string-in-multiple-files-in-linux-command-line>`_.
+
+Often when working with large amounts of data/jobs, you might 
+accidentally make a typo that is now present in all of your 
+files. There are a number of ways to correct this typo, but 
+one of the easiest is to find-and-replace the erronous 
+part of the file with the correct version.
+
+If the problem is only in one file, it's easy enough to just 
+``vi`` into the folder or open it in a text editor and fix it.
+One way to do this is to find-and-replace-all with one of the 
+commands that's a part of ``vim``:
+
+.. code:: shell
+
+    :%s/string_to_find/replacement_string/g
+
+This code will find every instance of "string_to_find" in your 
+file and replace them all with "replacement_string". The "g" 
+at the end of this command is what tells ``vi`` to replace 
+EVERY instance of the string, rather than just the next one 
+(if this is what you want, just leave out the "g")
+
+.. note::
+
+    This is an example of the ``sed`` command, just one that's
+    already incorporated into ``vim``. To use this feature, just 
+    make sure you aren't in ``Insert`` mode or anything else by 
+    pressing ``esc``.
+
+If this is an error that exists in all of your files, it can be 
+tedious to go into every file, make the change, save it, then 
+move onto the next one. This is where the ``sed`` command comes 
+in handy.
+
+With this command, you can find and replace a string into several
+select files in your directory. For example, if you have a lot 
+of Gaussian input files where you accidentally forgot to include 
+your solvent, you can use the following command:
+
+.. code:: shell
+
+    sed -i 's/m062x 6-31+G* opt freq/m062x 6-31+G* opt freq scrf=(smd,solvent=water)/g' *com
+
+This command will replace the incorrect route line with the corrected 
+version in all files within the directory which end in "com". 
+``m062x 6-31+G* opt freq`` is the original line with the error, while 
+``m062x 6-31+G* opt freq scrf=(smd,solvent=water)`` is the corrected 
+line. This 
+is a fast, easy way to make sure that you are running jobs at the 
+desired level of theory, or if you decide that you want to repeat the 
+calculation with a different basis set/functional/solvent.
+
+.. warning::
+
+    It is possible if working on BSD systems like MacOS 
+    that you might need to include the additional extension 
+    ``-i '.bak'`` in your command to avoid risking corruption 
+    or partial content.
+
