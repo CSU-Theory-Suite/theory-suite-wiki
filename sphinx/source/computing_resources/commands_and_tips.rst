@@ -1364,3 +1364,49 @@ calculation with a different basis set/functional/solvent.
     ``-i '.bak'`` in your command to avoid risking corruption 
     or partial content.
 
+Cancel SLURM Jobs
+**************************
+
+Information for this section comes from `Stack Overflow <https://unix.stackexchange.com/questions/424871/how-to-cancel-jobs-on-slurm-with-job-idjob-number-bigger-than-a-certain-number>`_.
+
+Using SLURM for job scheduling/queueing can be a really helpful 
+tool for keeping track of jobs and sharing resources. However,
+sometimes you might make a mistake for a large number of job 
+submissions and want/need to stop them. Here are a few commands 
+to help with this.
+
+First, maybe you have one job you want to cancel. This is easily 
+soved with the following command:
+
+.. code:: shell
+
+    scancel <JOB ID>
+
+You can find the Job ID for your job with the ``squeue`` 
+command under "JOBID". Each job has a distinct Job ID,
+so you only have to worry about cancelling yours.
+
+Another thing that may happen is that you submitted a lot 
+of jobs with some major flaw, such as an incorrect basis 
+set. If you want to cancel all of your jobs, use:
+
+.. code:: shell
+
+    scancel -u <USERNAME>
+
+This will cancel **all** jobs in the SLURM queue that are 
+associated with your account. 
+
+In the event that you submitted several jobs, then submitted 
+several more, but want to only keep the new submissions, you 
+can cancel ranges of Job IDs at a time. For example, if you 
+started jobs 1000-1010, then started 1015-1030 without canceling 
+the original 10 jobs, there is still hope! Cancel these jobs with:
+
+.. code:: shell
+
+    scancel {1000..1010}
+
+This cancels all jobs with Job IDs between and including 1000 and 1010.
+This can also be helpful if you have too many jobs started and 
+need to stop some to help with organization.
