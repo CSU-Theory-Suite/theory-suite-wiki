@@ -150,7 +150,7 @@ Here is the CPU information for ACME and the local linux machines:
 
 .. code:: shell
 
-    acme.chem.colostate.edu acme (16 x 32 cpus)
+    acme.chem.colostate.edu acme (20 x 32 cpus)
     dynamo.chem.colostate.edu dynamo (2 x 24 cpus)
     buzzsaw.chem.colostate.edu buzzsaw (2 x 24 cpus)
     fireball.chem.colostate.edu fireball (2 x 24 cpus)
