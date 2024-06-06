@@ -199,7 +199,7 @@ merge it 5 minutes before the web needs to be active for, lets say, a presentati
 
 .. note::
 
-   The current admins of this page are Alex (Paton group), Hojin (Kim group), and Raul (Kim group).
+   The current admins of this page are Alex (Paton group), Jake (Paton group), Hojin (Kim group), and Raul (Kim group).
    Feel free to ask about becoming an admin yourself if you're interested!
 
 
