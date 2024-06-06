@@ -501,8 +501,8 @@ page needs to be active).
 
 .. note::
 
-    The current admins of this page are Alex (Paton group),
-    Hojin (Kim group) and 
+    The current admins of this page are Alex (Paton group), Jake (Paton group),
+    Hojin (Kim group), and 
     Raul (Kim group). Feel free to ask them about becoming 
     an admin yourself if you're interested!
 
