@@ -5,7 +5,7 @@ Fun with Coworkers
 .. contents::
     :local:
 
-Most of the information on this page comes from Dr. Bill Miller III at Truman State University.
+Most of the information on this page comes from Dr. Bill Miller III at A. T. Still University.
 
 In this section I have included some commands that are not extremely useful for 
 productive work, but can make work more enjoyable by sending messages to 

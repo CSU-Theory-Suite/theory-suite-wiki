@@ -124,14 +124,19 @@ Here is the alias for ACME:
     alias acme='ssh $USER@acme.chem.colostate.edu'
 
 To gain access to ACME, contact an admin to make an account. The current admin
-for the Paton group is Abhijeet, and from the Kim group you can go to Yeonjoon, Sabari, or Collin (June 2023).
+for the Paton group is Abhijeet, and from the Kim group you can go to Sabari, or Collin (October 2024).
+
+There are sample input files for many of the software that we use on ACME. If you would 
+like to see example calculation input files, you can copy the folder 
+``/opt/apps/example_jobs/`` into your home directory to see the format of different input files. 
+Currently there are examples for CREST, Gaussian, MILO, QChem, ORCA, NCI, and xTB.
 
 Local Resources
 ---------------
 
 The Paton lab also has a number of **local machines** available to students to
-use. These machines do not have a queueing system like many other
-computers do, but are useful for different tasks you may have.
+use. These machines do not have a queueing system like ACME of the HPCs, 
+but are useful for different tasks you may have.
 
 Here are aliases to the local CSU resources:
 
@@ -144,7 +149,7 @@ Here are aliases to the local CSU resources:
     alias buzzsaw='ssh $USER@buzzsaw.chem.colostate.edu'
 
 To get accounts on these computers, you will need to contact an admin. For the
-Paton lab, this is Abhijeet (June 2023).
+Paton lab, this is Abhijeet or Alex (October 2024).
 
 Here is the CPU information for ACME and the local linux machines:
 
@@ -214,11 +219,11 @@ projects, as well as any large datasets that you may have
 created or are using. Here are instructions for how to access 
 this drive and add files.
 
-.. note::
+.. warning::
     
     This is a private drive only for students in 
     the Paton group at CSU. For this reason, you will need to 
-    send Rob a message or email IT Support (Ross Madden) 
+    email IT Support (Ross Madden) and cc Rob
     so that they can invite you to the drive.
     Until then, you will be unable to access the drive.
 
@@ -226,7 +231,7 @@ How you set up the drive on your personal computer might be
 different based on if you have a Mac or a PC. I will include instructions 
 for both here to be followed **after** you have been added as a user.
 
-.. note:: 
+.. warning:: 
     
     In order to access this drive, you have to be on campus or using the VPN. 
     
@@ -257,13 +262,8 @@ CSU login information, possibly preceeding your username with ``COLOSTATE\``.
 Once you've logged in, you should be in a Finder window called ``patonlab``. This is 
 the RStor drive, you're in! From here, you can also open a terminal window to this 
 folder directly from the Finder window, and you'll be able to use the drive to store 
-your files. Otherwise, you can type 
-
-.. code:: shell
-    
-    cd /Volumes/patonlab/`` 
-    
-in any terminal window to access the RStor drive.
+your files. Otherwise, you can type ``cd /Volumes/patonlab/`` in any terminal window 
+to access the RStor drive.
 
 PC Instructions
 +++++++++++++++

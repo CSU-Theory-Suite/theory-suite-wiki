@@ -8,7 +8,7 @@ Essential Unix Commands
 This page serves as a unix manual to help users get to know unix
 commands and allow for more efficient research in the command line.
 
-Most of the information on this page comes from Dr. Bill Miller III at Truman State University.
+Most of the information on this page comes from Dr. Bill Miller III at A. T. Still University.
 
 Here are some of the most important/frequently used commands.
 These are the basics to using linux machines and working on the command line.

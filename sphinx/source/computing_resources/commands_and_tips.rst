@@ -5,7 +5,7 @@ Helpful Commands and Tips
 .. contents::
     :local:
 
-Most of the information on this page comes from Dr. Bill Miller III at Truman State University.
+Most of the information on this page comes from Dr. Bill Miller III at A. T. Still University.
 
 This section contains many different commands and Unix tips that
 may be useful. The idea is to introduce them and provide some basic

@@ -5,7 +5,7 @@ File System Layout
 .. contents::
     :local:
 
-Most of the information on this page comes from Dr. Bill Miller III at Truman State University.
+Most of the information on this page comes from Dr. Bill Miller III at A. T. Still University.
 
 As you get started, you should have an idea of how the files are organized on your computer.
 
