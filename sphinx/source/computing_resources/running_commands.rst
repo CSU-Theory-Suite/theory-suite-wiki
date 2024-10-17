@@ -143,13 +143,20 @@ and press enter. Similarly, to kill the second job I would just type
 In the event I am running a job in the background, I find using jobs 
 and ``kill %`` much more convenient than determining the PID 
 number from ``top`` or ``ps`` and using the ``kill -9`` command. 
-However, you can also find the PID and kill a specific process with:
+
+The ``kill`` command is used to terminate processes that you are
+running on your computer. The general syntax for the ``kill``
+command is
 
 .. code:: shell
 
-    kill -9 <PID_Number>
+    kill -9 PID
 
-which will stop the process with that PID (found with ``top``).
+The ``-9`` is added to smother the process so it has no chance of
+survival. The ``PID`` is a number that identifies each running
+process. You can obtain the ```PID`` of any process using either the
+``ps`` or ``top`` commands. This should only be used on the local
+linux machines, as SLURM has it's own way to kill/cancel a job.
 
 Using a SLURM Queueing Manager
 ******************************
