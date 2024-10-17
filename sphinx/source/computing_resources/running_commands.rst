@@ -57,26 +57,26 @@ in the background. This allows the job to continue running in the background
 Terminal’s command prompt to do other things. 
 
 To run a job in the background, simply append an ampersand (&) to the end of 
-the command. So if I were going to run a Gaussian 09 QM calculation in the 
+the command. So if I were going to run a Gaussian 16 QM calculation in the 
 foreground, the command would simply be  
 
 .. code:: shell
     
-    g09 structure.com 
+    g16 structure.com 
 
 But if I wanted to run that same calculation in the background, the command 
 would look like this 
 
 .. code:: shell 
     
-    g09 structure.com & 
+    g16 structure.com & 
 
 When you press enter to run this command, a line will be printed to the screen 
 letting you know the job is running 
 
 .. code:: shell
     
-    [1] g09 structure.com & 
+    [1] g16 structure.com & 
 
 At this point (i.e. after this previous line is printed to the screen), if 
 you press enter again your cursor will be back on the command prompt and you 
@@ -107,7 +107,7 @@ on a remote computer using nohup, the command would look something like this
 
 .. code:: shell
     
-    nohup g09 structure.com & 
+    nohup g16 structure.com & 
 
 Notice that in addition to using ``nohup`` at the beginning of the command, we 
 also made the process run in the background (using the &). If you run a 
