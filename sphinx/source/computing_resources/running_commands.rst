@@ -142,3 +142,10 @@ and press enter. Similarly, to kill the second job I would just type
 In the event I am running a job in the background, I find using jobs 
 and ``kill %`` much more convenient than determining the PID 
 number from ``top`` or ``ps`` and using the ``kill -9`` command. 
+However, you can also find the PID and kill a specific process with:
+
+.. code:: shell
+
+    kill -9 <PID_Number>
+
+which will stop the process with that PID (found with ``top``).
