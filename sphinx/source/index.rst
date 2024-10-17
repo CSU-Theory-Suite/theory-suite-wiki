@@ -26,6 +26,7 @@ Feel free to also visit the `Paton Lab Website <https://patonlab.com/>`_ or the 
    computing_resources/coding_resources.rst
    computing_resources/withing_with_files.rst
    computing_resources/moving_renaming_files.rst
+   computing_resources/terminal_basics.rst
 
 
 .. toctree::
