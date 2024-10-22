@@ -164,7 +164,7 @@ scp
 
 ``scp`` functions the same as ``cp``, but stands for "secure copy" and can be used 
 to copy files between servers in a secure way. There are many different options 
-and examples that can be found `here<https://www.geeksforgeeks.org/scp-command-in-linux-with-examples/>`_.
+and examples that can be found `here <https://www.geeksforgeeks.org/scp-command-in-linux-with-examples/>`_.
 
 External Software
 ++++++++++++++++++
@@ -177,7 +177,7 @@ command line.
 Mac: Forklift
 ^^^^^^^^^^^^^
 
-For Mac users, this software is called `Forklift<https://binarynights.com/>`_.
+For Mac users, this software is called `Forklift <https://binarynights.com/>`_.
 From this interface, you can see Finder views of the files on your computer, 
 as well as a different computer that you're logged into with the software. 
 There are instructions online for further use, but this tool also 
@@ -187,7 +187,7 @@ needing to permanently copy them to your computer.
 Windows: WinSCP
 ^^^^^^^^^^^^^^^
 
-For Windows users, this software is called `WinSCP<https://winscp.net/eng/index.php>`_.
+For Windows users, this software is called `WinSCP <https://winscp.net/eng/index.php>`_.
 From this interface, you can see File Explorer views of the files on your 
 computer, as well as a different computer that you're logged into with the 
 software. There are instructions online for further use, but this tool also 
