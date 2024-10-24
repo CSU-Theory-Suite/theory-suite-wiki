@@ -5,13 +5,14 @@ Welcome to the Theory Suite Wiki Page
 .. contents::
    :depth: 2
 
-Basic information
+Basic Information
 -----------------
 
 This repo contains documentation created by members of the 
 `@Patonlab <https://github.com/patonlab>`__ and the 
 `@BioE-KimLab <https://github.com/BioE-KimLab>`__
-at the Colorado State University. 
+for the `Theory Suite <https://www.natsci.colostate.edu/tours-chemistry-computational-suite/>`_ 
+at Colorado State University. 
 
 The contents are focused in the area of computational chemistry and range from 
 example tutorials of calculations to useful resources for new or existing members. 
@@ -25,12 +26,11 @@ This repository fulfills three goals:
    the members' skills in writing software-related documentation.
 
 Even if you are not a member of either of the research labs, please
-feel free to explore our 
-`webpage <https://csu-theory-suite.github.io/theory-suite-wiki/>`__ and provide 
-feedback on its contents. 
+feel free to explore and provide 
+feedback on the contents of this repository. 
 
-Structure of the repo
----------------------
+Structure of the Repository
+---------------------------
 
 As you can see, the repository contains two main folders, the :code:`docs` folder 
 and the :code:`sphinx` folder. The :code:`docs` folder contains all the relevant 
@@ -49,7 +49,7 @@ appropriate contents, be it a folder with all the image files, or all the
 subsequent subsections' .rst files.
 
 
-How to contribute to the wiki
+How to Contribute to the Wiki
 -----------------------------
 
 Here is a short walkthrough for making changes to the 
@@ -57,7 +57,7 @@ webpage, such as correcting typos or adding tutorials.
 There is a slightly more detailed version of these
 same instructions within the wiki website.
 
-1. Fork the repository
+1. Fork the Repository
 ......................
 
 On the top-right of the repository page you should be able to see a "Fork" button (between "Watch" and "Star").
@@ -68,7 +68,7 @@ editing the primary page (owned by CSU-Theory-Suite).
 Rather that appearing as :code:`CSU-Theory-Suite/theory-suite-wiki`, your fork of this repository will be shown
 as :code:`YOUR-GITHUB-USERNAME/theory-suite-wiki` (or something else if you changed the name).
 
-2. Clone your github's fork on your computer
+2. Clone Your Github's Fork on Your Computer
 ............................................
 
 Cloning this repository on your own computer will allow you to make edits
@@ -89,7 +89,7 @@ you will be getting a local copy of the repository. We will assume that the
    cd Documents
    git clone https://github.com/CSU-Theory-Suite/theory-suite-wiki.git theory-suite-wiki
 
-3. Ensure that your environment is adequate
+3. Ensure Yhat Your Environment is Adequate
 ...........................................
 
 Although we do not need many special tools for building our environment,
@@ -105,25 +105,23 @@ We can install them easily using pip
 
    python -m pip install sphinx sphinx-rtd-theme nbsphinx
 
-.. warning:: 
 
-   Make sure that the spelling is correct, the number of times I have tried to 
-   install sphinx-rdt-theme and got annoyed at it being unable to find the 
-   package have been more than what I would like to acknowledge.
+**Warning!** Make sure that the spelling is correct, the number of times 
+I have tried to install sphinx-rdt-theme and got annoyed at it being 
+unable to find the package have been more than what I would like to acknowledge.
 
-.. note:: 
+**Note:** Using :code:`python -m pip` instead of directly using :code:`pip` 
+will make sure that we are installing the packages in the specific python 
+interpreter that we are calling with the python command. If we are in a 
+virtual environment it will be the python interpreter of the virtual 
+environment, independently of it being a conda environment, a python venv 
+or any other kind of virtual environment (or no virtual environment whatsoever).
 
-   Using :code:`python -m pip` instead of directly using :code:`pip` will make 
-   sure that we are installing the packages in the specific python interpreter 
-   that we are calling with the python command. If we are in a virtual environment
-   it will be the python interpreter of the virtual environment, independently of 
-   it being a conda environment, a python venv or any other kind of virtual 
-   environment (or no virtual environment whatsoever).
-
-4. Generate a local preview of the files
+4. Generate a Local Preview of the Files
 .........................................
 
-We can generate a local preview of the html files (the website page we are creating) with the following commands: 
+We can generate a local preview of the html files (the website page we are creating) 
+with the following commands: 
 
 .. code:: shell
 
@@ -137,7 +135,7 @@ A simple way of pre-visualizing the documentation is to drag and drop this file
 to our web browser and navigate to the section we had edited. 
 
 
-5. Make the modifications in the rst files
+5. Make the Modifications in the RST Files
 ...........................................
 
 Using our preferred text editor, we will make the wanted changes and save those files. 
@@ -155,12 +153,10 @@ of helpful_packages.
    git commit -m 'Descriptive short message summarizing the changes'
 
 
-.. note:: 
+**Note:** Remember to re-generate the local preview and visualize the changes 
+to ensure that they show properly and double check for typos. 
 
-   Remember to re-generate the local preview and visualize the changes to ensure
-   that they show properly and double check for typos. 
-
-6. Pushing the results to your personal GitHub fork
+6. Pushing the Results to Your Personal GitHub Fork
 ....................................................
 
 Now that we have changed the source files, we want to have them not only on our 
@@ -180,44 +176,38 @@ on your computer to match that which is online, the command is:
    git pull origin master
 
 
-7. Creating a pull request
+7. Creating a Pull Request
 ..........................
 
 Now we proceed to create a pull request. We go to the repository page of our 
-personal fork, click on the "Pull requests" tab (at the top left of the page) and then on the green button 
+personal fork, click on the "Pull requests" tab (at the top left of the page) and 
+then on the green button 
 "New pull request" at the top right of the page.
 
-Now we make sure that the base repository is the CSU-Theory-Suite/theory-suite-wiki (on the left) 
+Now we make sure that the base repository is the CSU-Theory-Suite/theory-suite-wiki 
+(on the left) 
 and that the head repository is ours (on the right) and click the 
 "Create pull request"
 
 Finally, we write a short message as title and description of the changes we 
-made. This is likely going to be read by whoever is acting as admin of the repo before adding
+made. This is likely going to be read by whoever is acting as admin of the repo 
+before adding
 your changes to the primary webpage. 
 They might provide feedback on the changes (especially if you do not ask them to 
 merge it 5 minutes before the web needs to be active for, lets say, a presentation)
 
-.. note::
-
-   The current admins of this page are Alex (Paton group), Jake (Paton group), Hojin (Kim group), and Raul (Kim group).
-   Feel free to ask about becoming an admin yourself if you're interested!
-
-
-.. note:: 
-
-   Usually GitHub should notify them if they have it properly set up, but it is 
-   not a bad idea to send them a message or drop by their desk and tell them that 
-   you created a pull request. 
-
 After writing the message, click on "Create pull request". 
-Now its the admins' problem!
+Now its the admins' problem! They should be notified by GitHub, but 
+it never hurts to send a message letting them know you created a pull request.
 
-.. note:: 
+The current admins of this page are Alex (Paton group), Jake (Paton group), 
+and Hojin (Kim group). Feel free to ask about becoming an admin yourself if you're 
+interested!
 
-   Even if the merge is accepted on the spot, it will still have a short delay 
-   for the changes to be reflected in the actual webpage. Usually you can keep 
-   track of it by checking a yellow/green dot that will appear in the last commit 
-   of the CSU-Theory-Suite repo. Once you see the green checkmark, everything 
-   should be good to go.
+**Note:** Even if the merge is accepted on the spot, it will still have a short delay 
+for the changes to be reflected in the actual webpage. Usually you can keep 
+track of it by checking a yellow/green dot that will appear in the last commit 
+of the CSU-Theory-Suite repo. Once you see the green checkmark, everything 
+should be good to go.
 
    
