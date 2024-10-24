@@ -34,9 +34,7 @@ Feel free to also visit the `Paton Lab Website <https://patonlab.com/>`_ or the 
    :maxdepth: 3
    :caption: Helpful Packages
 
-   helpful_packages/inhouse
-   helpful_packages/external
-
+   helpful_packages/helpful_packages.rst
 
 
 .. toctree::
