@@ -1,6 +1,3 @@
-================
-Helpful Packages
-================
 
 .. contents::
    :local:
@@ -9,8 +6,9 @@ This page is meant to make users aware of helpful packages for our
 research, both in-house and external. Feel free to add any more packages as
 you see fit!
 
+=========
 GoodVibes
----------
+=========
 
 GoodVibes is an in-house Python package from the Paton group designed to compute 
 thermochemical values from 
@@ -28,8 +26,9 @@ Publication is available
 Documentation can be found in the Readme 
 `here <https://github.com/patonlab/GoodVibes>`__
 
+=========
 DBSTEP
-------
+=========
 
 DFT-Based STEric Parameters (or DBSTEP) is an in-house Python package 
 from the Paton group for collecting 
@@ -43,8 +42,9 @@ for the visualization of the parameter measurements in PyMOL.
 Documentation can be found in the Readme 
 `here <https://github.com/patonlab/DBSTEP>`__
 
+=========
 REGGAE
-------
+=========
 
 REGression Generator and AnalyzEr (or REGGAE) is an in-house R-language script 
 from the Paton group for 
@@ -56,8 +56,9 @@ Users can also generate plots for these analyses.
 Documentation can be found in the Readme
 `here <https://github.com/Liliana-Gallegos/REGGAE>`__
 
+=========
 DISCO
------
+=========
 
 DIStributing Computed Outputs (or DISCO) is an in-house Python script from 
 the Paton group used to parse through Gaussisan NBO and GIAO outputs for 
@@ -67,8 +68,9 @@ tensor values, and/or NMR chemical shifts, HOMO, LUMO, and bond distance values.
 Documentation can be found in the Readme 
 `here <https://github.com/Liliana-Gallegos/DISCO>`_.
 
+=========
 AQME
-----
+=========
 
 Automated QM Environments (or AQME) is an in-house Python package from 
 the Paton group, and is an ensemble of automated QM workflows that can 
@@ -83,8 +85,9 @@ Publication is available
 Documentation can be found in the Readme 
 `here <https://github.com/jvalegre/aqme>`__
 
+==================
 Slurm Job Tracking
-------------------
+==================
 .. |running_example| image:: images/jobcheck.png
 
 An in-house Python script from the Paton group that will allow you to track 
@@ -112,8 +115,9 @@ the last time the command was run:
 Now I can quick cd into the directory of the finished job, or copy it 
 over to my local machine.
 
+=========
 pyssian
--------
+=========
 
 :code:`pyssian` is an object oriented library for parsing Gaussian logfiles and input 
 files which aims to facilitate the everyday scripting of computational chemists 
@@ -131,23 +135,26 @@ repository.
 
 `Documentation <https://maserasgroup-repo.github.io/pyssian-utils/>`__
 
+=========
 RDKit
------
+=========
 
 RDKit is a collection of cheminformatics and machine-learning software written in C++ and Python. It includes BSD license - a business friendly license for open source, Core data structures and algorithms in C++, Python 3.x wrapper generated using Boost.Python, Java and C# wrappers generated with SWIG, 2D and 3D molecular operations, Descriptor and Fingerprint generation for machine learning, Molecular database cartridge for PostgreSQL supporting substructure and similarity searches as well as many descriptor calculators, Cheminformatics nodes for KNIME, and Contrib folder with useful community-contributed software harnessing the power of the RDKit. 
 
 `GitHub <https://github.com/rdkit/rdkit>`_
 `Tutorial GitHub <https://github.com/rdkit/rdkit-tutorials>`_
 
+=========
 CREST
------
+=========
 
 :code:`CREST` was developed as a program for conformational sampling at the extended tight-binding level GFN-xTB. 
 It provides a variety of sampling procedures, for example for improved thermochemistry, or solvation. 
 Access the `GitHub <https://github.com/crest-lab/crest>`_.
 
+=========
 ROBERT
-------
+=========
 
 ROBERT is a Python package designed to help inexperienced researchers 
 get started training machine-learning models. It is an ensemble of 
