@@ -142,11 +142,12 @@ Here are aliases to the local CSU resources:
 
 .. code:: shell
 
-    alias drmax='ssh $USER@drmaximus.chem.colostate.edu'
     alias subzero='ssh $USER@subzero.chem.colostate.edu'
     alias fireball='ssh $USER@fireball.chem.colostate.edu'
     alias dynamo='ssh $USER@dynamo.chem.colostate.edu'
     alias buzzsaw='ssh $USER@buzzsaw.chem.colostate.edu'
+    alias skymarshal='ssh $USER@skymarshal.chem.colostate.edu'
+    alias drstrange='ssh $USER@drstrange.chem.colostate.edu'
 
 To get accounts on these computers, you will need to contact an admin. For the
 Paton lab, this is Abhijeet or Alex (October 2024).
@@ -160,7 +161,8 @@ Here is the CPU information for ACME and the local linux machines:
     buzzsaw.chem.colostate.edu buzzsaw (2 x 24 cpus)
     fireball.chem.colostate.edu fireball (2 x 24 cpus)
     subzero.chem.colostate.edu subzero (2 x 24 cpus)
-    drmaximus.chem.colostate.edu drmaximus (2 x 12 cpus)
+    skymarshal.chem.colostate.edu skymarshal (1 x AMD Ryzen Threadripper PRO 7985WX 64-Cores)
+    drstrange.chem.colostate.edu drstrange (2 x NVIDIA RTX A6000 GPUs | AMD Ryzen Threadripper PRO 5975WX 32-Cores)
 
 On the linux machines, it may also be helpful to test to see what
 software is correctly installed/called. To check this make sure that
