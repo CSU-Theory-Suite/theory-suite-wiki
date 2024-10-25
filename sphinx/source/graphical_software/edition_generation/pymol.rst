@@ -12,7 +12,7 @@
 
 
 =====
-Pymol
+PyMOL
 =====
 
 .. contents::
@@ -22,9 +22,20 @@ Pymol
 Installation
 ------------
 
-We can install two flavors of Pymol, the "Free for academic use" and the 
+Below are instructions for installing PyMOL on a Linux computer. There 
+are also easy instructions to install PyMOL on your personal computer 
+`here <https://pymol.org/>`_.
+
+Another thing to note is that the Paton group has a license to use 
+PyMOL, so as you set it up you can ask Alex or Jake (Oct 2024) for 
+the license file.
+
+Linux
+......
+
+We can install two flavors of PyMOL, the "Free for academic use" and the 
 "Open source". Here we will see how to set up a new conda environment with the 
-appropriate libraries to compile the open source version of pymol.
+appropriate libraries to compile the open source version of PyMOL.
 
 .. note:: 
 
@@ -333,7 +344,7 @@ so far away using the command line? Let's write it instead!
 
 Hurray! 
 
-pymol scripts and command line rendering
+PyMOL Scripts and Command Line Rendering
 ........................................
 
 Our next step in this journey is to translate everything that we did to a python
@@ -405,3 +416,35 @@ syntax in python for the same pymol command with all their parameters explained.
    wonderfully crafted documentation there is people who would rather enlarge 
    the window to increase the quality of the rendered figure over checking the 
    documentation. People are crazy!
+
+
+Standard Group Designs 
+........................
+
+The Paton group has a general template for creating figures in 
+PyMOL. There is a script called ``pymol_style.py`` located 
+on the `Theory Suite GitHub <https://github.com/CSU-Theory-Suite/theorysuitescripts/tree/main/pymol>`_.
+This script, when called in your ``.pymolrc`` gives you access to 
+a lot of the style tools used in the Paton and Kim groups.
+
+To use this script, download the script to your computer and add 
+the line 
+
+.. code:: shell
+
+   run /file/location/pymol_style.py
+
+in your ``.pymolrc`` (which you can reach with ``File>Edit pymolrc``).
+
+So now, you can create the common Paton Group molecule figures 
+with the command ``BallnStick all``.
+
+Additionally, if there are other preset commands you would like to include, 
+this is a good place to put them. For example, I have included 
+
+.. code:: shell
+
+   set label_distance_units,2
+
+to ensure that any measurements I make give me the correct number of 
+significant figures.

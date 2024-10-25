@@ -1,7 +1,3 @@
-
-.. contents::
-   :local:
-
 This page is meant to make users aware of helpful packages for our 
 research, both in-house and external. Feel free to add any more packages as
 you see fit!
