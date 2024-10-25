@@ -41,7 +41,9 @@ Feel free to also visit the `Paton Lab Website <https://patonlab.com/>`_ or the 
    :maxdepth: 3
    :caption: Graphical Software
 
-   graphical_software/edition_generation
+   graphical_software/edition_generation/inkscape_gimp.rst
+   graphical_software/edition_generation/matplotlib.rst 
+   graphical_software/edition_generation/pymol.rst 
 
 
 .. toctree::
