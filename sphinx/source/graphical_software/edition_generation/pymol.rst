@@ -422,7 +422,7 @@ Standard Group Designs
 ........................
 
 The Paton group has a general template for creating figures in 
-PyMOL. There is a script called ``paton_pymol_style.py`` located 
+PyMOL. There is a script called ``pymol_style.py`` located 
 on the `Theory Suite GitHub <https://github.com/CSU-Theory-Suite/theorysuitescripts/tree/main/pymol>`_.
 This script, when called in your ``.pymolrc`` gives you access to 
 a lot of the style tools used in the Paton and Kim groups.
@@ -432,9 +432,12 @@ the line
 
 .. code:: shell
 
-   run /file/location/paton_pymol_style.py
+   run /file/location/pymol_style.py
 
 in your ``.pymolrc`` (which you can reach with ``File>Edit pymolrc``).
+
+So now, you can create the common Paton Group molecule figures 
+with the command ``BallnStick all``.
 
 Additionally, if there are other preset commands you would like to include, 
 this is a good place to put them. For example, I have included 
