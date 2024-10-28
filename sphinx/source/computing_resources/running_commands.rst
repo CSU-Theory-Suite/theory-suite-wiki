@@ -1,5 +1,5 @@
 ================
-Running Commands
+Submitting Jobs
 ================
 
 .. contents::
@@ -235,7 +235,18 @@ Once you have made a file like this, you can submit it to the queue with
 
     sbatch crest_submission_script.sh
 
-Then your job will be submitted to the queue and run when it is your turn.
+Then your job will be submitted to the queue and run when it is your turn. 
+
+.. hint::
+
+    There is a very easy way to create the submission scripts and submit 
+    jobs on our cluster ACME: ``gsub``. This command creates a submission 
+    script and automatically adds your job to the queue with the 
+    specifications you listed. You run this command with 
+    ``gsub input.com`` and can change specifications with different flags.
+    To see what the options are, you can run ``gsub -h`` to get a list 
+    of the different ways to adjust the script.
+
 
 Checking on Jobs
 ++++++++++++++++
