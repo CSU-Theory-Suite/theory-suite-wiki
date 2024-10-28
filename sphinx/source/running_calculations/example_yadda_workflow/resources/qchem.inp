@@ -1,0 +1,18 @@
+$rem
+   jobtype   eda
+   eda2      2
+   unrestricted    false
+   scf_algorithm   diis
+   scf_convergence 8
+   max_scf_cycles  200
+   thresh     14
+   symmetry   false
+   sym_ignore true
+   PURECART           1112
+   FRGM_METHOD        GIA
+   FRGM_LPCORR        RS_EXACT_SCF
+   XC_GRID            000099000590
+   MEM_TOTAL          8000
+   MEM_STATIC         4000
+$end
+
