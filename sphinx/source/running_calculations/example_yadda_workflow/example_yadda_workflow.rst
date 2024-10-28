@@ -38,7 +38,7 @@ you will add this line to your ``.bashrc``:
 
 .. code:: shell
 
-    PYTHONPATH="${PYTHONPATH}:/home/username/yadda/yadda"
+    PYTHONPATH="${PYTHONPATH}:/home/username/yadda"
 
 and ``source`` your ``.bashrc``, then you will be able to run the 
 script easily. 
@@ -48,8 +48,10 @@ Preparation
 -----------
 
 For this script to work, there are a few files that you'll need. 
-Additionally, this only currently works on the local linux machines 
-(not ACME), such as ``Buzzsaw`` or ``Fireball``.
+Additionally, this only currently works on the local linux machines, 
+such as ``Buzzsaw`` or ``Fireball``. You could likely put the command 
+into a submision file, but this hasn't been tested yet (and it would 
+require the long queue on ACME).
 
 IRC Output File 
 +++++++++++++++
