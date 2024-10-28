@@ -163,3 +163,14 @@ Documentation can be found
 
 Publication can be found 
 `here <https://chemrxiv.org/engage/chemrxiv/article-details/65492430c573f893f1ef468d>`_.
+
+=====
+YADDA
+=====
+
+``YADDA``, or Yet Another Distortion-interaction Decomposition Automation is a 
+package developed by the Paton group which helps in the automation of 
+distortion-interaction analysis along an IRC, as well as energy decomposition analysis.
+
+Documentation can be found 
+`here <https://github.com/patonlab/yadda/tree/main>`_.

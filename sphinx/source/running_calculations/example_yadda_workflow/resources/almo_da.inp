@@ -1,0 +1,17 @@
+## REQUIRED
+-i  dats_irc.log                 ## name of the IRC output back to reactants (required)
+-f  1-10,32-44:11-31             ## atom numbering for the two fragments (required)
+-l  M062X/6-31G*                 ## level of theory and basis set (required; doesn't need to match IRC)
+-e  ALMO                         ## EDA type (required: QM/ONIOM/ALMO)
+-x  qchem.inp                    ## example input file for QCHEM
+
+## OPTIONAL
+-q  /usr/local/qchem             ## path to qchem executable
+-d  dats                         ## directory containing IRC and ground state outputs (defaults to ./)
+-o  almo                         ## directory to perform new calculations (defaults to ./calc)
+-a  diene.log                    ## filename of optimized fragment A
+-b  dienophile.log               ## filename of optimized fragment B
+-n  16                           ## nCPUs used in jobs
+
+--coord 1:12/4:11                ## measure distance(s) along reaction coordinate
+-v                               ## turn on verbose printing
