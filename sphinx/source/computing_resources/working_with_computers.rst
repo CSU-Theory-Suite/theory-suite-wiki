@@ -70,6 +70,50 @@ As a final note, there are subtle differences between using the
 should not notice a difference and thus you can use either
 interchangeably.
 
+Setting up an ssh Key
++++++++++++++++++++++
+
+Information in this section comes from 
+`here <https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server>`_.
+
+When logging into different computers, you have to type your password 
+each time unless you set up an ssh key. If you set up this key, you 
+will be able to ssh to another computer directly, without the need to 
+type your password each time. 
+
+First, you need to generate an ssh key on your computer, which will also be 
+helpful when using GitHub, for example. More information about 
+setting up the ssh key can be found on the 
+`GitHub site <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_.
+
+To check to see if you already have an existing ssh key, type:
+
+.. code:: shell 
+
+    ls ~/.ssh
+
+to show you what (if any) ssh keys you have. These keys will likely 
+end in ``.pub``.
+
+Once you have an ssh key created, you can apply that key to 
+different computers/servers with ``ssh-copy-id username@remote_host``.
+
+For example, if your username is CamRam and you want to set up an 
+ssh key for ACME, type:
+
+.. code:: shell
+
+    ssh-copy-id CamRam@acme.chem.colostate.edu
+
+And you'll be able to login to ACME without typing your password.
+
+.. note::
+
+    This is only applicable when logging in from the computer 
+    with the ssh key that you have used the ``ssh-copy-id`` 
+    command to set up.
+    
+
 Who am I Logged In As?
 **************************
 
