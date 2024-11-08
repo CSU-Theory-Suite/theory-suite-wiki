@@ -427,6 +427,12 @@ on the `Theory Suite GitHub <https://github.com/CSU-Theory-Suite/theorysuitescri
 This script, when called in your ``.pymolrc`` gives you access to 
 a lot of the style tools used in the Paton and Kim groups.
 
+.. note:: 
+
+   You must be a member of the Theory Suite GitHub organization to 
+   access the GitHub repository with the script mentioned above.
+
+
 To use this script, download the script to your computer and add 
 the line 
 
@@ -444,7 +450,7 @@ this is a good place to put them. For example, I have included
 
 .. code:: shell
 
-   set label_distance_units,2
+   set label_distance_digits,2
 
 to ensure that any measurements I make give me the correct number of 
 significant figures.
