@@ -189,12 +189,18 @@ conformation search so you don't lose the transition state that you
 have.
 
 Another key feature of this input is that you must specify a 
-checkpoint file. You can do this wiht a simple line at the start of 
+checkpoint file. You can do this with a simple line at the start of 
 the file that looks something like this:
 
 .. code:: shell
 
     %chk=file_name_ts_conf_search.chk
+
+.. warning::
+
+    The checkpoint file must be defined in the first line of the 
+    input file, or the script will not work properly.
+    
 
 With all of these pieces you are ready to run qcalibrate and start 
 performing a conformation search of your transition state. In case
