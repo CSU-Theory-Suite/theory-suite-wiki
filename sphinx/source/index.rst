@@ -23,7 +23,7 @@ Feel free to also visit the `Paton Lab Website <https://patonlab.com/>`_ or the 
    computing_resources/running_commands.rst 
    computing_resources/fun_with_coworkers.rst 
    computing_resources/coding_resources.rst
-   computing_resources/withing_with_files.rst
+   computing_resources/working_with_files.rst
    computing_resources/moving_renaming_files.rst
    computing_resources/terminal_basics.rst
    computing_resources/working_with_computers.rst
