@@ -1,3 +1,5 @@
+.. |basic_commands| image:: resources/basic_linux_commands.jpg
+
 =======================
 Essential Unix Commands 
 =======================
@@ -86,7 +88,10 @@ These are the basics to using linux machines and working on the command line.
   +---------------------+----------------+-------------------------------------------------------+---------------------------+
 
 
- 
+If you have these commands down, here are a few more (in some more detail)
+that might be useful as well:
+
+.. centered:: |basic_commands|
 
 
 
