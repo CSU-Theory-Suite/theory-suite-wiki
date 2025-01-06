@@ -23,7 +23,7 @@ As CSU students, we have access to a shared cluster **Alpine** with CU Boulder
 (hosted in Boulder, CO).
 
 In order to gain access to Alpine follow 
-`this link <https://it.colostate.edu/research-computing-and-cyberinfrastructure/compute/get-started-with-summit/>`__.
+`this link <https://www.colorado.edu/rc/alpine>`__.
 Each time you log onto Alpine, you will need to run the command 
 ``module load slurm/alpine``. More information can be found 
 `here <https://curc.readthedocs.io/en/latest/clusters/alpine/quick-start.html>`__.
