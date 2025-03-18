@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adding Pages to the Wiki &mdash; csu-wiki  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a9e91e84" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=d048f138"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Paton Lab Computing Resources" href="../computing_resources/paton_computing_resources.html" />
+    <link rel="prev" title="Welcome to CSU-wiki&#39;s Documentation!" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            csu-wiki
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Adding Packages</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Adding Pages to the Wiki</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#fork-the-repository">1. Fork the Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clone-your-fork-to-your-computer">2. Clone Your Fork to Your Computer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ensure-your-environment-is-adequate">3. Ensure Your Environment is Adequate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generate-a-local-preview-of-existing-files">4. Generate a Local Preview of Existing Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#make-modifications-in-rst-files">5. Make Modifications in RST Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#making-sure-your-page-is-started-correctly">5.1 Making Sure Your Page is Started Correctly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modifying-rst-files">5.2 Modifying RST Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#titles-and-headings">Titles and Headings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notes-warnings-and-tips">Notes, Warnings, and Tips</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code-blocks">Code Blocks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lists">Lists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hyperlinks">Hyperlinks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#including-additional-files">Including Additional Files</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#save-your-changes-to-the-rst-files">6. Save Your Changes to the RST Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pushing-results-to-your-personal-github-fork">7. Pushing Results to Your Personal GitHub Fork</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-pull-request">8. Creating a Pull Request</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../computing_resources/paton_computing_resources.html">Paton Lab Computing Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing_resources/kim_computing_resources.html">Kim Lab Computing Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing_resources/essential_unix_commands.html">Essential Unix Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing_resources/file_system_layout.html">File System Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing_resources/running_commands.html">Submitting Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing_resources/fun_with_coworkers.html">Fun with Coworkers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing_resources/coding_resources.html">Coding Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing_resources/working_with_files.html">Working with Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing_resources/moving_renaming_files.html">Moving/Renaming Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing_resources/terminal_basics.html">Terminal Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing_resources/working_with_computers.html">Working with Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing_resources/using_github.html">Using GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Helpful Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html">GoodVibes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#dbstep">DBSTEP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#reggae">REGGAE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#disco">DISCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#aqme">AQME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#slurm-job-tracking">Slurm Job Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#pyssian">pyssian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#rdkit">RDKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#crest">CREST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#robert">ROBERT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#yadda">YADDA</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Graphical Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../graphical_software/edition_generation/inkscape_gimp.html">Inkscape &amp; GIMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphical_software/edition_generation/matplotlib.html">Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphical_software/edition_generation/pymol.html">PyMOL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example Workflows</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_aqme_workflow/example_aqme_workflow.html">End-to-End Workflow in ACME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_goodvibes_workflow/example_goodvibes_workflow.html">GoodVibes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_reggae_workflow/example_reggae_workflow.html">REGGAE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_descriptors_workflow/example_descriptors_workflow.html">RDKit, Mordred, Morfeus &amp; DBStep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_censo_workflow/example_censo_workflow.html">CENSO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_nciplot_calculation/example_nciplot_calculation.html">NCIPLOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_qcalibrate_ts_conf_search/example_qcalibrate_ts_conf_search.html">qcalibrate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_yadda_workflow/example_yadda_workflow.html">YADDA</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/classical_molecular_dynamics/classical_molecular_dynamics.html">Classical Molecular Dynamics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">csu-wiki</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Adding Pages to the Wiki</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/adding_pages/how_to_add_pages.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="adding-pages-to-the-wiki">
+<h1>Adding Pages to the Wiki<a class="headerlink" href="#adding-pages-to-the-wiki" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#fork-the-repository" id="id1">1. Fork the Repository</a></p></li>
+<li><p><a class="reference internal" href="#clone-your-fork-to-your-computer" id="id2">2. Clone Your Fork to Your Computer</a></p></li>
+<li><p><a class="reference internal" href="#ensure-your-environment-is-adequate" id="id3">3. Ensure Your Environment is Adequate</a></p></li>
+<li><p><a class="reference internal" href="#generate-a-local-preview-of-existing-files" id="id4">4. Generate a Local Preview of Existing Files</a></p></li>
+<li><p><a class="reference internal" href="#make-modifications-in-rst-files" id="id5">5. Make Modifications in RST Files</a></p>
+<ul>
+<li><p><a class="reference internal" href="#making-sure-your-page-is-started-correctly" id="id6">5.1 Making Sure Your Page is Started Correctly</a></p></li>
+<li><p><a class="reference internal" href="#modifying-rst-files" id="id7">5.2 Modifying RST Files</a></p>
+<ul>
+<li><p><a class="reference internal" href="#titles-and-headings" id="id8">Titles and Headings</a></p></li>
+<li><p><a class="reference internal" href="#notes-warnings-and-tips" id="id9">Notes, Warnings, and Tips</a></p></li>
+<li><p><a class="reference internal" href="#table-of-contents" id="id10">Table of Contents</a></p></li>
+<li><p><a class="reference internal" href="#code-blocks" id="id11">Code Blocks</a></p></li>
+<li><p><a class="reference internal" href="#lists" id="id12">Lists</a></p></li>
+<li><p><a class="reference internal" href="#hyperlinks" id="id13">Hyperlinks</a></p></li>
+<li><p><a class="reference internal" href="#including-additional-files" id="id14">Including Additional Files</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#save-your-changes-to-the-rst-files" id="id15">6. Save Your Changes to the RST Files</a></p></li>
+<li><p><a class="reference internal" href="#pushing-results-to-your-personal-github-fork" id="id16">7. Pushing Results to Your Personal GitHub Fork</a></p></li>
+<li><p><a class="reference internal" href="#creating-a-pull-request" id="id17">8. Creating a Pull Request</a></p></li>
+</ul>
+</nav>
+<p>If you have expertise that you want to share with the
+rest of the Theory Suite, adding a page to the wiki
+(or editing an existing page) is a great way to do that
+and help your fellow lab mates! This page will go through
+the basics of adding to the wiki and how to read/write
+ReStructuredText, the format of all the pages. A lot of
+this information also exists in the README on the
+<a class="reference external" href="https://github.com/CSU-Theory-Suite/theory-suite-wiki">GitHub Page</a>,
+but this will go into a little more detail.</p>
+<section id="fork-the-repository">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">1. Fork the Repository</a><a class="headerlink" href="#fork-the-repository" title="Link to this heading"></a></h2>
+<p>At the top-right of the repository page, you should be able to
+see a <code class="docutils literal notranslate"><span class="pre">Fork</span></code> button (between <code class="docutils literal notranslate"><span class="pre">Watch</span></code> and <code class="docutils literal notranslate"><span class="pre">Star</span></code>). This button
+allows you to create a clone of the current repository to
+your personal GitHub account. Once you fork the repo, it is now
+yours, so you can make and implement changes as you see fit
+without changing the original page owned by CSU-Theory-Suite.</p>
+<p>Rather than appearing as <code class="docutils literal notranslate"><span class="pre">CSU-Theory-Suite/theory-suite-wiki</span></code>,
+your fork of this repository will be shown as
+<code class="docutils literal notranslate"><span class="pre">YOUR-GITHUB-USERNAME/theory-suite-wiki</span></code>, or something else
+if you changed the name when you forked the repo.</p>
+</section>
+<section id="clone-your-fork-to-your-computer">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">2. Clone Your Fork to Your Computer</a><a class="headerlink" href="#clone-your-fork-to-your-computer" title="Link to this heading"></a></h2>
+<p>Cloning this repository from your online account onto your personal
+computer will allow you to make edits/changes more easily. You can
+make these edits in programs such as
+<a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a>, or even
+just in the terminal.</p>
+<p>One thing to note, it is important that the clone on your computer
+is updated to be the same as your fork of the repository on the
+GitHub website. I would also make sure that your online fork is
+updated to the same version as the primary repository owned by
+CSU-Theory-Suite (the only exception would be if you are actively
+making changes and don't want to change your current version).</p>
+<p>To clone your fork onto your computer, open the repository page of
+your fork (<code class="docutils literal notranslate"><span class="pre">YOUR-GITHUB-USERNAME/theory-suite-wiki</span></code>), go to the
+green <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span> <span class="pre">Code</span></code> button at the top right, and copy your preferred
+URL.</p>
+<p>Once this is copied, open a terminal and navigate to the folder where
+you will be putting your local copy of the repository. For now, we
+will assume that place is <code class="docutils literal notranslate"><span class="pre">Documents/theory-suite-wiki/</span></code>.</p>
+<p>Use the following line of code to complete the cloning:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>Documents/
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/CSU-Theory-Suite/theory-suite-wiki.git<span class="w"> </span>theory-suite-wiki
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The URL in the example above copies the main branch to your computer.
+Ensure that this is the URL that you copied from <em>YOUR</em> fork of
+the repository.</p>
+</div>
+<p>If you already have the repository cloned to your computer and
+just want to update the version with what you have online, you
+don't have to re-clone, instead just pull the files to you:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/Documents/theory-suite-wiki/
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>master
+</pre></div>
+</div>
+<p>This code will take files in the master branch of the online
+repository and pull them onto your computer.</p>
+</section>
+<section id="ensure-your-environment-is-adequate">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">3. Ensure Your Environment is Adequate</a><a class="headerlink" href="#ensure-your-environment-is-adequate" title="Link to this heading"></a></h2>
+<p>Though we don't need many tools to build our environment, we do want
+to make sure that we have the basic necessities to edit the
+webpage:</p>
+<ul class="simple">
+<li><p>sphinx</p></li>
+<li><p>sphinx-rtd-theme</p></li>
+<li><p>nbsphinx (Required until further notice)</p></li>
+</ul>
+<p>We can install all these packages using <code class="docutils literal notranslate"><span class="pre">pip</span></code></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>sphinx<span class="w"> </span>sphinx-rtd-theme<span class="w"> </span>nbsphinx
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Make sure that the spelling of the packages is correct.
+The number of times that I have tried to install
+<code class="docutils literal notranslate"><span class="pre">sphinx-rdt-theme</span></code> and been annoyed at it not finding
+the package is more than I care to admit...</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span></code> instead of directly using <code class="docutils literal notranslate"><span class="pre">pip</span></code> will
+make sure that we are installing the packages in the specific
+python interpreter that we are calling with the <code class="docutils literal notranslate"><span class="pre">python</span></code>
+command. If we are in a virtual environment, it will be the python
+interpreter of the virtual environment, independently of it being
+a conda environemnt, a python venv, or any other kind of virtual
+environment (or no virtual environment whatsoever).</p>
+</div>
+</section>
+<section id="generate-a-local-preview-of-existing-files">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">4. Generate a Local Preview of Existing Files</a><a class="headerlink" href="#generate-a-local-preview-of-existing-files" title="Link to this heading"></a></h2>
+<p>We are able to generate a local preview of the html files
+(the webpage that we are creating) with the following
+commands:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/Documents/theory-suite-wiki/sphinx
+make<span class="w"> </span>clean<span class="w"> </span><span class="c1">#this is not always needed, but will make sure all changes are reflected</span>
+make<span class="w"> </span>html
+</pre></div>
+</div>
+<p>This will create a new folder in <code class="docutils literal notranslate"><span class="pre">~/Documents/theory-suite-wiki/sphinx/</span></code>
+called <code class="docutils literal notranslate"><span class="pre">_build</span></code>. In this folder, there is the <code class="docutils literal notranslate"><span class="pre">html/</span></code> folder containing
+a file called <code class="docutils literal notranslate"><span class="pre">index.html</span></code>. A simple way to visualize the documentation and
+ensure that the changes you made are to your liking is to drag and drop
+this <code class="docutils literal notranslate"><span class="pre">index.html</span></code> file into your web browser, then navigate to the section
+you have just edited. This is a great way to see how your page will look
+when added to the website and make sure that everything links correctly
+and looks nice before commiting your changes.</p>
+</section>
+<section id="make-modifications-in-rst-files">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">5. Make Modifications in RST Files</a><a class="headerlink" href="#make-modifications-in-rst-files" title="Link to this heading"></a></h2>
+<section id="making-sure-your-page-is-started-correctly">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">5.1 Making Sure Your Page is Started Correctly</a><a class="headerlink" href="#making-sure-your-page-is-started-correctly" title="Link to this heading"></a></h3>
+<p>A conveinent feature of this website is that everything
+links to the page you want and there are sections
+to help make searching easier for the readers. To
+make sure that your page is easy to find, there are a
+few things you need to do.</p>
+<p>First, decide what section you want to add your page to.
+If there isn't an obvious section, you can also add
+one to make sure that the wiki stays organized. You can
+look at existing sections either on the current wiki or
+in the file in <code class="docutils literal notranslate"><span class="pre">~/Documents/theory-suite-wiki/sphinx/index.rst</span></code>.
+This file contains the structure of the website, and you
+will need to update it when you add new pages.</p>
+<p>To add a page, go into the <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> file and scroll to
+the section that you want to add your page to. Each section
+is designated by a <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">toctree::</span></code> with the caption corresponding
+to the title of the page. Find your section, then add the
+appropriate file path in that section.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are adding to an existing section, there should
+already be a folder created in the <code class="docutils literal notranslate"><span class="pre">source/</span></code> folder for
+that section. If you are creating a new section, you will
+want to also create a new folder in the <code class="docutils literal notranslate"><span class="pre">source/</span></code> folder.
+For example, everything in the <strong>Graphical Software</strong>
+section is included in the <code class="docutils literal notranslate"><span class="pre">graphical_software/</span></code> folder.</p>
+</div>
+<p>Once you have found your section and designated the RST file
+that will house your new page, go ahead and create the file.
+With the RST file made for the page, and that file linked in
+the <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> file, you can start building your page on the
+website!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to add outside resources/files to your page, you can
+make new folders within your page's folder to keep all
+additional files to make your page of the wiki nice.</p>
+</div>
+</section>
+<section id="modifying-rst-files">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">5.2 Modifying RST Files</a><a class="headerlink" href="#modifying-rst-files" title="Link to this heading"></a></h3>
+<p>ReStructuredText (RST) isn't necessarily a file format you might be
+familiar with. It's similar to Markdown, essentially a way to
+format text files using commands rather than a toolbar like
+Word. Nearly all files that make up this wiki are written in RST, so
+it's important to be able to read/write these types of files if
+you're going to make helpful changes to the wiki.</p>
+<p>First, I'm going to go over the basics of RST and how to
+write common formats. For more information (or if you
+forget a command), you can go <a class="reference external" href="https://docutils.sourceforge.io/docs/user/rst/quickref.html">here</a>
+for a list of RST commands (or Google questions as they come to you).
+Additionally, if you notice that another page of the wiki
+has formatting that you like, you can open the source code for
+that page and see what they did to achieve that formatting.</p>
+<section id="titles-and-headings">
+<h4><a class="toc-backref" href="#id8" role="doc-backlink">Titles and Headings</a><a class="headerlink" href="#titles-and-headings" title="Link to this heading"></a></h4>
+<p>Each new page you make should have a title. RST has features
+similar to Word where you can include a title and different
+levels of (sub)headings. You make these formatting changes
+with different uses of punctuation:</p>
+<ul class="simple">
+<li><p>equal sign (=)</p></li>
+<li><p>period (.)</p></li>
+<li><p>dash (-)</p></li>
+<li><p>asterisk (*)</p></li>
+<li><p>pound (#)</p></li>
+<li><p>carrot (^)</p></li>
+<li><p>plus (+)</p></li>
+</ul>
+<p>There is a general rule of thumb for which symbol to use when
+(go to <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">this page</a>
+for more information), but as long as you're consistent with what
+you use it will work.</p>
+<p>Below is an example of what titles/headings/subheadings might
+look like when you're making a page for the website:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>========
+Title
+========
+
+Heading 1
+*********
+
+Heading 2
+*********
+
+Subheading 1
+------------
+
+Sub-Subheading 1
+++++++++++++++++
+
+Subheading 2
+------------
+
+Heading 3
+*********
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can use any style of punctuation to designate
+headings/subheadings, but once you have picked an
+order you must stick to it. In the example above,
+<code class="docutils literal notranslate"><span class="pre">+</span></code> represents the sub-subheading, and that will
+still be the case if there are no headings before
+it. Similarly, <code class="docutils literal notranslate"><span class="pre">*</span></code> is the character that designates
+the headings, nothing else will behave that way now.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The punctuation must at least be enough to &quot;underline&quot;
+all of the text of the title/heading. It can be longer
+(like for &quot;Title&quot; in the example), but it cannot be
+fewer characters than used in the heading.</p>
+</div>
+</section>
+<section id="notes-warnings-and-tips">
+<h4><a class="toc-backref" href="#id9" role="doc-backlink">Notes, Warnings, and Tips</a><a class="headerlink" href="#notes-warnings-and-tips" title="Link to this heading"></a></h4>
+<p>Addings notes, warnings, and/or tips to your page can be
+a helpful way of stressing important points to your readers.
+These features are easy to add to your page with the
+following formats:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.. tip:: 
+
+    Here is how to structure a tip.
+
+.. note::
+
+    Here is how to structure a note.
+
+.. warning::
+
+    Here is how to structure a warning.
+
+</pre></div>
+</div>
+<p>A few things to note here:</p>
+<ul class="simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">feature::</span></code> is common throughout all RST, it is how you add notes, code, highlights, and files</p></li>
+<li><p>you need a blank line before and after your note/tip/warning</p></li>
+<li><p>your actual note needs to be indented once to be included in the box</p></li>
+</ul>
+<p>Generally, you should include at least one blank line between
+anything special that you try to format, but it's necessary
+when working with these types of boxes.</p>
+<p>The text I featured above will make the following boxes
+when included in an RST file</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Here is how to structure a tip.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Here is how to structure a note.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Here is how to structure a warning.</p>
+</div>
+</section>
+<section id="table-of-contents">
+<h4><a class="toc-backref" href="#id10" role="doc-backlink">Table of Contents</a><a class="headerlink" href="#table-of-contents" title="Link to this heading"></a></h4>
+<p>All of the pages thus far include some kind of table of
+contents at the top. This is helpful since it gives readers
+an overview of the topics covered on this page, as well as
+links to the different sections (specified by the headings).</p>
+<p>To add a table of contents to your page, indlude the following
+text:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.. contents::
+    :local:
+</pre></div>
+</div>
+<p>This will add a table of contents (with links) to your page.
+There is one for this page if you want an example of how it works.</p>
+</section>
+<section id="code-blocks">
+<h4><a class="toc-backref" href="#id11" role="doc-backlink">Code Blocks</a><a class="headerlink" href="#code-blocks" title="Link to this heading"></a></h4>
+<p>Code blocks can be a nice way to show different commands that
+you might need to run in order to complete the workflow you
+are demonstrating (or any other time you want to run commands).
+There are two ways to do this, either a full code block
+or just changing the format of the text within paragraphs.</p>
+<p>For example, if I want you to run a command as part of my
+workflow, I might include a full code block:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>*.xyz<span class="w"> </span><span class="c1">#this will list all xyz coordinate files in your directory</span>
+</pre></div>
+</div>
+<p>This type of code block is added with this format:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.. code:: shell
+
+    This is my code
+</pre></div>
+</div>
+<p>The other way to add code in RST files just changes the formatting
+of the text in the paragraph. There are examples of this throughout
+this page, but you can also see that <code class="docutils literal notranslate"><span class="pre">here</span></code>. To add this kind of
+formatting to your text, just surround your command with two `
+on each side of the command.</p>
+</section>
+<section id="lists">
+<h4><a class="toc-backref" href="#id12" role="doc-backlink">Lists</a><a class="headerlink" href="#lists" title="Link to this heading"></a></h4>
+<p>Adding lists is faily intuitive in RST. With one blank line on
+either side of the list, you can create a bulleted list by
+having each point start with a <code class="docutils literal notranslate"><span class="pre">*</span></code> and starting new lines for
+new points. Here is the format:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* item 1
+* item 2
+* item 3
+</pre></div>
+</div>
+<p>The code above will have the following effect on your page:</p>
+<ul class="simple">
+<li><p>item 1</p></li>
+<li><p>item 2</p></li>
+<li><p>item 3</p></li>
+</ul>
+</section>
+<section id="hyperlinks">
+<h4><a class="toc-backref" href="#id13" role="doc-backlink">Hyperlinks</a><a class="headerlink" href="#hyperlinks" title="Link to this heading"></a></h4>
+<p>Hyperlinks are a way to provide your reader with more information
+while keeping the format and look of your page nice.
+Here is the format of including a hyperlink on your page:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>`CSU Theory Suite Wiki &lt;https://csu-theory-suite.github.io/theory-suite-wiki/&gt;`_
+</pre></div>
+</div>
+<p>Here is the result of that example:
+<a class="reference external" href="https://csu-theory-suite.github.io/theory-suite-wiki/">CSU Theory Suite Wiki</a></p>
+</section>
+<section id="including-additional-files">
+<h4><a class="toc-backref" href="#id14" role="doc-backlink">Including Additional Files</a><a class="headerlink" href="#including-additional-files" title="Link to this heading"></a></h4>
+<p>In the event that you want to add text from a
+file you already have, or if you want to include
+an image in your wiki page, you can add more files and
+include them within the RST file for your page.
+You can do this in a very similar way to adding code blocks and
+the like, just with a different command.</p>
+<p>One housekeeping tip here, I would make a new folder within your
+page folder called &quot;examples&quot; or &quot;resources&quot; if you are going to
+include different files within your page. This will keep things
+orderly and neat and easy to find if you want to change anything up.</p>
+<p>To add something directly to the page use this command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>..<span class="w"> </span>literalinclude::<span class="w"> </span>resources/file_to_include.txt
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This will put the entirety of the file you want to include
+in that space in your page, so make sure it's what you want!</p>
+</div>
+<p>You can also add figures to your page. To do this, I would
+include a line at the top which sets the &quot;variable&quot; that is
+your image. Then, you can call it at whatever point of the
+page you would like. To set the variable, you can do:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>..<span class="w"> </span><span class="p">|</span>figure_name<span class="p">|</span><span class="w"> </span>image::<span class="w"> </span>images/this_is_my_image.png
+</pre></div>
+</div>
+<p>If you include this at the top of your page (before the title),
+then later you can include the figure where you want with:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>..<span class="w"> </span>centered::<span class="w"> </span><span class="p">|</span>figure_name<span class="p">|</span>
+</pre></div>
+</div>
+<p>This will include the figure that you want centered on
+your page. Also, if you end up changing the figure you just
+have to update the file in <code class="docutils literal notranslate"><span class="pre">images/</span></code>.</p>
+</section>
+</section>
+</section>
+<section id="save-your-changes-to-the-rst-files">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">6. Save Your Changes to the RST Files</a><a class="headerlink" href="#save-your-changes-to-the-rst-files" title="Link to this heading"></a></h2>
+<p>Once you have made all the changes that you want to your
+page on the wiki, now you start the process of putting
+those changes into action on the official website.
+After you have made a set of related changes, you can
+&quot;locally save them&quot; to your local repository.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is best practice to only commit small changes at once,
+and make sure that everything you commit at a time is related.
+This will help with version control and make sure that
+everything stays organized.</p>
+</div>
+<p>For example,
+if you made changes to a file in <code class="docutils literal notranslate"><span class="pre">graphical_software/</span></code> and
+also in <code class="docutils literal notranslate"><span class="pre">helpful_packages/</span></code>, you could &quot;save&quot; your changes
+with the following:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/Documents/theory-suite-wiki/sphinx/
+git<span class="w"> </span>status<span class="w"> </span><span class="c1">#check that all the files in red are the ones you made changes to</span>
+git<span class="w"> </span>add<span class="w"> </span><span class="nb">source</span>
+git<span class="w"> </span>status<span class="w"> </span><span class="c1">#check that all the files you changed now appear green</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;Short descriptive message of the changes you made&#39;</span>
+</pre></div>
+</div>
+<p>This will commit all the changes that you made to the local
+copy of the repository on your computer.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Remember to re-generate the local preview of the wiki to
+visualize the changes that you made to make sure everything
+is showing correctly. Also use this to double check for typos.</p>
+</div>
+</section>
+<section id="pushing-results-to-your-personal-github-fork">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">7. Pushing Results to Your Personal GitHub Fork</a><a class="headerlink" href="#pushing-results-to-your-personal-github-fork" title="Link to this heading"></a></h2>
+<p>Now that we have made alterations to the files that we wanted
+to create/edit pages on the wiki, we want to make sure that
+the updated files exist both on our local computer and on the
+online version of GitHub. To do this, you run the command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master
+</pre></div>
+</div>
+<p>This will sync the online version of your repository with the
+fork that you have been editing on your computer.</p>
+</section>
+<section id="creating-a-pull-request">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">8. Creating a Pull Request</a><a class="headerlink" href="#creating-a-pull-request" title="Link to this heading"></a></h2>
+<p>Now that the online version is synced with the local version
+you were editing, we need to create a pull request to add
+our changes to the primary repository owned by CSU-Theory-Suite.
+To do this, we go to the online repository page of our personal
+fork, click on the <code class="docutils literal notranslate"><span class="pre">Pull</span> <span class="pre">requests</span></code> tab at the top left of the
+page, then select the green button labeled <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">pull</span> <span class="pre">request</span></code>
+at the top right of the page.</p>
+<p>Now, make sure that the base repository is the
+<code class="docutils literal notranslate"><span class="pre">CSU-Theory-Suite/theory-suite-wiki</span></code> (on the left) and that the
+head repository is ours (on the right), then click <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">pull</span> <span class="pre">request</span></code>.</p>
+<p>Finally, write a short message as the title and description of the
+changes that we made. This is likely going to be read by whoever
+is acting as the admin of the repository (currently Alex and Raul)
+before they merge changes and add them to the primary website.
+The admin(s) might provide feedback on the changes (especially if
+you don't wait until 5 minutes before a presentation where the
+page needs to be active).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The current admins of this page are Alex (Paton group), Jake (Paton group),
+Hojin (Kim group), and
+Raul (Kim group). Feel free to ask them about becoming
+an admin yourself if you're interested!</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Usually, GitHub will notify the admins when you have started
+a pull request, but it never hurts to send them a message
+via Slack or stop by their desks to let them know that
+you created a pull request for the wiki.</p>
+</div>
+<p>After you write the message describing the changes that
+you made, click <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">pull</span> <span class="pre">request</span></code> to send if off.
+Now it's the admins' problem!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Even if the merge is accepted on the spot, there will
+still be a short delay for the changes to be reflected
+in the actual webpage. Usually you can keep track of
+it by checking for a yellow/green dot that will appear
+next to the last comit of the CSU-Theory-Suite repo.
+Once you see a green checkmark, everything should
+be set and good to go!</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to CSU-wiki&#39;s Documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../computing_resources/paton_computing_resources.html" class="btn btn-neutral float-right" title="Paton Lab Computing Resources" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, csu-theory-suite.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
