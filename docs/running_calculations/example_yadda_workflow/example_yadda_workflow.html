@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YADDA &mdash; csu-wiki  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a9e91e84" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=d048f138"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Classical Molecular Dynamics" href="../../concepts/classical_molecular_dynamics/classical_molecular_dynamics.html" />
+    <link rel="prev" title="qcalibrate" href="../example_qcalibrate_ts_conf_search/example_qcalibrate_ts_conf_search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            csu-wiki
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Adding Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../adding_pages/how_to_add_pages.html">Adding Pages to the Wiki</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/paton_computing_resources.html">Paton Lab Computing Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/kim_computing_resources.html">Kim Lab Computing Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/essential_unix_commands.html">Essential Unix Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/file_system_layout.html">File System Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/running_commands.html">Submitting Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/fun_with_coworkers.html">Fun with Coworkers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/coding_resources.html">Coding Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/working_with_files.html">Working with Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/moving_renaming_files.html">Moving/Renaming Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/terminal_basics.html">Terminal Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/working_with_computers.html">Working with Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/using_github.html">Using GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Helpful Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html">GoodVibes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#dbstep">DBSTEP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#reggae">REGGAE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#disco">DISCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#aqme">AQME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#slurm-job-tracking">Slurm Job Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#pyssian">pyssian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#rdkit">RDKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#crest">CREST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#robert">ROBERT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#yadda">YADDA</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Graphical Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphical_software/edition_generation/inkscape_gimp.html">Inkscape &amp; GIMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../graphical_software/edition_generation/matplotlib.html">Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../graphical_software/edition_generation/pymol.html">PyMOL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example Workflows</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../example_aqme_workflow/example_aqme_workflow.html">End-to-End Workflow in ACME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_goodvibes_workflow/example_goodvibes_workflow.html">GoodVibes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_reggae_workflow/example_reggae_workflow.html">REGGAE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_descriptors_workflow/example_descriptors_workflow.html">RDKit, Mordred, Morfeus &amp; DBStep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_censo_workflow/example_censo_workflow.html">CENSO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_nciplot_calculation/example_nciplot_calculation.html">NCIPLOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_qcalibrate_ts_conf_search/example_qcalibrate_ts_conf_search.html">qcalibrate</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">YADDA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preparation">Preparation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#irc-output-file">IRC Output File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-input-file">Example Input File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#yadda-input-file">YADDA Input File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optional-optimized-reactant-files">(optional) Optimized Reactant Files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#almo-eda-calculations">ALMO-EDA Calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#qm-calculations">QM Calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oniom-eda-calculations">ONIOM-EDA Calculations</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/classical_molecular_dynamics/classical_molecular_dynamics.html">Classical Molecular Dynamics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">csu-wiki</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">YADDA</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/running_calculations/example_yadda_workflow/example_yadda_workflow.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="yadda">
+<h1>YADDA<a class="headerlink" href="#yadda" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#installation" id="id2">Installation</a></p></li>
+<li><p><a class="reference internal" href="#preparation" id="id3">Preparation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#irc-output-file" id="id4">IRC Output File</a></p></li>
+<li><p><a class="reference internal" href="#example-input-file" id="id5">Example Input File</a></p></li>
+<li><p><a class="reference internal" href="#yadda-input-file" id="id6">YADDA Input File</a></p></li>
+<li><p><a class="reference internal" href="#optional-optimized-reactant-files" id="id7">(optional) Optimized Reactant Files</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#almo-eda-calculations" id="id8">ALMO-EDA Calculations</a></p></li>
+<li><p><a class="reference internal" href="#qm-calculations" id="id9">QM Calculations</a></p></li>
+<li><p><a class="reference internal" href="#oniom-eda-calculations" id="id10">ONIOM-EDA Calculations</a></p></li>
+</ul>
+</nav>
+<section id="installation">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Installation</a><a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>YADDA is still currently a work in progress, but here is the way that
+you can install it and use the program.</p>
+<p>First, go to the <a class="reference external" href="https://github.com/patonlab/yadda/tree/main">GitHub page</a>
+and click on the green <code class="docutils literal notranslate"><span class="pre">Code</span></code> button at the top right of the page. This
+will allow you to copy the ssh link which will allow you to clone the
+repository to a computer. Copy this link (will start with <a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:)
+and return to your computer, where you will type</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>&lt;ssh<span class="w"> </span>link&gt;
+</pre></div>
+</div>
+<p>This line will copy the current GitHub repository to your computer, including
+all the scripts you need to run it.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>One thing to note, this will not work if you do not have a GitHub
+ssh key set up already for the computer you are working on. You
+can find more information <a class="reference external" href="https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-ssh-urls">here</a>.</p>
+</div>
+<p>Once you have the package cloned to your computer, you can add it to
+your PYTHONPATH variable to allow YADDA to be run as a module.</p>
+<p>For example, if you cloned YADDA into your home directory (<code class="docutils literal notranslate"><span class="pre">/home/username/</span></code>),
+you will add this line to your <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PYTHONPATH</span><span class="si">}</span><span class="s2">:/home/username/yadda&quot;</span>
+</pre></div>
+</div>
+<p>and <code class="docutils literal notranslate"><span class="pre">source</span></code> your <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>, then you will be able to run the
+script easily.</p>
+</section>
+<section id="preparation">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Preparation</a><a class="headerlink" href="#preparation" title="Link to this heading"></a></h2>
+<p>For this script to work, there are a few files that you'll need.
+Additionally, this only currently works on the local linux machines,
+such as <code class="docutils literal notranslate"><span class="pre">Buzzsaw</span></code> or <code class="docutils literal notranslate"><span class="pre">Fireball</span></code>. You could likely put the command
+into a submision file, but this hasn't been tested yet (and it would
+require the long queue on ACME).</p>
+<section id="irc-output-file">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">IRC Output File</a><a class="headerlink" href="#irc-output-file" title="Link to this heading"></a></h3>
+<p>First, you need an IRC calculation that shows that path from the
+reactants to the transition state structure. Often, this is done only
+for the lowest energy conformation of the transition state. Additionally,
+this calculation should show a fairly smooth IRC with a lot of points to
+ensure that you'll be able to draw meaningful conclusions from the results.</p>
+</section>
+<section id="example-input-file">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Example Input File</a><a class="headerlink" href="#example-input-file" title="Link to this heading"></a></h3>
+<p>One thing you'll need is an example input file (or at least the bones of
+one) for the program to use when formatting the inputs for the calculations
+that will be run along the IRC. Here is an example for qchem:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$rem
+   jobtype   eda
+   eda2      2
+   unrestricted    false
+   scf_algorithm   diis
+   scf_convergence 8
+   max_scf_cycles  200
+   thresh     14
+   symmetry   false
+   sym_ignore true
+   PURECART           1112
+   FRGM_METHOD        GIA
+   FRGM_LPCORR        RS_EXACT_SCF
+   XC_GRID            000099000590
+   MEM_TOTAL          8000
+   MEM_STATIC         4000
+$end
+
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This example file does not include solvation, so if you want
+that in your EDA calculations you'll have to include it.</p>
+</div>
+</section>
+<section id="yadda-input-file">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">YADDA Input File</a><a class="headerlink" href="#yadda-input-file" title="Link to this heading"></a></h3>
+<p>The last required file for these calculations is the actual YADDA
+input file. This file includes all the flags that you plan on using,
+and it's also where you specify the file names that you will be
+calling during the calculation. Here is an example for this file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>## REQUIRED
+-i  dats_irc.log                 ## name of the IRC output back to reactants (required)
+-f  1-10,32-44:11-31             ## atom numbering for the two fragments (required)
+-l  M062X/6-31G*                 ## level of theory and basis set (required; doesn&#39;t need to match IRC)
+-e  ALMO                         ## EDA type (required: QM/ONIOM/ALMO)
+-x  qchem.inp                    ## example input file for QCHEM
+
+## OPTIONAL
+-q  /usr/local/qchem             ## path to qchem executable
+-d  dats                         ## directory containing IRC and ground state outputs (defaults to ./)
+-o  almo                         ## directory to perform new calculations (defaults to ./calc)
+-a  diene.log                    ## filename of optimized fragment A
+-b  dienophile.log               ## filename of optimized fragment B
+-n  16                           ## nCPUs used in jobs
+
+--coord 1:12/4:11                ## measure distance(s) along reaction coordinate
+-v                               ## turn on verbose printing
+</pre></div>
+</div>
+<p>This file has noted a few things that are optional and required for the
+calculation and can serve as a guide for a few of the things you can do.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Make sure you are directing to the correct version of QChem for this!</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This input file has a section where you can define the bond(s) that
+are forming/breaking in your transition state so that you can
+plot/analyze the data along a physical coordinate of the reaction
+(such as bond length).</p>
+</div>
+</section>
+<section id="optional-optimized-reactant-files">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">(optional) Optimized Reactant Files</a><a class="headerlink" href="#optional-optimized-reactant-files" title="Link to this heading"></a></h3>
+<p>These aren't required, but can help in the distortion-interaction calculations
+by giving an optimized baseline for the reactants. If these are not specified,
+the program will use the endpoint of the IRC as the optimized reactant structures.</p>
+</section>
+</section>
+<section id="almo-eda-calculations">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">ALMO-EDA Calculations</a><a class="headerlink" href="#almo-eda-calculations" title="Link to this heading"></a></h2>
+<p>This program currently works with QChem to perform
+ALMO-EDA calculations at each point along an IRC calculation. The
+files I've included earlier are examples for this kind of calculation,
+and with small adjustments they can be altered to fit your particular
+system. The main thing distinguishing this type of calculations from
+others is the inclusion of <code class="docutils literal notranslate"><span class="pre">ALMO</span></code> in the input file.</p>
+<p>If you have all the required (and optional) files in the same
+folder, you can run this program with:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>yadda<span class="w"> </span>-i<span class="w"> </span>input_file.inp<span class="w"> </span>&gt;<span class="w"> </span>output_file.out
+</pre></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>I would recommend running this in the background with
+<code class="docutils literal notranslate"><span class="pre">nohup</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">yadda</span> <span class="pre">-i</span> <span class="pre">input_file.inp</span> <span class="pre">&gt;</span> <span class="pre">output_file.out</span> <span class="pre">&amp;</span></code>
+since you're running a lot of single point/EDA calculations and
+it's going to take a while.</p>
+</div>
+<p>Once the calculations are finished, you will be left with a CSV
+file with all the calculated data, which you can use to plot the
+results. An example Jupyter Notebook which plots the data after the
+input of a CSV file can be found on the
+<a class="reference external" href="https://github.com/patonlab/yadda/blob/main/example_almo_eda/plot_results.ipynb">GitHub Page</a>.</p>
+</section>
+<section id="qm-calculations">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">QM Calculations</a><a class="headerlink" href="#qm-calculations" title="Link to this heading"></a></h2>
+<p>If you do this, please add a section about how it works!</p>
+</section>
+<section id="oniom-eda-calculations">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">ONIOM-EDA Calculations</a><a class="headerlink" href="#oniom-eda-calculations" title="Link to this heading"></a></h2>
+<p>If you do this, please add a section about how it works!</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../example_qcalibrate_ts_conf_search/example_qcalibrate_ts_conf_search.html" class="btn btn-neutral float-left" title="qcalibrate" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../concepts/classical_molecular_dynamics/classical_molecular_dynamics.html" class="btn btn-neutral float-right" title="Classical Molecular Dynamics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, csu-theory-suite.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

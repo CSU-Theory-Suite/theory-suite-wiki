@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Working with Files &mdash; csu-wiki  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a9e91e84" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=d048f138"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Moving/Renaming Files" href="moving_renaming_files.html" />
+    <link rel="prev" title="Coding Resources" href="coding_resources.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            csu-wiki
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Adding Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../adding_pages/how_to_add_pages.html">Adding Pages to the Wiki</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="paton_computing_resources.html">Paton Lab Computing Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kim_computing_resources.html">Kim Lab Computing Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="essential_unix_commands.html">Essential Unix Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_system_layout.html">File System Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_commands.html">Submitting Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fun_with_coworkers.html">Fun with Coworkers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding_resources.html">Coding Resources</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Working with Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#touch-crating-an-empty-file">touch - Crating an Empty File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vi-reading-and-writing-in-the-terminal">vi - Reading and Writing in the Terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general-concepts">General Concepts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modes">Modes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#insert">Insert</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#macros">Macros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#replace">Replace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#visual">Visual</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#reading-file-contents">Reading File Contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#head-reading-the-start-of-a-file">head - Reading the Start of a File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tail-reading-the-end-of-a-file">tail - Reading the End of a File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cat-printing-file-contents-to-the-terminal">cat - Printing File Contents to the Terminal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#less-reading-a-file-in-the-terminal">less - Reading a File in the Terminal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#more-reading-a-file-in-the-terminal">more - Reading a File in the Terminal</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sed-editing-files-in-the-command-line">sed - Editing Files in the Command Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#condensing-files-folders">Condensing Files/Folders</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tar">tar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zip">zip</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#looking-for-patterns">Looking for Patterns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#grep-print-lines-matching-a-pattern">grep - Print Lines Matching a Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#awk-pattern-scanning">awk - Pattern Scanning</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sort-sorting-and-re-ordering-data">sort - Sorting and Re-Ordering Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="moving_renaming_files.html">Moving/Renaming Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminal_basics.html">Terminal Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_computers.html">Working with Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using_github.html">Using GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Helpful Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html">GoodVibes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#dbstep">DBSTEP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#reggae">REGGAE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#disco">DISCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#aqme">AQME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#slurm-job-tracking">Slurm Job Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#pyssian">pyssian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#rdkit">RDKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#crest">CREST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#robert">ROBERT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#yadda">YADDA</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Graphical Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../graphical_software/edition_generation/inkscape_gimp.html">Inkscape &amp; GIMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphical_software/edition_generation/matplotlib.html">Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphical_software/edition_generation/pymol.html">PyMOL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example Workflows</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_aqme_workflow/example_aqme_workflow.html">End-to-End Workflow in ACME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_goodvibes_workflow/example_goodvibes_workflow.html">GoodVibes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_reggae_workflow/example_reggae_workflow.html">REGGAE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_descriptors_workflow/example_descriptors_workflow.html">RDKit, Mordred, Morfeus &amp; DBStep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_censo_workflow/example_censo_workflow.html">CENSO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_nciplot_calculation/example_nciplot_calculation.html">NCIPLOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_qcalibrate_ts_conf_search/example_qcalibrate_ts_conf_search.html">qcalibrate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_yadda_workflow/example_yadda_workflow.html">YADDA</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/classical_molecular_dynamics/classical_molecular_dynamics.html">Classical Molecular Dynamics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">csu-wiki</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Working with Files</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/computing_resources/working_with_files.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="working-with-files">
+<h1>Working with Files<a class="headerlink" href="#working-with-files" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#touch-crating-an-empty-file" id="id1">touch - Crating an Empty File</a></p></li>
+<li><p><a class="reference internal" href="#vi-reading-and-writing-in-the-terminal" id="id2">vi - Reading and Writing in the Terminal</a></p>
+<ul>
+<li><p><a class="reference internal" href="#general-concepts" id="id3">General Concepts</a></p></li>
+<li><p><a class="reference internal" href="#modes" id="id4">Modes</a></p>
+<ul>
+<li><p><a class="reference internal" href="#insert" id="id5">Insert</a></p></li>
+<li><p><a class="reference internal" href="#macros" id="id6">Macros</a></p></li>
+<li><p><a class="reference internal" href="#replace" id="id7">Replace</a></p></li>
+<li><p><a class="reference internal" href="#visual" id="id8">Visual</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#reading-file-contents" id="id9">Reading File Contents</a></p>
+<ul>
+<li><p><a class="reference internal" href="#head-reading-the-start-of-a-file" id="id10">head - Reading the Start of a File</a></p></li>
+<li><p><a class="reference internal" href="#tail-reading-the-end-of-a-file" id="id11">tail - Reading the End of a File</a></p></li>
+<li><p><a class="reference internal" href="#cat-printing-file-contents-to-the-terminal" id="id12">cat - Printing File Contents to the Terminal</a></p></li>
+<li><p><a class="reference internal" href="#less-reading-a-file-in-the-terminal" id="id13">less - Reading a File in the Terminal</a></p></li>
+<li><p><a class="reference internal" href="#more-reading-a-file-in-the-terminal" id="id14">more - Reading a File in the Terminal</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#sed-editing-files-in-the-command-line" id="id15">sed - Editing Files in the Command Line</a></p></li>
+<li><p><a class="reference internal" href="#condensing-files-folders" id="id16">Condensing Files/Folders</a></p>
+<ul>
+<li><p><a class="reference internal" href="#tar" id="id17">tar</a></p></li>
+<li><p><a class="reference internal" href="#zip" id="id18">zip</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#looking-for-patterns" id="id19">Looking for Patterns</a></p>
+<ul>
+<li><p><a class="reference internal" href="#grep-print-lines-matching-a-pattern" id="id20">grep - Print Lines Matching a Pattern</a></p></li>
+<li><p><a class="reference internal" href="#awk-pattern-scanning" id="id21">awk - Pattern Scanning</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#sort-sorting-and-re-ordering-data" id="id22">sort - Sorting and Re-Ordering Data</a></p></li>
+</ul>
+</nav>
+<p>We are constantly working with files while navigating the
+terminal during our research, here are some of the ways
+that we can do that:</p>
+<section id="touch-crating-an-empty-file">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">touch - Crating an Empty File</a><a class="headerlink" href="#touch-crating-an-empty-file" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">touch</span></code> is a very simple program that allows you to create a new,
+empty file. The general syntax is</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>touch<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span>filename
+</pre></div>
+</div>
+<p>Without any options, the file will simply be created with no
+contents. You can also use the available options with the touch
+command to update the date/time the file was modified with the
+<code class="docutils literal notranslate"><span class="pre">-m</span></code> command. On some clusters, especially supercomputers,
+they have built-in commands that automatically delete any files
+that have not been modified/changed in the last 30 days. With
+<code class="docutils literal notranslate"><span class="pre">touch</span></code> you could setup a script that will automatically touch
+all your files and update the modified date/times so the
+supercomputer does not automatically delete them.</p>
+</section>
+<section id="vi-reading-and-writing-in-the-terminal">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">vi - Reading and Writing in the Terminal</a><a class="headerlink" href="#vi-reading-and-writing-in-the-terminal" title="Link to this heading"></a></h2>
+<section id="general-concepts">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">General Concepts</a><a class="headerlink" href="#general-concepts" title="Link to this heading"></a></h3>
+<p>You should already know the basics of using <code class="docutils literal notranslate"><span class="pre">vi</span></code> (also known as
+<code class="docutils literal notranslate"><span class="pre">vim</span></code>) for text editing, but I wanted to cover a few more useful
+parts of <code class="docutils literal notranslate"><span class="pre">vi</span></code> that you may not be aware of. You should already
+know that you can open <code class="docutils literal notranslate"><span class="pre">vi</span></code> to create or edit any file by typing</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vi<span class="w"> </span>filename
+</pre></div>
+</div>
+<p>Once inside the <code class="docutils literal notranslate"><span class="pre">vi</span></code> text editor, you can navigate around using
+letters on your keyboard</p>
+<ul class="simple">
+<li><p>H key – move left</p></li>
+<li><p>J     key – move down</p></li>
+<li><p>K     key – move up</p></li>
+<li><p>L     key – move right</p></li>
+</ul>
+<p>These will always work in <code class="docutils literal notranslate"><span class="pre">vi</span></code>. You can also usually just use
+the arrow keys on your keyboard, but occasionally you may login
+to a computer where <code class="docutils literal notranslate"><span class="pre">vi</span></code> does not recognize the arrows on your
+keyboard and then you will need to use the H thru L keys on the
+keyboard.</p>
+<p>Below are some other helpful commands/tips that can be used within
+<code class="docutils literal notranslate"><span class="pre">vi</span></code>. Once you start working your way through these you will
+start to notice patterns with the commands that will hopefully
+make them start to make more sense.</p>
+<ul class="simple">
+<li><p>To move your cursor to the end of a word, press <code class="docutils literal notranslate"><span class="pre">w</span></code>.</p></li>
+<li><p>To move your cursor to the very end of a line/row, press <code class="docutils literal notranslate"><span class="pre">Shift+4</span></code>.</p></li>
+<li><p>To move your cursor to the beginning of the current line/row, press <code class="docutils literal notranslate"><span class="pre">0</span></code>. That is a zero, not an o.</p></li>
+<li><p>To move your cursor to the last line of the file, press <code class="docutils literal notranslate"><span class="pre">Shift+G</span></code>.</p></li>
+<li><p>To page down, press <code class="docutils literal notranslate"><span class="pre">ctrl+F</span></code>.</p></li>
+<li><p>To page up, press <code class="docutils literal notranslate"><span class="pre">ctrl+B</span></code>.</p></li>
+<li><p>To move your cursor down 6 lines, press <code class="docutils literal notranslate"><span class="pre">6</span></code> and then the down arrow (or J key)</p></li>
+<li><p>To move your cursor up 8 lines, press <code class="docutils literal notranslate"><span class="pre">8</span></code> and then the up arrow key (or K key)</p></li>
+<li><p>To move your cursor over right 5 characters, press <code class="docutils literal notranslate"><span class="pre">5</span></code> and then the right arrow key (or L key)</p></li>
+<li><p>To move your cursor over left 3 characters, press <code class="docutils literal notranslate"><span class="pre">3</span></code> and then the left arrow key (or H key)</p></li>
+<li><p>To delete the letter your cursor is currently on, press <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+<li><p>To copy the current line of text, press <code class="docutils literal notranslate"><span class="pre">yy</span></code>.</p></li>
+<li><p>To copy 4 lines (the current line plus the 3 following lines) of text, press <code class="docutils literal notranslate"><span class="pre">4yy</span></code>.</p></li>
+<li><p>To copy the current line and every line until the end of the file, press <code class="docutils literal notranslate"><span class="pre">y</span></code>, then <code class="docutils literal notranslate"><span class="pre">Shift+G</span></code></p></li>
+<li><p>To paste a copied line (or lines) of text, press <code class="docutils literal notranslate"><span class="pre">p</span></code>.</p></li>
+<li><p>To delete the current line of text, press <code class="docutils literal notranslate"><span class="pre">dd</span></code>.</p></li>
+<li><p>To delete 4 lines (the current line plus the 3 following lines) of text, press <code class="docutils literal notranslate"><span class="pre">4dd</span></code>.</p></li>
+<li><p>To delete from where your cursor is currently, to the end of the word, press <code class="docutils literal notranslate"><span class="pre">dw</span></code>.</p></li>
+<li><p>To delete from where your cursor is currently to the end of the line, press <code class="docutils literal notranslate"><span class="pre">d</span></code>, then <code class="docutils literal notranslate"><span class="pre">Shift+4</span></code></p></li>
+<li><p>To delete from the current line to the end of the file, press <code class="docutils literal notranslate"><span class="pre">d</span></code>, then <code class="docutils literal notranslate"><span class="pre">Shift+G</span></code></p></li>
+<li><p>To display the line number for each row of text, type <code class="docutils literal notranslate"><span class="pre">:set</span> <span class="pre">nu</span></code> and press enter.</p></li>
+<li><p>To undisplay the line number for each row of text, type <code class="docutils literal notranslate"><span class="pre">:set</span> <span class="pre">nonu</span></code> and press enter.</p></li>
+<li><p>To jump to line 453 in the file, type <code class="docutils literal notranslate"><span class="pre">:453</span></code> and press enter.</p></li>
+<li><p>To search for a string of text, type <code class="docutils literal notranslate"><span class="pre">/string</span></code> and press enter. Each instance of string should be highlighted.</p></li>
+<li><p>After searching for a string, you can jump to the next matching string by pressing the <code class="docutils literal notranslate"><span class="pre">N</span></code> key.</p></li>
+<li><p>You can jump to the previous matching string by pressing <code class="docutils literal notranslate"><span class="pre">Shift+N</span></code>.</p></li>
+<li><p>You can scroll through you previous searches in <code class="docutils literal notranslate"><span class="pre">vi</span></code> by typing a slash (/) and then scrolling through the old searching using the up arrow key.</p></li>
+<li><p>To find and replace all instances of a string, type <code class="docutils literal notranslate"><span class="pre">:%s/old_text/new_text/g</span></code> and press enter.</p></li>
+<li><p>To find and places all instances of a string only on the current line, type <code class="docutils literal notranslate"><span class="pre">:s/old_text/new_text/g</span></code> and press enter.</p></li>
+<li><p>You can scroll through your previous commands (even from now-closed Terminal windows) by typing a colon (:) and then scrolling through the old commands using the up arrow key.</p></li>
+<li><p>To undo your most recent change/edit, press the <code class="docutils literal notranslate"><span class="pre">U</span></code> key. This can be done multiple times.</p></li>
+<li><p>To save changes without quitting <code class="docutils literal notranslate"><span class="pre">vi</span></code>, type <code class="docutils literal notranslate"><span class="pre">:w</span></code> and press enter.</p></li>
+<li><p>To quit without saving changes, type <code class="docutils literal notranslate"><span class="pre">:q!</span></code> and press enter.</p></li>
+<li><p>To quit and save changes, type <code class="docutils literal notranslate"><span class="pre">:wq</span></code> and press enter.</p></li>
+</ul>
+<p>It may also be helpful to know about swap files. When you use
+<code class="docutils literal notranslate"><span class="pre">vi</span></code> to edit a file, you are not actually editing the actual
+file. <code class="docutils literal notranslate"><span class="pre">vi</span></code> creates a swap file that stores all your changes in
+that file, and then if you decide to save those changes, <code class="docutils literal notranslate"><span class="pre">vi</span></code>
+will replace the original file with the swap file that contains
+your edits. If you use <code class="docutils literal notranslate"><span class="pre">vi</span></code> to edit a file called <code class="docutils literal notranslate"><span class="pre">file.txt</span></code>,
+then <code class="docutils literal notranslate"><span class="pre">vi</span></code> creates a swap file called <code class="docutils literal notranslate"><span class="pre">.file.txt.swp</span></code> where
+your edits are stored. Notice that the filename starts with a
+dot (.) meaning the file is hidden (although you can see it
+with <code class="docutils literal notranslate"><span class="pre">ls</span></code> using the <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span></code> command). Also, you can only
+have one swap file for a given file at a time. For that reason,
+try to make sure you always close out of your file before
+exiting the terminal.</p>
+</section>
+<section id="modes">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Modes</a><a class="headerlink" href="#modes" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">vi</span></code> program has several available modes/options that help
+you edit a text file. The ones that I will cover here include
+Insert, Macro, and Replace.</p>
+<section id="insert">
+<h4><a class="toc-backref" href="#id5" role="doc-backlink">Insert</a><a class="headerlink" href="#insert" title="Link to this heading"></a></h4>
+<p>The Insert mode in <code class="docutils literal notranslate"><span class="pre">vi</span></code> is used to, you guessed it, insert new
+text. To enter insert mode, press the <code class="docutils literal notranslate"><span class="pre">I</span></code> key on your keyboard.
+Once you do this, and while you remain in insert mode, the bottom
+of your Terminal window should say</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">INSERT</span><span class="o">--</span>
+</pre></div>
+</div>
+<p>This mode will allow you to insert new text and use the backspace
+key just as if you were in a text editor you are more familiar
+with (i.e. that word processing program that shall remain
+nameless). The only difference is that you will not be able to
+use your mouse to move your cursor around. Simply stick to using
+the arrow keys. Pressing <code class="docutils literal notranslate"><span class="pre">I</span></code> will allow you to enter Insert
+mode in the exact place where your cursor is currently. However,
+you can also press the <code class="docutils literal notranslate"><span class="pre">A</span></code> key on your keyboard to enter
+Insert mode. The difference is when you press <code class="docutils literal notranslate"><span class="pre">A</span></code>, you will
+enter Insert mode and your cursor will move to the position
+immediately to the right of its current position. This is
+helpful when you are at the end of a line and you want to add
+new text. Once you are done making your edits, you need to exit
+Insert mode by pressing the <code class="docutils literal notranslate"><span class="pre">Esc</span></code> key on your keyboard.</p>
+</section>
+<section id="macros">
+<h4><a class="toc-backref" href="#id6" role="doc-backlink">Macros</a><a class="headerlink" href="#macros" title="Link to this heading"></a></h4>
+<p>A helpful but slightly more advanced technique is creating
+macros (a shortcut to a task you do repeatedly) in <code class="docutils literal notranslate"><span class="pre">vi</span></code>.
+You can easily use Insert mode to edit your text. But if you need
+to make the same edit a thousand times it is a waste of your time
+and effort to do that by hand. Instead, you can create a macro to
+do it for you. Let’s say I have a file that contains the same
+line repeating over and over for 10 lines.</p>
+<p>Now let’s say we want to change part of that line to something
+else, but for only every other line (if it were all lines we
+could just use the find and replace option shown previously
+using <code class="docutils literal notranslate"><span class="pre">:%s</span></code>). For this situation, we could setup a macro to do
+it for us. Pressing the <code class="docutils literal notranslate"><span class="pre">Q</span></code> key on your keyboard (while not in
+any other modes, such as Insert, obviously) tells <code class="docutils literal notranslate"><span class="pre">vi</span></code> that you
+want to start a macro. Then press one letter/number on your
+keyboard that will be the ‘name’ of that macro for this <code class="docutils literal notranslate"><span class="pre">vi</span></code>
+session. I typically press the <code class="docutils literal notranslate"><span class="pre">A</span></code> key because it’s the first
+letter of the alphabet and easy to remember. But if you are
+creating multiple macros in the same <code class="docutils literal notranslate"><span class="pre">vi</span></code> session then you may
+want to assign them letters that will help you remember what
+task they perform. Once you press the <code class="docutils literal notranslate"><span class="pre">A</span></code> key (or whatever
+letter/number you are assigning to this macro), you should see
+the following appear in the bottom left corner of your Terminal
+window</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">recording</span>
+</pre></div>
+</div>
+<p>This lets you know that <code class="docutils literal notranslate"><span class="pre">vi</span></code> is recording every move and change
+you make. Before I pressed <code class="docutils literal notranslate"><span class="pre">Q</span></code> (and <code class="docutils literal notranslate"><span class="pre">A</span></code>), I moved my cursor
+over the first letter of what we wanted to change. This is
+important because remember <code class="docutils literal notranslate"><span class="pre">vi</span></code> is recording every move you
+make, including movements of your cursor. Once I have pressed <code class="docutils literal notranslate"><span class="pre">Q</span></code>
+and <code class="docutils literal notranslate"><span class="pre">A</span></code> so <code class="docutils literal notranslate"><span class="pre">vi</span></code> is recording, I type dw twice to remove two
+words. Then I type <code class="docutils literal notranslate"><span class="pre">I</span></code> to enter Insert mode and type my new
+desired phrase. I then press <code class="docutils literal notranslate"><span class="pre">Esc</span></code> to exit Insert mode, and
+finally move my cursor so it is on the first letter of what I
+want to change two lines down. At this point, I have finished
+making my macro such that if I were to repeat the macro from my
+current cursor position then my initial phrase would be replaced
+by the new phrase and the cursor would be moved down two lines
+again. Once you are done making your macro you need to tell <code class="docutils literal notranslate"><span class="pre">vi</span></code>
+that you are done by pressing the <code class="docutils literal notranslate"><span class="pre">Q</span></code> key again (the recording
+in the bottom left corner of the Terminal window should disappear
+now). <code class="docutils literal notranslate"><span class="pre">vi</span></code> has now saved your macro. To run your macro five
+times, type <code class="docutils literal notranslate"><span class="pre">5&#64;A</span></code> (i.e. press the <code class="docutils literal notranslate"><span class="pre">5</span></code> key, then press
+<code class="docutils literal notranslate"><span class="pre">Shift+2</span></code>, and then press the <code class="docutils literal notranslate"><span class="pre">A</span></code> key on your keyboard).
+After defining the macro and running it 5 times the text now
+looks like what we wanted.</p>
+</section>
+<section id="replace">
+<h4><a class="toc-backref" href="#id7" role="doc-backlink">Replace</a><a class="headerlink" href="#replace" title="Link to this heading"></a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">vi</span></code> program has two different methods of text replacement.
+The first is to only replace a single character in the text file.
+If you press the <code class="docutils literal notranslate"><span class="pre">R</span></code> key followed by pressing the <code class="docutils literal notranslate"><span class="pre">K</span></code> key,
+then the character your cursor was on will be replaced by a &quot;K&quot;.
+As an example, consider the following line in a text file.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>The<span class="w"> </span>mouse<span class="w"> </span>kissed<span class="w"> </span>the<span class="w"> </span>little<span class="w"> </span>boy.
+</pre></div>
+</div>
+<p>If you place your cursor over the &quot;b&quot; of &quot;boy&quot; and then press the
+<code class="docutils literal notranslate"><span class="pre">R</span></code> key followed by the <code class="docutils literal notranslate"><span class="pre">T</span></code> key on your keyboard, the text
+will change to</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>The<span class="w"> </span>mouse<span class="w"> </span>kissed<span class="w"> </span>the<span class="w"> </span>little<span class="w"> </span>toy.
+</pre></div>
+</div>
+<p>See how that works?</p>
+<p>The other version of Replace is to enter an explicit Replace
+mode where everything you type overwrites whatever was already
+there (similar to the functionality of the Insert key on some
+keyboards). To enter this replace mode you need to press
+<code class="docutils literal notranslate"><span class="pre">Shift+R</span></code> while in <code class="docutils literal notranslate"><span class="pre">vi</span></code> (and, of course, you cannot be in any
+other modes at the time). Once you press <code class="docutils literal notranslate"><span class="pre">Shift+R</span></code> you will see
+the following in the bottom left corner of your Terminal window</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">Replace</span><span class="o">--</span>
+</pre></div>
+</div>
+<p>as a reminder that you are in Replace mode. Once again, while you
+are in this mode, you can type and move around all you want, but
+anything you type will overwrite any current text in the file.
+To exit Replace mode, simply press the <code class="docutils literal notranslate"><span class="pre">Esc</span></code> key on your
+keyboard (just like you do to exit Insert mode earlier) and the
+&quot;--Replace--&quot; in the bottom left corner of your Terminal window
+will disappear. Just like with Insert mode, you will need to exit
+Replace mode before you can save any changes.</p>
+</section>
+<section id="visual">
+<h4><a class="toc-backref" href="#id8" role="doc-backlink">Visual</a><a class="headerlink" href="#visual" title="Link to this heading"></a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">vi</span></code> also has a Visual block mode available that you can
+enter by pressing the <code class="docutils literal notranslate"><span class="pre">V</span></code> key on your keyboard, but I won’t go
+into any detail about this mode now. I just want to mention
+that it exists. If you want to know more information, Google it. :)</p>
+</section>
+</section>
+</section>
+<section id="reading-file-contents">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Reading File Contents</a><a class="headerlink" href="#reading-file-contents" title="Link to this heading"></a></h2>
+<section id="head-reading-the-start-of-a-file">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">head - Reading the Start of a File</a><a class="headerlink" href="#head-reading-the-start-of-a-file" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">head</span></code> command will print the top lines of a file to the
+Terminal screen. The general syntax for the <code class="docutils literal notranslate"><span class="pre">head</span></code> command is
+<code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">[options]</span> <span class="pre">filename</span></code>. By default, <code class="docutils literal notranslate"><span class="pre">head</span></code> will print the first
+10 lines of the file you provide. This command can also be used to
+print a different number of lines at the top of a file. For example,</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">25</span><span class="w"> </span>water_optimization.log
+</pre></div>
+</div>
+<p>will print out the first 25 lines of the file <code class="docutils literal notranslate"><span class="pre">water_optimization.log</span></code>.
+Using the <code class="docutils literal notranslate"><span class="pre">-n</span></code> flag allows you to specify the number of lines printed.</p>
+</section>
+<section id="tail-reading-the-end-of-a-file">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">tail - Reading the End of a File</a><a class="headerlink" href="#tail-reading-the-end-of-a-file" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">tail</span></code> is a simple command that prints the last lines of a file.
+By default, <code class="docutils literal notranslate"><span class="pre">tail</span></code> prints the final 10 lines of a file to the
+Terminal screen.</p>
+<p>You can also use <code class="docutils literal notranslate"><span class="pre">tail</span></code> to print only a certain number of lines to the screen.
+For example, if I only wanted the last 3 lines of a file, I could use
+the <code class="docutils literal notranslate"><span class="pre">-n</span></code> flag preceeding a 3.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">3</span><span class="w"> </span>filename
+</pre></div>
+</div>
+<p>You can also use the <code class="docutils literal notranslate"><span class="pre">tail</span></code> command with the <code class="docutils literal notranslate"><span class="pre">-f</span></code> flag if you
+are running a calculation to update the end of the file as the
+output is printed. So if you type</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tail<span class="w"> </span>-f<span class="w"> </span>logfile
+</pre></div>
+</div>
+<p>the final 10 lines of <code class="docutils literal notranslate"><span class="pre">logfile</span></code> will be printed to the screen,
+then as more lines are printed to <code class="docutils literal notranslate"><span class="pre">logfile</span></code>, they will also show up
+on the screen. This will continue until you signal the computer to
+end the printing by pressing <code class="docutils literal notranslate"><span class="pre">ctrl-c</span></code> on the keyboard, which
+terminates the <code class="docutils literal notranslate"><span class="pre">tail</span></code> command.</p>
+</section>
+<section id="cat-printing-file-contents-to-the-terminal">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">cat - Printing File Contents to the Terminal</a><a class="headerlink" href="#cat-printing-file-contents-to-the-terminal" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">cat</span></code> command will print the entire contents of a file
+to the terminal window. You will be able to scroll in the
+terminal to see the start of the file, but unless <code class="docutils literal notranslate"><span class="pre">more</span></code> or
+<code class="docutils literal notranslate"><span class="pre">less</span></code>, the whole file is printed to the terminal at once.
+You can use this command with:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>&lt;filename&gt;
+</pre></div>
+</div>
+</section>
+<section id="less-reading-a-file-in-the-terminal">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">less - Reading a File in the Terminal</a><a class="headerlink" href="#less-reading-a-file-in-the-terminal" title="Link to this heading"></a></h3>
+<p>The less command provides users with the ability to read a file
+without worrying about the chance of unintentionally editing the
+file. The general syntax for less is</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>less<span class="w"> </span>filename
+</pre></div>
+</div>
+<p>When you execute a less command to read a file, the Terminal window
+will be filled with the contents of the file (i.e. you will not be
+able to see any of your previous commands in the current window).
+You can scroll up and down to see the contents of the file using
+the arrow keys on your keyboard. You can also page down using the
+spacebar key, and page up using the B key (short for back) on your
+keyboard. You can also search for instances of a certain word or
+phrase by typing</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>/text<span class="w"> </span>to<span class="w"> </span>search<span class="w"> </span><span class="k">for</span>
+</pre></div>
+</div>
+<p>Once you press the slash key (/) your cursor will move to the bottom
+of the Terminal window where you will be able to see what text you
+are typing. Press enter to search the file for the text. Every
+instance of the phrase should be highlighted. If you accidentally
+press the slash key (or decide that you do not want to search for
+the text you started typing, you can just backspace until the slash
+is gone and you will be able to scroll through the text of the file
+again.</p>
+<p>You can also go straight to the end of a file by pressing Shift+G
+on the keyboard.</p>
+<p>To quit less just press the Q key (for quit).</p>
+</section>
+<section id="more-reading-a-file-in-the-terminal">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">more - Reading a File in the Terminal</a><a class="headerlink" href="#more-reading-a-file-in-the-terminal" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">more</span></code> is an antiquated version of <code class="docutils literal notranslate"><span class="pre">less</span></code> that can be used
+for reading (but not editing) files. Unlike <code class="docutils literal notranslate"><span class="pre">less</span></code>, with <code class="docutils literal notranslate"><span class="pre">more</span></code>
+you can only page down (e.g. you cannot scroll line-by-line with
+the arrow keys, and you cannot page or scroll up at all) and you
+cannot search the text for a string of phrase.</p>
+</section>
+</section>
+<section id="sed-editing-files-in-the-command-line">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">sed - Editing Files in the Command Line</a><a class="headerlink" href="#sed-editing-files-in-the-command-line" title="Link to this heading"></a></h2>
+<p>Information for this section can be found on
+<a class="reference external" href="https://stackoverflow.com/questions/11392478/how-to-replace-a-string-in-multiple-files-in-linux-command-line">this StackOverflow page</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sed</span></code> is an extremely useful tool, especially to the two people
+in the world that really know how to use it. And I am not one of
+those two people. As you might be guessing from my previous
+statements, <code class="docutils literal notranslate"><span class="pre">sed</span></code> is not an easy language to understand, but it
+is still useful thanks to Google. Just knowing that <code class="docutils literal notranslate"><span class="pre">sed</span></code> exists
+and the types of things it can do make it useful because you can
+likely find someone else that has reported the exact thing you
+want to do online. Below I have listed a few of the more common
+<code class="docutils literal notranslate"><span class="pre">sed</span></code> commands I have used on a regular basis and what they do.</p>
+<p>Remove the first line of a file, often done to remove the
+heading names of columns:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sed<span class="w"> </span><span class="s1">&#39;1d&#39;</span><span class="w"> </span>filename
+</pre></div>
+</div>
+<p>The results will be printed to the Terminal screen.</p>
+<p>Remove lines 1 to 5766 in a file:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;1,+5766d&#39;</span><span class="w"> </span>filename
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">-i</span></code> in this case will delete lines 1 to 5766 and instead of
+printing the results to the screen, will just save the results
+in the original filename.</p>
+<p>Find and replace the commas in <code class="docutils literal notranslate"><span class="pre">filename</span></code> with a space instead:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sed<span class="w"> </span><span class="s1">&#39;s/,/ /g&#39;</span><span class="w"> </span>filename
+</pre></div>
+</div>
+<p>Often when working with large amounts of data/jobs, you might
+accidentally make a typo that is now present in all of your
+files. There are a number of ways to correct this typo, but
+one of the easiest is to find-and-replace the erronous
+part of the file with the correct version.</p>
+<p>If the problem is only in one file, it's easy enough to just
+<code class="docutils literal notranslate"><span class="pre">vi</span></code> into the folder or open it in a text editor and fix it.
+One way to do this is to find-and-replace-all with one of the
+commands that's a part of <code class="docutils literal notranslate"><span class="pre">vim</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>:%s/string_to_find/replacement_string/g
+</pre></div>
+</div>
+<p>This code will find every instance of &quot;string_to_find&quot; in your
+file and replace them all with &quot;replacement_string&quot;. The &quot;g&quot;
+at the end of this command is what tells <code class="docutils literal notranslate"><span class="pre">vi</span></code> to replace
+EVERY instance of the string, rather than just the next one
+(if this is what you want, just leave out the &quot;g&quot;)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is an example of the <code class="docutils literal notranslate"><span class="pre">sed</span></code> command, just one that's
+already incorporated into <code class="docutils literal notranslate"><span class="pre">vim</span></code>. To use this feature, just
+make sure you aren't in <code class="docutils literal notranslate"><span class="pre">Insert</span></code> mode or anything else by
+pressing <code class="docutils literal notranslate"><span class="pre">esc</span></code>.</p>
+</div>
+<p>If this is an error that exists in all of your files, it can be
+tedious to go into every file, make the change, save it, then
+move onto the next one. This is where the <code class="docutils literal notranslate"><span class="pre">sed</span></code> command comes
+in handy.</p>
+<p>With this command, you can find and replace a string into several
+select files in your directory. For example, if you have a lot
+of Gaussian input files where you accidentally forgot to include
+your solvent, you can use the following command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/m062x 6-31+G* opt freq/m062x 6-31+G* opt freq scrf=(smd,solvent=water)/g&#39;</span><span class="w"> </span>*com
+</pre></div>
+</div>
+<p>This command will replace the incorrect route line with the corrected
+version in all files within the directory which end in &quot;com&quot;.
+<code class="docutils literal notranslate"><span class="pre">m062x</span> <span class="pre">6-31+G*</span> <span class="pre">opt</span> <span class="pre">freq</span></code> is the original line with the error, while
+<code class="docutils literal notranslate"><span class="pre">m062x</span> <span class="pre">6-31+G*</span> <span class="pre">opt</span> <span class="pre">freq</span> <span class="pre">scrf=(smd,solvent=water)</span></code> is the corrected
+line. This
+is a fast, easy way to make sure that you are running jobs at the
+desired level of theory, or if you decide that you want to repeat the
+calculation with a different basis set/functional/solvent.</p>
+<p>Again, there are lots of other uses for <code class="docutils literal notranslate"><span class="pre">sed</span></code> that aren't listed.
+Many introductions and tutorials for <code class="docutils literal notranslate"><span class="pre">sed</span></code> can be found online.
+And if you do actually learn how to actually use <code class="docutils literal notranslate"><span class="pre">sed</span></code>, please
+write it up here. :)</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is possible if working on BSD systems like MacOS
+that you might need to include the additional extension
+<code class="docutils literal notranslate"><span class="pre">-i</span> <span class="pre">'.bak'</span></code> in your command to avoid risking corruption
+or partial content.</p>
+</div>
+</section>
+<section id="condensing-files-folders">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Condensing Files/Folders</a><a class="headerlink" href="#condensing-files-folders" title="Link to this heading"></a></h2>
+<section id="tar">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">tar</a><a class="headerlink" href="#tar" title="Link to this heading"></a></h3>
+<p>Often if you are asked to package up some of your files to send to
+someone else, they will request you send them a tarball. Don’t be
+scared, this is not an athletic term that you haven’t heard of
+before. A tarball is a file created using the <code class="docutils literal notranslate"><span class="pre">tar</span></code> command that
+often contains several files and/or folders. Repackaging a bunch
+of files into a single file makes them easier to distribute.
+For example, if you download the source code for a program, you
+will most likely be downloading a tarball of all the files. A
+tarball also gives you the opportunity to zip all the files to make
+the tarball smaller than the combined sum of all the files
+individually, which is also helpful for distributing files. The
+general syntax for tar is</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tar<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span>tarball.tar<span class="w"> </span>folder/files
+</pre></div>
+</div>
+<p>You can either <code class="docutils literal notranslate"><span class="pre">tar</span></code> up a folder (or several) and/or a bunch of
+files, although it is more common to put all the files into a single
+folder and then make a tarball of the folder. This makes it more
+convenient for whoever unpacks the tarball you are creating.</p>
+<p>The same command, <code class="docutils literal notranslate"><span class="pre">tar</span></code>, is used to both make the tarball and
+unpack the tarball, which means the options are important here. Most
+often I will use the following tar command to create a tarball</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tar<span class="w"> </span>-zcvf<span class="w"> </span>tarball.tgz<span class="w"> </span>folder/
+</pre></div>
+</div>
+<p>Notice that the end of the file is now marked with a <code class="docutils literal notranslate"><span class="pre">.tgz</span></code>
+instead of <code class="docutils literal notranslate"><span class="pre">.tar</span></code>, and that is because we have zipped
+(the <code class="docutils literal notranslate"><span class="pre">z</span></code> from -zcvf) the folder and its contents. The <code class="docutils literal notranslate"><span class="pre">c</span></code>
+option is signaling that we want to create a tarball. The <code class="docutils literal notranslate"><span class="pre">v</span></code>
+option makes the process verbose (i.e. it prints as much
+information as possible during the process), and the <code class="docutils literal notranslate"><span class="pre">f</span></code> option
+lets <code class="docutils literal notranslate"><span class="pre">tar</span></code> know we want to put the contents into an archive
+file (that we call <code class="docutils literal notranslate"><span class="pre">tarball.tgz</span></code>).</p>
+<p>Furthermore, to unpack a tarball we will use the exact same
+command, but instead of using the <code class="docutils literal notranslate"><span class="pre">c</span></code> option to create a
+tarball we use an <code class="docutils literal notranslate"><span class="pre">x</span></code> flag to extract the contents of a tarball.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tar<span class="w"> </span>-zxvf<span class="w"> </span>tarball.tgz
+</pre></div>
+</div>
+<p>Notice that we don’t need to include the final folder/file since
+we aren’t creating the tarball here, we are just extracting it.
+Also, if the <code class="docutils literal notranslate"><span class="pre">tarball.tgz</span></code> was alternatively named <code class="docutils literal notranslate"><span class="pre">tarball.tar</span></code>
+(an indication that it was not zipped), then you would not need
+to use the <code class="docutils literal notranslate"><span class="pre">z</span></code> flag.</p>
+<p>Finally, using the <code class="docutils literal notranslate"><span class="pre">-z</span></code> compresses the files using <code class="docutils literal notranslate"><span class="pre">gzip</span></code>
+Tarballs can also be zipped using <code class="docutils literal notranslate"><span class="pre">bzip</span></code>, and in that case you
+will need to replace the <code class="docutils literal notranslate"><span class="pre">-z</span></code> flag with a <code class="docutils literal notranslate"><span class="pre">-j</span></code> flag.</p>
+</section>
+<section id="zip">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">zip</a><a class="headerlink" href="#zip" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">zip</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">tar</span></code>, where it compresses the files you
+specify into a smaller file which can be unzipped later on. This
+is a helpful way to transporting/sharing large amounts of data or
+whole folders of information. The way that you use this command is:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>zip<span class="w"> </span>name_of_zip_file.zip<span class="w"> </span>&lt;files<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>condensed&gt;
+</pre></div>
+</div>
+</section>
+</section>
+<section id="looking-for-patterns">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Looking for Patterns</a><a class="headerlink" href="#looking-for-patterns" title="Link to this heading"></a></h2>
+<section id="grep-print-lines-matching-a-pattern">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">grep - Print Lines Matching a Pattern</a><a class="headerlink" href="#grep-print-lines-matching-a-pattern" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">grep</span></code> is a very useful tool for searching a very long file for
+a certain string and printing the results to the screen. The
+general syntax is</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>grep<span class="w"> </span>pattern<span class="w"> </span>file
+</pre></div>
+</div>
+<p>An example might be searching through a long Gaussian output file
+to make sure that your calculation finished normally. An example of
+this might be</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>grep<span class="w"> </span><span class="s2">&quot;Normal termination&quot;</span><span class="w"> </span>water_optimization.log
+</pre></div>
+</div>
+<p>In this case, I have searched through the file water_optimization.log
+for the string &quot;Normal termination&quot;. This string is printed in the
+file when the calculation finsihed normally/without error. This can
+also be done to search for energies or timing information.</p>
+</section>
+<section id="awk-pattern-scanning">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">awk - Pattern Scanning</a><a class="headerlink" href="#awk-pattern-scanning" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">awk</span></code> is a language for pattern recognition and scanning.
+This is particularly useful when performing analysis and printing
+out a bunch of values and potentially even doing simple math
+on those values. For example, if I have a file with lots of
+columns of text and numbers, but I am only interested in the contents
+of one column, say the first, then I can use <code class="docutils literal notranslate"><span class="pre">awk</span></code> to give me
+only that information.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>awk<span class="w"> </span><span class="s1">&#39;{print($1)}&#39;</span><span class="w"> </span>file_of_interest.txt
+</pre></div>
+</div>
+<p>This command will print the first column from the file of interest
+to the Terminal screen. You can also do basic math (if that column
+contains numbers) using typical python math symbols. For example,
+to multiply the value in the first column by 4, you could type:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>awk<span class="w"> </span><span class="s1">&#39;{print($1*4)}&#39;</span><span class="w"> </span>file_of_interest.txt
+</pre></div>
+</div>
+</section>
+</section>
+<section id="sort-sorting-and-re-ordering-data">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">sort - Sorting and Re-Ordering Data</a><a class="headerlink" href="#sort-sorting-and-re-ordering-data" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">sort</span></code> command does exactly what its name implies - it sorts
+the lines of text files and puts them in a specific order. The
+general syntax is</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sort<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span>filename
+</pre></div>
+</div>
+<p>If you have a file of data with 8 randomly placed numbers in it,
+the data can easily be re-ordered using <code class="docutils literal notranslate"><span class="pre">sort</span></code>.</p>
+<p>By default, sort will rearrange the values and places them in
+ascending order. You can use the <code class="docutils literal notranslate"><span class="pre">-r</span></code> flag to reverse the order
+and put the values in descending order. You can even use <code class="docutils literal notranslate"><span class="pre">sort</span></code>
+to randomly reorder the values with the <code class="docutils literal notranslate"><span class="pre">-R</span></code> flag.</p>
+<p>Additionally, you can also <code class="docutils literal notranslate"><span class="pre">sort</span></code> &quot;human readable numbers&quot; such as
+2k (2,000) or 3M (3,000,000) using the <code class="docutils literal notranslate"><span class="pre">-h</span></code> flag.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sort</span></code> also has the ability to order letters and words
+alphabetically. Consider a file that contains a bunch of types of
+animals. <code class="docutils literal notranslate"><span class="pre">sort</span></code> will automatically reorder them alphabetically.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="coding_resources.html" class="btn btn-neutral float-left" title="Coding Resources" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="moving_renaming_files.html" class="btn btn-neutral float-right" title="Moving/Renaming Files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, csu-theory-suite.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terminal Basics &mdash; csu-wiki  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a9e91e84" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=d048f138"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Working with Computers" href="working_with_computers.html" />
+    <link rel="prev" title="Moving/Renaming Files" href="moving_renaming_files.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            csu-wiki
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Adding Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../adding_pages/how_to_add_pages.html">Adding Pages to the Wiki</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="paton_computing_resources.html">Paton Lab Computing Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kim_computing_resources.html">Kim Lab Computing Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="essential_unix_commands.html">Essential Unix Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_system_layout.html">File System Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_commands.html">Submitting Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fun_with_coworkers.html">Fun with Coworkers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding_resources.html">Coding Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_files.html">Working with Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="moving_renaming_files.html">Moving/Renaming Files</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Terminal Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-wild-cards">Using Wild Cards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#navigating-folders">Navigating Folders</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cd-change-directory">cd - Change Directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pwd-print-working-directory">pwd - Print Working Directory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#redirecting-output-to-a-file">Redirecting Output to a File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-shortcuts-for-common-commands">Creating Shortcuts for Common Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clearing-the-terminal-screen">Clearing the Terminal Screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#search-previous-commands">Search Previous Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#display-a-line-of-text">Display a Line of Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-logout">How to Logout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#auto-fill-unique-names">Auto Fill Unique Names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#listing-files">Listing Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#canceling-a-command-before-you-execute">Canceling a Command Before you Execute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#back-to-the-beginning-of-the-command-prompt">Back to the Beginning of the Command Prompt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#combining-commands-into-a-single-line">Combining Commands into a Single Line</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_computers.html">Working with Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using_github.html">Using GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Helpful Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html">GoodVibes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#dbstep">DBSTEP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#reggae">REGGAE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#disco">DISCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#aqme">AQME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#slurm-job-tracking">Slurm Job Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#pyssian">pyssian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#rdkit">RDKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#crest">CREST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#robert">ROBERT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#yadda">YADDA</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Graphical Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../graphical_software/edition_generation/inkscape_gimp.html">Inkscape &amp; GIMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphical_software/edition_generation/matplotlib.html">Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphical_software/edition_generation/pymol.html">PyMOL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example Workflows</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_aqme_workflow/example_aqme_workflow.html">End-to-End Workflow in ACME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_goodvibes_workflow/example_goodvibes_workflow.html">GoodVibes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_reggae_workflow/example_reggae_workflow.html">REGGAE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_descriptors_workflow/example_descriptors_workflow.html">RDKit, Mordred, Morfeus &amp; DBStep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_censo_workflow/example_censo_workflow.html">CENSO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_nciplot_calculation/example_nciplot_calculation.html">NCIPLOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_qcalibrate_ts_conf_search/example_qcalibrate_ts_conf_search.html">qcalibrate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_yadda_workflow/example_yadda_workflow.html">YADDA</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/classical_molecular_dynamics/classical_molecular_dynamics.html">Classical Molecular Dynamics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">csu-wiki</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Terminal Basics</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/computing_resources/terminal_basics.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="terminal-basics">
+<h1>Terminal Basics<a class="headerlink" href="#terminal-basics" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#using-wild-cards" id="id1">Using Wild Cards</a></p></li>
+<li><p><a class="reference internal" href="#navigating-folders" id="id2">Navigating Folders</a></p>
+<ul>
+<li><p><a class="reference internal" href="#cd-change-directory" id="id3">cd - Change Directory</a></p></li>
+<li><p><a class="reference internal" href="#pwd-print-working-directory" id="id4">pwd - Print Working Directory</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#redirecting-output-to-a-file" id="id5">Redirecting Output to a File</a></p></li>
+<li><p><a class="reference internal" href="#creating-shortcuts-for-common-commands" id="id6">Creating Shortcuts for Common Commands</a></p></li>
+<li><p><a class="reference internal" href="#clearing-the-terminal-screen" id="id7">Clearing the Terminal Screen</a></p></li>
+<li><p><a class="reference internal" href="#search-previous-commands" id="id8">Search Previous Commands</a></p></li>
+<li><p><a class="reference internal" href="#display-a-line-of-text" id="id9">Display a Line of Text</a></p></li>
+<li><p><a class="reference internal" href="#how-to-logout" id="id10">How to Logout</a></p></li>
+<li><p><a class="reference internal" href="#auto-fill-unique-names" id="id11">Auto Fill Unique Names</a></p></li>
+<li><p><a class="reference internal" href="#listing-files" id="id12">Listing Files</a></p></li>
+<li><p><a class="reference internal" href="#canceling-a-command-before-you-execute" id="id13">Canceling a Command Before you Execute</a></p></li>
+<li><p><a class="reference internal" href="#back-to-the-beginning-of-the-command-prompt" id="id14">Back to the Beginning of the Command Prompt</a></p></li>
+<li><p><a class="reference internal" href="#combining-commands-into-a-single-line" id="id15">Combining Commands into a Single Line</a></p></li>
+</ul>
+</nav>
+<p>Here is a page that will have some introductory information
+about navigating the terminal and working in the command line.</p>
+<section id="using-wild-cards">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Using Wild Cards</a><a class="headerlink" href="#using-wild-cards" title="Link to this heading"></a></h2>
+<p>Unix recognized certain &quot;wild-cards&quot;. If you have a number of files
+named in a similar way or all containing the same variables.
+For example, after running Gaussian jobs, you might want to work with
+only the output files. Rather than typing the full name of each file,
+you know that the output files all end in &quot;.log&quot;. You can use this
+information to list all of your output files with the command <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">*.log</span></code>.
+This command will list all of the files in the working directory that
+end in &quot;.log&quot;. The asterix (*) serves as a wild card.
+You can place the wildcard anywhere in the filename and it will work
+the same way. So if you have many files that start with &quot;molecule&quot; and
+end with &quot;.com&quot;, you can list all of these files with <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">molecule*.com</span></code>.
+Similarly, if you want to list all of the files that contain a &quot;2&quot; in
+the name, you can list them with <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">*2*</span></code>. The wild card can be a
+very useful tool that will save a lot of time.</p>
+</section>
+<section id="navigating-folders">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Navigating Folders</a><a class="headerlink" href="#navigating-folders" title="Link to this heading"></a></h2>
+<p>In the terminal, navigating around different folders might
+be a little different than you're used to. Since everything
+is printed out to the terminal, and you have to explicitly
+navigate between different folders, it's importan to learn the
+commands which allow you to do this.</p>
+<section id="cd-change-directory">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">cd - Change Directory</a><a class="headerlink" href="#cd-change-directory" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span></code> stands for &quot;change directory,&quot; so it should be pretty easy to
+remember. This is also an <a href="#id16"><span class="problematic" id="id17">`Essential Unix Command&lt;https://csu-theory-suite.github.io/theory-suite-wiki/computing_resources/essential_unix_commands.html&gt;`_</span></a>
+in case you want more details.</p>
+<p>The general use for this command is:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>desired_location/
+</pre></div>
+</div>
+<p>where you &quot;change directory&quot; to the desired location that you specify.</p>
+<p>A few helpful tips for the syntax that is used, <code class="docutils literal notranslate"><span class="pre">.</span></code> is the current
+directory that you are in, and <code class="docutils literal notranslate"><span class="pre">..</span></code> is the previous directory.
+For example, if your file system layout is <code class="docutils literal notranslate"><span class="pre">Users/CamRam/Desktop/Research/</span></code>
+and you are in the <code class="docutils literal notranslate"><span class="pre">Desktop</span></code> folder, you can reach:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CamRam/</span></code> with <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">../</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Desktop/</span></code> with <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">./</span></code> (not really necessary)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Research/</span></code> with <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">Research/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Users/</span></code> with <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">../../</span></code> (you can &quot;stack&quot; these folders to do multiple at a time)</p></li>
+</ul>
+<p>In addition to these &quot;local&quot; commands, you can distinguish everything
+globally. So getting to <code class="docutils literal notranslate"><span class="pre">Research/</span></code> would be <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/Users/CamRam/Desktop/Research/</span></code>.</p>
+</section>
+<section id="pwd-print-working-directory">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">pwd - Print Working Directory</a><a class="headerlink" href="#pwd-print-working-directory" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">pwd</span></code> will print the current directory that you are in, the
+&quot;current working directory.&quot; This is helpful for transferring files
+or figuring out how far back to change your directory to.
+This is also an <a href="#id18"><span class="problematic" id="id19">`Essential Unix Command&lt;https://csu-theory-suite.github.io/theory-suite-wiki/computing_resources/essential_unix_commands.html&gt;`_</span></a>
+in case you want more details.</p>
+</section>
+</section>
+<section id="redirecting-output-to-a-file">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Redirecting Output to a File</a><a class="headerlink" href="#redirecting-output-to-a-file" title="Link to this heading"></a></h2>
+<p>When you run a command and the results are printed to Terminal
+window screen, the text printed is called standard output.
+Occasionally it is helpful to save the standard output to a file.
+Of course, you can always copy and paste the results into a file
+by hand after it is printed to screen, but this can be very
+difficult and tedious if the file is large. Thus, it can be helpful
+to know that if you add a greater than sign (&gt;) at the end of a
+command followed by a new file name, the standard output will be
+redirected to that file instead of being printed to the screen.</p>
+<p>For example, you can type <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;This</span> <span class="pre">is</span> <span class="pre">my</span> <span class="pre">text.&quot;</span></code>.
+When you execute this command, &quot;This is my text.&quot; will print in the
+terminal. If you want to save your output to a text file, you can type
+<code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;This</span> <span class="pre">is</span> <span class="pre">my</span> <span class="pre">text.&quot;</span> <span class="pre">&gt;</span> <span class="pre">my_text.txt</span></code>. This will write the string
+&quot;This is my text.&quot; into a new file called my_text.txt. This can be
+helpful if running packages such as GoodVibes or CREST to ensure
+that the output from those calculations is saved.</p>
+<p>You can also use two greater than signs (&gt;&gt;) to append your output
+to the end of a file. If you wanted to add another line to my_text.txt,
+you could type <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;Here</span> <span class="pre">is</span> <span class="pre">more</span> <span class="pre">text.&quot;</span> <span class="pre">&gt;&gt;</span> <span class="pre">my_text.txt</span></code>, which will
+append your new line of text to the end of <code class="docutils literal notranslate"><span class="pre">my_text.txt</span></code>.</p>
+</section>
+<section id="creating-shortcuts-for-common-commands">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Creating Shortcuts for Common Commands</a><a class="headerlink" href="#creating-shortcuts-for-common-commands" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">alias</span></code> command allows users to create shortcute for
+certain commands to limit the amount of typing necessary.</p>
+<p>One of the most useful commands available to users is the alias
+command. Basically, this command allows you to setup a shortcut
+command for anything you commonly type (excluding your password).
+This is helpful for a lot of different applications. The general
+syntax for setting up an alias in bash shell the syntax is
+<code class="docutils literal notranslate"><span class="pre">alias</span> <span class="pre">shortcut=’full</span> <span class="pre">command</span> <span class="pre">name’</span></code></p>
+<p>As an example, if you want to ssh to ACME, you would normally need
+to type</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span><span class="nv">$username</span>@acme.chem.colostate.edu
+</pre></div>
+</div>
+<p>but you could setup an alias using the following command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span><span class="w"> </span><span class="nv">acme</span><span class="o">=</span>‘ssh<span class="w"> </span>username@acme.chem.colsotate.edu’
+</pre></div>
+</div>
+<p>and now every time you type marcy it is the same as
+typing the full ssh command.</p>
+<p>You can type the alias on the command line of a Terminal window,
+but then the command is only useful as long as that Terminal window
+is open. This command gets the most use when you place the command
+in your .bashrc file. So if you add the alias command as a separate
+line in your .bashrc file, save the changes, and source your
+.bashrc by typing <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">~/.cshrc</span></code>. You can use this alias command in every new Terminal window you open.</p>
+<p>An alias can also be used in conjunction with other commands
+and options.  For instance if you have an alias setup for ls
+such as</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span><span class="w"> </span><span class="nv">lt</span><span class="o">=</span>‘ls<span class="w"> </span>–lthr’
+</pre></div>
+</div>
+<p>You are not restricted to just using lt by itself. Suppose you
+only want to list all of the files in a directory that start with
+the letter f. Then you can simply type</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>lt<span class="w"> </span>f*
+</pre></div>
+</div>
+<p>And this will list all files as if you had fully typed</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>–lthr<span class="w"> </span>f*
+</pre></div>
+</div>
+<p>This is a very simple example of the use of an alias with another
+option/command, but this sets the stage for you to have even more '
+flexibility when creating your alias shortcuts.</p>
+</section>
+<section id="clearing-the-terminal-screen">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Clearing the Terminal Screen</a><a class="headerlink" href="#clearing-the-terminal-screen" title="Link to this heading"></a></h2>
+<p>Occasionally your Terminal screen will be filled with a bunch of
+text that you do not need to look at, and it can be distracting
+if you are trying to run a new command where you want to look at
+the new output and do not want to be confused with previous commands
+and output. For this, unix allows you to press <code class="docutils literal notranslate"><span class="pre">ctrl+L</span></code> and this
+will your Terminal window screen. You could still scroll up and
+view the previous commands/output, but the part of the Terminal
+window that is visible to you is cleared and the command prompt
+is at the top of the screen ready for the next command.</p>
+<p>The command <code class="docutils literal notranslate"><span class="pre">clear</span></code> will also clear your Terminal screen,
+but you will not be able to scroll back up to see your previous output.</p>
+</section>
+<section id="search-previous-commands">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Search Previous Commands</a><a class="headerlink" href="#search-previous-commands" title="Link to this heading"></a></h2>
+<p>While on a Terminal prompt, if you press <code class="docutils literal notranslate"><span class="pre">ctrl+r</span></code> on your keyboard
+you will be able to search through your previous commands, with the
+most relevant (recent) command being entered on your command line.
+Once you press <code class="docutils literal notranslate"><span class="pre">ctrl+r</span></code> your prompt will move up a line and the
+letters &quot;bck:&quot; will be on the bottom line of your window. The bottom
+line is what you are back-searching for (i.e. the text that you
+will enter), while the text on your command prompt is the most
+relevant recent command you entered that fits the search criteria.
+For example, if I search for crest - on ACME, the most recently
+used command with crest - in it is printed to the screen. Once you
+find the command you want, you can press enter to execute the command.</p>
+<p>You will need to remove those characters prior to executing the
+command. You are now free to modify the command as you would
+like and press enter when you are ready to execute it.</p>
+<p>If at any point you don't find what you are looking for or decide
+that you don't want to search your previous commands, you can
+always press <code class="docutils literal notranslate"><span class="pre">ctrl-c</span></code> on your keyboard to terminate the search.</p>
+<p>Additionally, you can use the up arrow to go back to the most recent
+command and &quot;scroll up&quot; that way. This is tedious when the command
+you want is very old, but works well if repeating commands a lot.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">history</span></code> command will print out your recently executed commands.
+By default, history will print out your most recent ~1000 commands.
+You can also specify that history only print out a certain number
+of your recent commands by putting a number after history.
+For example, <code class="docutils literal notranslate"><span class="pre">history</span> <span class="pre">10</span></code>
+will print the most recent ten commands that you entered.</p>
+</section>
+<section id="display-a-line-of-text">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Display a Line of Text</a><a class="headerlink" href="#display-a-line-of-text" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">echo</span></code> is a very simple command that is used to print text to
+the screen. A common reason to use <code class="docutils literal notranslate"><span class="pre">echo</span></code> is to display the
+definition of an environment variable.</p>
+<p><code class="docutils literal notranslate"><span class="pre">echo</span></code> can also be used when writing scripts. It can be helpful
+to use <code class="docutils literal notranslate"><span class="pre">echo</span></code> statemetns to show how far along the script has progressed
+or to print out a statement at the end to tell that the calculation
+is done and how long it took to complete. <code class="docutils literal notranslate"><span class="pre">echo</span></code> works similarly
+to print statements in python.</p>
+</section>
+<section id="how-to-logout">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">How to Logout</a><a class="headerlink" href="#how-to-logout" title="Link to this heading"></a></h2>
+<p>Typing the <code class="docutils literal notranslate"><span class="pre">exit</span></code> command will log you out of any remote computer
+you have connected to using ssh. If you type <code class="docutils literal notranslate"><span class="pre">exit</span></code> on the command
+prompt of your local workstation, you will close that Terminal
+window/tab.</p>
+</section>
+<section id="auto-fill-unique-names">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Auto Fill Unique Names</a><a class="headerlink" href="#auto-fill-unique-names" title="Link to this heading"></a></h2>
+<p>This is a helpful tip and not a command. Whenever you are
+maneuvering directories and trying to access a file or folder,
+you should be aware that you can press the <code class="docutils literal notranslate"><span class="pre">tab</span></code> button on your
+keyboard at any point to auto fill your command with a unique name.
+For example, consider a situation where you have three files in a
+folder called <code class="docutils literal notranslate"><span class="pre">states.dat</span></code>, <code class="docutils literal notranslate"><span class="pre">energies.dat</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">states_and_energies.dat</span></code>. If you want to <code class="docutils literal notranslate"><span class="pre">cat</span></code> the contents
+of the <code class="docutils literal notranslate"><span class="pre">energies.dat</span></code> file, you could type <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">e</span></code> and then
+press <code class="docutils literal notranslate"><span class="pre">tab</span></code> and the computer will auto fill the rest of the
+command to</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>energies.dat
+</pre></div>
+</div>
+<p>since there are no other options in that folder that begin with
+an &quot;e&quot;. If you wanted to <code class="docutils literal notranslate"><span class="pre">cat</span></code> the contents of <code class="docutils literal notranslate"><span class="pre">states.dat</span></code>
+you could type <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">s</span></code> and then press <code class="docutils literal notranslate"><span class="pre">tab</span></code> and the computer
+would auto fill until there was a difference in the two files,
+and thus your command prompt would say</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>states
+</pre></div>
+</div>
+<p>At this point, if you type a dot (.) and then press <code class="docutils literal notranslate"><span class="pre">tab</span></code> again
+it will auto fill the command to completion (<code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">states.dat</span></code>)
+since that is the only file that is in that folder that begins
+“states.”.</p>
+</section>
+<section id="listing-files">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Listing Files</a><a class="headerlink" href="#listing-files" title="Link to this heading"></a></h2>
+<p>You should already know how to list files with the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command,
+but there are many options with <code class="docutils literal notranslate"><span class="pre">ls</span></code> that can be useful. For
+example, if you type</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-a
+</pre></div>
+</div>
+<p>then you will see a list of all folders and files contained
+within your directory, this includes hidden files that start with
+a dot (for example, .bashrc).</p>
+<p>If you want to list all the details (permissions, date modified,
+owner, size, etc.) of all files, you can type</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-l
+</pre></div>
+</div>
+<p>If you type</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-r
+</pre></div>
+</div>
+<p>the order of the list will be reversed from the traditional
+ordering. Typically <code class="docutils literal notranslate"><span class="pre">ls</span></code> will order the files in alphabetical
+order, but typing <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">–r</span></code> will list them in reverse alphabetical
+order. Another useful option is ordering the files/folders by
+time instead of alphabetical order, which can be done using</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-t
+</pre></div>
+</div>
+<p>You can also combine these options into a single command. For
+example,</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-ltr
+</pre></div>
+</div>
+<p>will list the details of all files and put them in reverse order
+of the last time they were modified (so the most recently modified
+file is on bottom). My problem with the previous command is the
+size of the files is given in units of bytes, and that is not very
+helpful for large files. So when I want to list the details of
+all the files in a given folder I typically use the ls command</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-lthr
+</pre></div>
+</div>
+<p>where the additional <code class="docutils literal notranslate"><span class="pre">h</span></code> puts all folder/file sizes in
+human-readable format.</p>
+</section>
+<section id="canceling-a-command-before-you-execute">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Canceling a Command Before you Execute</a><a class="headerlink" href="#canceling-a-command-before-you-execute" title="Link to this heading"></a></h2>
+<p>At any point while on the command line if you want to effectively
+cancel whatever you are planning on executing, simply press <code class="docutils literal notranslate"><span class="pre">ctrl+c</span></code>
+and your command will be cancelled and you will be sent to the next
+line of the command prompt where you can begin another command.</p>
+<p>Additionally, if you ever execute a command and realize that you
+do not want to run it, instead of waiting for it to complete, you
+can just press <code class="docutils literal notranslate"><span class="pre">ctrl+c</span></code> to cancel the process (assuming it is still
+running).</p>
+</section>
+<section id="back-to-the-beginning-of-the-command-prompt">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Back to the Beginning of the Command Prompt</a><a class="headerlink" href="#back-to-the-beginning-of-the-command-prompt" title="Link to this heading"></a></h2>
+<p>While you are typing a command on the Terminal prompt you may
+get near the end of writing a command that is very long and have
+the desire to go back to the beginning of the command to change
+something. In this situation, if you press <code class="docutils literal notranslate"><span class="pre">ctrl+a</span></code> your cursor
+will immediately be moved to the very beginning of the command
+at the start of the prompt.</p>
+</section>
+<section id="combining-commands-into-a-single-line">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Combining Commands into a Single Line</a><a class="headerlink" href="#combining-commands-into-a-single-line" title="Link to this heading"></a></h2>
+<p>“Pipe” is a very helpful tool to know to help you combine commands
+into a single line, simplifying scripts and generally making life
+easier. “Piping” simply refers to the process of relocating the
+output of some command immediately to the input of another command,
+which you can do over and over. This is best explained using an
+example. For instance, let’s say I have a directory with a lot of
+files in it.</p>
+<p>Now, let’s say I want to get the file size information from for
+all files starting with 3HT3 and contain buckle in the name. I can
+first do an <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lthr</span></code> to list the details of all the files in this folder,
+then grep for the
+3HT3 pattern, then grep for the buckle pattern, and finally print
+out only the column of information with the file sizes using <code class="docutils literal notranslate"><span class="pre">awk</span></code>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-lthr<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>3HT3<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>buckle<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print($5)}&#39;</span>
+</pre></div>
+</div>
+<p>And now I can easily look at only the file sizes that I want to
+look at. Of course, this is basically a silly example that I could
+have done much easier, but I just wanted to show how pipes work.
+In this case, the “pipe” is the vertical line (|) between each
+command. You can use the keyboard make a pipe by pressing shift and
+the button right under the backspace button, as shown on the
+keyboard below.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="moving_renaming_files.html" class="btn btn-neutral float-left" title="Moving/Renaming Files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="working_with_computers.html" class="btn btn-neutral float-right" title="Working with Computers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, csu-theory-suite.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
