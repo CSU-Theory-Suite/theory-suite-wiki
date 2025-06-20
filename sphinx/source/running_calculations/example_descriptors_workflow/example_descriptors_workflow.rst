@@ -119,7 +119,7 @@ Which will give the following output:
     
 .. highlight:: default
 
-One thing to note from teh structure and coordinates is that there are 
+One thing to note from the structure and coordinates is that there are 
 no hydrogens. RDKit requires you to add explicit hydrogens if you want 
 them to be a part of the molecule.
 
@@ -516,7 +516,7 @@ You can then define a molecule and show the labels as you wish:
 .. code:: python
 
     # showing the atom index in place of the atoms
-    molecule = Chem.MolFromSmiles('c1ccccc(C(N)=O1')
+    molecule = Chem.MolFromSmiles('c1ccccc(C(N)=O)1')
     show_atom_index(molecule, 'atomLabel')
 
 .. image:: images/atom_label_image.png
@@ -524,7 +524,7 @@ You can then define a molecule and show the labels as you wish:
 .. code:: python
 
     # showing the atom index along with the atoms
-    molecule = Chem.MolFromSmiles('c1ccccc(C(N)=O1')
+    molecule = Chem.MolFromSmiles('c1ccccc(C(N)=O)1')
     show_atom_index(molecule, 'molAtomMapNumber')
 
 .. image:: images/mol_atom_map_number.png
@@ -532,7 +532,7 @@ You can then define a molecule and show the labels as you wish:
 .. code:: python
 
     # showing the atom index on top of the atoms
-    molecule = Chem.MolFromSmiles('c1ccccc(C(N)=O1')
+    molecule = Chem.MolFromSmiles('c1ccccc(C(N)=O)1')
     show_atom_index(molecule, 'atomNote')
 
 .. image:: images/atom_note_image.png
