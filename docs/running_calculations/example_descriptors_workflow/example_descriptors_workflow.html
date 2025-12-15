@@ -258,7 +258,7 @@ the coordinates of mol objects with rdkit:</p>
 M  END
 </pre></div>
 </div>
-<p>One thing to note from teh structure and coordinates is that there are
+<p>One thing to note from the structure and coordinates is that there are
 no hydrogens. RDKit requires you to add explicit hydrogens if you want
 them to be a part of the molecule.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Notice only C, no H?</span>
@@ -569,19 +569,19 @@ information comes from <a class="reference external" href="https://stackoverflow
 </div>
 <p>You can then define a molecule and show the labels as you wish:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># showing the atom index in place of the atoms</span>
-<span class="n">molecule</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;c1ccccc(C(N)=O1&#39;</span><span class="p">)</span>
+<span class="n">molecule</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;c1ccccc(C(N)=O)1&#39;</span><span class="p">)</span>
 <span class="n">show_atom_index</span><span class="p">(</span><span class="n">molecule</span><span class="p">,</span> <span class="s1">&#39;atomLabel&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../../_images/atom_label_image.png" src="../../_images/atom_label_image.png" />
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># showing the atom index along with the atoms</span>
-<span class="n">molecule</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;c1ccccc(C(N)=O1&#39;</span><span class="p">)</span>
+<span class="n">molecule</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;c1ccccc(C(N)=O)1&#39;</span><span class="p">)</span>
 <span class="n">show_atom_index</span><span class="p">(</span><span class="n">molecule</span><span class="p">,</span> <span class="s1">&#39;molAtomMapNumber&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../../_images/mol_atom_map_number.png" src="../../_images/mol_atom_map_number.png" />
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># showing the atom index on top of the atoms</span>
-<span class="n">molecule</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;c1ccccc(C(N)=O1&#39;</span><span class="p">)</span>
+<span class="n">molecule</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;c1ccccc(C(N)=O)1&#39;</span><span class="p">)</span>
 <span class="n">show_atom_index</span><span class="p">(</span><span class="n">molecule</span><span class="p">,</span> <span class="s1">&#39;atomNote&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
