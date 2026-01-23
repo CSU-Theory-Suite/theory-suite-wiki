@@ -1,0 +1,350 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moving/Renaming Files &mdash; csu-wiki  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b085c10e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d048f138"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Terminal Basics" href="terminal_basics.html" />
+    <link rel="prev" title="Working with Files" href="working_with_files.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            csu-wiki
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Adding Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../adding_pages/how_to_add_pages.html">Adding Pages to the Wiki</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="paton_computing_resources.html">Paton Lab Computing Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kim_computing_resources.html">Kim Lab Computing Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="essential_unix_commands.html">Essential Unix Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_system_layout.html">File System Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_commands.html">Submitting Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fun_with_coworkers.html">Fun with Coworkers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding_resources.html">Coding Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_files.html">Working with Files</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Moving/Renaming Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mv-changing-a-file-name-or-location">mv - Changing a File Name or Location</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rename-changing-the-name-of-many-files-in-the-same-way">rename - Changing the Name of Many Files in the Same Way</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cp-copying-a-file-to-a-new-location">cp - Copying a File to a New Location</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#moving-only-certain-files">Moving Only Certain Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#copying-transferring-to-a-new-computer">Copying/Transferring to a New Computer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rsync">rsync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scp">scp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#external-software">External Software</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mac-forklift">Mac: Forklift</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windows-winscp">Windows: WinSCP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="terminal_basics.html">Terminal Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_computers.html">Working with Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using_github.html">Using GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Helpful Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html">GoodVibes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#dbstep">DBSTEP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#reggae">REGGAE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#disco">DISCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#aqme">AQME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#slurm-job-tracking">Slurm Job Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#pyssian">pyssian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#rdkit">RDKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#crest">CREST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#robert">ROBERT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#yadda">YADDA</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Graphical Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../graphical_software/edition_generation/inkscape_gimp.html">Inkscape &amp; GIMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphical_software/edition_generation/matplotlib.html">Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphical_software/edition_generation/pymol.html">PyMOL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example Workflows</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_aqme_workflow/example_aqme_workflow.html">End-to-End Workflow in ACME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_goodvibes_workflow/example_goodvibes_workflow.html">GoodVibes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_reggae_workflow/example_reggae_workflow.html">REGGAE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_descriptors_workflow/example_descriptors_workflow.html">RDKit, Mordred, Morfeus &amp; DBStep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_censo_workflow/example_censo_workflow.html">CENSO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_nciplot_calculation/example_nciplot_calculation.html">NCIPLOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_qcalibrate_ts_conf_search/example_qcalibrate_ts_conf_search.html">qcalibrate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_yadda_workflow/example_yadda_workflow.html">YADDA</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/classical_molecular_dynamics/classical_molecular_dynamics.html">Classical Molecular Dynamics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">csu-wiki</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Moving/Renaming Files</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/computing_resources/moving_renaming_files.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="moving-renaming-files">
+<h1>Moving/Renaming Files<a class="headerlink" href="#moving-renaming-files" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#mv-changing-a-file-name-or-location" id="id1">mv - Changing a File Name or Location</a></p></li>
+<li><p><a class="reference internal" href="#rename-changing-the-name-of-many-files-in-the-same-way" id="id2">rename - Changing the Name of Many Files in the Same Way</a></p></li>
+<li><p><a class="reference internal" href="#cp-copying-a-file-to-a-new-location" id="id3">cp - Copying a File to a New Location</a></p></li>
+<li><p><a class="reference internal" href="#moving-only-certain-files" id="id4">Moving Only Certain Files</a></p></li>
+<li><p><a class="reference internal" href="#copying-transferring-to-a-new-computer" id="id5">Copying/Transferring to a New Computer</a></p>
+<ul>
+<li><p><a class="reference internal" href="#rsync" id="id6">rsync</a></p></li>
+<li><p><a class="reference internal" href="#scp" id="id7">scp</a></p></li>
+<li><p><a class="reference internal" href="#external-software" id="id8">External Software</a></p>
+<ul>
+<li><p><a class="reference internal" href="#mac-forklift" id="id9">Mac: Forklift</a></p></li>
+<li><p><a class="reference internal" href="#windows-winscp" id="id10">Windows: WinSCP</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>Moving files is an important part of our computational research.
+This may be changing the names, moving into new folders, or even
+transferring to another computer. Here are a few commands to do this:</p>
+<section id="mv-changing-a-file-name-or-location">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">mv - Changing a File Name or Location</a><a class="headerlink" href="#mv-changing-a-file-name-or-location" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">mv</span></code> is one of the <a class="reference external" href="https://csu-theory-suite.github.io/theory-suite-wiki/computing_resources/essential_unix_commands.html">Essential Unix Commands</a>,
+so you can find most of the information on that page.
+I do want to highlight here that <code class="docutils literal notranslate"><span class="pre">mv</span></code> can be used to change the
+location of a file:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mv<span class="w"> </span>file.txt<span class="w"> </span>new_folder/
+</pre></div>
+</div>
+<p>which move <code class="docutils literal notranslate"><span class="pre">file.txt</span></code> from the working directory to a file in
+the folder <code class="docutils literal notranslate"><span class="pre">new_folder/</span></code> called <code class="docutils literal notranslate"><span class="pre">file.txt</span></code>.</p>
+<p>Additionally, you can change the name of a file with <code class="docutils literal notranslate"><span class="pre">mv</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mv<span class="w"> </span>old_file_name.txt<span class="w"> </span>new_file_name.txt
+</pre></div>
+</div>
+<p>to rename the file to something new. These commands can be used together
+if you want to change the location and the name of a file:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mv<span class="w"> </span>old_file.txt<span class="w"> </span>new_folder/new_file_name.txt
+</pre></div>
+</div>
+</section>
+<section id="rename-changing-the-name-of-many-files-in-the-same-way">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">rename - Changing the Name of Many Files in the Same Way</a><a class="headerlink" href="#rename-changing-the-name-of-many-files-in-the-same-way" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">rename</span></code> is a helpful command if you would like to change many file names
+which share a pattern all at once. For example, if you made a typo while
+using <code class="docutils literal notranslate"><span class="pre">aqme</span> <span class="pre">qprep</span></code> and accidentally have a lot of files that end in
+&quot;optimidation&quot; instead of &quot;optimization&quot;, you can change all of the names
+at once with <code class="docutils literal notranslate"><span class="pre">rename</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rename<span class="w"> </span>original_pattern<span class="w"> </span>new_pattern<span class="w"> </span>files
+</pre></div>
+</div>
+<p>So for our example above:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rename<span class="w"> </span>optimidation<span class="w"> </span>optimization<span class="w"> </span>*com
+</pre></div>
+</div>
+<p>to correct the typo in all <code class="docutils literal notranslate"><span class="pre">*com</span></code> files.</p>
+</section>
+<section id="cp-copying-a-file-to-a-new-location">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">cp - Copying a File to a New Location</a><a class="headerlink" href="#cp-copying-a-file-to-a-new-location" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">cp</span></code> is also an <a class="reference external" href="https://csu-theory-suite.github.io/theory-suite-wiki/computing_resources/essential_unix_commands.html">Essential Unix Command</a>,
+and it works very similarly to <code class="docutils literal notranslate"><span class="pre">mv</span></code>. The only difference is that <code class="docutils literal notranslate"><span class="pre">mv</span></code>
+&quot;removes&quot; the original file, which <code class="docutils literal notranslate"><span class="pre">cp</span></code> just makes a new copy with the new
+name/location.</p>
+</section>
+<section id="moving-only-certain-files">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Moving Only Certain Files</a><a class="headerlink" href="#moving-only-certain-files" title="Link to this heading"></a></h2>
+<p>Sometimes, especially when dealing with QM output files,
+you might want to only move files which contain a
+certain line of text. For example, all Gaussian output
+files for jobs that finished with no problems contain
+the phrase &quot;Normal termination&quot; at the end. Similarly,
+Orca files that finished normally contain the string
+&quot;ORCA TERMINATED NORMALLY&quot;.</p>
+<p>Sometimes, it would be helpful to move all normal terminations
+into a separate folder for analysis. To do that, you can run
+the command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>grep<span class="w"> </span>-l<span class="w"> </span><span class="s2">&quot;phrase&quot;</span><span class="w"> </span>*files*<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>filename<span class="p">;</span>
+<span class="k">do</span><span class="w"> </span>mv<span class="w"> </span><span class="si">${</span><span class="nv">filename</span><span class="p">%.*</span><span class="si">}</span>*<span class="w"> </span>new_folder/<span class="p">;</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>This command searches all files for some phrase (&quot;phrase&quot; in
+the example above), then moves all files which have the same
+base as the file into <code class="docutils literal notranslate"><span class="pre">new_folder/</span></code>. In case you wanted
+to see how to move all Gaussian jobs that have finished into a
+new folder, here is that command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>grep<span class="w"> </span>-l<span class="w"> </span><span class="s1">&#39;Normal termination&#39;</span><span class="w"> </span>*log<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>filename<span class="p">;</span>
+<span class="k">do</span><span class="w"> </span>mv<span class="w"> </span><span class="si">${</span><span class="nv">filename</span><span class="p">%.*</span><span class="si">}</span>*<span class="w"> </span>finished/<span class="p">;</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>This will move the <code class="docutils literal notranslate"><span class="pre">.com</span></code>, <code class="docutils literal notranslate"><span class="pre">.log</span></code>, and <code class="docutils literal notranslate"><span class="pre">.sh</span></code> files
+(and any others that have the same base name) for
+all jobs which have terminated normally into the folder
+<code class="docutils literal notranslate"><span class="pre">finished/</span></code>, separating the completed jobs from those still
+running or any which have failed.</p>
+</section>
+<section id="copying-transferring-to-a-new-computer">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Copying/Transferring to a New Computer</a><a class="headerlink" href="#copying-transferring-to-a-new-computer" title="Link to this heading"></a></h2>
+<section id="rsync">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">rsync</a><a class="headerlink" href="#rsync" title="Link to this heading"></a></h3>
+<p>You may have already been introduced to the <code class="docutils literal notranslate"><span class="pre">scp</span></code> or <code class="docutils literal notranslate"><span class="pre">ftp</span></code>
+commands to transfer files, and that’s great, but rsync is better
+than both of them. <code class="docutils literal notranslate"><span class="pre">rsync</span></code> allows you the ability to zip files
+before they are transferred (and unzip them afterwards), so the
+transfer itself is quicker since the files to be moved are smaller.
+<code class="docutils literal notranslate"><span class="pre">rsync</span></code> also automatically compares the files to be transferred
+and the destination to compare files. If there are any duplicates,
+rsync will not transfer those files, again saving you time.
+Similarly, if a file was simply added to or modified it will only
+transfer the new modified parts instead of transferring the entire
+file again, still saving time. And if you are in the middle of
+transferring files and you cancel the transfer or you lose
+connection, when you restart the transfer, <code class="docutils literal notranslate"><span class="pre">rsync</span></code> will
+automatically pick up where it left off so you don’t have to start
+back at the beginning. Sounds too good to be true, doesn’t it?
+Well, it’s not. It’s ggggrreeeeaaaaatttt! Anyone else see a big
+cartoon tiger say that? No, just me? Okay then.</p>
+<p>Anyway, how do you use <code class="docutils literal notranslate"><span class="pre">rsync</span></code>? Well, <code class="docutils literal notranslate"><span class="pre">rsync</span></code> has a lot of
+options, but I typically use the following options</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rsync<span class="w"> </span>-azvp<span class="w"> </span>--progress<span class="w"> </span>list_of_files<span class="w"> </span>username@computer:/path/to/folder/where/you/want/the/files/
+</pre></div>
+</div>
+<p>For example,</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rsync<span class="w"> </span>-azvp<span class="w"> </span>--progress<span class="w"> </span>*<span class="w"> </span>username@acme.chem.colostate.edu:/home/usermane/
+</pre></div>
+</div>
+<p>will transfer all files (*) in the current directory to my home
+directory on the ACME. You can also reverse the command and bring
+files from another computer to your current directory. For example,</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rsync<span class="w"> </span>-azvp<span class="w"> </span>--progress<span class="w"> </span>‘username@acme.chem.colostate.edu:/home/usermane/*’<span class="w"> </span>.
+</pre></div>
+</div>
+<p>This will transfer all files in my home directory on ACME
+to the current directory (the dot specifies the current location)
+on my local computer. Different people use different options. These
+are helpful options because they zip the files prior to transferring
+and the <code class="docutils literal notranslate"><span class="pre">--progress</span></code> allows you to view the time remaining for
+each file during the transfer process.</p>
+</section>
+<section id="scp">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">scp</a><a class="headerlink" href="#scp" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">scp</span></code> functions the same as <code class="docutils literal notranslate"><span class="pre">cp</span></code>, but stands for &quot;secure copy&quot; and can be used
+to copy files between servers in a secure way. There are many different options
+and examples that can be found <a class="reference external" href="https://www.geeksforgeeks.org/scp-command-in-linux-with-examples/">here</a>.</p>
+</section>
+<section id="external-software">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">External Software</a><a class="headerlink" href="#external-software" title="Link to this heading"></a></h3>
+<p>There are some external programs which allow transfers via drag/drop
+directly into folders. This is not recommended for use on HPCs, but
+might be helpful for viewing files without needing to move them in the
+command line.</p>
+<section id="mac-forklift">
+<h4><a class="toc-backref" href="#id9" role="doc-backlink">Mac: Forklift</a><a class="headerlink" href="#mac-forklift" title="Link to this heading"></a></h4>
+<p>For Mac users, this software is called <a class="reference external" href="https://binarynights.com/">Forklift</a>.
+From this interface, you can see Finder views of the files on your computer,
+as well as a different computer that you're logged into with the software.
+There are instructions online for further use, but this tool also
+allows you to preview, for example, Gaussian output files in Gaussview without
+needing to permanently copy them to your computer.</p>
+</section>
+<section id="windows-winscp">
+<h4><a class="toc-backref" href="#id10" role="doc-backlink">Windows: WinSCP</a><a class="headerlink" href="#windows-winscp" title="Link to this heading"></a></h4>
+<p>For Windows users, this software is called <a class="reference external" href="https://winscp.net/eng/index.php">WinSCP</a>.
+From this interface, you can see File Explorer views of the files on your
+computer, as well as a different computer that you're logged into with the
+software. There are instructions online for further use, but this tool also
+allows you to preview, for example, Gaussian output files in Gaussview without
+needing to permanently copy them to your computer.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="working_with_files.html" class="btn btn-neutral float-left" title="Working with Files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="terminal_basics.html" class="btn btn-neutral float-right" title="Terminal Basics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, csu-theory-suite.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,528 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qcalibrate &mdash; csu-wiki  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b085c10e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=d048f138"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="YADDA" href="../example_yadda_workflow/example_yadda_workflow.html" />
+    <link rel="prev" title="NCIPLOT" href="../example_nciplot_calculation/example_nciplot_calculation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            csu-wiki
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Adding Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../adding_pages/how_to_add_pages.html">Adding Pages to the Wiki</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/paton_computing_resources.html">Paton Lab Computing Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/kim_computing_resources.html">Kim Lab Computing Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/essential_unix_commands.html">Essential Unix Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/file_system_layout.html">File System Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/running_commands.html">Submitting Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/fun_with_coworkers.html">Fun with Coworkers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/coding_resources.html">Coding Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/working_with_files.html">Working with Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/moving_renaming_files.html">Moving/Renaming Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/terminal_basics.html">Terminal Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/working_with_computers.html">Working with Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_resources/using_github.html">Using GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Helpful Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html">GoodVibes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#dbstep">DBSTEP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#reggae">REGGAE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#disco">DISCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#aqme">AQME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#slurm-job-tracking">Slurm Job Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#pyssian">pyssian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#rdkit">RDKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#crest">CREST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#robert">ROBERT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#yadda">YADDA</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Graphical Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphical_software/edition_generation/inkscape_gimp.html">Inkscape &amp; GIMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../graphical_software/edition_generation/matplotlib.html">Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../graphical_software/edition_generation/pymol.html">PyMOL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example Workflows</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../example_aqme_workflow/example_aqme_workflow.html">End-to-End Workflow in ACME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_goodvibes_workflow/example_goodvibes_workflow.html">GoodVibes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_reggae_workflow/example_reggae_workflow.html">REGGAE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_descriptors_workflow/example_descriptors_workflow.html">RDKit, Mordred, Morfeus &amp; DBStep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_censo_workflow/example_censo_workflow.html">CENSO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_nciplot_calculation/example_nciplot_calculation.html">NCIPLOT</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">qcalibrate</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#qcalibrate-processes">qcalibrate Processes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-modredundant-optimization">Step 1: Modredundant Optimization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-constrained-crest-search">Step 2: Constrained CREST Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-constrained-optimization">Step 3: Constrained Optimization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-4-unrestrained-transition-state-optimization">Step 4: Unrestrained Transition State Optimization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#set-up">Set-up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-the-code">Running the Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#frequency-cutoff">Frequency Cutoff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wall-time">Wall Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#number-of-processors">Number of Processors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#number-of-conformers">Number of Conformers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example_yadda_workflow/example_yadda_workflow.html">YADDA</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/classical_molecular_dynamics/classical_molecular_dynamics.html">Classical Molecular Dynamics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">csu-wiki</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">qcalibrate</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/running_calculations/example_qcalibrate_ts_conf_search/example_qcalibrate_ts_conf_search.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="qcalibrate">
+<h1>qcalibrate<a class="headerlink" href="#qcalibrate" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#qcalibrate-processes" id="id1">qcalibrate Processes</a></p>
+<ul>
+<li><p><a class="reference internal" href="#step-1-modredundant-optimization" id="id2">Step 1: Modredundant Optimization</a></p></li>
+<li><p><a class="reference internal" href="#step-2-constrained-crest-search" id="id3">Step 2: Constrained CREST Search</a></p></li>
+<li><p><a class="reference internal" href="#step-3-constrained-optimization" id="id4">Step 3: Constrained Optimization</a></p></li>
+<li><p><a class="reference internal" href="#step-4-unrestrained-transition-state-optimization" id="id5">Step 4: Unrestrained Transition State Optimization</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#set-up" id="id6">Set-up</a></p></li>
+<li><p><a class="reference internal" href="#running-the-code" id="id7">Running the Code</a></p>
+<ul>
+<li><p><a class="reference internal" href="#frequency-cutoff" id="id8">Frequency Cutoff</a></p></li>
+<li><p><a class="reference internal" href="#wall-time" id="id9">Wall Time</a></p></li>
+<li><p><a class="reference internal" href="#number-of-processors" id="id10">Number of Processors</a></p></li>
+<li><p><a class="reference internal" href="#number-of-conformers" id="id11">Number of Conformers</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>qcalibrate is a python script written in the Paton lab to assist
+with performing conformational sampling on transition state structures.
+This conformational sampling will help ensure that you have the lowest
+energy structures and more accurate pathways, so it's an important
+part of research.</p>
+<p>This script uses Gaussian and <a class="reference external" href="https://crest-lab.github.io/crest-docs/">CREST</a>
+and currently is only in place on ACME. My tutorial will go through
+the different steps that qcalibrate runs through in such a way that you
+can repeat this process manually if you are on another computer.</p>
+<section id="qcalibrate-processes">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">qcalibrate Processes</a><a class="headerlink" href="#qcalibrate-processes" title="Link to this heading"></a></h2>
+<p>This module will go through the steps of the qcalibrate script,
+as well as the location of each part in the event you will need
+to troubleshoot the scripts. This will also serve as a step-by-step
+guide for the event that you want to run the processes individually
+or on another computer without qcalibrate.</p>
+<section id="step-1-modredundant-optimization">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">Step 1: Modredundant Optimization</a><a class="headerlink" href="#step-1-modredundant-optimization" title="Link to this heading"></a></h3>
+<p>As the set-up for qcalibrate, you must create a Gaussian input
+file for a modredundant optimization of your transition state
+structure (more details in the Set-up section).
+This optimization is first run, with the bond
+constraints that you have set up for the transition state.
+This step should not take very long, since you will be starting
+with an optimized transiton state.</p>
+<p>The modredundant optimization is initially run to ensure that
+you have found a transiton state before you move along with
+the conformation search and following optimizations. There is
+a script which checks for imaginary vibrational modes in the
+Gaussian output files (<code class="docutils literal notranslate"><span class="pre">/opt/apps/bin/calibrate/check_im_freq</span></code>).
+This is to ensure that you have a good starting point before
+spending more computing power on something that isn't a
+transition state after all.</p>
+<p>This step of the process is called in the script
+<code class="docutils literal notranslate"><span class="pre">/opt/apps/bin/qcalibrate</span></code>.</p>
+</section>
+<section id="step-2-constrained-crest-search">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Step 2: Constrained CREST Search</a><a class="headerlink" href="#step-2-constrained-crest-search" title="Link to this heading"></a></h3>
+<p>Once your starting structure has been verified as a
+transition state structure, the constraints from the input
+modredundant optimization are used in a CREST conformation
+search. The script <code class="docutils literal notranslate"><span class="pre">/opt/apps/bin/CALIBRATE</span></code> will then
+convert the Gaussian output file into xyz coordinates and
+start a CREST search.</p>
+<p>CREST constraints are put into a file named <code class="docutils literal notranslate"><span class="pre">constrain.inp</span></code>
+using a script <code class="docutils literal notranslate"><span class="pre">opt/apps/bin/calibrate/constraints.py</span></code>.
+With these constraints, the conformational sampling is done
+(called on line 66 of <code class="docutils literal notranslate"><span class="pre">opt/apps/bin/CALIBRATE</span></code>).</p>
+<p>Once the CREST search has finished, the structures will
+be clustered into 10 (or a number of your choosing) representative
+structures using the CREGEN module. Following the clustering
+(on line 76 of <code class="docutils literal notranslate"><span class="pre">opt/apps/bin/CALIBRATE</span></code>), the output xyz files
+are converted into more Gaussian input files to proceed with
+the qcalibrate process.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When this search is finished, qcalibrate also deletes all the
+files that are unnecessary moving forward, so it might be
+harder if you want to troubleshoot. To get around this, you
+can create your own copy of the files and run them,
+commenting out the line of code that cleans up
+(line 114 of <code class="docutils literal notranslate"><span class="pre">/opt/apps/bin/CALIBRATE</span></code>).</p>
+</div>
+</section>
+<section id="step-3-constrained-optimization">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Step 3: Constrained Optimization</a><a class="headerlink" href="#step-3-constrained-optimization" title="Link to this heading"></a></h3>
+<p>Once you have the clustered conformations of your transition
+states, the same constraints/frozen bonds that were included
+in your initial qcalibrate input are applied to each structure
+and a constrained geometry optimization is started. These
+will all run in serial, so <code class="docutils literal notranslate"><span class="pre">conf_01</span></code> will run first, and when
+it has finished <code class="docutils literal notranslate"><span class="pre">conf_02</span></code> will start. This is part of why the
+process can take so long and it might be beneficial to increase
+the total wall time for your project.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These constrained optimizations also use the same level of
+theory that you started with in your initial input file,
+so be mindful of that when you create the input.</p>
+</div>
+<p>Once the optimizations are completed, they will be put into
+a folder called <code class="docutils literal notranslate"><span class="pre">constrained_opts/</span></code> and further analyzed.</p>
+<p>At this stage, the output files are checked for imaginary
+frequencies (signifying a transition state), as well as
+filtered based on energy. GoodVibes is run on all the
+conformers that had a normal termination to get
+energy information about the ensemble. This is done as a
+way of reducing computational cost if the conformations are
+too high in energy, as anything more than 5 kcal/mol higher
+in energy than the lowest energy conformer is discarded at
+this step.</p>
+</section>
+<section id="step-4-unrestrained-transition-state-optimization">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Step 4: Unrestrained Transition State Optimization</a><a class="headerlink" href="#step-4-unrestrained-transition-state-optimization" title="Link to this heading"></a></h3>
+<p>After the modredundant optimizations have completed and high
+energy conformers filtered out, those geometries are used
+as starting points for an unrestrained TS optimization.
+The keywords used in the Gaussian input files are
+<code class="docutils literal notranslate"><span class="pre">opt=(ts,calcfc,noeigentest)</span></code> as opposed to the <code class="docutils literal notranslate"><span class="pre">opt=modredundant</span></code>
+that the process was started with. These optimizations also
+take place in serial, so it can take some time to complete.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you run out of time at this point, you should just
+re-submit all of the input files that end
+in <code class="docutils literal notranslate"><span class="pre">*ts_conf_XX.com</span></code> (XX represents conformer number), as
+this is one of the last steps in the process. At this
+point, it is just an ensemble of TS optimizations.</p>
+</div>
+<p>Once these jobs are complete, the files are checked for
+imaginary frequencies (those without are filtered out and
+moved to <code class="docutils literal notranslate"><span class="pre">ts_fail/</span></code>) and GoodVibes is started again.
+At this stage, conformers are still filtered out if they
+are more than 5 kcal/mol higher in energy than the lowest
+energy conformer, but at this point the geometries are
+fully relaxed to the transtion states. You will have an
+output labeled &quot;best&quot; that is the lowest energy TS
+conformer to come out of this protocol, but if you want the
+full ensemble structures are in the <code class="docutils literal notranslate"><span class="pre">ts_opt/</span></code> folder.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You should at this point visualize all of your conformers
+that you plan to continue with to ensure that they
+represent the transition state that you want. This
+protocol just checks to see that they have at least one imaginary
+frequency that has an intensity greater than the cutoff, not
+that it's the TS you were searching for or started with.</p>
+</div>
+<p>This is the end of the qcalibrate protocol. The output for each
+step will be in the individual folders created with each step.
+Another file called <code class="docutils literal notranslate"><span class="pre">calibrate.out</span></code> will also be created which
+will give an overview of the whole process. This is a good place
+to look if anything seems wrong to start the troubleshooting
+process.</p>
+</section>
+</section>
+<section id="set-up">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Set-up</a><a class="headerlink" href="#set-up" title="Link to this heading"></a></h2>
+<p>If you are on ACME, then qcalibrate is already installed and ready to
+be called on the computer. If you are curious about any errors/troubleshooting,
+the code exists in the directory <code class="docutils literal notranslate"><span class="pre">/opt/apps/bin/</span></code> as <code class="docutils literal notranslate"><span class="pre">CALIBRATE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">qcalibrate</span></code>, and all files in <code class="docutils literal notranslate"><span class="pre">calibrate/</span></code>.</p>
+<p>You want to start with a Gaussian input file from an optimized
+transition state structure. So once you have found a transition state,
+create an input file using that geometry and set up for a modredundant
+optimization. This includes putting these keywords in the route line for
+your calculation:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>functional/basis<span class="w"> </span><span class="nv">opt</span><span class="o">=</span>modredundant<span class="w"> </span>freq
+</pre></div>
+</div>
+<p>For the optimization, you also need to specify bonds to constrain at the
+bottom of the file. Here, you will want to freeze the bonds that are
+involved in the transition state that you are trying to find. For example,
+if your transiton state is for a bond formation between C1 and O4,
+the bottom of your input file should include this line:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>B<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">4</span><span class="w"> </span>F
+</pre></div>
+</div>
+<p>This will ensure that the correct constraints are imposed during the
+conformation search so you don't lose the transition state that you
+have.</p>
+<p>Another key feature of this input is that you must specify a
+checkpoint file. You can do this with a simple line at the start of
+the file that looks something like this:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>%chk<span class="o">=</span>file_name_ts_conf_search.chk
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The checkpoint file must be defined in the first line of the
+input file, or the script will not work properly.</p>
+</div>
+<p>With all of these pieces you are ready to run qcalibrate and start
+performing a conformation search of your transition state. In case
+these instructions were confusing, here is an example input for a
+proton transfer transition state between atoms 2 and 23 (with the
+proton being atom 27). This file includes an extra constraint between
+atoms 3 and 21 to ensure these atoms do not bond prematurely.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%chk=mnah_ts1_conf_search.chk
+%nprocshared=16
+%mem=64GB
+# m062x/6-31+G(d) emp=gd3 opt(modredundant) scrf(cpcm,solvent=water) freq
+
+mnah_ts1_conf_search
+
+-1 1
+ C  -1.59684100  -0.47303900   1.52918800
+ C  -0.22857300   0.14916100   1.80214900
+ C   0.04361500   1.41083200   1.20889400
+ N  -0.58941700   1.83851900   0.13565700
+ C  -1.59564800   1.04046000  -0.44130900
+ C  -2.08561900  -0.04818600   0.16274100
+ H  -2.33375600  -0.18827900   2.29427800
+ H  -1.49470300  -1.56354200   1.57382800
+ H   0.85067300   2.03804600   1.56705400
+ H  -1.95798800   1.37619200  -1.40661200
+ C  -3.19120000  -0.76252600  -0.54804800
+ N  -3.80415300  -1.73833800   0.15624600
+ O  -3.52400400  -0.48022700  -1.70101400
+ C  -0.13906300   3.01499100  -0.60859300
+ H   0.59183400   3.55301300  -0.00724600
+ H  -0.99444200   3.65955900  -0.81740100
+ H   0.32883200   2.69124800  -1.54040800
+ H  -3.58796000  -1.94293800   1.12129600
+ H  -4.58510400  -2.22517000  -0.26420700
+ H   0.10903600   0.08312900   2.83618600
+ O   2.24957000   0.91384800  -0.20996100
+ P   2.49177900  -0.58867800  -0.35956100
+ O   1.38892000  -1.42317600   0.36391500
+ O   3.83491600  -0.96187800   0.57321100
+ O   2.79887500  -1.07387800  -1.77022500
+ H   4.63226600  -0.59717800   0.16010100
+ H   0.59336900  -0.54284100   1.15568300
+
+B 2 27 F
+B 27 23 F
+B 3 21 F
+
+</pre></div>
+</div>
+</section>
+<section id="running-the-code">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Running the Code</a><a class="headerlink" href="#running-the-code" title="Link to this heading"></a></h2>
+<p>This is an automated workflow, so it only takes one line to run
+all parts! If you don't want to run all parts of the code yet, I
+recommend creating your own copy of the code and running it
+individually. We are planning to add this kind of functionality to
+the existing script, but that isn't finished yet.</p>
+<p>Once you have your input file created, you can easily run the
+code and start your conformer search. This code and be run with
+only one line, but there are a few arguments that you can
+implement to customize how the script runs. Here is the basic
+command you can use to run the script:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>qcalibrate<span class="w"> </span>-i<span class="w"> </span>name_of_input.com
+</pre></div>
+</div>
+<p>Running qcalibrate creates a new directory in the working
+directory where all of the jobs will be run. The new
+directory is named after the initial input file, and inside
+more directories will be made for the constrained CREST search,
+the constrained optimization, and the successful/failed TS optimizations.</p>
+<p>This will start a slurm job with all default settings. Now, I will
+go through the different ways that you can alter the script.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All add-ons and ways to change the qcalibrate defaults
+are also described if you run the command
+<code class="docutils literal notranslate"><span class="pre">qcalibrate</span> <span class="pre">-h</span></code>.</p>
+</div>
+<section id="frequency-cutoff">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Frequency Cutoff</a><a class="headerlink" href="#frequency-cutoff" title="Link to this heading"></a></h3>
+<p>With the <code class="docutils literal notranslate"><span class="pre">-f</span></code> flag, you can change the frequency cutoff value.
+By default, when qcalibrate checks to make sure that Gaussian
+optimized (constrained or not) structures include at least one
+imaginary frequency, it also ensures that the frequency has a
+magnitude of at least 100 cm<sup>-1</sup>. This is a helpful feature,
+since it filters out any jobs that had insignificant imaginary
+frequencies that are not likely to be your transition state.</p>
+<p>If you know that the frequency of the transition state you're
+looking for is close to -1000 cm<sup>-1</sup>, then you can
+adjust the cutoff to make sure that you only search for large
+frequencies. Similarly, if the frequency of the transition state
+that you want is less intense than -100 cm<sup>-1</sup>, you can
+change the
+cutoff so that qcalibrate will keep your transition state structures.</p>
+<p>Here is an example of implementing the frequency cutoff:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>qcalibrate<span class="w"> </span>-i<span class="w"> </span>name_of_input.com<span class="w"> </span>-f<span class="w"> </span><span class="m">1000</span>
+</pre></div>
+</div>
+<p>This command will only keep optimizations (constrained or not) if the
+output file includes an imaginary frequency of -1000 cm<sup>-1</sup> or
+higher in intensity.</p>
+</section>
+<section id="wall-time">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Wall Time</a><a class="headerlink" href="#wall-time" title="Link to this heading"></a></h3>
+<p>If you run the qcalibrate command with no flags, your job will
+be submitted to the slurm queue with a maximum wall time of one
+day (24 hours). This is, however, the maximum time for all steps
+of the qcalibrate process, so 24 hours might not be long enough for
+your conformer search to finish completely. If you want to increase
+your wall time, you can use the <code class="docutils literal notranslate"><span class="pre">-t</span></code> flag. With this, you can change
+your job to be able to run for any length of time (while it fits
+on ACME's time limits).</p>
+<p>An example of a command which changes the maximum wall time of the
+job is:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>qcalibrate<span class="w"> </span>-i<span class="w"> </span>name_of_input.com<span class="w"> </span>-t<span class="w"> </span><span class="m">1</span>-12:00:00
+</pre></div>
+</div>
+<p>This command will submit the qcalibrate job to the queue for
+a maximum time of 36 hours (or 1 day and 12 hours).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are requesting times that are longer than one day,
+you can either include how many days and extra hours
+(1-12:00:00) or the total number of hours (36:00:00)
+to achieve the same effect.</p>
+</div>
+</section>
+<section id="number-of-processors">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Number of Processors</a><a class="headerlink" href="#number-of-processors" title="Link to this heading"></a></h3>
+<p>Another customizable feature of the qcalibrate script is to
+change the number of processors that your job is running on.
+The default value for processors to use is 16, but you can
+change this to use more or less, depending on your needs.
+You can alter the number of processors with the <code class="docutils literal notranslate"><span class="pre">-p</span></code> flag:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>qcalibrate<span class="w"> </span>-i<span class="w"> </span>name_of_input.com<span class="w"> </span>-p<span class="w"> </span><span class="m">8</span>
+</pre></div>
+</div>
+<p>This command will submit to 8 processors on ACME instead of
+the default 16. On ACME, you can submit to a maximum of 32
+processors per core.</p>
+</section>
+<section id="number-of-conformers">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Number of Conformers</a><a class="headerlink" href="#number-of-conformers" title="Link to this heading"></a></h3>
+<p>As part of the qcalibrate command, you can
+adjust the final number of conformers that you want to
+proceed with for the coformer search. After the initial search,
+the CREGEN module of CREST is used to cluster the ensemble
+into a specified number of representative structures.</p>
+<p>By default, the number of conformers to be considered each
+time you run qcalibrate is 10. However, you can adjust this
+number to suit your needs with the <code class="docutils literal notranslate"><span class="pre">-n</span></code> flag:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>qcalibrate<span class="w"> </span>-i<span class="w"> </span>name_of_input.com<span class="w"> </span>-n<span class="w"> </span><span class="m">5</span>
+</pre></div>
+</div>
+<p>This command will cluster to 5 representative structures after
+the initial CREST conformer search. These 5 structures will be
+used for DFT constrained optimizaitons and continue through
+the workflow.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../example_nciplot_calculation/example_nciplot_calculation.html" class="btn btn-neutral float-left" title="NCIPLOT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../example_yadda_workflow/example_yadda_workflow.html" class="btn btn-neutral float-right" title="YADDA" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, csu-theory-suite.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

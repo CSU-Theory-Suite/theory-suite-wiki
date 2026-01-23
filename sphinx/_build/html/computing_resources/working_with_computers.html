@@ -1,0 +1,470 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Working with Computers &mdash; csu-wiki  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b085c10e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d048f138"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using GitHub" href="using_github.html" />
+    <link rel="prev" title="Terminal Basics" href="terminal_basics.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            csu-wiki
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Adding Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../adding_pages/how_to_add_pages.html">Adding Pages to the Wiki</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="paton_computing_resources.html">Paton Lab Computing Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kim_computing_resources.html">Kim Lab Computing Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="essential_unix_commands.html">Essential Unix Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_system_layout.html">File System Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_commands.html">Submitting Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fun_with_coworkers.html">Fun with Coworkers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding_resources.html">Coding Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_files.html">Working with Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="moving_renaming_files.html">Moving/Renaming Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminal_basics.html">Terminal Basics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Working with Computers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-computer-am-i-working-on">What Computer am I Working on?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#remotely-accessing-computers-or-clusters">Remotely Accessing Computers or Clusters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-an-ssh-key">Setting up an ssh Key</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#who-am-i-logged-in-as">Who am I Logged In As?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-processes-are-running-in-my-terminal-window">What Processes are Running in my Terminal Window</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ps">ps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#top">top</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#learn-about-the-computer">Learn About the Computer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#which-what-program-am-i-using">which - What Program am I Using?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#disk-usage-details">Disk Usage Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#search-for-files">Search for Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tell-the-computer-to-wait">Tell the Computer to Wait</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="using_github.html">Using GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Helpful Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html">GoodVibes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#dbstep">DBSTEP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#reggae">REGGAE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#disco">DISCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#aqme">AQME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#slurm-job-tracking">Slurm Job Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#pyssian">pyssian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#rdkit">RDKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#crest">CREST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#robert">ROBERT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful_packages/helpful_packages.html#yadda">YADDA</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Graphical Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../graphical_software/edition_generation/inkscape_gimp.html">Inkscape &amp; GIMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphical_software/edition_generation/matplotlib.html">Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphical_software/edition_generation/pymol.html">PyMOL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example Workflows</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_aqme_workflow/example_aqme_workflow.html">End-to-End Workflow in ACME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_goodvibes_workflow/example_goodvibes_workflow.html">GoodVibes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_reggae_workflow/example_reggae_workflow.html">REGGAE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_descriptors_workflow/example_descriptors_workflow.html">RDKit, Mordred, Morfeus &amp; DBStep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_censo_workflow/example_censo_workflow.html">CENSO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_nciplot_calculation/example_nciplot_calculation.html">NCIPLOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_qcalibrate_ts_conf_search/example_qcalibrate_ts_conf_search.html">qcalibrate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running_calculations/example_yadda_workflow/example_yadda_workflow.html">YADDA</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/classical_molecular_dynamics/classical_molecular_dynamics.html">Classical Molecular Dynamics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">csu-wiki</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Working with Computers</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/computing_resources/working_with_computers.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="working-with-computers">
+<h1>Working with Computers<a class="headerlink" href="#working-with-computers" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#what-computer-am-i-working-on" id="id1">What Computer am I Working on?</a></p></li>
+<li><p><a class="reference internal" href="#remotely-accessing-computers-or-clusters" id="id2">Remotely Accessing Computers or Clusters</a></p>
+<ul>
+<li><p><a class="reference internal" href="#setting-up-an-ssh-key" id="id3">Setting up an ssh Key</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#who-am-i-logged-in-as" id="id4">Who am I Logged In As?</a></p></li>
+<li><p><a class="reference internal" href="#what-processes-are-running-in-my-terminal-window" id="id5">What Processes are Running in my Terminal Window</a></p>
+<ul>
+<li><p><a class="reference internal" href="#ps" id="id6">ps</a></p></li>
+<li><p><a class="reference internal" href="#top" id="id7">top</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#learn-about-the-computer" id="id8">Learn About the Computer</a></p></li>
+<li><p><a class="reference internal" href="#which-what-program-am-i-using" id="id9">which - What Program am I Using?</a></p></li>
+<li><p><a class="reference internal" href="#disk-usage-details" id="id10">Disk Usage Details</a></p></li>
+<li><p><a class="reference internal" href="#search-for-files" id="id11">Search for Files</a></p></li>
+<li><p><a class="reference internal" href="#tell-the-computer-to-wait" id="id12">Tell the Computer to Wait</a></p></li>
+</ul>
+</nav>
+<p>Much of the information on this page comes from Dr. Bill Miller III
+at A. T. Still University.</p>
+<p>Here are a few tips that might be useful as you get used
+to working with computers in a research setting.</p>
+<section id="what-computer-am-i-working-on">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">What Computer am I Working on?</a><a class="headerlink" href="#what-computer-am-i-working-on" title="Link to this heading"></a></h2>
+<p>When you can easily ssh from one computer to another it is easy
+to get confused and not know which computer you are working on.
+Thus, the command <code class="docutils literal notranslate"><span class="pre">hostname</span></code> was created to print out the name of
+the host computer you are actively working on.</p>
+</section>
+<section id="remotely-accessing-computers-or-clusters">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Remotely Accessing Computers or Clusters</a><a class="headerlink" href="#remotely-accessing-computers-or-clusters" title="Link to this heading"></a></h2>
+<p>The great part of computational work is that you should never have
+to leave your desk to do any work. You can be logged into a computer
+halfway around the world and you should be able to work as if you
+were there. The <code class="docutils literal notranslate"><span class="pre">ssh</span></code> command is what allows us this tremendous
+flexibility. The general syntax for ssh is</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span>username@remote_computer_name
+</pre></div>
+</div>
+<p>If your username on your local computer and the computer you
+are trying to connect to are the same, then you do not need to
+include the <code class="docutils literal notranslate"><span class="pre">username&#64;</span></code> part of the command. Instead, it would
+just be</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span>remote_computer_name
+</pre></div>
+</div>
+<p>For example,</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>acme.chem.colostate.edu
+</pre></div>
+</div>
+<p>In the above example, no options were included and I will not go
+into detail about all the different options <code class="docutils literal notranslate"><span class="pre">ssh</span></code> has, but I
+did want to mention the options for X-forwarding. If you include a
+<code class="docutils literal notranslate"><span class="pre">-X</span></code> or <code class="docutils literal notranslate"><span class="pre">-Y</span></code> flag between <code class="docutils literal notranslate"><span class="pre">ssh</span></code> and your destination, you
+will enable X-forwarding during your connection. What does that
+mean? That means you will be able to bring up GUIs (Graphical
+User Interfaces) on the remote computer and they will display on
+your local computer screen. So, for example, if you ssh to the
+overlap cluster using X-forwarding</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>-Y<span class="w"> </span>acme.chem.colostate.edu
+</pre></div>
+</div>
+<p>You must be aware that since you are running these
+graphics remotely that anything you try to do will be slower than
+if you were doing it on your own computer.</p>
+<p>As a final note, there are subtle differences between using the
+<code class="docutils literal notranslate"><span class="pre">-Y</span></code> and <code class="docutils literal notranslate"><span class="pre">-X</span></code> flag options, but for practical purposes you
+should not notice a difference and thus you can use either
+interchangeably.</p>
+<section id="setting-up-an-ssh-key">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Setting up an ssh Key</a><a class="headerlink" href="#setting-up-an-ssh-key" title="Link to this heading"></a></h3>
+<p>Information in this section comes from
+<a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server">here</a>.</p>
+<p>When logging into different computers, you have to type your password
+each time unless you set up an ssh key. If you set up this key, you
+will be able to ssh to another computer directly, without the need to
+type your password each time.</p>
+<p>First, you need to generate an ssh key on your computer, which will also be
+helpful when using GitHub, for example. More information about
+setting up the ssh key can be found on the
+<a class="reference external" href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">GitHub site</a>.</p>
+<p>To check to see if you already have an existing ssh key, type:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>~/.ssh
+</pre></div>
+</div>
+<p>to show you what (if any) ssh keys you have. These keys will likely
+end in <code class="docutils literal notranslate"><span class="pre">.pub</span></code>.</p>
+<p>Once you have an ssh key created, you can apply that key to
+different computers/servers with <code class="docutils literal notranslate"><span class="pre">ssh-copy-id</span> <span class="pre">username&#64;remote_host</span></code>.</p>
+<p>For example, if your username is CamRam and you want to set up an
+ssh key for ACME, type:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ssh-copy-id<span class="w"> </span>CamRam@acme.chem.colostate.edu
+</pre></div>
+</div>
+<p>And you'll be able to login to ACME without typing your password.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is only applicable when logging in from the computer
+with the ssh key that you have used the <code class="docutils literal notranslate"><span class="pre">ssh-copy-id</span></code>
+command to set up.</p>
+</div>
+</section>
+</section>
+<section id="who-am-i-logged-in-as">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Who am I Logged In As?</a><a class="headerlink" href="#who-am-i-logged-in-as" title="Link to this heading"></a></h2>
+<p>In case you find yourself questioning your very existence and
+who you are as a person, you can always ask your computer. Typing</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>whoami
+</pre></div>
+</div>
+<p>will print the username you used to login to your computer.</p>
+</section>
+<section id="what-processes-are-running-in-my-terminal-window">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">What Processes are Running in my Terminal Window</a><a class="headerlink" href="#what-processes-are-running-in-my-terminal-window" title="Link to this heading"></a></h2>
+<section id="ps">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">ps</a><a class="headerlink" href="#ps" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">ps</span></code> command is similar to the top command,
+except instead of viewing all the processes that are running on your
+computer, <code class="docutils literal notranslate"><span class="pre">ps</span></code> will only display the processes that are running in
+your current shell/window. So clearly there are significantly less
+processes shown using <code class="docutils literal notranslate"><span class="pre">ps</span></code> than <code class="docutils literal notranslate"><span class="pre">top</span></code>, but if you are running
+a bunch of
+processes that are executing the same command, ps may be a better
+way of displaying them for you if you need to terminate one of them.
+<code class="docutils literal notranslate"><span class="pre">ps</span></code> is also not dynamic. When you type <code class="docutils literal notranslate"><span class="pre">ps</span></code> the current processes
+are
+just printed to the screen and the command prompt is available for
+another unix command.</p>
+</section>
+<section id="top">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">top</a><a class="headerlink" href="#top" title="Link to this heading"></a></h3>
+<p>Occasionally it will be helpful to determine what processes are
+currently running on your computer. For this situation, we have
+the <code class="docutils literal notranslate"><span class="pre">top</span></code> command. <code class="docutils literal notranslate"><span class="pre">top</span></code> will display the processes currently
+running in your Terminal window.
+The processes are listed in descending order of %CPU usage.
+The display is dynamic and updates every ~3 seconds. While
+<code class="docutils literal notranslate"><span class="pre">top</span></code> is being displayed, if you press 1 you will see the load
+on each specific processor.</p>
+<p>There are many columns of information displayed using <code class="docutils literal notranslate"><span class="pre">top</span></code>,
+some of which are self-explanatory and some of which aren’t
+important to us. The <code class="docutils literal notranslate"><span class="pre">PID</span></code> column is an identifying number for each
+command. If you need to kill one of these jobs while <code class="docutils literal notranslate"><span class="pre">top</span></code> is
+running, press <code class="docutils literal notranslate"><span class="pre">k</span></code> and a line will be printed just above the
+processes that says <code class="docutils literal notranslate"><span class="pre">PID</span> <span class="pre">to</span> <span class="pre">kill:</span></code>. You can enter the <code class="docutils literal notranslate"><span class="pre">PID</span></code> number
+and press <code class="docutils literal notranslate"><span class="pre">enter</span></code> to kill any of the jobs that are running.
+You can also see if any other users are running processes on your
+computer (someone might decides to try to hijack your CPUs or GPUs
+if they don’t think you are using them enough). top also allows
+you to view the percentage CPU (%CPU) and memory (%MEM) usage for
+each process, the length of time the job has been running (although
+this is not normal Earth time), and the name of the command that is
+running.</p>
+<p>Once you have finished examining top you can terminate it by just
+pressing <code class="docutils literal notranslate"><span class="pre">q</span></code> on the keyboard to quit (or pressing <code class="docutils literal notranslate"><span class="pre">ctrl+c</span></code>)</p>
+</section>
+</section>
+<section id="learn-about-the-computer">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Learn About the Computer</a><a class="headerlink" href="#learn-about-the-computer" title="Link to this heading"></a></h2>
+<p>Depending on the machine that you are working on, there may be
+a different architecture/setup of that computer. There can also be
+different numbers of CPUs that are available for use on different
+machines. One way to figure out this kind of information about the
+machine you are working on is with with command <code class="docutils literal notranslate"><span class="pre">lscpu</span></code>. When you
+are on a linux machine, typing this command will give a lot of
+information about the computer. The results of this command are
+printed to the Terminal window. For example, typing</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>lscpu
+</pre></div>
+</div>
+<p>on Fireball of the Paton Lab gives the result:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Architecture:<span class="w">          </span>x86_64
+CPU<span class="w"> </span>op-mode<span class="o">(</span>s<span class="o">)</span>:<span class="w">        </span><span class="m">32</span>-bit,<span class="w"> </span><span class="m">64</span>-bit
+Byte<span class="w"> </span>Order:<span class="w">            </span>Little<span class="w"> </span>Endian
+CPU<span class="o">(</span>s<span class="o">)</span>:<span class="w">                </span><span class="m">96</span>
+On-line<span class="w"> </span>CPU<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>list:<span class="w">   </span><span class="m">0</span>-95
+Thread<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>per<span class="w"> </span>core:<span class="w">    </span><span class="m">2</span>
+Core<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>per<span class="w"> </span>socket:<span class="w">    </span><span class="m">24</span>
+Socket<span class="o">(</span>s<span class="o">)</span>:<span class="w">             </span><span class="m">2</span>
+NUMA<span class="w"> </span>node<span class="o">(</span>s<span class="o">)</span>:<span class="w">          </span><span class="m">2</span>
+Vendor<span class="w"> </span>ID:<span class="w">             </span>GenuineIntel
+CPU<span class="w"> </span>family:<span class="w">            </span><span class="m">6</span>
+Model:<span class="w">                 </span><span class="m">85</span>
+Model<span class="w"> </span>name:<span class="w">            </span>Intel<span class="o">(</span>R<span class="o">)</span><span class="w"> </span>Xeon<span class="o">(</span>R<span class="o">)</span><span class="w"> </span>Platinum<span class="w"> </span><span class="m">8260</span><span class="w"> </span>CPU<span class="w"> </span>@<span class="w"> </span><span class="m">2</span>.40GHz
+Stepping:<span class="w">              </span><span class="m">7</span>
+CPU<span class="w"> </span>MHz:<span class="w">               </span><span class="m">3572</span>.460
+CPU<span class="w"> </span>max<span class="w"> </span>MHz:<span class="w">           </span><span class="m">3900</span>.0000
+CPU<span class="w"> </span>min<span class="w"> </span>MHz:<span class="w">           </span><span class="m">1000</span>.0000
+BogoMIPS:<span class="w">              </span><span class="m">4800</span>.00
+Virtualization:<span class="w">        </span>VT-x
+L1d<span class="w"> </span>cache:<span class="w">             </span>32K
+L1i<span class="w"> </span>cache:<span class="w">             </span>32K
+L2<span class="w"> </span>cache:<span class="w">              </span>1024K
+L3<span class="w"> </span>cache:<span class="w">              </span>36608K
+NUMA<span class="w"> </span>node0<span class="w"> </span>CPU<span class="o">(</span>s<span class="o">)</span>:<span class="w">     </span><span class="m">0</span>-23,48-71
+NUMA<span class="w"> </span>node1<span class="w"> </span>CPU<span class="o">(</span>s<span class="o">)</span>:<span class="w">     </span><span class="m">24</span>-47,72-95
+Flags:<span class="w">                 </span>fpu<span class="w"> </span>vme<span class="w"> </span>de<span class="w"> </span>pse<span class="w"> </span>tsc<span class="w"> </span>msr<span class="w"> </span>pae<span class="w"> </span>mce<span class="w"> </span>cx8<span class="w"> </span>apic<span class="w"> </span>sep<span class="w"> </span>mtrr<span class="w"> </span>pge<span class="w"> </span>mca<span class="w"> </span>cmov<span class="w"> </span>pat<span class="w"> </span>pse36<span class="w"> </span>clflush<span class="w"> </span>dts<span class="w"> </span>acpi<span class="w"> </span>mmx<span class="w"> </span>fxsr<span class="w"> </span>sse<span class="w"> </span>sse2<span class="w"> </span>ss<span class="w"> </span>ht<span class="w"> </span>tm<span class="w"> </span>pbe<span class="w"> </span>syscall<span class="w"> </span>nx<span class="w"> </span>pdpe1gb<span class="w"> </span>rdtscp<span class="w"> </span>lm<span class="w"> </span>constant_tsc<span class="w"> </span>art<span class="w"> </span>arch_perfmon<span class="w"> </span>pebs<span class="w"> </span>bts<span class="w"> </span>rep_good<span class="w"> </span>nopl<span class="w"> </span>xtopology<span class="w"> </span>nonstop_tsc<span class="w"> </span>aperfmperf<span class="w"> </span>eagerfpu<span class="w"> </span>pni<span class="w"> </span>pclmulqdq<span class="w"> </span>dtes64<span class="w"> </span>monitor<span class="w"> </span>ds_cpl<span class="w"> </span>vmx<span class="w"> </span>smx<span class="w"> </span>est<span class="w"> </span>tm2<span class="w"> </span>ssse3<span class="w"> </span>sdbg<span class="w"> </span>fma<span class="w"> </span>cx16<span class="w"> </span>xtpr<span class="w"> </span>pdcm<span class="w"> </span>pcid<span class="w"> </span>dca<span class="w"> </span>sse4_1<span class="w"> </span>sse4_2<span class="w"> </span>x2apic<span class="w"> </span>movbe<span class="w"> </span>popcnt<span class="w"> </span>tsc_deadline_timer<span class="w"> </span>aes<span class="w"> </span>xsave<span class="w"> </span>avx<span class="w"> </span>f16c<span class="w"> </span>rdrand<span class="w"> </span>lahf_lm<span class="w"> </span>abm<span class="w"> </span>3dnowprefetch<span class="w"> </span>epb<span class="w"> </span>cat_l3<span class="w"> </span>cdp_l3<span class="w"> </span>invpcid_single<span class="w"> </span>intel_ppin<span class="w"> </span>intel_pt<span class="w"> </span>ssbd<span class="w"> </span>mba<span class="w"> </span>ibrs<span class="w"> </span>ibpb<span class="w"> </span>stibp<span class="w"> </span>ibrs_enhanced<span class="w"> </span>tpr_shadow<span class="w"> </span>vnmi<span class="w"> </span>flexpriority<span class="w"> </span>ept<span class="w"> </span>vpid<span class="w"> </span>fsgsbase<span class="w"> </span>tsc_adjust<span class="w"> </span>bmi1<span class="w"> </span>hle<span class="w"> </span>avx2<span class="w"> </span>smep<span class="w"> </span>bmi2<span class="w"> </span>erms<span class="w"> </span>invpcid<span class="w"> </span>rtm<span class="w"> </span>cqm<span class="w"> </span>mpx<span class="w"> </span>rdt_a<span class="w"> </span>avx512f<span class="w"> </span>avx512dq<span class="w"> </span>rdseed<span class="w"> </span>adx<span class="w"> </span>smap<span class="w"> </span>clflushopt<span class="w"> </span>clwb<span class="w"> </span>avx512cd<span class="w"> </span>avx512bw<span class="w"> </span>avx512vl<span class="w"> </span>xsaveopt<span class="w"> </span>xsavec<span class="w"> </span>xgetbv1<span class="w"> </span>cqm_llc<span class="w"> </span>cqm_occup_llc<span class="w"> </span>cqm_mbm_total<span class="w"> </span>cqm_mbm_local<span class="w"> </span>dtherm<span class="w"> </span>ida<span class="w"> </span>arat<span class="w"> </span>pln<span class="w"> </span>pts<span class="w"> </span>hwp<span class="w"> </span>hwp_act_window<span class="w"> </span>hwp_epp<span class="w"> </span>hwp_pkg_req<span class="w"> </span>pku<span class="w"> </span>ospke<span class="w"> </span>avx512_vnni<span class="w"> </span>md_clear<span class="w"> </span>spec_ctrl<span class="w"> </span>intel_stibp<span class="w"> </span>flush_l1d<span class="w"> </span>arch_capabilities
+</pre></div>
+</div>
+<p>This command should give you any of the information that you are
+looking for about a computer.</p>
+</section>
+<section id="which-what-program-am-i-using">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">which - What Program am I Using?</a><a class="headerlink" href="#which-what-program-am-i-using" title="Link to this heading"></a></h2>
+<p>The which command can be extremely useful for determining:</p>
+<ol class="arabic simple">
+<li><p>if a command is in your PATH and</p></li>
+<li><p>the exact path to the executable</p></li>
+</ol>
+<p>For example, if you want to know if the vmd program is in your
+PATH, type</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>which<span class="w"> </span>vmd
+</pre></div>
+</div>
+<p>which should give the result</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>/usr/local/bin/vmd
+</pre></div>
+</div>
+<p>This tells you that vmd is in your PATH, so if you just type <code class="docutils literal notranslate"><span class="pre">vmd</span></code>
+the VMD program will open, and it tells you the VMD program that
+will open is located in <code class="docutils literal notranslate"><span class="pre">/usr/local/bin</span></code>. This is important
+because sometimes you might have multiple copies of the same
+program on your computer. If I wanted to use the beta version of
+the VMD program I could download it from the VMD website and
+install it on my computer. I would then have to put the beta VMD
+bin directory in my PATH (using the instructions outlined in the
+$PATH section) so that when I type <code class="docutils literal notranslate"><span class="pre">vmd</span></code> I will open the beta
+VMD instead of the native VMD in <code class="docutils literal notranslate"><span class="pre">/usr/local/bin/</span></code>.
+Typing <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">vmd</span></code> will let you know exactly which VMD you are
+attempting to use.</p>
+</section>
+<section id="disk-usage-details">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Disk Usage Details</a><a class="headerlink" href="#disk-usage-details" title="Link to this heading"></a></h2>
+<p>Our computers only have a limited amount of storage, so it is useful
+to know the disk usage details for our entire computer, as well as
+folders on our computer. For this purpose we use the du command.
+Typing the command <code class="docutils literal notranslate"><span class="pre">du</span> <span class="pre">-h</span></code> will print the size of every
+subfolder within your current directory and print out the final
+disk usage at the end. If you have many directories and
+subdirectories within your current folder, the list printed to
+the screen can become quite large.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-s</span></code> flag is intended to help remove all of the mess
+and just give you the final details if that is all you want.
+This is useful if you only care about the total size of a directory
+and don't care about the size of individual subfolders.</p>
+</section>
+<section id="search-for-files">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Search for Files</a><a class="headerlink" href="#search-for-files" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">find</span></code> command searches a directory/path for files that match the
+given expression provided by the user. The general syntax is</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>find<span class="w"> </span><span class="o">[</span>path<span class="o">]</span><span class="w"> </span>expression
+</pre></div>
+</div>
+<p>This command has a LOT of options.</p>
+<p>An example find command is shown below to give you an idea of
+what find can do.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>find<span class="w"> </span><span class="nv">$HOME</span><span class="w"> </span>-mtime<span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+<p>This command will search for files in your home directory that
+have been modified in the last 24 hours.</p>
+<p><code class="docutils literal notranslate"><span class="pre">find</span></code> is also capable of executing arbitrary bash commands with the
+filenames it finds:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>find<span class="w"> </span>./<span class="w"> </span>-maxdepth<span class="w"> </span><span class="m">3</span><span class="w"> </span>-mindepth<span class="w"> </span><span class="m">1</span><span class="w"> </span>-name<span class="w"> </span><span class="s1">&#39;*.com&#39;</span><span class="w"> </span>-exec<span class="w"> </span><span class="s2">&quot;cp {} ../../MoveFilesHere \;&quot;</span>
+</pre></div>
+</div>
+<p>This command will parse through all folders 1-3 steps in the file
+tree, select all of the files that end in &quot;.com&quot;, and run the
+<code class="docutils literal notranslate"><span class="pre">cp</span></code> command to move those files into a new folder that you made.
+The portion after the <code class="docutils literal notranslate"><span class="pre">-exec</span></code> can be any bash command you would like
+to run on the files you've found.</p>
+</section>
+<section id="tell-the-computer-to-wait">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Tell the Computer to Wait</a><a class="headerlink" href="#tell-the-computer-to-wait" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">sleep</span></code> command simply tells the computer to pause and wait for
+a user-specified amount of time. I have really only found this
+useful when writing scripts. The command does not return anything
+or print any output. The general syntax is</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sleep<span class="w"> </span><span class="c1">#</span>
+</pre></div>
+</div>
+<p>where the number is the time you want the computer to wait for
+in units of seconds. To make the computer wait 3 seconds you would
+type</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sleep<span class="w"> </span><span class="m">3</span>
+</pre></div>
+</div>
+<p>Wasn’t that useful?</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="terminal_basics.html" class="btn btn-neutral float-left" title="Terminal Basics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="using_github.html" class="btn btn-neutral float-right" title="Using GitHub" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, csu-theory-suite.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
