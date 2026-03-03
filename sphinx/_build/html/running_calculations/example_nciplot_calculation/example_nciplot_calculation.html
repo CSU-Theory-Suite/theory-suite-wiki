@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NCIPLOT &mdash; csu-wiki  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b085c10e" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=d048f138"></script>
-      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -117,6 +117,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../example_qcalibrate_ts_conf_search/example_qcalibrate_ts_conf_search.html">qcalibrate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../example_yadda_workflow/example_yadda_workflow.html">YADDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_marcus_workflow/example_marcus_workflow.html">Calculating Electron-Transfer Barriers Using the Marcus–Hush Model</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
 <ul>
@@ -328,14 +329,14 @@ and you can see the its effect in the table below</p>
 <tr class="row-even"><td><p><strong>from_xyz</strong></p></td>
 <td><p><strong>from_wfn</strong></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../_images/fig_from_xyz.png"><img alt="from_xyz" height="400" src="../../_images/fig_from_xyz.png" width="400" /></a></p></td>
-<td><p><a class="reference internal" href="../../_images/fig_from_wfn.png"><img alt="from_wfn" height="400" src="../../_images/fig_from_wfn.png" width="400" /></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../_images/fig_from_xyz.png"><img alt="from_xyz" src="../../_images/fig_from_xyz.png" style="width: 400px; height: 400px;" /></a></p></td>
+<td><p><a class="reference internal" href="../../_images/fig_from_wfn.png"><img alt="from_wfn" src="../../_images/fig_from_wfn.png" style="width: 400px; height: 400px;" /></a></p></td>
 </tr>
 <tr class="row-even"><td><p><strong>intermolecular_from_xyz</strong></p></td>
 <td><p><strong>intermolecular_from_wfn</strong></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../_images/fig_inter_from_xyz.png"><img alt="from_ixyz" height="400" src="../../_images/fig_inter_from_xyz.png" width="400" /></a></p></td>
-<td><p><a class="reference internal" href="../../_images/fig_inter_from_wfn.png"><img alt="from_iwfn" height="400" src="../../_images/fig_inter_from_wfn.png" width="400" /></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../_images/fig_inter_from_xyz.png"><img alt="from_ixyz" src="../../_images/fig_inter_from_xyz.png" style="width: 400px; height: 400px;" /></a></p></td>
+<td><p><a class="reference internal" href="../../_images/fig_inter_from_wfn.png"><img alt="from_iwfn" src="../../_images/fig_inter_from_wfn.png" style="width: 400px; height: 400px;" /></a></p></td>
 </tr>
 </tbody>
 </table>
@@ -436,7 +437,7 @@ To do the conversion you can use openbabel: <code class="code docutils literal n
 command in the console. Otherwise you should look for the executable and either
 use it from command line or double click it.</p>
 <p>As you open pymol and you will see something like the following image:</p>
-<p><a class="reference internal" href="../../_images/pymol_welcome.png"><img alt="pymol_1" height="600" src="../../_images/pymol_welcome.png" width="800" /></a></p>
+<p><a class="reference internal" href="../../_images/pymol_welcome.png"><img alt="pymol_1" src="../../_images/pymol_welcome.png" style="width: 800px; height: 600px;" /></a></p>
 <p>pymol has two windows and two consoles. I generally prefer to type in the top
 one and leave the bottom one only for visualizing, changing the view and
 selecting atoms, but you can use both consoles equally.</p>
@@ -453,7 +454,7 @@ type &quot;run pynci.py&quot;</p>
 you choose either to load the .xyz or the .sdf</p>
 <p>After that, unless you have the defaults changed, you will see a horrible version
 of your molecule.</p>
-<p><a class="reference internal" href="../../_images/pymol_abomination.png"><img alt="pymol_2" height="600" src="../../_images/pymol_abomination.png" width="800" /></a></p>
+<p><a class="reference internal" href="../../_images/pymol_abomination.png"><img alt="pymol_2" src="../../_images/pymol_abomination.png" style="width: 800px; height: 600px;" /></a></p>
 <p>Do not worry, we will make it pretty.</p>
 </section>
 <section id="start-making-things-pretty">
@@ -462,7 +463,7 @@ of your molecule.</p>
 colors. If that is the case go to the rainbow &quot;C&quot; on the rightmost part of the
 fragment and choose the colorset that suits you the best. I generally pick the
 one in the following image.</p>
-<p><a class="reference internal" href="../../_images/pymol_colors.png"><img alt="pymol_3" height="600" src="../../_images/pymol_colors.png" width="800" /></a></p>
+<p><a class="reference internal" href="../../_images/pymol_colors.png"><img alt="pymol_3" src="../../_images/pymol_colors.png" style="width: 800px; height: 600px;" /></a></p>
 <p>Before we plot the nciplot I do recommend to play with the representation of
 the molecules to suit your tastes. It is really easy to google the stuff and the
 pymol wiki is very complete and with pictures.</p>
@@ -471,7 +472,7 @@ console:</p>
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">PyMOL&gt; preset.ball_and_stick(&#39;all&#39;,mode=1)</span>
 </pre></div>
 </div>
-<p><a class="reference internal" href="../../_images/pymol_pretty.png"><img alt="pymol_4" height="600" src="../../_images/pymol_pretty.png" width="800" /></a></p>
+<p><a class="reference internal" href="../../_images/pymol_pretty.png"><img alt="pymol_4" src="../../_images/pymol_pretty.png" style="width: 800px; height: 600px;" /></a></p>
 </section>
 <section id="loading-the-density-and-gradient">
 <h3><a class="toc-backref" href="#id14" role="doc-backlink">5. Loading the density and gradient</a><a class="headerlink" href="#loading-the-density-and-gradient" title="Link to this heading"></a></h3>
@@ -491,7 +492,7 @@ calculation</p>
 </div>
 <p>With this, two new items will appear: &quot;ramp&quot; (color legend) and &quot;grad&quot; (nci).
 Great if you like how you see it you are ready to go.</p>
-<p><a class="reference internal" href="../../_images/pymol_nci.png"><img alt="pymol_5" height="600" src="../../_images/pymol_nci.png" width="800" /></a></p>
+<p><a class="reference internal" href="../../_images/pymol_nci.png"><img alt="pymol_5" src="../../_images/pymol_nci.png" style="width: 800px; height: 600px;" /></a></p>
 </section>
 <section id="basics-of-visualization">
 <h3><a class="toc-backref" href="#id16" role="doc-backlink">7. Basics of visualization</a><a class="headerlink" href="#basics-of-visualization" title="Link to this heading"></a></h3>
