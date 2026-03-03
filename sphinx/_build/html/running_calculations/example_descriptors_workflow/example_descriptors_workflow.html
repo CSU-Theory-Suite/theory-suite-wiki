@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="python" data-content_root="../../">
 <head>
@@ -7,15 +5,19 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RDKit, Mordred, Morfeus &amp; DBStep &mdash; csu-wiki  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b085c10e" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a9e91e84" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
 
   
-      <script src="../../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=d048f138"></script>
-      <script src="../../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=d048f138"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -63,17 +65,17 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Helpful Packages</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html">GoodVibes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#dbstep">DBSTEP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#reggae">REGGAE</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#disco">DISCO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#aqme">AQME</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#slurm-job-tracking">Slurm Job Tracking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#pyssian">pyssian</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#rdkit">RDKit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#crest">CREST</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#robert">ROBERT</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#yadda">YADDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/AQME.html">AQME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/CREST.html">CREST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/DBSTEP.html">DBSTEP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/DISCO.html">DISCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/GoodVibes.html">GoodVibes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/pyssian.html">pyssian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/RDKit.html">RDKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/REGGAE.html">REGGAE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/ROBERT.html">ROBERT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/Slurm_Job_Tracking.html">Slurm Job Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/YADDA.html">YADDA</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Graphical Software</span></p>
 <ul>
@@ -208,8 +210,8 @@
 <p>RDKit is primiarly used for creation, and manipulation of chemical
 structures.</p>
 <p><a class="reference external" href="https://www.rdkit.org/docs/GettingStartedInPython.html">https://www.rdkit.org/docs/GettingStartedInPython.html</a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rdkit</span> <span class="c1">#rdkit.Chem.SOMEFUNCTION</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">rdkit</span><span class="w"> </span><span class="kn">import</span> <span class="n">Chem</span> <span class="c1">#Chem.SOMEFUNCTION</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rdkit</span> <span class="c1">#rdkit.Chem.SOMEFUNCTION</span>
+<span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span> <span class="c1">#Chem.SOMEFUNCTION</span>
 </pre></div>
 </div>
 <section id="step-1-2d-smiles-to-3d-structure">
@@ -316,7 +318,7 @@ M  END
 coordinates that this molecule is in 2D right now (all z-coordinates are
 0). To fix this, we have to generate a 3D structure of our mol object:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#going from 2D to 3D with proper coordinates?</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">rdkit.Chem</span><span class="w"> </span><span class="kn">import</span> <span class="n">AllChem</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">AllChem</span>
  <span class="c1"># rdkit.Chem.AllChem.EmbedMolecule(m2,randomSeed=0xf00d)</span>
 <span class="n">AllChem</span><span class="o">.</span><span class="n">EmbedMolecule</span><span class="p">(</span><span class="n">m2</span><span class="p">,</span><span class="n">randomSeed</span><span class="o">=</span><span class="mh">0xf00d</span><span class="p">)</span>   <span class="c1"># optional random seed for reproducibility)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Chem</span><span class="o">.</span><span class="n">MolToMolBlock</span><span class="p">(</span><span class="n">m2</span><span class="p">))</span>
@@ -371,7 +373,7 @@ M  END
 see that we now have a 3D molecule! How it's time to save our molecule
 and be able to work with it outside of RDKit:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#can we wrtie it to a xyz file? sdf file?</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">rdkit.Chem</span><span class="w"> </span><span class="kn">import</span> <span class="n">rdmolfiles</span> <span class="c1">#https://www.rdkit.org/docs/source/rdkit.Chem.rdmolfiles.html</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">rdmolfiles</span> <span class="c1">#https://www.rdkit.org/docs/source/rdkit.Chem.rdmolfiles.html</span>
 <span class="c1"># write the 3D molecule to an xyz file</span>
 <span class="n">rdmolfiles</span><span class="o">.</span><span class="n">MolToXYZFile</span><span class="p">(</span><span class="n">m2</span><span class="p">,</span><span class="s1">&#39;molecule.xyz&#39;</span><span class="p">)</span>
 <span class="c1"># write the 3D molecule to a pdb file</span>
@@ -545,7 +547,7 @@ for a full list of what you can find with rdkit.</p>
 <p>One thing that you can do to help make descriptor generation easier
 is visualize the molecule wiht atoms labeled with their atomic symbol
 and index. Here, you can define a function which will do this:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mol_with_atom_index</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mol_with_atom_index</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">mol</span><span class="o">.</span><span class="n">GetAtoms</span><span class="p">():</span>
         <span class="n">atom</span><span class="o">.</span><span class="n">SetAtomMapNum</span><span class="p">(</span><span class="n">atom</span><span class="o">.</span><span class="n">GetIdx</span><span class="p">())</span>
     <span class="k">return</span> <span class="n">mol</span>
@@ -557,10 +559,10 @@ and index. Here, you can define a function which will do this:</p>
 Here are a few that are easy to show and might be helpful. This
 information comes from <a class="reference external" href="https://stackoverflow.com/questions/53321453/rdkit-how-to-show-moleculars-atoms-number-indexes/66732268#66732268">here</a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing required packages</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">rdkit</span><span class="w"> </span><span class="kn">import</span> <span class="n">Chem</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">rdkit.Chem.Draw</span><span class="w"> </span><span class="kn">import</span> <span class="n">IPythonConsole</span>
+<span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem.Draw</span> <span class="kn">import</span> <span class="n">IPythonConsole</span>
 <span class="c1"># defining the function</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">show_atom_index</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">show_atom_index</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">mol</span><span class="o">.</span><span class="n">GetAtoms</span><span class="p">():</span>
         <span class="n">atom</span><span class="o">.</span><span class="n">SetProp</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">atom</span><span class="o">.</span><span class="n">GetIdx</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">mol</span>
@@ -618,7 +620,7 @@ and three to hydrogen.</p>
 <p>There are a lot of descriptors that RDKit can find or calculate, so many
 that they have a whole <a class="reference external" href="https://www.rdkit.org/docs/source/rdkit.Chem.Descriptors.html#module-rdkit.Chem.Descriptors">package</a>
 for them!</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rdkit.Chem</span><span class="w"> </span><span class="kn">import</span> <span class="n">Descriptors</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">Descriptors</span>
 </pre></div>
 </div>
 <p>With this package, you can find descriptors for your key molecules,
@@ -639,7 +641,7 @@ ExactMolWt: 122.036779432
 <p>You can also get <a class="reference external" href="https://www.rdkit.org/docs/source/rdkit.Chem.GraphDescriptors.html">graph descriptors</a>
 from RDKit, which are helpful for predictive modeling.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Graph Descriptors</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">rdkit.Chem</span><span class="w"> </span><span class="kn">import</span> <span class="n">GraphDescriptors</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">GraphDescriptors</span>
 </pre></div>
 </div>
 <p>Here are some examples of descriptors you can get from this package:</p>
@@ -660,9 +662,9 @@ HallKierAlpha: -1.31
 <a class="reference external" href="https://www.rdkit.org/docs/source/rdkit.Chem.GraphDescriptors.html">molecular fingerprints</a>
 in RDKit:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fingerprints</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">rdkit.Chem</span><span class="w"> </span><span class="kn">import</span> <span class="n">GraphDescriptors</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">rdkit.Chem.AtomPairs.Pairs</span><span class="w"> </span><span class="kn">import</span> <span class="n">GetAtomPairFingerprintAsBitVect</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">rdkit.Chem</span><span class="w"> </span><span class="kn">import</span> <span class="n">MACCSkeys</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">GraphDescriptors</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem.AtomPairs.Pairs</span> <span class="kn">import</span> <span class="n">GetAtomPairFingerprintAsBitVect</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">MACCSkeys</span>
 </pre></div>
 </div>
 <p>The code:</p>
@@ -730,7 +732,7 @@ substructure: ccc
 <a class="reference external" href="https://www.rdkit.org/docs/source/rdkit.Chem.Descriptors3D.html">3D descriptors</a>
 of molecules from rdkit.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#3D Descriptors</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">rdkit.Chem</span><span class="w"> </span><span class="kn">import</span> <span class="n">Descriptors3D</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">Descriptors3D</span>
 <span class="c1"># set your molecule</span>
 <span class="n">m</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;c1ccccc1C(=O)O&#39;</span><span class="p">)</span>
 <span class="n">m</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AddHs</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
@@ -915,8 +917,8 @@ Check out the documentation for a list of more functionalities of RDKit!</p>
 <h3><a class="toc-backref" href="#id11" role="doc-backlink">Modred: a descriptors package</a><a class="headerlink" href="#modred-a-descriptors-package" title="Link to this heading"></a></h3>
 <p>Modred is used to collect important chemical descriptors</p>
 <p><a class="reference external" href="https://github.com/mordred-descriptor/mordred">https://github.com/mordred-descriptor/mordred</a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rdkit</span><span class="w"> </span><span class="kn">import</span> <span class="n">Chem</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mordred</span><span class="w"> </span><span class="kn">import</span> <span class="n">Calculator</span><span class="p">,</span> <span class="n">descriptors</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
+<span class="kn">from</span> <span class="nn">mordred</span> <span class="kn">import</span> <span class="n">Calculator</span><span class="p">,</span> <span class="n">descriptors</span>
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create descriptor calculator with all descriptors</span>
@@ -971,7 +973,7 @@ Check out the documentation for a list of more functionalities of RDKit!</p>
 <span class="o">-</span> <span class="n">XTB</span> <span class="n">electronic</span> <span class="n">descriptors</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">morfeus</span><span class="w"> </span><span class="kn">import</span> <span class="n">BuriedVolume</span><span class="p">,</span> <span class="n">Dispersion</span><span class="p">,</span> <span class="n">SASA</span><span class="p">,</span> <span class="n">Sterimol</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">morfeus</span> <span class="kn">import</span> <span class="n">BuriedVolume</span><span class="p">,</span> <span class="n">Dispersion</span><span class="p">,</span> <span class="n">SASA</span><span class="p">,</span> <span class="n">Sterimol</span>
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;c1ccccc1C(=O)O&#39;</span><span class="p">)</span>
@@ -1015,7 +1017,7 @@ L         B_1       B_5
 4.89      1.70      4.88
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">morfeus</span><span class="w"> </span><span class="kn">import</span> <span class="n">XTB</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">morfeus</span> <span class="kn">import</span> <span class="n">XTB</span>
 <span class="c1">#conda config --add channels conda-forge</span>
 <span class="c1">#conda install xtb-python</span>
 </pre></div>
@@ -1069,7 +1071,7 @@ Nucleophilicity: {1: 0.04377913232024513, 2: 0.04531234210302857, 3: 0.029059222
 <section id="dbstep-a-descriptors-package">
 <h3><a class="toc-backref" href="#id13" role="doc-backlink">DBstep: a descriptors package</a><a class="headerlink" href="#dbstep-a-descriptors-package" title="Link to this heading"></a></h3>
 <p>DBstep is used to collect sterimol descriptors</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dbstep.Dbstep</span><span class="w"> </span><span class="kn">import</span> <span class="n">dbstep</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dbstep.Dbstep</span> <span class="kn">import</span> <span class="n">dbstep</span>
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;c1ccccc1C(=O)O&#39;</span><span class="p">)</span>

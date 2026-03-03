@@ -36,7 +36,7 @@ your terminal and immediately ssh to that computer.
     typing the long hostname each time you want to access another computer.
 
 Before you can access either of these computers, you will have to create accounts
-for both expanse and bridges2, as well as ACCESS in order to use the resources.
+for both Expanse and Bridges2, as well as ACCESS in order to use the resources.
 
 .. note::
 
@@ -44,16 +44,23 @@ for both expanse and bridges2, as well as ACCESS in order to use the resources.
    different than what you normally use depending on how the account is created.
 
 You can follow these websites to make accounts on
-`Expanse <https://www.sdsc.edu/index.html>`__,
-`Bridges2 <https://www.psc.edu/>`__, and
+`Expanse <https://www.sdsc.edu/systems/expanse/index.html>`__,
+`Bridges2 <https://www.psc.edu/resources/bridges-2/>`__, and
 `ACCESS <https://access-ci.org/>`__.
 
 Additionally, you will need to fill out
-`this form <https://www.psc.edu/resources/software/gaussian/>`__ to gain access
+`this form <https://www.psc.edu/resources/software/gaussian/permission-form/>`__ to gain access
 to Gaussian, or email them for help.
 
-You should also get in contact with an ACCESS admin in the group (Mihai, Graham & Abhijeet
-as of June 2023) to be added to the allocations group for the lab.
+.. warning::
+
+    When creating an account for Expanse, it is important to set up 2-factor authentication
+    (2FA). Without this, you will be unable to log into Expanse.
+    There are more instructions for setting up 2FA in the 
+    `System Access portion of the Expanse user guide <https://www.sdsc.edu/systems/expanse/user_guide.html#narrow-wysiwyg-2>`__.
+
+You should also get in contact with an ACCESS admin in the group (Rob, Graham & Abhijeet
+as of December 2025) to be added to the allocations group for the lab.
 
 Alpine
 ------
@@ -124,7 +131,8 @@ Here is the alias for ACME:
     alias acme='ssh $USER@acme.chem.colostate.edu'
 
 To gain access to ACME, contact an admin to make an account. The current admin
-for the Paton group is Abhijeet, and from the Kim group you can go to Sabari, or Collin (October 2024).
+for the Paton group are Abhijeet and Will, and from the Kim group you can go to Sabari 
+or Elijah (December 2025).
 
 There are sample input files for many of the software that we use on ACME. If you would 
 like to see example calculation input files, you can copy the folder 

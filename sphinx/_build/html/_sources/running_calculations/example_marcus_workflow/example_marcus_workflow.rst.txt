@@ -32,8 +32,9 @@ Sum of the energetic penalties associated with reorganizing:
 
 **Activation Barrier (Marcus)**  
 
-.. image:: placeholder
-   :alt: Marcus barrier equation
+:: 
+   
+   ΔG‡ = ( (λ + ΔG°)² ) / (4λ)
 
 **Non-Equilibrium Solvation**  
 A solvation model in which the solvent polarization from one electronic state is
