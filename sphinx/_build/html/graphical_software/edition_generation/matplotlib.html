@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="python" data-content_root="../../">
 <head>
@@ -7,15 +5,19 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Matplotlib &mdash; csu-wiki  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b085c10e" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a9e91e84" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
 
   
-      <script src="../../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=d048f138"></script>
-      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=d048f138"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -63,17 +65,17 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Helpful Packages</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html">GoodVibes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#dbstep">DBSTEP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#reggae">REGGAE</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#disco">DISCO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#aqme">AQME</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#slurm-job-tracking">Slurm Job Tracking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#pyssian">pyssian</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#rdkit">RDKit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#crest">CREST</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#robert">ROBERT</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/helpful_packages.html#yadda">YADDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/AQME.html">AQME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/CREST.html">CREST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/DBSTEP.html">DBSTEP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/DISCO.html">DISCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/GoodVibes.html">GoodVibes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/pyssian.html">pyssian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/RDKit.html">RDKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/REGGAE.html">REGGAE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/ROBERT.html">ROBERT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/Slurm_Job_Tracking.html">Slurm Job Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../helpful_packages/YADDA.html">YADDA</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Graphical Software</span></p>
 <ul class="current">
@@ -101,6 +103,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../running_calculations/example_nciplot_calculation/example_nciplot_calculation.html">NCIPLOT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../running_calculations/example_qcalibrate_ts_conf_search/example_qcalibrate_ts_conf_search.html">qcalibrate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../running_calculations/example_yadda_workflow/example_yadda_workflow.html">YADDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../running_calculations/example_marcus_workflow/example_marcus_workflow.html">Calculating Electron-Transfer Barriers Using the Marcus–Hush Model</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
 <ul>
@@ -169,7 +172,7 @@ that are in a file name <code class="code docutils literal notranslate"><span cl
 </div>
 <p>For tutorial purposes we are going to read the file by hand (although we could
 easily use pandas and/or numpy to read it)</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">ifile</span> <span class="o">=</span> <span class="s1">&#39;points.csv&#39;</span>
 
@@ -188,7 +191,7 @@ easily use pandas and/or numpy to read it)</p>
 <p>Great now we have a numpy array where the first column is the x of the
 experimental points and the second column is the y. If we want a simple plot we
 can use the high-level methods implemented in pyplot:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;fast_figure.png&#39;</span><span class="p">)</span> <span class="c1"># this will save a raster image -&gt; better to edit with GIMP</span>
@@ -219,7 +222,7 @@ later section. For now what we need to know is that the plotting actions are
 carried out in an axes (<em>scatter</em> in our previous example), whereas drawing the
 final image (<em>savefig</em> in the previous example) is carried out in the <code class="code docutils literal notranslate"><span class="pre">Figure</span></code></p>
 <p>If we only use these two we can translate our previous example as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">ofile</span> <span class="o">=</span> <span class="s1">&#39;fast_figure.svg&#39;</span>
 
@@ -237,7 +240,7 @@ the figure as .svg instead of providing other options.</p>
 </div>
 <p>Here we can provide some extra arguments to control the size of the figure as
 well as its quality:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">ofile</span> <span class="o">=</span> <span class="s1">&#39;fast_figure.svg&#39;</span>
 
@@ -253,7 +256,7 @@ well as its quality:</p>
 <p>Finally we move to the <code class="code docutils literal notranslate"><span class="pre">Gridspec</span></code>. A <code class="code docutils literal notranslate"><span class="pre">Gridspec</span></code> is kind of a
 coordinate system within the figure that allows us to fine tune the positions
 of the axes within the <code class="code docutils literal notranslate"><span class="pre">Figure</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">ofile</span> <span class="o">=</span> <span class="s1">&#39;fast_figure.svg&#39;</span>
 
@@ -282,7 +285,7 @@ of the axes within the <code class="code docutils literal notranslate"><span cla
 1st we have comments that would not usually be there and 2nd we are not taking
 advantage of one of the core features of python and the matplotlib library,
 the <code class="code docutils literal notranslate"><span class="pre">kwargs</span></code>. Lets make change the code again a bit!</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">ofile</span> <span class="o">=</span> <span class="s1">&#39;fast_figure.svg&#39;</span>
 
@@ -329,7 +332,7 @@ parameters that you need, and handles all the formatting related with that
 axes as well as the plotting.</p>
 </div>
 <p>First let's start generating the layout:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">ofile</span> <span class="o">=</span> <span class="s1">&#39;composite_figure.svg&#39;</span>
 
@@ -380,8 +383,8 @@ The figure that we have just saved to see the layout will look like this:</p>
 <strong><img alt="matplotlib_composite_figure_00" src="../../_images/matplotlib_composite_figure_00.png" /></strong></p><p>Now that we have the layout that we want let's include the different plots,
 As we have a small number of points we can directly create the array &quot;by hand&quot;
 rather than reading it, so in this example we will proceed in that manner.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">ofile</span> <span class="o">=</span> <span class="s1">&#39;composite_figure.svg&#39;</span>
 
@@ -522,8 +525,8 @@ increase the thickness of the yaxis ticks. Let's add a ylabel and modify the yti
 </div>
 <p class="centered">
 <strong><img alt="matplotlib_composite_figure_03" src="../../_images/matplotlib_composite_figure_03.png" /></strong></p><p>Now our full script to generate the figure looks like this:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">ofile</span> <span class="o">=</span> <span class="s1">&#39;composite_figure.svg&#39;</span>
 
@@ -627,7 +630,7 @@ This keyword stands for 'color map' and we can find
 already existing colormaps available in matplotlib. Now we are going to create
 our own color map. and use it instead of the 'bwr' that we used previously.</p>
 <p>The simplest way to create a colormap is by providing a sequence of colors:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
 
 <span class="n">custom_colors</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">128</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
                  <span class="p">(</span><span class="mi">146</span><span class="p">,</span><span class="mi">54</span><span class="p">,</span><span class="mi">54</span><span class="p">),</span>
@@ -645,7 +648,7 @@ color that we select we need to write down three different numbers. Depending
 on where we look for those numbers they will be either between 0 and 256 or
 between 0 and 1. Here we have the same code but providing the colors in html
 notation:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearSegmentedColormap</span><span class="p">,</span> <span class="n">to_rgba</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span><span class="p">,</span> <span class="n">to_rgba</span>
 
 <span class="n">custom_colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#800000ff&#39;</span><span class="p">,</span>
                  <span class="s1">&#39;#923636ff&#39;</span><span class="p">,</span>
@@ -659,9 +662,9 @@ notation:</p>
 </div>
 <p>With this we are ready to go, all that we need to do is to include this cmap
 in our previous code and we will see our new color map in action!</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearSegmentedColormap</span><span class="p">,</span> <span class="n">to_rgba</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span><span class="p">,</span> <span class="n">to_rgba</span>
 
 <span class="n">ofile</span> <span class="o">=</span> <span class="s1">&#39;composite_figure.svg&#39;</span>
 
