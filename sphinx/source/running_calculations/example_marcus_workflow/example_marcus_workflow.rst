@@ -6,7 +6,7 @@
 
 
 ==================================================================
-Calculating Electron-Transfer Barriers Using the Marcus–Hush Model
+Calculating Electron-Transfer Barriers
 ==================================================================
 
 1. Introduction
@@ -14,27 +14,26 @@ Calculating Electron-Transfer Barriers Using the Marcus–Hush Model
 
 Here we describe the workflow for computing thermal activation barriers
 for outer-sphere electron transfer (ET) processes using the Marcus–Hush model.
-The procedure outlines how to obtain the free energy difference (ΔG°)
-and reorganization energy (λ) from density functional theory (DFT) calculations,
+The procedure outlines how to obtain the free energy difference (:math:`\Delta G ^\circ`)
+and reorganization energy (:math:`\lambda`) from density functional theory (DFT) calculations,
 including the use of non-equilibrium solvation to calculate the solvent contributions.
 
 2. Terminologies and Definitions
 --------------------------------
 
-**ΔG° (Free Energy Difference)**  
+:math:`\boldsymbol{\Delta G ^\circ}` **(Free Energy Difference):**
 Gibbs free energy difference between reactant (pre-SET) and product (post-SET) states.
 
-**λ (Reorganization Energy)**  
-Sum of the energetic penalties associated with reorganizing:
+:math:`\boldsymbol{\lambda}` **(Reorganization Energy):**  
+Sum of the energetic penalties associated with reorganizing. There are 
+two types of reorganization energy:
 
-- λᵢ : Internal geometry change  
-- λₒ : Solvent/environmental response
+- :math:`\lambda_i` : Internal geometry change  
+- :math:`\lambda_{\circ}` : Solvent/environmental response
 
 **Activation Barrier (Marcus)**  
 
-:: 
-   
-   ΔG‡ = ( (λ + ΔG°)² ) / (4λ)
+:math:`\Delta G ^ \ddagger\ = \frac{(\lambda + \Delta G ^ \circ )^ 2}{4\lambda}`
 
 **Non-Equilibrium Solvation**  
 A solvation model in which the solvent polarization from one electronic state is
@@ -48,13 +47,13 @@ derivative (acceptor) and benzene (donor).
 
 .. centered:: |scheme1| 
 
-The ΔG° (free energy difference) between the reactant (before ET)
+The :math:`\Delta G ^\circ` (free energy difference) between the reactant (before ET)
 and product (after ET) states is the Gibbs free energy difference
 between the optimized "bottom of the well" geometries of the structures.
 
 .. centered:: |delta_G| 
 
-The reorganization energy (λ) can be visualized as the energy penalty to
+The reorganization energy (:math:`\lambda`) can be visualized as the energy penalty to
 take the reactant structures from their optimal geometry and solvation
 shell to the geometry and solvation shell of the product, while maintaining
 their initial electronic configuration.
@@ -66,23 +65,21 @@ their initial electronic configuration.
 
 The Marcus–Hush calculation consists of three major steps:
 
-1. Compute ΔG° from optimized reactant and product states.
-2. Compute λ using four single-point calculations (Nelsen's four-point method).
-3. Calculate ΔG‡ using the Marcus equation.
+1. Compute :math:`\Delta G ^\circ` from optimized reactant and product states.
+2. Compute :math:`\lambda` using four single-point calculations (Nelsen's four-point method).
+3. Calculate :math:`\Delta G ^\ddagger` using the Marcus equation.
 
-Step 1: Compute Free Energy Difference (ΔG°)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Step 1: Compute Free Energy Difference (:math:`\Delta G ^\circ`)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Optimize the geometries of the reactant and product states separately.
 - Extract the Gibbs free energies from each calculation.
 - Compute:
 
-::
+:math:`\Delta G ^ \circ\ = G_{product} - G_{reactant}`
 
-   ΔG° = G_product − G_reactant
-
-Step 2: Compute Reorganization Energy (λ)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Step 2: Compute Reorganization Energy (:math:`\lambda`)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Reorganization energy is calculated using four single-point calculations:
 two on reactant surfaces and two on product surfaces under non-equilibrium solvation.
@@ -92,80 +89,67 @@ Required Calculations
 
 A. **Reactant-State Energies**
 
-- **E₁**: Donor (D) at its own optimized geometry and solvation  
+- :math:`\boldsymbol{E_1}` : Donor (D) at its own optimized geometry and solvation  
   Charge/spin = reactant state  
   Save solvation environment using ``NonEq=Save``
 
-- **E₂**: Acceptor (A) at its own optimized geometry and solvation  
+- :math:`\boldsymbol{E_2}` : Acceptor (A) at its own optimized geometry and solvation  
   Charge/spin = reactant state  
   Save solvation environment using ``NonEq=Save``
 
 B. **Product-State Energies Using Reactant Electronic Configuration**
 
-- **E₃**: Donor (D) at the product-optimized geometry  
+- :math:`\boldsymbol{E_3}` : Donor (D) at the product-optimized geometry  
   Use reactant charge/multiplicity  
   Read product solvation environment with ``NonEq=Read``
 
-- **E₄**: Acceptor (A) at the product-optimized geometry  
+- :math:`\boldsymbol{E_4}` : Acceptor (A) at the product-optimized geometry  
   Use reactant charge/multiplicity  
   Read product solvation environment with ``NonEq=Read``
 
-Computing λ
-^^^^^^^^^^^
+Computing :math:`\lambda`
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-::
+:math:`\lambda = (\boldsymbol{E_3} - \boldsymbol{E_1}) + (\boldsymbol{E_4} - \boldsymbol{E_2})`
 
-   λ = (E₃ − E₁) + (E₄ − E₂)
+Forward and Reverse :math:`\lambda`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forward and Reverse λ
-^^^^^^^^^^^^^^^^^^^^^
-
-Compute λ on both reactant and product surfaces.
+Compute :math:`\lambda` on both reactant and product surfaces.
 
 If the values differ (which is common), take the geometric mean
 following Nelsen’s recommendation:
 
-::
+:math:`\lambda_{eff} = \sqrt{\lambda_{forward} \times \lambda_{reverse}}`
 
-   λ_eff = sqrt( λ_forward × λ_reverse )
-
-Step 3: Calculate Activation Barrier (ΔG‡)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Step 3: Calculate Activation Barrier (:math:`\Delta G ^ \ddagger`)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Use the standard Marcus equation:
 
-::
-
-   ΔG‡ = ( (λ + ΔG°)² ) / (4λ)
+:math:`\Delta G ^ \ddagger\ = \frac{(\lambda + \Delta G ^ \circ )^ 2}{4\lambda}`
 
 This value is used as the ET activation barrier.
 
-5. Example Workflow for λ Calculation
--------------------------------------
+5. Example Workflow for :math:`\lambda` Calculation
+---------------------------------------------------
 
-We demonstrate the λ calculation workflow using the example shown above.
+We demonstrate the :math:`\lambda` calculation workflow using the example shown above.
 
 .. centered:: |scheme2|
 
-Four energies required:
+Four energies are required:
 
-::
+* :math:`\boldsymbol{E_1}`: Optimized D, charge 0, multiplicity 1
+* :math:`\boldsymbol{E_2}`: Optimized 3A, charge 0, multiplicity 3
+* :math:`\boldsymbol{E_3}`: Cation D⁺ geometry, but electronic configuration of D (charge 0, multiplicity 1); ``NonEq=Read`` (from saved solvation from D⁺)
+* :math:`\boldsymbol{E_4}`: Anion A⁻ geometry, but electronic configuration of 3A (charge 0, multiplicity 3); ``NonEq=Read`` (from saved solvation from A⁻)
 
-   E₁: Optimized D, charge 0, multiplicity 1
-   E₂: Optimized 3A, charge 0, multiplicity 3
-   E₃: Cation D⁺ geometry, but electronic configuration of D (charge 0, multiplicity 1);
-       NonEq=Read (from saved solvation from D⁺)
-   E₄: Anion A⁻ geometry, but electronic configuration of 3A (charge 0, multiplicity 3);
-       NonEq=Read (from saved solvation from A⁻)
+Compute :math:`\lambda` via:
 
-Compute λ via:
-
-::
-
-   λ = (E₃ − E₁) + (E₄ − E₂)
+:math:`\lambda = (\boldsymbol{E_3} - \boldsymbol{E_1}) + (\boldsymbol{E_4} - \boldsymbol{E_2})`
 
 Repeat for product-state ET and take the geometric mean.
-
 
 
 
