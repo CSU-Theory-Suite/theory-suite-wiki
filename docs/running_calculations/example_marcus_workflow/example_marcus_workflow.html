@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calculating Electron-Transfer Barriers Using the Marcus–Hush Model &mdash; csu-wiki  documentation</title>
+  <title>Calculating Electron-Transfer Barriers &mdash; csu-wiki  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a9e91e84" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
 
@@ -18,6 +18,7 @@
         <script src="../../_static/documentation_options.js?v=d048f138"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -93,22 +94,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../example_nciplot_calculation/example_nciplot_calculation.html">NCIPLOT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../example_qcalibrate_ts_conf_search/example_qcalibrate_ts_conf_search.html">qcalibrate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../example_yadda_workflow/example_yadda_workflow.html">YADDA</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Calculating Electron-Transfer Barriers Using the Marcus–Hush Model</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Calculating Electron-Transfer Barriers</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#introduction">1. Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#terminologies-and-definitions">2. Terminologies and Definitions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#brief-theory">3. Brief Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#procedure">4. Procedure</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#step-1-compute-free-energy-difference-g">Step 1: Compute Free Energy Difference (ΔG°)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#step-2-compute-reorganization-energy">Step 2: Compute Reorganization Energy (λ)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-compute-free-energy-difference-delta-g-circ">Step 1: Compute Free Energy Difference (<span class="math notranslate nohighlight">\(\Delta G ^\circ\)</span>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-compute-reorganization-energy-lambda">Step 2: Compute Reorganization Energy (<span class="math notranslate nohighlight">\(\lambda\)</span>)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#required-calculations">Required Calculations</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#computing">Computing λ</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#forward-and-reverse">Forward and Reverse λ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#computing-lambda">Computing <span class="math notranslate nohighlight">\(\lambda\)</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#forward-and-reverse-lambda">Forward and Reverse <span class="math notranslate nohighlight">\(\lambda\)</span></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#step-3-calculate-activation-barrier-g">Step 3: Calculate Activation Barrier (ΔG‡)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-calculate-activation-barrier-delta-g-ddagger">Step 3: Calculate Activation Barrier (<span class="math notranslate nohighlight">\(\Delta G ^ \ddagger\)</span>)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#example-workflow-for-calculation">5. Example Workflow for λ Calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-workflow-for-lambda-calculation">5. Example Workflow for <span class="math notranslate nohighlight">\(\lambda\)</span> Calculation</a></li>
 </ul>
 </li>
 </ul>
@@ -131,7 +132,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Calculating Electron-Transfer Barriers Using the Marcus–Hush Model</li>
+      <li class="breadcrumb-item active">Calculating Electron-Transfer Barriers</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/running_calculations/example_marcus_workflow/example_marcus_workflow.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -141,30 +142,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="calculating-electron-transfer-barriers-using-the-marcushush-model">
-<h1>Calculating Electron-Transfer Barriers Using the Marcus–Hush Model<a class="headerlink" href="#calculating-electron-transfer-barriers-using-the-marcushush-model" title="Link to this heading"></a></h1>
+  <section id="calculating-electron-transfer-barriers">
+<h1>Calculating Electron-Transfer Barriers<a class="headerlink" href="#calculating-electron-transfer-barriers" title="Link to this heading"></a></h1>
 <section id="introduction">
 <h2>1. Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
 <p>Here we describe the workflow for computing thermal activation barriers
 for outer-sphere electron transfer (ET) processes using the Marcus–Hush model.
-The procedure outlines how to obtain the free energy difference (ΔG°)
-and reorganization energy (λ) from density functional theory (DFT) calculations,
+The procedure outlines how to obtain the free energy difference (<span class="math notranslate nohighlight">\(\Delta G ^\circ\)</span>)
+and reorganization energy (<span class="math notranslate nohighlight">\(\lambda\)</span>) from density functional theory (DFT) calculations,
 including the use of non-equilibrium solvation to calculate the solvent contributions.</p>
 </section>
 <section id="terminologies-and-definitions">
 <h2>2. Terminologies and Definitions<a class="headerlink" href="#terminologies-and-definitions" title="Link to this heading"></a></h2>
-<p><strong>ΔG° (Free Energy Difference)</strong>
+<p><span class="math notranslate nohighlight">\(\boldsymbol{\Delta G ^\circ}\)</span> <strong>(Free Energy Difference):</strong>
 Gibbs free energy difference between reactant (pre-SET) and product (post-SET) states.</p>
-<p><strong>λ (Reorganization Energy)</strong>
-Sum of the energetic penalties associated with reorganizing:</p>
+<p><span class="math notranslate nohighlight">\(\boldsymbol{\lambda}\)</span> <strong>(Reorganization Energy):</strong>
+Sum of the energetic penalties associated with reorganizing. There are
+two types of reorganization energy:</p>
 <ul class="simple">
-<li><p>λᵢ : Internal geometry change</p></li>
-<li><p>λₒ : Solvent/environmental response</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda_i\)</span> : Internal geometry change</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda_{\circ}\)</span> : Solvent/environmental response</p></li>
 </ul>
 <p><strong>Activation Barrier (Marcus)</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ΔG‡ = ( (λ + ΔG°)² ) / (4λ)
-</pre></div>
-</div>
+<p><span class="math notranslate nohighlight">\(\Delta G ^ \ddagger\ = \frac{(\lambda + \Delta G ^ \circ )^ 2}{4\lambda}\)</span></p>
 <p><strong>Non-Equilibrium Solvation</strong>
 A solvation model in which the solvent polarization from one electronic state is
 used to evaluate the energy of another state (using <code class="docutils literal notranslate"><span class="pre">NonEq=Save</span></code> / <code class="docutils literal notranslate"><span class="pre">NonEq=Read</span></code>).</p>
@@ -174,11 +174,11 @@ used to evaluate the energy of another state (using <code class="docutils litera
 <p>Consider the example electron transfer (ET) between a triplet quinone
 derivative (acceptor) and benzene (donor).</p>
 <p class="centered">
-<strong><img alt="scheme1" src="../../_images/scheme1.png" /></strong></p><p>The ΔG° (free energy difference) between the reactant (before ET)
+<strong><img alt="scheme1" src="../../_images/scheme1.png" /></strong></p><p>The <span class="math notranslate nohighlight">\(\Delta G ^\circ\)</span> (free energy difference) between the reactant (before ET)
 and product (after ET) states is the Gibbs free energy difference
 between the optimized &quot;bottom of the well&quot; geometries of the structures.</p>
 <p class="centered">
-<strong><img alt="delta_G" src="../../_images/delta_G.png" /></strong></p><p>The reorganization energy (λ) can be visualized as the energy penalty to
+<strong><img alt="delta_G" src="../../_images/delta_G.png" /></strong></p><p>The reorganization energy (<span class="math notranslate nohighlight">\(\lambda\)</span>) can be visualized as the energy penalty to
 take the reactant structures from their optimal geometry and solvation
 shell to the geometry and solvation shell of the product, while maintaining
 their initial electronic configuration.</p>
@@ -188,23 +188,21 @@ their initial electronic configuration.</p>
 <h2>4. Procedure<a class="headerlink" href="#procedure" title="Link to this heading"></a></h2>
 <p>The Marcus–Hush calculation consists of three major steps:</p>
 <ol class="arabic simple">
-<li><p>Compute ΔG° from optimized reactant and product states.</p></li>
-<li><p>Compute λ using four single-point calculations (Nelsen's four-point method).</p></li>
-<li><p>Calculate ΔG‡ using the Marcus equation.</p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(\Delta G ^\circ\)</span> from optimized reactant and product states.</p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(\lambda\)</span> using four single-point calculations (Nelsen's four-point method).</p></li>
+<li><p>Calculate <span class="math notranslate nohighlight">\(\Delta G ^\ddagger\)</span> using the Marcus equation.</p></li>
 </ol>
-<section id="step-1-compute-free-energy-difference-g">
-<h3>Step 1: Compute Free Energy Difference (ΔG°)<a class="headerlink" href="#step-1-compute-free-energy-difference-g" title="Link to this heading"></a></h3>
+<section id="step-1-compute-free-energy-difference-delta-g-circ">
+<h3>Step 1: Compute Free Energy Difference (<span class="math notranslate nohighlight">\(\Delta G ^\circ\)</span>)<a class="headerlink" href="#step-1-compute-free-energy-difference-delta-g-circ" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Optimize the geometries of the reactant and product states separately.</p></li>
 <li><p>Extract the Gibbs free energies from each calculation.</p></li>
 <li><p>Compute:</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ΔG° = G_product − G_reactant
-</pre></div>
-</div>
+<p><span class="math notranslate nohighlight">\(\Delta G ^ \circ\ = G_{product} - G_{reactant}\)</span></p>
 </section>
-<section id="step-2-compute-reorganization-energy">
-<h3>Step 2: Compute Reorganization Energy (λ)<a class="headerlink" href="#step-2-compute-reorganization-energy" title="Link to this heading"></a></h3>
+<section id="step-2-compute-reorganization-energy-lambda">
+<h3>Step 2: Compute Reorganization Energy (<span class="math notranslate nohighlight">\(\lambda\)</span>)<a class="headerlink" href="#step-2-compute-reorganization-energy-lambda" title="Link to this heading"></a></h3>
 <p>Reorganization energy is calculated using four single-point calculations:
 two on reactant surfaces and two on product surfaces under non-equilibrium solvation.</p>
 <section id="required-calculations">
@@ -213,10 +211,10 @@ two on reactant surfaces and two on product surfaces under non-equilibrium solva
 <li><p><strong>Reactant-State Energies</strong></p></li>
 </ol>
 <ul class="simple">
-<li><p><strong>E₁</strong>: Donor (D) at its own optimized geometry and solvation
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{E_1}\)</span> : Donor (D) at its own optimized geometry and solvation
 Charge/spin = reactant state
 Save solvation environment using <code class="docutils literal notranslate"><span class="pre">NonEq=Save</span></code></p></li>
-<li><p><strong>E₂</strong>: Acceptor (A) at its own optimized geometry and solvation
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{E_2}\)</span> : Acceptor (A) at its own optimized geometry and solvation
 Charge/spin = reactant state
 Save solvation environment using <code class="docutils literal notranslate"><span class="pre">NonEq=Save</span></code></p></li>
 </ul>
@@ -224,56 +222,46 @@ Save solvation environment using <code class="docutils literal notranslate"><spa
 <li><p><strong>Product-State Energies Using Reactant Electronic Configuration</strong></p></li>
 </ol>
 <ul class="simple">
-<li><p><strong>E₃</strong>: Donor (D) at the product-optimized geometry
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{E_3}\)</span> : Donor (D) at the product-optimized geometry
 Use reactant charge/multiplicity
 Read product solvation environment with <code class="docutils literal notranslate"><span class="pre">NonEq=Read</span></code></p></li>
-<li><p><strong>E₄</strong>: Acceptor (A) at the product-optimized geometry
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{E_4}\)</span> : Acceptor (A) at the product-optimized geometry
 Use reactant charge/multiplicity
 Read product solvation environment with <code class="docutils literal notranslate"><span class="pre">NonEq=Read</span></code></p></li>
 </ul>
 </section>
-<section id="computing">
-<h4>Computing λ<a class="headerlink" href="#computing" title="Link to this heading"></a></h4>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>λ = (E₃ − E₁) + (E₄ − E₂)
-</pre></div>
-</div>
+<section id="computing-lambda">
+<h4>Computing <span class="math notranslate nohighlight">\(\lambda\)</span><a class="headerlink" href="#computing-lambda" title="Link to this heading"></a></h4>
+<p><span class="math notranslate nohighlight">\(\lambda = (\boldsymbol{E_3} - \boldsymbol{E_1}) + (\boldsymbol{E_4} - \boldsymbol{E_2})\)</span></p>
 </section>
-<section id="forward-and-reverse">
-<h4>Forward and Reverse λ<a class="headerlink" href="#forward-and-reverse" title="Link to this heading"></a></h4>
-<p>Compute λ on both reactant and product surfaces.</p>
+<section id="forward-and-reverse-lambda">
+<h4>Forward and Reverse <span class="math notranslate nohighlight">\(\lambda\)</span><a class="headerlink" href="#forward-and-reverse-lambda" title="Link to this heading"></a></h4>
+<p>Compute <span class="math notranslate nohighlight">\(\lambda\)</span> on both reactant and product surfaces.</p>
 <p>If the values differ (which is common), take the geometric mean
 following Nelsen’s recommendation:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>λ_eff = sqrt( λ_forward × λ_reverse )
-</pre></div>
-</div>
+<p><span class="math notranslate nohighlight">\(\lambda_{eff} = \sqrt{\lambda_{forward} \times \lambda_{reverse}}\)</span></p>
 </section>
 </section>
-<section id="step-3-calculate-activation-barrier-g">
-<h3>Step 3: Calculate Activation Barrier (ΔG‡)<a class="headerlink" href="#step-3-calculate-activation-barrier-g" title="Link to this heading"></a></h3>
+<section id="step-3-calculate-activation-barrier-delta-g-ddagger">
+<h3>Step 3: Calculate Activation Barrier (<span class="math notranslate nohighlight">\(\Delta G ^ \ddagger\)</span>)<a class="headerlink" href="#step-3-calculate-activation-barrier-delta-g-ddagger" title="Link to this heading"></a></h3>
 <p>Use the standard Marcus equation:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ΔG‡ = ( (λ + ΔG°)² ) / (4λ)
-</pre></div>
-</div>
+<p><span class="math notranslate nohighlight">\(\Delta G ^ \ddagger\ = \frac{(\lambda + \Delta G ^ \circ )^ 2}{4\lambda}\)</span></p>
 <p>This value is used as the ET activation barrier.</p>
 </section>
 </section>
-<section id="example-workflow-for-calculation">
-<h2>5. Example Workflow for λ Calculation<a class="headerlink" href="#example-workflow-for-calculation" title="Link to this heading"></a></h2>
-<p>We demonstrate the λ calculation workflow using the example shown above.</p>
+<section id="example-workflow-for-lambda-calculation">
+<h2>5. Example Workflow for <span class="math notranslate nohighlight">\(\lambda\)</span> Calculation<a class="headerlink" href="#example-workflow-for-lambda-calculation" title="Link to this heading"></a></h2>
+<p>We demonstrate the <span class="math notranslate nohighlight">\(\lambda\)</span> calculation workflow using the example shown above.</p>
 <p class="centered">
-<strong><img alt="scheme2" src="../../_images/scheme2.png" /></strong></p><p>Four energies required:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>E₁: Optimized D, charge 0, multiplicity 1
-E₂: Optimized 3A, charge 0, multiplicity 3
-E₃: Cation D⁺ geometry, but electronic configuration of D (charge 0, multiplicity 1);
-    NonEq=Read (from saved solvation from D⁺)
-E₄: Anion A⁻ geometry, but electronic configuration of 3A (charge 0, multiplicity 3);
-    NonEq=Read (from saved solvation from A⁻)
-</pre></div>
-</div>
-<p>Compute λ via:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>λ = (E₃ − E₁) + (E₄ − E₂)
-</pre></div>
-</div>
+<strong><img alt="scheme2" src="../../_images/scheme2.png" /></strong></p><p>Four energies are required:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{E_1}\)</span>: Optimized D, charge 0, multiplicity 1</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{E_2}\)</span>: Optimized 3A, charge 0, multiplicity 3</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{E_3}\)</span>: Cation D⁺ geometry, but electronic configuration of D (charge 0, multiplicity 1); <code class="docutils literal notranslate"><span class="pre">NonEq=Read</span></code> (from saved solvation from D⁺)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{E_4}\)</span>: Anion A⁻ geometry, but electronic configuration of 3A (charge 0, multiplicity 3); <code class="docutils literal notranslate"><span class="pre">NonEq=Read</span></code> (from saved solvation from A⁻)</p></li>
+</ul>
+<p>Compute <span class="math notranslate nohighlight">\(\lambda\)</span> via:</p>
+<p><span class="math notranslate nohighlight">\(\lambda = (\boldsymbol{E_3} - \boldsymbol{E_1}) + (\boldsymbol{E_4} - \boldsymbol{E_2})\)</span></p>
 <p>Repeat for product-state ET and take the geometric mean.</p>
 </section>
 </section>
