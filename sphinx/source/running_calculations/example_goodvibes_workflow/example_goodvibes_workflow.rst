@@ -10,12 +10,12 @@ GoodVibes
 
 Here is the `GoodVibes GitHub Page <https://github.com/patonlab/GoodVibes/>`_
 
-Here is the `Article <https://f1000research.com/articles/9-291/v1>`_
+Here is the `GoodVibes Publication <https://f1000research.com/articles/9-291/v1>`_
 
 Installation
 -------------
 
-Version 3.2 is most up to date. Install with:
+Version 4.2.0 is most up to date and required Python >= 3.9. Install with:
 
 .. code:: shell
 
@@ -25,7 +25,7 @@ or
 
 .. code:: shell
 
-    pip install --upgrade goodvibes
+    uv pip install goodvibes
 
 or 
 
@@ -42,7 +42,7 @@ You can run this code using any output file from QM calculations.
  
 .. code:: shell
 
-    python -m goodvibes H2O.log
+    goodvibes H2O.log
 
 You should get the following output:
 
@@ -69,7 +69,7 @@ What if the reaction was run at 100C?
 
 .. code:: none
 
-    python -m goodvibes benzene.log -t 373.15
+    goodvibes benzene.log -t 373.15
 
 This will give the following output:
 
@@ -85,7 +85,7 @@ GoodVibes can also compute temperature ranges.
 
 .. code:: none
 
-    python -m goodvibes benzene.log H2O.log --ti 250,400,50
+    goodvibes benzene.log H2O.log --ti 250,400,50
 
 This will give the output:
 
@@ -112,7 +112,7 @@ For example:
 
 .. code:: shell
 
-    python -m goodvibes methylaniline.log Int-III.log
+    goodvibes methylaniline.log Int-III.log
 
 This gives the output:
 
@@ -147,7 +147,7 @@ For example: ``ethane.log`` and ``ethane_TZ.out``
 
 .. code:: shell
 
-    python -m goodvibes ethane.log --spc TZ 
+    goodvibes ethane.log --spc TZ 
 
 You will get the following output:
 
@@ -191,7 +191,7 @@ We can use these 24 intermediate and transition state calculations + correspondi
 
 .. code:: none
 
-    python -m goodvibes *.log -t 353.15 --spc DLPNO --imag --invertifreq -5 --pes PhPy.yaml
+    goodvibes *.log -t 353.15 --spc DLPNO --imag --invertifreq -5 --pes PhPy.yaml
 
 You will get the following as output:
 
@@ -207,10 +207,41 @@ Graphing these potential energy surfaces is simple once the yaml file is created
 
 .. code:: none
 
-    python -m goodvibes *.log -t 353.15 --spc DLPNO --imag --invertifreq -5 --pes PhPy.yaml --graph PhPy.yaml
+    goodvibes *.log -t 353.15 --spc DLPNO --imag --invertifreq -5 --pes PhPy.yaml --graph PhPy.yaml
 
 .. centered:: |PhPy-PES|
 
 You can add more or less details by changing the FORMAT section of the yaml file. This is where you might tell GoodVibes you do not want to plot the different conformations of each structure, only the energies.
+
+Running on Multiple Processors
+------------------------------
+
+GoodVibes allows you to run in multiple processors, reducing the wall time required for extracting the data.
+This can be done with the ``--jobs`` flag: 
+
+.. code:: none
+
+    goodvibes *.log --jobs 16
+
+This will use 16 processors to run GoodVibes on all your Gaussian output files.
+
+Saving Metadata
+----------------
+
+Another feature of GoodVibes is that it will save the metadata from a run in a JSON file. 
+This will allow users to add single point energy corrections, temperature corrections, concentration corrections, etc.
+without needing to fully parse the data again. This is specified with the ``--json`` flag:
+
+.. code:: none
+
+    goodvibes *.log --json goodvibes_thermo_data.json
+
+The JSON file contains the metadata for the run and can be called back in future runs with:
+
+.. code:: none
+
+    goodvibes --import goodvibes_thermo_data.json -t 310
+
+
 
 Check out other packages by the Paton lab @ our `GitHub <https://github.com/patonlab>`_!
