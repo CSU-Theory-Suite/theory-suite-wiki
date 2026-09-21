@@ -159,6 +159,23 @@ You will get the following output:
 
 .. highlight:: default
 
+.. warning::
+
+    The ``--spc`` flag only contains the suffix used in the SPC filename. It is important that the 
+    file name of the singlepoint calculation matches the optimization/frequency file name exactly,
+    except with the addition of the suffix after an underscore. The SPC suffix must also be the same 
+    for all files in the folder – it will not work if some files have the suffix ``_SPC`` and others have ``_DLPNO``.
+
+
+.. warning::
+
+    When using the ``--spc`` flag, it is important that you don't call goodvibes
+    on the SPC files themselves, as the program will then look for a SPC for 
+    the SPC file, which will not exist. The best way to work around this is to
+    use "opt" or "freq" or "calc" at the end of the original file names, then
+    use ``goodvibes *opt.log`` rather than ``*log`` to avoid this issue.
+
+
 Potential Energy Surface Calculations:
 --------------------------------------
 
@@ -179,6 +196,24 @@ To do this, we need to write a yaml file with 3 sections:
 .. literalinclude:: resources/PhPy.yaml
 
 .. highlight:: default
+
+.. note::
+
+    The SPECIES section of the yaml file is where you define the files in the 
+    directory that are to be assigned to each species in the reaction pathway.
+    In this example, the species ``Ph-Int1`` is defined as all files that 
+    begin with ``Int_I_Ph``, as the wildcard ``*`` is used to ensure that all
+    files in a conformer ensemble are included in the calculations.
+
+
+.. tip::
+
+    The ``--pes`` flag can be used any time you want to find a ∆G between two species or for a single 
+    step in a reaction. You can specify
+    the "reaction" as only the two species of interest in order to find the relative energy between a 
+    pair of conformer ensembles, provided the files for each species are in the same folder and start with 
+    distinct names, allowing for correct identification in the SPECIES section of the yaml file.
+
 
 Putting it All Together
 -----------------------
