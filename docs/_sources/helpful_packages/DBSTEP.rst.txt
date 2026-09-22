@@ -11,5 +11,4 @@ used from the command line or in a script to obtain steric values from a
 variety of file formats or RDKit mol objects as input. Optional output allows 
 for the visualization of the parameter measurements in PyMOL.
 
-Documentation can be found in the Readme 
-`here <https://github.com/patonlab/DBSTEP>`__
+`DBStep Documentation <https://github.com/patonlab/DBSTEP>`__
