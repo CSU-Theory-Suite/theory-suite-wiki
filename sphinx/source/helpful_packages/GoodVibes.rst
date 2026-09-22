@@ -11,9 +11,9 @@ variety of useful corrections including quasi-harmonic entropy corrections,
 zero-point energy corrections, and frequency scaling. Other features include 
 Boltzmann averaging, relative energy and thermochemistry calculations and 
 plotting, and duplicate checking.
+ 
+`GoodVibes Publication <https://doi.org/10.12688/f1000research.22758.1>`__
 
-Publication is available 
-`here <https://doi.org/10.12688/f1000research.22758.1>`__
+`GoodVibes Documentation <https://github.com/patonlab/GoodVibes>`__
 
-Documentation can be found in the Readme 
-`here <https://github.com/patonlab/GoodVibes>`__
+`Sample End-to-End GoodVibes Workflow <https://csu-theory-suite.github.io/theory-suite-wiki/running_calculations/example_goodvibes_workflow/example_goodvibes_workflow.html>`__
