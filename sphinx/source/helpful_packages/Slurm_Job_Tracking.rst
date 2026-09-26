@@ -15,10 +15,10 @@ To install and use:
 
 * (optional) Add alias to your .bashrc >> ``alias sq='python ~/jobcheck.py'``
 * Run command
-    - When you run for the first time, the script initializes and logs current 
-    job information.
-    - Note you should run the command everytime after you submit jobs, or else 
-    it won't log current job info. 
+    - When you run for the first time, the script initializes and logs current
+      job information.
+    - Note you should run the command every time after you submit jobs, or else
+      it won't log current job info.
 
 This is what it looks like when you run the command and a job has ended since 
 the last time the command was run:

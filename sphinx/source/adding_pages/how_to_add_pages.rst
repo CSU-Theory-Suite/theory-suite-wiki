@@ -60,7 +60,7 @@ Use the following line of code to complete the cloning:
 .. code:: shell
 
     cd Documents/
-    git clone https://github.com/CSU-Theory-Suite/theory-suite-wiki.git theory-suite-wiki
+    git clone https://github.com/YOUR-GITHUB-USERNAME/theory-suite-wiki.git theory-suite-wiki
 
 .. note:: 
 

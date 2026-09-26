@@ -194,7 +194,7 @@ That file was obtained from the developers of NCIPLOT and is shown here:
    #
    # nci.py, a tiny script to display plots from Nciplot in PyMOL
    #
-   #get Nciplot at http://gatsby.ucmerced.edu/wiki/Nciplot
+   #get Nciplot at https://github.com/juliacontrerasgarcia/NCIPLOT-4.2 (originally gatsby.ucmerced.edu)
    #
    #Nciplot references:
    #
@@ -241,10 +241,11 @@ custom version instead:
       densf = f'{filename}-dens'
       gradf = f'{filename}-grad'
 
-      lims = (cmin,cmax)
+      # arguments typed at the PyMOL prompt arrive as strings
+      lims = [float(cmin), float(cmax)]
 
-      cmd.isosurface("grad",gradf, isovalue)
-      cmd.ramp_new(ramp, densf, lims, palette)
+      cmd.isosurface("grad", gradf, float(isovalue))
+      cmd.ramp_new("ramp", densf, lims, palette)
       cmd.set("surface_color", "ramp", "grad")
       cmd.set('two_sided_lighting',value=1)
    

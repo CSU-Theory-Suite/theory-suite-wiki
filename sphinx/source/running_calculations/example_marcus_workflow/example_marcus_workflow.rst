@@ -87,25 +87,52 @@ two on reactant surfaces and two on product surfaces under non-equilibrium solva
 Required Calculations
 ^^^^^^^^^^^^^^^^^^^^^
 
-A. **Reactant-State Energies**
+A. **Reactant-State Energies** (ordinary single points with equilibrium solvation)
 
 - :math:`\boldsymbol{E_1}` : Donor (D) at its own optimized geometry and solvation  
-  Charge/spin = reactant state  
-  Save solvation environment using ``NonEq=Save``
+  Charge/spin = reactant state
 
 - :math:`\boldsymbol{E_2}` : Acceptor (A) at its own optimized geometry and solvation  
-  Charge/spin = reactant state  
-  Save solvation environment using ``NonEq=Save``
+  Charge/spin = reactant state
 
-B. **Product-State Energies Using Reactant Electronic Configuration**
+B. **Product-State Geometries Using Reactant Electronic Configuration** (non-equilibrium solvation)
 
-- :math:`\boldsymbol{E_3}` : Donor (D) at the product-optimized geometry  
-  Use reactant charge/multiplicity  
-  Read product solvation environment with ``NonEq=Read``
+Each of these is a two-step job that shares one checkpoint file, and **both steps must be
+at the same geometry**:
 
-- :math:`\boldsymbol{E_4}` : Acceptor (A) at the product-optimized geometry  
-  Use reactant charge/multiplicity  
-  Read product solvation environment with ``NonEq=Read``
+1. Run the *product* species (e.g. D⁺) at its own optimized geometry with
+   ``SCRF=(...,NonEq=Save)``. This stores the equilibrium solvent polarization of the product.
+2. In a linked job (``--Link1--``) at the same geometry (``Geom=Check Guess=Read``), change the
+   charge/multiplicity to the reactant state and use ``SCRF=(...,NonEq=Read)``. The fast
+   (electronic) part of the solvent responds to the new charge distribution, while the slow
+   (orientational) part stays frozen from step 1.
+
+- :math:`\boldsymbol{E_3}` : Donor (D) at the product (D⁺) optimized geometry, 
+  reactant charge/multiplicity, ``NonEq=Read`` from the D⁺ ``NonEq=Save`` job
+
+- :math:`\boldsymbol{E_4}` : Acceptor (A) at the product (A⁻) optimized geometry, 
+  reactant charge/multiplicity, ``NonEq=Read`` from the A⁻ ``NonEq=Save`` job
+
+A skeleton Gaussian input for :math:`\boldsymbol{E_3}` looks like this (the method and solvent
+are placeholders; use the same ones as the rest of your study):
+
+.. code:: none
+
+    %chk=D_at_Dcation_geom.chk
+    # M062X/def2TZVP SCRF=(IEFPCM,Solvent=Acetonitrile,NonEq=Save)
+
+    D+ at its own geometry: save the equilibrium solvation
+
+    1 2
+    [D+ optimized coordinates]
+
+    --Link1--
+    %chk=D_at_Dcation_geom.chk
+    # M062X/def2TZVP SCRF=(IEFPCM,Solvent=Acetonitrile,NonEq=Read) Geom=Check Guess=Read
+
+    Neutral D at the D+ geometry, non-equilibrium solvation (E3)
+
+    0 1
 
 Computing :math:`\lambda`
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -117,10 +144,18 @@ Forward and Reverse :math:`\lambda`
 
 Compute :math:`\lambda` on both reactant and product surfaces.
 
-If the values differ (which is common), take the geometric mean
-following Nelsen’s recommendation:
+The same four-point procedure applied to the reverse reaction
+(product → reactant) gives :math:`\lambda_{reverse}`. In a harmonic model the two are equal;
+in practice they often differ. In this workflow we combine them with the geometric mean:
 
 :math:`\lambda_{eff} = \sqrt{\lambda_{forward} \times \lambda_{reverse}}`
+
+.. note::
+
+    Other choices (e.g. the arithmetic mean) are also used in the literature. Whichever you use,
+    state it explicitly in your SI and apply it consistently. The four-point method itself is
+    described by `Nelsen, Blackstock and Kim, J. Am. Chem. Soc. 1987, 109, 677
+    <https://doi.org/10.1021/ja00237a007>`__.
 
 Step 3: Calculate Activation Barrier (:math:`\Delta G ^ \ddagger`)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -129,7 +164,15 @@ Use the standard Marcus equation:
 
 :math:`\Delta G ^ \ddagger\ = \frac{(\lambda + \Delta G ^ \circ )^ 2}{4\lambda}`
 
-This value is used as the ET activation barrier.
+This value is used as the ET activation barrier. Keep all energies in the same units
+(e.g. kcal/mol) before combining them. Note that :math:`\Delta G ^ \ddagger` has its minimum
+(zero) when :math:`-\Delta G ^\circ = \lambda`; for more exergonic reactions
+(:math:`-\Delta G ^\circ > \lambda`, the Marcus *inverted region*) the predicted barrier rises again.
+For reactions between charged species, :math:`\Delta G ^\circ` should also include the
+electrostatic work of bringing the reactants together (and separating the products).
+
+The original theory is described in
+`Marcus, J. Chem. Phys. 1956, 24, 966 <https://doi.org/10.1063/1.1742723>`__.
 
 5. Example Workflow for :math:`\lambda` Calculation
 ---------------------------------------------------

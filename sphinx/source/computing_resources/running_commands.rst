@@ -185,16 +185,18 @@ to perform a CREST conformational search on ACME:
     #SBATCH -p normal
     #SBATCH -t 12:00:00
     #SBATCH --export=NONE
-    #SBATCH --ntasks-per-node 16
+    #SBATCH --nodes=1
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=16
     #SBATCH --mem=96G
     #SBATCH --output=%x.slurm_%J.out
     
     # XTB
     export XTBHOME=/opt/apps/xtb
     export PATH=$PATH:$XTBHOME
-    xtbjob=crest_search_input.xyz
+    xtbjob=crest_search_input   # name of your .xyz file, without the extension
     Sctchpath="/tmp/$SLURM_JOB_ID"
-    mkdir $Sctchpath
+    mkdir -p $Sctchpath
 
     Homepath=$(pwd)
 
@@ -209,13 +211,15 @@ to perform a CREST conformational search on ACME:
     echo "SLURM Job ID: $SLURM_JOB_ID" >> $Homepath/$xtbjob.out
     echo "SLURM Job Name: $SLURM_JOB_NAME" >> $Homepath/$xtbjob.out
 
-    export PATH=$PATH:$XTBHOME/bin:
+    export PATH=$PATH:$XTBHOME/bin
     $XTBHOME/crest $Sctchpath/$xtbjob.xyz --alpb water -T 16 -niceprint >> $Homepath/$xtbjob.out
     rm -r METADYN* NORMMD* MRMSD wbo cregen_* coord*
     mv crest_conformers.xyz $Homepath/$xtbjob.confs.xyz
     mv crest_best.xyz $Homepath/$xtbjob.best.xyz
     mv struc.xyz $Homepath/$xtbjob.struc.xyz
     rm ./crest*
+    cd $Homepath
+    rm -rf $Sctchpath   # clean up the node's scratch space
 
 It is important to note the section at the top, all of the ``#SBATCH`` lines.
 The different flags mean different things to help tell the computer how to 
@@ -225,8 +229,8 @@ different clusters. For ACME, we have a "normal" partition, a "short" partition,
 a "long" partition, and a "debug" partition, all with different maximum wall times 
 and priorities in the queue. ``-t`` sets that maximum wall time. In this case, 
 your job will run no longer than 12 hours (12:00:00). There are also lines that 
-specify the number of processors you want to use (``--ntasks-per-node 16``) and 
-the memory you are allocating to the job (``--mem=96GB``). There are more lines
+specify the number of processors you want to use (``--cpus-per-task=16``, which should match the ``-T 16`` given to CREST) and 
+the memory you are allocating to the job (``--mem=96G``). There are more lines
 that you can specify, but these are the most important.
 
 Once you have made a file like this, you can submit it to the queue with

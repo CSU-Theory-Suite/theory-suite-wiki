@@ -6,9 +6,22 @@ Using GitHub
     :local:
 
 This information and lots more can be found on 
-`GitHub's website<https://docs.github.com/en/get-started/start-your-journey/hello-world>`_.
+`GitHub's website <https://docs.github.com/en/get-started/start-your-journey/hello-world>`_.
 
-! Please add to this if you have extra insight!!!! 
+If you have extra insight, please add to this page (see :doc:`../adding_pages/how_to_add_pages`).
+
+Good Habits for Research Code
+*****************************
+
+*  Put the scripts and notebooks for each project in a git repository from day one,
+   and commit small, related changes with descriptive messages.
+*  Do **not** commit large calculation outputs (``.log``, ``.chk``, ``.out``, trajectories);
+   list them in a ``.gitignore`` file and archive them on RStor instead.
+*  Never commit passwords, API keys, license files or private SSH keys. If you do by accident,
+   removing the file in a new commit is not enough: it is still in the history, so tell an
+   admin and change the credential.
+*  Keep a ``README`` in each repository explaining how to reproduce your results, and record
+   the software versions you used.
 
 
 Saving Work/Progress with GitHub 
@@ -34,7 +47,7 @@ see "main"
    .. code:: shell
 
     git init
-    git remote add origin ~~Your new repo's git file~~
+    git remote add origin <URL of your new GitHub repo>
     git fetch
     git reset origin/main
     git checkout -t origin/main

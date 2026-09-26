@@ -86,10 +86,15 @@ you will be getting a local copy of the repository. We will assume that the
 
 .. code:: shell 
 
-   cd Documents
-   git clone https://github.com/CSU-Theory-Suite/theory-suite-wiki.git theory-suite-wiki
+   cd ~/Documents
+   git clone https://github.com/YOUR-GITHUB-USERNAME/theory-suite-wiki.git theory-suite-wiki
+   cd theory-suite-wiki
+   git remote add upstream https://github.com/CSU-Theory-Suite/theory-suite-wiki.git
 
-3. Ensure Yhat Your Environment is Adequate
+The last line lets you pull in changes that other people have made to the primary
+repository with :code:`git pull upstream master`.
+
+3. Ensure That Your Environment is Adequate
 ...........................................
 
 Although we do not need many special tools for building our environment,
@@ -107,7 +112,7 @@ We can install them easily using pip
 
 
 **Warning!** Make sure that the spelling is correct, the number of times 
-I have tried to install sphinx-rdt-theme and got annoyed at it being 
+I have tried to install sphinx-rdt-theme (instead of sphinx-rtd-theme) and got annoyed at it being 
 unable to find the package have been more than what I would like to acknowledge.
 
 **Note:** Using :code:`python -m pip` instead of directly using :code:`pip` 
@@ -125,7 +130,7 @@ with the following commands:
 
 .. code:: shell
 
-   cd ~/Documents/csu-theory-suite/sphinx
+   cd ~/Documents/theory-suite-wiki/sphinx
    make clean # not always required, but will make sure that all changes are reflected
    make html
 
@@ -146,7 +151,7 @@ of helpful_packages.
 
 .. code:: shell
 
-   cd ~/Documents/csu-theory-suite/sphinx
+   cd ~/Documents/theory-suite-wiki/sphinx
    git status # Check that all the files in red are the ones that you have changed
    git add source
    git status # Check that all the files now appear in green 

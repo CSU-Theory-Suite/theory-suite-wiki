@@ -348,7 +348,7 @@ the molecule and finding different properties from these atoms:
 
 Which will give you:
 
-.. hightlight:: none 
+.. highlight:: none 
 
 .. parsed-literal::
 
@@ -449,7 +449,8 @@ that you know the atom indices you're interested in:
     # get the atom symbol of the atom with index 0
     print(m2.GetAtomWithIdx(0).GetSymbol())
     # get the explicit valence of the atom with index 0
-    print(m2.GetAtomWithIdx(0).GetExplicitValence())
+    # (older RDKit versions used GetExplicitValence(), deprecated since 2024.09)
+    print(m2.GetAtomWithIdx(0).GetValence(Chem.ValenceType.EXPLICIT))
     # get teh formal charge of teh atom with index 4
     print(m2.GetAtomWithIdx(4).GetFormalCharge())
     # get the hybridization of the atom with index 7
@@ -471,8 +472,8 @@ Which will give you the output:
     4
     0
     SP2
-    0
-    1
+    6
+    4
     SINGLE
 
 .. highlight:: default
@@ -599,7 +600,7 @@ benzoid acid in this case:
 
     # define a molecule from a SMILES string
     m = Chem.MolFromSmiles('c1ccccc1C(=O)O')
-    # find the total polarizable surface area (TPSA)
+    # find the topological polar surface area (TPSA)
     print('TPSA:', Descriptors.TPSA(m))
     # find the molecular weight of your molecule
     print('ExactMolWt:', Descriptors.ExactMolWt(m))
@@ -645,14 +646,13 @@ Here are some examples of descriptors you can get from this package:
 .. highlight:: default 
 
 More than just graph descriptors, we can also work with 
-`molecular fingerprints <https://www.rdkit.org/docs/source/rdkit.Chem.GraphDescriptors.html>`_ 
+`molecular fingerprints <https://www.rdkit.org/docs/GettingStartedInPython.html#fingerprinting-and-molecular-similarity>`_ 
 in RDKit:
 
 .. code:: python
 
     # Fingerprints
-    from rdkit.Chem import GraphDescriptors
-    from rdkit.Chem.AtomPairs.Pairs import GetAtomPairFingerprintAsBitVect
+    from rdkit.Chem import rdFingerprintGenerator
     from rdkit.Chem import MACCSkeys
 
 The code: 
@@ -660,8 +660,11 @@ The code:
 .. code:: python
 
     # find different kinds of molecular fingerprints
-    fp1 = AllChem.GetMorganFingerprint(m, 2) # radius, number of bits
-    fp2 = GetAtomPairFingerprintAsBitVect(m) # number of bits
+    # (the older AllChem.GetMorganFingerprint and AtomPairs functions are deprecated)
+    morgan_gen = rdFingerprintGenerator.GetMorganGenerator(radius=2, fpSize=2048) # radius, number of bits
+    atompair_gen = rdFingerprintGenerator.GetAtomPairGenerator(fpSize=2048) # number of bits
+    fp1 = morgan_gen.GetFingerprint(m)
+    fp2 = atompair_gen.GetFingerprint(m)
     fp3 = MACCSkeys.GenMACCSKeys(m)
     # print the fingerprints
     print(fp1, fp2, fp3)
@@ -672,8 +675,8 @@ will give you:
 
 .. parsed-literal::
 
-    <rdkit.DataStructs.cDataStructs.UIntSparseIntVect object at 0x7fa779f8d900>
-    <rdkit.DataStructs.cDataStructs.SparseBitVect object at 0x7fa779f2b8b0>
+    <rdkit.DataStructs.cDataStructs.ExplicitBitVect object at 0x7fa58434eea0>
+    <rdkit.DataStructs.cDataStructs.ExplicitBitVect object at 0x7fa58434ef10>
     <rdkit.DataStructs.cDataStructs.ExplicitBitVect object at 0x7fa779fa0900>
 
 .. highlight:: default 
@@ -698,8 +701,11 @@ Here is an example of how you can get key information from the fingerprint:
 
 .. code:: python
 
-    info={} # empty dictionary for molecular information
-    fp = AllChem.GetMorganFingerprint(m,2,bitInfo=info)
+    # collect which atoms/radii set each bit
+    ao = rdFingerprintGenerator.AdditionalOutput()
+    ao.AllocateBitInfoMap()
+    fp = morgan_gen.GetSparseCountFingerprint(m, additionalOutput=ao)
+    info = ao.GetBitInfoMap()
     print('length of non zero elements:', len(fp.GetNonzeroElements()))
     print('information of bits:', info)
     print('bit on:', info[98513984])
@@ -1009,12 +1015,19 @@ There are a lot of things that you can do with RDKit, this is just meant to be a
 introduction to some of the things RDKit can do and how to work with mol objects. 
 Check out the documentation for a list of more functionalities of RDKit!
 
-Modred: a descriptors package 
-=============================
+Mordred: a descriptors package 
+==============================
 
-Modred is used to collect important chemical descriptors
+Mordred is used to collect important chemical descriptors
 
 https://github.com/mordred-descriptor/mordred
+
+.. note::
+
+   The original ``mordred`` package is no longer maintained. The community-maintained 
+   fork `mordredcommunity <https://github.com/JacksonBurns/mordred-community>`_ 
+   (``pip install mordredcommunity``) is a drop-in replacement and is imported 
+   the same way (``from mordred import ...``).
 
 .. code:: python
 
@@ -1025,14 +1038,14 @@ https://github.com/mordred-descriptor/mordred
 
     # create descriptor calculator with all descriptors
     calc = Calculator(descriptors, ignore_3D=True)
-    print('all descriptors:', len(calc.descriptors), '\nnon 3D descriptors:',
-        len(Calculator(descriptors, ignore_3D=True, version="1.0.0")))
+    print('all descriptors:', len(Calculator(descriptors, ignore_3D=False).descriptors),
+        '\nnon 3D descriptors:', len(calc.descriptors))
 
 
 .. parsed-literal::
 
-    all descriptors: 1613 
-    non 3D descriptors: 1612
+    all descriptors: 1826 
+    non 3D descriptors: 1613
 
 
 .. code:: python
@@ -1093,6 +1106,7 @@ https://github.com/kjelljorner/morfeus
 
 .. code:: python
 
+    import numpy as np
     from morfeus import BuriedVolume, Dispersion, SASA, Sterimol
 
 .. code:: python
@@ -1109,7 +1123,7 @@ https://github.com/kjelljorner/morfeus
     atom2 = 3
     
     #Buried Volume
-    bv = BuriedVolume(elements, coords, atom1, z_axis_atoms=atom2)
+    bv = BuriedVolume(elements, coords, atom1, z_axis_atoms=[atom2])
     bur_vol = bv.buried_volume
     print('Buried Volume:', bur_vol)
     
@@ -1138,6 +1152,16 @@ https://github.com/kjelljorner/morfeus
     Volume inside solvent accessible surface (Å³): 394.9
     L         B_1       B_5       
     4.89      1.70      4.88      
+
+.. note::
+
+   Morfeus atom indices are **1-based** (RDKit indices + 1), so ``atom1 = 1`` and 
+   ``atom2 = 3`` here are two ring carbons (RDKit indices 0 and 2). For a meaningful 
+   Sterimol analysis of a substituent, ``atom1`` should be the attachment (dummy) atom 
+   and ``atom2`` the first substituent atom *bonded* to it, e.g. ``atom1 = 6`` 
+   (ipso ring carbon) and ``atom2 = 7`` (carboxyl carbon) to describe the COOH group. 
+   Likewise, ``BuriedVolume`` is normally centred on a metal or reactive atom. Recent 
+   morfeus versions require ``z_axis_atoms`` to be a list.
 
 
 .. code:: python
@@ -1232,31 +1256,33 @@ DBstep is used to collect sterimol descriptors
 
 .. code:: python
 
-    Et_sterics = dbstep(m2, sterimol=True,volume=True, atom1=7, atom2=6)
+    Et_sterics = dbstep(m, sterimol=True,volume=True, atom1=7, atom2=6)
 
 
 .. parsed-literal::
 
-          R/Å     %V_Bur     %S_Bur       Bmin       Bmax          L
-         3.50      37.08       0.00       1.68       6.41       4.30
+                   File  Atom1  Atom2    R/Å    Mol_Vol     %V_Bur     %S_Bur       Bmin       Bmax          L
+   -----------------------------------------------------------------------------------------------------------
+              rdkit_mol      7      6   3.50     106.19      38.70       0.00       1.70       3.40       6.36
 
 
 .. code:: python
 
-    Et_sterics = dbstep(m2, sterimol=True,volume=True, atom1=7, atom2=6, scan='0:5:1')
+    Et_sterics = dbstep(m, sterimol=True,volume=True, atom1=7, atom2=6, scan='0:5:1')
 
 
 .. parsed-literal::
 
-          R/Å     %V_Bur     %S_Bur       Bmin       Bmax          L
-         0.00       0.00       0.00       1.68       6.37       1.00
-         1.00     100.00     100.00       1.68       5.73       2.00
-         2.00      84.43      52.96       1.65       4.70       3.00
-         3.00      48.43      22.15       1.54       4.37       4.00
-         4.00      29.54      11.75       0.29       3.63       4.30
-         5.00      18.97       4.70       0.00       1.86       4.30
-    
-       L parameter is  4.30 Ang
+                   File  Atom1  Atom2    R/Å    Mol_Vol     %V_Bur     %S_Bur       Bmin       Bmax          L
+   -----------------------------------------------------------------------------------------------------------
+              rdkit_mol      7      6   0.00     106.19       0.00       0.00       1.69       3.10       1.00
+              rdkit_mol      7      6   1.00     106.19     100.00     100.00       1.70       3.23       2.00
+              rdkit_mol      7      6   2.00     106.19      88.19      61.23       1.70       3.23       3.00
+              rdkit_mol      7      6   3.00     106.19      51.97      20.99       1.70       3.40       4.00
+              rdkit_mol      7      6   4.00     106.19      29.45       9.25       1.69       3.40       5.00
+              rdkit_mol      7      6   5.00     106.19      18.55       4.92       1.68       3.40       6.00
+
+   L parameter is  6.35 Ang
 
 
 
