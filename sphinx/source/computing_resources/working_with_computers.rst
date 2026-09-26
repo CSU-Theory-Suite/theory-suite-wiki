@@ -95,6 +95,14 @@ To check to see if you already have an existing ssh key, type:
 to show you what (if any) ssh keys you have. These keys will likely 
 end in ``.pub``.
 
+.. warning::
+
+    Protect your private key (the file **without** ``.pub``) like a password: never copy it
+    to shared machines, email it, or commit it to GitHub. When ``ssh-keygen`` asks for a
+    passphrase, set one, and use ``ssh-agent`` (built into macOS Keychain and most Linux
+    desktops) so you only type it once per session. Only the ``.pub`` file is shared with
+    other computers.
+
 Once you have an ssh key created, you can apply that key to 
 different computers/servers with ``ssh-copy-id username@remote_host``.
 

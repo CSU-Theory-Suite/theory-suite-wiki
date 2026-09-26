@@ -29,7 +29,7 @@ as a function of coordinate space, r.
 
    E_{total} = \sum_{bonds} k_{b} ( r - r_{0} )^2 \\
    + \sum_{angles} k_{\theta} ( {\theta} - {\theta}_{0} )^2 \\
-   + \sum_{dihedrals} V_{n} ( 1 + cos( n \phi - \gamma) )^2  \\
+   + \sum_{dihedrals} \frac{V_{n}}{2} \left[ 1 + \cos( n \phi - \gamma) \right]  \\
    + \sum_{i=1}^{N-1} \sum_{j=i+1}^{N} \left[
    \frac{A_{ij}} {R_{ij}^{12}} - \frac{B_{ij}} {R_{ij}^{6}} + \frac{q_i q_j} {\varepsilon R_{ij}}
    \right]
@@ -56,7 +56,7 @@ Interatomic forces:
 
    1. Coulombic potential (attractive or repulsive, :math:`\propto r^{-1}`)
    2. Van der Waals (attractive, :math:`\propto r^{-6}`)
-   3. Electronic (repulsive, :math:`\propto r^{-12}`)
+   3. Pauli (exchange) repulsion (repulsive, :math:`\propto r^{-12}`)
 
 
 Integration of Newton's Laws of Motion
@@ -165,7 +165,7 @@ Probably.
 
 See if anything looks wrong. For example, there should only be 1 of your system. 
 In some crystallizations there are repeating units. 
-Unless you intentially want to simulate repeating units 
+Unless you intentionally want to simulate repeating units 
 (which you probably don't) delete the lines in the PDB file associated with 
 repeats. 
 
@@ -182,7 +182,7 @@ will do that for you.
 
 This is a program that is used to prepare input for AMBER. Before you do 
 anything with tleap make sure you have adjusted any mutated residues. That way, 
-you won't have to worry about adjusting the hydrogens,just the heavy atoms.
+you won't have to worry about adjusting the hydrogens, just the heavy atoms.
 
 1.2.1 Protonate your system
 ****************************
@@ -199,8 +199,8 @@ Hydrogens are typically unresolved in crystalization methods.
 This means the original pdb file will not contain positions of hydrogens. 
 Therefore, you must protonate the system. HOWEVER! I like to protonate my system 
 and then load it into a visualization software to evaluate protonation states, 
-specifically of all HIS residues. Histidine's have two nitrogen atoms that can 
-be protonated, and it will depend on the enrivornment which is more likely to 
+specifically of all HIS residues. Histidines have two nitrogen atoms that can 
+be protonated, and it will depend on the environment which is more likely to 
 be protonated. It is best practice to manually visualize each HIS residue and 
 declare the protonation state.
 
@@ -211,16 +211,17 @@ Evaluating HIS protonation states:
 
     PyMol> load FILENAME_PROTONATED.pdb
     PyMol> hide nonbonded
-    PyMol> select "his_residues", resn hie # tleap automated chooses the epsilon N to be protonated
+    PyMol> select "his_residues", resn hie # tleap automatically chooses the epsilon N to be protonated
     PyMol> show licorice, his_residues     # show his_residues selection as licorice
     PyMol> util.cbac his_residues # color by element differently to see easily 
     PyMol> show sticks, byres all within 5 of his_residues
 
 Now display the  sequence. Open pdb file in text editor and start looking at each
-HIS. If you think the delta N should be protonated, go to that HIS in the pbd 
+HIS. If you think the delta N should be protonated, go to that HIS in the pdb 
 and change the HIE to HID for each atom. You also need to delete the HE2 
-hydrogen atom line. When you load the pdb into tleap again it will detect there 
-needs to be a HD2 atom added, and will do so automatically because you named 
+hydrogen atom line (HIE carries HE2 on the epsilon N; HID carries HD1 on the 
+delta N). When you load the pdb into tleap again it will detect there 
+needs to be an HD1 atom added, and will do so automatically because you named 
 that residue HID.
 
 1.2.2 Solvate your system
@@ -231,9 +232,9 @@ Now we go back to tleap:
 .. code:: none
 
    > source leaprc.protein.ff14SB #load force field 
-   > source leaprc.water.TIP3P #load parameters for water 
+   > source leaprc.water.tip3p #load parameters for water 
    > x = loadPdb FILE_WITH_ADJUSTED_HIS_STATES.pdb #load protonated pdb file 
-   > solvatebox x TIP3PBOX 12 #Solvate the complex with a cubic water box  
+   > solvatebox x TIP3PBOX 12 iso #Solvate the complex with a cubic water box  
    > savepdb x FILENAME_SOLVATED.pdb #save your pdb with waters so you can determine how many waters  
    > saveamberparm x temp.prmtop temp.rst7 #doing this right now will tell you if your system has a net charge, and the total number of water molecules 
    > addions x Na+ Y #Neutralize system, might replace waters
@@ -241,8 +242,8 @@ Now we go back to tleap:
 Pay attention to any errors when loading in your pdb structure. An error 
 likely means tleap isn't sure how to deal with something. Warnings on the 
 other hand are just things tleap wants to bring attention to, but these 
-likely aren't fatal. At this point, tleap will probaly give you a warning 
-statement about an unperturbed charge of the unit. This means your system has 
+likely aren't fatal. At this point, tleap will probably give you a warning 
+statement about a non-zero ("unperturbed") charge of the unit. This means your system has 
 a charge, and you probably want a neutral system. This is best done straight 
 in the command line.
 
@@ -284,7 +285,7 @@ I have a code that then will determine how many ions you should add:
 
 
 An example of how to run the code for a number of water molecules = 30000 and an 
-ionic concentraion of 0.5: 
+ionic concentration of 0.5 M: 
 
 .. code:: none 
    
@@ -309,7 +310,7 @@ Now, back to the tleap window:
 
 .. Tip:: 
 
-   _ALWAYS_ visualize the system when you think you're all done!
+   **ALWAYS** visualize the system when you think you're all done!
 
 Step 2: Minimization
 --------------------
@@ -318,9 +319,9 @@ We must minimize our system such that we are starting our simulations in a local
 energy minimum. The crystal structure probably has some structural artifacts as 
 a result of the procedure. We don't care for that. It is possible that if you 
 start a simulation from the crystal structure your system could immediately blow
-up due to extreme forceson any one atom, causing the atoms to move an 
+up due to extreme forces on any one atom, causing the atoms to move an 
 unreasonable amount in a single timestep. Thus, there are minimization 
-algorithms we appy to the system (such as steepest descent). Minimizations are 
+algorithms we apply to the system (such as steepest descent). Minimizations are 
 typically done in two steps: 1) water minimization, to allow the solvent to 
 relax around your solute, and 2) system minimization, where you allow the solute
 to relax.
@@ -342,7 +343,7 @@ To run:
    
 .. code:: shell
    
-   AMBERHOME/bin/pmemd.cuda -O -i ../min.1.in -o igps_wt_apo.w_ions_solv.min.1.out \
+   $AMBERHOME/bin/pmemd.cuda -O -i ../min.1.in -o igps_wt_apo.w_ions_solv.min.1.out \
    -r igps_wt_apo.w_ions_solv.min.1.rst -x igps_wt_apo.w_ions_solv.min.1.mdcrd \
    -c ../igps_wt_apo.w_ions_solv.rst7 -p ../igps_wt_apo.w_ions_solv.prmtop \
    -ref ../igps_wt_apo.w_ions_solv.rst7 -inf igps_wt_apo.w_ions_solv.min.1.mdinfo
@@ -364,10 +365,10 @@ To run:
    
 .. code:: shell
    
-   AMBERHOME/bin/pmemd.cuda -O -i ../min.2.in -o igps_wt_apo.w_ions_solv.min.2.out \
+   $AMBERHOME/bin/pmemd.cuda -O -i ../min.2.in -o igps_wt_apo.w_ions_solv.min.2.out \
    -r igps_wt_apo.w_ions_solv.min.2.rst -x igps_wt_apo.w_ions_solv.min.2.mdcrd \
    -c ../minimization.1/igps_wt_apo.w_ions_solv.min.1.rst -p ../igps_wt_apo.w_ions_solv.prmtop \
-   -inf igps_wt_apo.w_ions_solv.min.2.mdinfo \
+   -inf igps_wt_apo.w_ions_solv.min.2.mdinfo
 
 And this is a good point to visualize your system, and make sure it hasn't 
 deviated too much from the initial crystal structure. The way I recommend doing 
@@ -376,7 +377,7 @@ this is in VMD:
    1. Load in your initial PDB (The one you made in tleap)
    2. Load in a PDB from after your minimizations (cpptraj one-liner to generate
       a pdb from MD coordinates: 
-      ``cpptraj -p topology-file.prmtop -y coordinate-file.coords -x output-file.pdb``) 
+      ``cpptraj -p topology-file.prmtop -y coordinate-file.rst -x output-file.pdb``) 
    3. In VMD go to Extensions > Analysis > RMSD Calculator > select a molecule 
       and click Align. 
    4. Now you just want to make sure nothing crazy is happening, like any 
@@ -387,7 +388,7 @@ Step 3: Heating
 ---------------
 
 Now, we must invest some simulation time into unbiasing our system, and getting 
-it to the right thermodynamics properties, such as a particular temperature. 
+it to the right thermodynamic properties, such as a particular temperature. 
 
 We will create the file ``heating.in`` with the parameters for the protocol. 
 here we can find an example of the contents of this file: 
@@ -402,7 +403,7 @@ To run:
    
 .. code:: shell
    
-   AMBERHOME/bin/pmemd.cuda -O -i ../heating.in -o igps_wt_apo.w_ions_solv.heating.out \
+   $AMBERHOME/bin/pmemd.cuda -O -i ../heating.in -o igps_wt_apo.w_ions_solv.heating.out \
    -r igps_wt_apo.w_ions_solv.heating.rst -x igps_wt_apo.w_ions_solv.heating.mdcrd \
    -c ../minimization.2/igps_wt_apo.w_ions_solv.min.2.rst -p ../igps_wt_apo.w_ions_solv.prmtop \
    -inf igps_wt_apo.w_ions_solv.heating.mdinfo -ref ../minimization.2/igps_wt_apo.w_ions_solv.min.2.rst
@@ -412,12 +413,12 @@ Step 4: Equilibration
 ---------------------
 
 How do you know if your system is equilibrated? Eh.. you don't ever know... but 
-you can convince yourself it probably is by evaluated properties. For example, 
-if you have an NVT system you can plot volume as a function of timestep and 
+you can convince yourself it probably is by evaluating properties. For example, 
+if you have an NPT system you can plot volume as a function of timestep and 
 ensure it is fluctuating around the same value with minimal drift. Another 
 common metric, especially for biomolecules, is to examine the root mean squared 
 fluctuations (RMSF) or root mean squared deviations (RMSD) of the residues as a 
-funciton of time. 
+function of time. 
 
 Again we will create an input file with the appropriate parameters that in this 
 case we will name as ``equilib.in``. Here we have an example of its contents: 
@@ -432,14 +433,14 @@ To run:
    
 .. code:: shell
    
-   AMBERHOME/bin/pmemd.cuda -O -i -O -i ../equilib.in -o igps_wt_apo.w_ions_solv.equilib.out \
+   $AMBERHOME/bin/pmemd.cuda -O -i ../equilib.in -o igps_wt_apo.w_ions_solv.equilib.out \
    -r igps_wt_apo.w_ions_solv.equilib.rst -x igps_wt_apo.w_ions_solv.equilib.mdcrd \
    -c ../heating/igps_wt_apo.w_ions_solv.heating.rst -ref ../heating/igps_wt_apo.w_ions_solv.heating.rst \
-   -p ../igps_wt_apo.w_ions_solv.prmtop -inf igps_wt_apo.w_ions_solv.equilib.mdinfo\
+   -p ../igps_wt_apo.w_ions_solv.prmtop -inf igps_wt_apo.w_ions_solv.equilib.mdinfo
 
 .. Tip:: 
 
-   Prior to production runs, you may need need an additional 
+   Prior to production runs, you may need an additional 
    "equilibration period". For example, if you switch to an NPT ensemble, 
    you will need to allow your box volume to adjust to the density of your 
    system (especially if you use tleap to solvate!). In my personal workflow 
@@ -454,12 +455,14 @@ removed in the production run you should account for another period of equilibra
 .. warning:: 
 
    Volume is important to evaluate! In these input files for my production runs 
-   I specify the 'cut' flag to be 12.0. This means my long range electrostatics 
-   are calculated up to a 12.0 Å cutoff. The importance of this is that this 
-   number **MUST** be smaller that the longest length of my protein minus the 
-   smallest box dimension. Otherwise, there could be artificial physical 
+   I specify the 'cut' flag to be 12.0. This is the direct-space nonbonded 
+   cutoff: Lennard-Jones and direct-space electrostatic interactions are 
+   calculated explicitly up to 12.0 Å. Long-range electrostatics are not 
+   truncated; they are handled by particle mesh Ewald (PME) in reciprocal 
+   space. The importance of this is that this number **MUST** be smaller than 
+   the smallest box dimension minus the longest length of my protein. Otherwise, there could be artificial physical 
    interactions calculated between periodic images. In the next MD step I 
-   explain how I calculate this using VMD. I do this after my equiibration is 
+   explain how I calculate this using VMD. I do this after my equilibration is 
    'complete' (before the trajectory I actually use for analysis).
 
 
@@ -476,29 +479,36 @@ property calculations will not hold true because your system was not at
 equilibrium. It is common practice to discard some initial chunk of production 
 run trajectory to further ensure the data you analyze is of the equilibrated 
 system. The way I have set up my protocol I run equilibration in the NVT 
-ensemble, but the production runs are NPT, which allows the box the relax to the 
+ensemble, but the production runs are NPT, which allows the box to relax to the 
 appropriate volume (which is definitely necessary if you solvated with tleap 
 because the water density was low to start with). Because of this, it is 
 absolutely critical that you observe the volume changes after the first few 
 nanoseconds of production run. Specifically, you must ensure that the box 
 volume is still large enough that your system won't start to interact with its 
 periodic images. You must measure along the longest axis of your system, then 
-add your longe-range non-bonded cutoff value specified in your input file to 
+add your nonbonded cutoff value specified in your input file to 
 that number. This is the MINIMUM value for your box dimensions. For example, 
-say your sistem is 74 Å, and you use cut=12.0, then your equilibrated box 
+say your system is 74 Å, and you use cut=12.0, then your equilibrated box 
 dimensions must all be more than 86 Å. 
+
+.. note::
+
+   Switching ensembles (NVT to NPT) between equilibration and production is 
+   itself one of the changes the paragraph above warns about. A safer approach 
+   is to run (at least the final part of) equilibration under NPT, so that the 
+   box volume and density have converged before production begins. 
 
 Possibly one of the most difficult decisions now is to decide what data to 
 store, and how often to store it. One thing to keep in mind is the time 
-correlation of variables form your simulation. MD observations are 
-time-correlated, therefore it is unneccesary and problematic (in a redundant 
+correlation of variables from your simulation. MD observations are 
+time-correlated, therefore it is unnecessary and problematic (in a redundant 
 manner) to store data at each point in time. You must store data in time steps 
 less than the autocorrelation for that specific observable. Alas, we would 
 have no way of knowing the autocorrelation time of a variable until we 
 determine it from simulation, so it is essentially unavoidable to store some 
 redundant data. 
 
-Finally we arrive to the creation of our ``production.in`` file with the 
+Finally we arrive at the creation of our ``production.in`` file with the 
 parameters for the actual MD simulation. Here we can see a general example of 
 the contents of this file: 
 
@@ -512,9 +522,9 @@ To run:
 
 .. code:: shell
   
-   AMBERHOME/bin/pmemd.cuda -O -i ../Production.in -o 1gpw_holo_wt.prod.prod.out \
-   -r 1gpw_holo_wt.prod.prod.rst -x 1gpw_holo_wt.prod.prod.cd \
-   -c ../Production_correct_ntwx.prev_prod/1gpw_holo_wt.prod.prev_prod.rst \
-   -p ../1gpw_holo_wt.prmtop -inf 1gpw_holo_wt.prod.prod.mdinfo 
+   $AMBERHOME/bin/pmemd.cuda -O -i ../production.in -o igps_wt_apo.w_ions_solv.prod.out \
+   -r igps_wt_apo.w_ions_solv.prod.rst -x igps_wt_apo.w_ions_solv.prod.mdcrd \
+   -c ../equilibration/igps_wt_apo.w_ions_solv.equilib.rst \
+   -p ../igps_wt_apo.w_ions_solv.prmtop -inf igps_wt_apo.w_ions_solv.prod.mdinfo
 
 

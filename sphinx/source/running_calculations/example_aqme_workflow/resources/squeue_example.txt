@@ -1,2 +1,2 @@
-#Currently empty it would be awesome if someone runs the workflow example and 
-#gives the generated files so that they can be included here.
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+            123456    normal pentene- username  R       0:42      1 node01

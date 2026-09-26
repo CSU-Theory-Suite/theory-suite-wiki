@@ -1,3 +1,4 @@
+Minimization 2: whole system, no restraints
 &cntrl 
     imin=1, 
     ntx=1, 
