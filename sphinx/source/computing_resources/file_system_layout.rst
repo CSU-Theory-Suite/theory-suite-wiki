@@ -30,8 +30,8 @@ These directories contain programs and can be executed to perform
 certain tasks. For example, if you cd to the root bin directory 
 (``cd /bin``) and ``ls`` you will notice there are a bunch of 
 different programs in this directory.
-They are all executable (any file with an asterisk (*) at the end 
-of the name is designated as executable), which means you can run 
+They are all executable (if you use ``ls -F``, executable files are marked with an asterisk (*) at the end 
+of the name), which means you can run 
 the program. Most of the programs here are unimportant for our 
 immediate purposes, but if you look closely, this folder contains 
 several programs that you are already familiar with. For example, 
@@ -49,7 +49,7 @@ about through this manual:
 * ``/bin/``
 * ``/usr/bin/``
 * ``/usr/local/bin/``
-* ``sbin/``
+* ``/sbin/``
 
 Home Directory 
 **************
@@ -59,8 +59,11 @@ contains folders for all users allowed to access the computer.
 When you open a brand new Terminal window, you will find yourself in 
 your home directory (/home/$USER/). So if you change directories 
 immediately, you should do so knowing that you begin in your home 
-directory. You can also access the files in any other user’s home 
-directory by changing to their directory in the /home/ folder.  
+directory. On some shared machines you may be able to see other users' home
+directories in the /home/ folder, but please treat them as private and
+ask before looking at or copying someone else's files. You can check who
+can read your own files with ``ls -l`` and make your home directory
+private with ``chmod 700 ~``.
 You can change directories to the home directory using the following 
 command: ``cd /home/username`` 
 You can also just type ``cd``. 

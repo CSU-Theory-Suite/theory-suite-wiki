@@ -7,7 +7,25 @@ CENSO
 .. contents::
     :local:
 
-Here is the `CENSO GitHub Page <https://xtb-docs.readthedocs.io/en/latest/CENSO_docs/censo.html#censo>`_.
+Here is the `CENSO documentation <https://xtb-docs.readthedocs.io/en/latest/CENSO_docs/censo.html#censo>`_
+and the `CENSO GitHub page <https://github.com/grimme-lab/CENSO>`_.
+
+.. warning::
+
+    This page was written for **CENSO 1.x** (the ``.censorc`` used in the group is version 1.2.0),
+    run through the ACME helper scripts (``crestsetup.sh``, ``censosetup.sh``).
+    CENSO 2.0 and later changed the program substantially:
+
+    * the command-line interface is different (e.g. ``censo -i ensemble.xyz -c 1 --maxcores 16``
+      instead of ``censo -inp ... -chrg 1 -P 4 -O 4 -part2 off``);
+    * the configuration file is now an INI-style ``~/.censo2rc`` instead of ``.censorc``;
+    * the output files are renamed (``0_PRESCREENING.xyz``, ``1_SCREENING.xyz``, ``2_OPTIMIZATION.xyz``, ...
+      instead of ``enso_ensemble_part1.xyz`` etc.).
+
+    If you use this page as-is, make sure the ``censo`` you run is a 1.x release (check ``censo --version``),
+    or adapt the commands and file names following the current
+    `CENSO documentation <https://xtb-docs.readthedocs.io/en/latest/CENSO_docs/censo.html>`_ and the
+    `CENSO GitHub repository <https://github.com/grimme-lab/CENSO>`_.
 
 CENSO is already installed on ACME, you will just need to activate the proper conda environment to access it.
 
@@ -38,7 +56,8 @@ Using this smiles string and a program called `Open Babel <https://openbabel.org
 
     obabel -:"O=C(N)C1=C[N+](CCCC)=CC=C1" -oxyz -O BuNA.xyz --gen3d
 
-This command will give you the following xyz coordinate file for the 3D structure of our molecule:
+This command will give you an xyz coordinate file for the 3D structure of our molecule (including hydrogens) similar to the one below
+(the exact coordinates depend on the program version and random seed; the file shown here was generated with RDKit ETKDG + MMFF94):
 
 .. highlight:: none
 
@@ -114,7 +133,9 @@ In this example, we just want to run a basic conformation search, so we will use
 
 This will generate a submission script for our job, performing a CREST conformer search on the 
 file ``xtbopt.xyz``, specifying that there is a +1 charge, and running for a maximum of 12 hours on 8 processors.
-The keyword ``-noreftopo`` is generally used is there is not a DFT optimized structure.
+The keyword ``-noreftopo`` switches off CREST's check that the topology (bonding connectivity) of the input structure is unchanged
+after the initial GFN-xTB optimization. Without this flag CREST stops if the connectivity changes; use it with care, since it also lets
+genuine unwanted topology changes (e.g. proton transfers or bond breaking) pass unnoticed.
 
 .. literalinclude:: resources/job_crest.sh
 
@@ -128,7 +149,7 @@ When you have double checked that everything looks right and you are ready to pe
 
 It is important that you use the command ``sbatch`` to make sure that your job is entered into the queue and does not run on the head node of ACME.
 
-You will get a number of outputs from this job, but the one we will be using in this workflow is ``crest_ensemble.xyz``
+You will get a number of outputs from this job, but the one we will be using in this workflow is ``crest_conformers.xyz``.
 This file contains xyz coordinates for all of the different conformers found using this conformer search.
 
 In the case of our structure, we have 43 conformers, too many to realistically perform high-level DFT calcualtions on, so we have to narrow it down.
@@ -142,7 +163,9 @@ An easy way to remove duplicate structures is using CREGEN, part of CREST's pack
 
 CREGEN does quick calculations to remove duplicate structures. 
 There are a number of keywords that you can use to reduce the number of conformers that you get out at the end.
-This can include making an energy threshold cut-off, where any structures within a certain number of kcal in energy are considered the same structure.
+These include an energy window (``--ewin``, in kcal/mol), which discards every structure lying more than that amount above the lowest-energy conformer,
+and duplicate-detection thresholds: ``--ethr`` (energy difference, in kcal/mol, below which two structures can be considered duplicates),
+``--rthr`` (RMSD threshold, in Angstrom) and ``--bthr`` (rotational-constant threshold).
 Additional information about the CREGEN keywords can be found in the `CREST documentation <https://crest-lab.github.io/crest-docs/page/documentation/keywords.html>`_.
 
 For our system, this is how we will initially sort/reduce our number of conformers:
@@ -207,12 +230,15 @@ You can then start your calculation with
 
     sbatch job_censo.sh
 
-CENSO also requires `TurboMole <https://www.turbomole.org/>`_, so make sure that you have the necessary lines in your ``.bashrc`` file.
-If you need help with this step, feel free to ask someone in the group for help or which lines to add.
+CENSO needs an external quantum chemistry program for its DFT steps, chosen with ``prog`` in the ``.censorc`` file:
+either `ORCA <https://www.faccts.de/orca/>`_ or `TURBOMOLE <https://www.turbomole.org/>`_. ORCA alone is sufficient (the group's
+``.censorc`` uses ``prog: orca``); TURBOMOLE is optional. COSMO-RS solvation additionally requires COSMOtherm.
+Make sure the paths to these programs in your ``.censorc`` (and any environment lines in your ``.bashrc``) are correct.
+If you need help with this step, feel free to ask someone in the group.
 
 Running CENSO can take up a lot of space, so you should take extra steps to keep from using all of the disk space.
 One way to do this, if you are only wanting the ensemble file, is to delete all of the ``CONF*`` files that are created once the calculation is finished.
-You can't do this if you are continuing with Step2, but since we are performing our optimizations using DFT after this process, we can delete all of these folders.
+You can't do this if you are continuing with Part2, but since we are performing our optimizations using DFT after this process, we can delete all of these folders.
 
 The main output that we will be using from these calculations is called ``enso_ensemble_part1.xyz``.
 This file contains the screened ensemble from Part1 CENSO calculations.
@@ -225,10 +251,13 @@ For this particular example, we just wanted to use CENSO to help us cut down on 
 Since we didn't continue with CENSO optimization, we might still want to reduce the conformations using CREGEN again.
 This time, since we now have more accurate energies, we can be more aggressive with our CREGEN sorting and still achieve physically accurate results.
 
-For instance, now that we know we have accurate value for the energies of the conformers,
-we can confidently limit our conformers to those within 3-4 kcal of the lowest energy structure without removing a significant conformer.
-Additionally, since the structures have been optimized at a low DFT level, we can remove any duplicates that may have optimized to the same structure,
-or use a higher RMSD threshold since we know that the structures are more accurate than xTB calculations.
+For instance, now that we have more reliable (DFT single-point) relative energies for the conformers,
+we can more confidently limit our conformers to those within 3-4 kcal/mol of the lowest energy structure.
+Note that because Part2 (optimization) was switched off, Part0 and Part1 are single-point calculations: the geometries in
+``enso_ensemble_part1.xyz`` are still the GFN-xTB geometries from CREST, not DFT-optimized structures.
+Any looser RMSD/energy duplicate thresholds used below are therefore a pragmatic choice to reduce the ensemble,
+not a consequence of more accurate geometries; conformers that would converge to the same DFT minimum are only
+merged reliably after a DFT optimization.
 
 This CREGEN calculation is performed the same way as above, editing the keywords as desired.
 
@@ -239,8 +268,8 @@ With these calculations, using the command
     crest BuNA.xyz --cregen enso_ensemble_part1.xyz --ewin 3 --rthr 0.25 --ethr 0.5 > cregen2_output.txt
 
 we have already reduced the number of conformations to 35 from 43. 
-Since the energies and structures are more accurate than for the first CREGEN calculation,
-we can change the energy window and different thresholds more aggressively to limit the number of conformers
-without removing important conformations.
+Since the energies are more reliable than for the first CREGEN calculation,
+we can narrow the energy window more aggressively to limit the number of conformers
+with less risk of removing important conformations (the geometries are still at the xTB level, so be cautious with loose RMSD thresholds).
 You will have to change the keywords as is appropriate for your project, but this will be a good start to make conformational analysis a feasible option.
 

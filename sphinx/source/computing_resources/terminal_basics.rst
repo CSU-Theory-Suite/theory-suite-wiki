@@ -39,7 +39,7 @@ cd - Change Directory
 ---------------------
 
 ``cd`` stands for "change directory," so it should be pretty easy to 
-remember. This is also an `Essential Unix Command<https://csu-theory-suite.github.io/theory-suite-wiki/computing_resources/essential_unix_commands.html>`_ 
+remember. This is also an :doc:`Essential Unix Command <essential_unix_commands>` 
 in case you want more details. 
 
 The general use for this command is:
@@ -70,7 +70,7 @@ pwd - Print Working Directory
 ``pwd`` will print the current directory that you are in, the 
 "current working directory." This is helpful for transferring files 
 or figuring out how far back to change your directory to.
-This is also an `Essential Unix Command<https://csu-theory-suite.github.io/theory-suite-wiki/computing_resources/essential_unix_commands.html>`_ 
+This is also an :doc:`Essential Unix Command <essential_unix_commands>` 
 in case you want more details. 
 
 

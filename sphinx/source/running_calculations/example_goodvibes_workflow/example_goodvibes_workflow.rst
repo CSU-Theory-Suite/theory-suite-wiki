@@ -15,7 +15,9 @@ Here is the `GoodVibes Publication <https://f1000research.com/articles/9-291/v1>
 Installation
 -------------
 
-Version 4.2.0 is most up to date and required Python >= 3.9. Install with:
+This page was last checked against GoodVibes 4.4.0 (requires Python >= 3.9). Check your
+installed version with ``goodvibes --version`` and the full list of options with
+``goodvibes -h``. Install with:
 
 .. code:: shell
 
@@ -69,7 +71,7 @@ What if the reaction was run at 100C?
 
 .. code:: none
 
-    goodvibes benzene.log -t 373.15
+    goodvibes benzene.log --temp 373.15
 
 This will give the following output:
 
@@ -124,6 +126,43 @@ This gives the output:
 
 .. highlight:: default
 
+Why is a quasi-harmonic correction needed? In the rigid-rotor harmonic-oscillator (RRHO)
+approximation, the vibrational entropy of a mode diverges as its frequency approaches zero,
+so floppy low-frequency modes (below ~100 cm\ :sup:`-1`) are given unphysically large entropies.
+GoodVibes offers two ways of fixing this:
+
+* ``--qs grimme`` (default): Grimme's approach, which interpolates between the harmonic-oscillator
+  and free-rotor entropy for low-frequency modes
+  (`Grimme, Chem. Eur. J. 2012, 18, 9955 <https://doi.org/10.1002/chem.201200497>`__).
+* ``--qs truhlar``: Truhlar's approach, which raises all frequencies below the cutoff to the
+  cutoff value (`Ribeiro et al., J. Phys. Chem. B 2011, 115, 14556 <https://doi.org/10.1021/jp205508z>`__).
+
+The cutoff frequency is set with ``-f`` (default 100 cm\ :sup:`-1`). A related correction to the enthalpy
+(`Li et al., J. Phys. Chem. C 2015, 119, 1840 <https://doi.org/10.1021/jp509921r>`__) can be applied
+with ``--qh``, or ``-q`` applies both the entropy and enthalpy corrections. Whichever you choose,
+use it consistently for every structure in a study and state it in the SI.
+
+Standard State Concentration
+----------------------------
+
+Gaussian and most other QM programs report free energies for an ideal gas at 1 atm. For reactions in
+solution the conventional standard state is 1 mol/L, which is set with ``-c``:
+
+.. code:: shell
+
+    goodvibes *.log -c 1.0
+
+At 298.15 K this changes the free energy of **every** species by +1.89 kcal/mol
+(RT ln(24.46)). It cancels for unimolecular steps (A → TS), but not when the number of
+molecules changes (e.g. A + B → TS, or catalyst–substrate binding), where omitting it
+introduces an error of 1.89 kcal/mol per species. Forgetting this is one of the most common
+mistakes in computed reaction profiles.
+
+.. tip::
+
+    For a pure solvent acting as a reactant you can use its actual concentration instead
+    (e.g. ``-c 55.5`` for water).
+
 Single Point Calculations 
 -------------------------
 
@@ -141,9 +180,9 @@ With the ``--spc`` argument, we can specify how the SPC file names are formatted
     * - opt/freq
       - file.log
     * - SPC
-      - file_SPC.log
+      - file_SUFFIX.log
 
-For example: ``ethane.log`` and ``ethane_TZ.out``
+where ``SUFFIX`` is any label you choose. For example: ``ethane.log`` and ``ethane_TZ.out`` with ``--spc TZ``
 
 .. code:: shell
 
@@ -226,7 +265,12 @@ We can use these 24 intermediate and transition state calculations + correspondi
 
 .. code:: none
 
-    goodvibes *.log -t 353.15 --spc DLPNO --imag --invertifreq -5 --pes PhPy.yaml
+    goodvibes *.log --temp 353.15 --spc DLPNO --imag --invert 5 --pes PhPy.yaml
+
+Here ``--imag`` prints any imaginary frequencies, and ``--invert 5`` treats small imaginary
+frequencies (between 0 and -5 cm\ :sup:`-1`) as real. Only use ``--invert`` for tiny numerical-noise
+modes; a genuine imaginary mode in a minimum means the optimization needs to be fixed, and a
+transition state should have exactly one.
 
 You will get the following as output:
 
@@ -242,7 +286,7 @@ Graphing these potential energy surfaces is simple once the yaml file is created
 
 .. code:: none
 
-    goodvibes *.log -t 353.15 --spc DLPNO --imag --invertifreq -5 --pes PhPy.yaml --graph PhPy.yaml
+    goodvibes *.log --temp 353.15 --spc DLPNO --imag --invert 5 --pes PhPy.yaml --graph PhPy.yaml
 
 .. centered:: |PhPy-PES|
 
@@ -263,19 +307,20 @@ This will use 16 processors to run GoodVibes on all your Gaussian output files.
 Saving Metadata
 ----------------
 
-Another feature of GoodVibes is that it will save the metadata from a run in a JSON file. 
-This will allow users to add single point energy corrections, temperature corrections, concentration corrections, etc.
-without needing to fully parse the data again. This is specified with the ``--json`` flag:
+Another feature of GoodVibes is that it can save the parsed data from a run in a JSON file. 
+This will allow users to apply temperature corrections, concentration corrections, etc.
+without needing to parse the output files again. This is specified with the ``--export`` flag:
 
 .. code:: none
 
-    goodvibes *.log --json goodvibes_thermo_data.json
+    goodvibes *.log --export goodvibes_thermo_data.json
 
-The JSON file contains the metadata for the run and can be called back in future runs with:
+(``--json`` also writes a JSON summary of the results, but ``--export`` writes the format that
+``--import`` reads.) The exported file can be read back in future runs with:
 
 .. code:: none
 
-    goodvibes --import goodvibes_thermo_data.json -t 310
+    goodvibes --import goodvibes_thermo_data.json --temp 310
 
 
 

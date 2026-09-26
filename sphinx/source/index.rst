@@ -2,14 +2,15 @@
 Welcome to CSU-wiki's Documentation!
 ====================================
 
-Thanks for visiting the CSU Theory Suite's wiki page! 
+Thanks for visiting the CSU Theory Suite's wiki page! New to the group? Begin with :doc:`new_members/start_here`.
 Feel free to also visit the `Paton Lab Website <https://patonlab.com/>`_ or the `Kim Lab Website <https://bioenergy-kimlab.org/>`_!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Adding Packages
+   :caption: New Members
 
-   adding_pages/how_to_add_pages.rst
+   new_members/start_here.rst
+   new_members/standard_protocol.rst
 
 
 .. toctree::
@@ -18,16 +19,16 @@ Feel free to also visit the `Paton Lab Website <https://patonlab.com/>`_ or the 
 
    computing_resources/paton_computing_resources.rst
    computing_resources/kim_computing_resources.rst
+   computing_resources/terminal_basics.rst
    computing_resources/essential_unix_commands.rst
    computing_resources/file_system_layout.rst
-   computing_resources/running_commands.rst 
-   computing_resources/fun_with_coworkers.rst 
-   computing_resources/coding_resources.rst
    computing_resources/working_with_files.rst
    computing_resources/moving_renaming_files.rst
-   computing_resources/terminal_basics.rst
    computing_resources/working_with_computers.rst
+   computing_resources/running_commands.rst
+   computing_resources/coding_resources.rst
    computing_resources/using_github.rst
+   computing_resources/fun_with_coworkers.rst
 
 
 .. toctree::
@@ -75,3 +76,10 @@ Feel free to also visit the `Paton Lab Website <https://patonlab.com/>`_ or the 
    :caption: Concepts
 
    concepts/classical_molecular_dynamics/classical_molecular_dynamics.rst
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contributing to the Wiki
+
+   adding_pages/how_to_add_pages.rst

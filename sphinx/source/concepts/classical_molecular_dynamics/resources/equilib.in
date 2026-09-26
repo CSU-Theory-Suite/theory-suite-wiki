@@ -1,4 +1,4 @@
-Equilib NVT with constraints for 4 ns; 
+Equilib NVT with positional restraints for 4 ns; 
 &cntrl 
     imin=0, 
     ntx=5, 

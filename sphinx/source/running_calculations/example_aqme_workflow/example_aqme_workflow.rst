@@ -7,6 +7,25 @@ End-to-End Workflow in ACME
 .. contents::
    :local:
 
+.. warning::
+
+   This page was written for **CENSO 1.x** (the example ``.censorc`` is version 1.2.0), together with
+   the AQME 1.x command-line syntax (``python -m aqme --qprep ...``) and GoodVibes 3.x/4.x
+   (the GoodVibes options below use the current names, e.g. ``--dedup``; older releases used ``--dup``).
+   CENSO 2.0 and later changed the program substantially:
+
+   * the command-line interface is different (e.g. ``censo -i ensemble.xyz -c 0 --maxcores 32``
+     instead of ``censo -inp ... -chrg 0 -P 4 -O 8``);
+   * the configuration file is now an INI-style ``~/.censo2rc`` instead of ``.censorc``;
+   * the output files are renamed (``0_PRESCREENING.xyz``, ``1_SCREENING.xyz``, ``2_OPTIMIZATION.xyz``, ...
+     instead of ``enso_ensemble_part1.xyz``, ``enso_ensemble_part2.xyz``, ...).
+
+   If you follow this page as-is, make sure the ``censo`` you run is a 1.x release (check ``censo --version``),
+   or adapt the commands and file names following the current
+   `CENSO documentation <https://xtb-docs.readthedocs.io/en/latest/CENSO_docs/censo.html>`_ and the
+   `CENSO GitHub repository <https://github.com/grimme-lab/CENSO>`_. Likewise, check ``python -m aqme -h``
+   and ``python -m goodvibes -h`` for the options of the installed versions.
+
 1. Activating the conda environment
 ------------------------------------
 
@@ -65,7 +84,7 @@ options:
    Remember that we can always see how to use a command using either :code:`-h`
    or :code:`--help` i.e. :code:`xtbsetup.sh -h`
 
-the output file will look like: 
+the generated script :code:`job_xtb.sh` will look similar to: 
 
 .. highlight:: shell
 
@@ -99,7 +118,7 @@ calculations we have the :code:`crestsetup.sh` script
 
    crestsetup.sh -i xtbopt.xyz -c 0 -p 32
 
-This will create the file :code:`job_crest.sh` with the contents: 
+This will create the file :code:`job_crest.sh` with contents similar to: 
 
 .. highlight:: shell
 
@@ -133,7 +152,7 @@ a .censorc file in our home directory.
 
 Now we can use our favorite command-line editor to include all the parameters 
 that are required for this program to run. For a detailed explanation please go
-to :code:`url`. Here we include an example of its contents: 
+to the `CENSO documentation <https://xtb-docs.readthedocs.io/en/latest/CENSO_docs/censo.html>`_. Here we include an example of its contents: 
 
 .. highlight:: none
 
@@ -149,7 +168,13 @@ We are now ready to generate the submit script for our censo calculation using
    cd example_workflow
    censosetup.sh -i crest_conformers.xyz -c 0 -p 4 -o 8
 
-This will create the file :code:`job_censo.sh` with the contents: 
+.. note::
+
+   Section 6 uses ``enso_ensemble_part2.xyz``, which CENSO only writes when Part2 (DFT optimization)
+   is run. The example ``.censorc`` above has ``part2: off``, so set ``part2: on`` in your ``.censorc``
+   (or pass ``-a '-part2 on'`` to ``censosetup.sh``) if you want to follow this workflow exactly.
+
+This will create the file :code:`job_censo.sh` with contents similar to: 
 
 .. highlight:: shell
 
@@ -179,7 +204,7 @@ do so we will use the in-house developed software :code:`aqme`
 
    python -m aqme --qprep --program gaussian --files enso_ensemble_part2.xyz --qm_input 'm062x def2svp opt freq=noraman' --mem 16GB --nproc 8
 
-This will create a new folder named :code:`QCALC` with our gaussian inputs. 
+This will create a new folder named :code:`QCALC` with our gaussian inputs, which will look similar to: 
 
 .. code:: shell
 
@@ -209,7 +234,7 @@ check if we have any imaginary frequencies or duplicate geometries.
 
 .. code:: shell
 
-   python -m goodvibes *.log --imag --dup
+   python -m goodvibes *.log --imag --dedup
 
 Finally we are going to run SP calculations using ORCA. We use :code:`aqme` to 
 generate the input files (That have the extension .inp) and proceed to submit them
@@ -221,6 +246,7 @@ following the same exact process as with Gaussian calculations
    cd QCALC/
    gsub *.inp -n 8 -q normal
 
+A generated ORCA input will look similar to: 
 
 .. highlight:: none
 
@@ -248,15 +274,21 @@ they are SP calculations. We can do it with a python script or in a python conso
    files = list(Path.cwd().glob('*.out'))
    # we rename the input and the output files
    for ofile in files:
-       ifile = ofile.parent/f'{ofile.stem}.inp'
-       ifile.rename(f'{ifile.stem}_sp.inp')
-       ofile.rename(f'{ofile.stem}_sp.out')
+       ifile = ofile.with_suffix('.inp')
+       ifile.rename(ifile.with_name(f'{ifile.stem}_sp.inp'))
+       ofile.rename(ofile.with_name(f'{ofile.stem}_sp.out'))
 
-We can actually do this in a single line: 
+We can also run the same script directly from the shell: 
 
 .. code:: shell
 
-   python -c "from pathlib import Path; files = list(Path.cwd().glob('*.out')); for ofile in files: ifile = ofile.parent/f'{ofile.stem}.inp'; ifile.rename(f'{ifile.stem}_sp.inp'); ofile.rename(f'{ofile.stem}_sp.out')"
+   python - <<'EOF'
+   from pathlib import Path
+   for ofile in list(Path.cwd().glob('*.out')):
+       ifile = ofile.with_suffix('.inp')
+       ifile.rename(ifile.with_name(f'{ifile.stem}_sp.inp'))
+       ofile.rename(ofile.with_name(f'{ofile.stem}_sp.out'))
+   EOF
 
 We can do it using bash: 
 
@@ -276,11 +308,10 @@ Finally we move all the QM outputs calculations to the same folder and run
 
 .. code:: shell
 
-   # We first rename all the calculations 
-   # we first move all calculations to the same place
-   mv *.out ../
+   # after renaming (above), move the ORCA SP outputs next to the Gaussian .log files
+   mv *_sp.out ../
    cd .. 
-   python -m goodvibes *.log --imag --dup --spc sp
+   python -m goodvibes *.log --imag --dedup --spc sp
 
 The final step of our example workflow is going to include the drawing of the 
 Potential Energy Surface (PES). To do so we need a file, :code:`pes.yaml` with 
@@ -297,7 +328,7 @@ And now we use :code:`goodvibes` to draw the PES.
 
 .. code:: shell
 
-   python -m goodvibes *.log --imag --dup --spc sp --pes pes.yaml 
+   python -m goodvibes *.log --imag --dedup --spc sp --pes pes.yaml 
 
 |PES|
 
